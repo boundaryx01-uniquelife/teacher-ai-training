@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1664 220" width="1664" height="220" fill="none" stroke="#14213D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<!-- cell frames -->
+<g fill="#FFFDF8">
+<rect x="2" y="6" width="376" height="162" rx="20"/>
+<rect x="430" y="6" width="376" height="162" rx="20"/>
+<rect x="858" y="6" width="376" height="162" rx="20"/>
+<rect x="1286" y="6" width="376" height="162" rx="20"/>
+</g>
+<!-- flow arrows -->
+<path d="M388 87H420M410 77L420 87L410 97M816 87H848M838 77L848 87L838 97M1244 87H1276M1266 77L1276 87L1266 97"/>
+<!-- 1 hall + menu board -->
+<g>
+<path d="M30 150H350" stroke-width="3"/>
+<rect x="42" y="34" width="104" height="82" rx="10" fill="#F2A541"/>
+<path d="M58 56H120M58 74H130M58 92H108" stroke-width="3"/>
+<path d="M62 116V150M126 116V150" stroke-width="3"/>
+<circle cx="268" cy="62" r="17" fill="#14213D"/>
+<path d="M238 118Q238 88 268 88Q298 88 298 118Z" fill="#14213D"/>
+<rect x="206" y="112" width="124" height="13" rx="6.5" fill="#F2A541"/>
+<path d="M222 125V150M314 125V150"/>
+<path d="M176 98H178" stroke-width="3" stroke="none"/>
+</g>
+<!-- 2 order slip -->
+<g transform="translate(428)">
+<path d="M146 30H234V132L225 124L216 132L207 124L198 132L189 124L180 132L171 124L162 132L153 124L146 132Z" fill="#F2A541"/>
+<rect x="172" y="22" width="36" height="14" rx="5" fill="#14213D"/>
+<path d="M166 62H214M166 82H214M166 102H196" stroke-width="3"/>
+<path d="M40 56H118M108 46L118 56L108 66"/>
+<path d="M340 112H262M272 102L262 112L272 122"/>
+</g>
+<!-- 3 kitchen -->
+<g transform="translate(856)">
+<path d="M30 150H350" stroke-width="3"/>
+<path d="M228 24H340L352 50H216Z"/>
+<rect x="222" y="104" width="124" height="46" rx="8" fill="#14213D"/>
+<rect x="238" y="76" width="92" height="28" rx="6" fill="#F2A541"/>
+<path d="M270 76V68H298V76"/>
+<path d="M258 62Q252 54 258 46M284 60Q278 52 284 44M310 62Q304 54 310 46" stroke-width="3" stroke="#A8530A"/>
+<rect x="96" y="30" width="52" height="28" rx="14" fill="#FFFDF8"/>
+<rect x="104" y="52" width="36" height="12" rx="4" fill="#FFFDF8"/>
+<circle cx="122" cy="84" r="17" fill="#14213D"/>
+<path d="M84 150V122Q84 100 122 100Q160 100 160 122V150Z" fill="#14213D"/>
+</g>
+<!-- 4 storage + ledger -->
+<g transform="translate(1284)">
+<path d="M30 150H350" stroke-width="3"/>
+<path d="M42 76H220M42 124H220" stroke-width="4"/>
+<path d="M54 76V30M208 76V30" stroke="none"/>
+<rect x="58" y="44" width="44" height="32" rx="6" fill="#F2A541"/>
+<rect x="110" y="54" width="34" height="22" rx="6" fill="#14213D"/>
+<rect x="152" y="40" width="50" height="36" rx="6" fill="#FFFDF8"/>
+<rect x="58" y="94" width="38" height="30" rx="6" fill="#14213D"/>
+<rect x="104" y="88" width="52" height="36" rx="6" fill="#FFFDF8"/>
+<rect x="164" y="98" width="42" height="26" rx="6" fill="#F2A541"/>
+<path d="M42 124V150M220 124V150" stroke-width="3"/>
+<rect x="262" y="42" width="84" height="106" rx="10" fill="#14213D"/>
+<path d="M280 42V148" stroke="#F2A541" stroke-width="3"/>
+<path d="M296 68H332M296 88H332M296 108H322" stroke="#F2A541" stroke-width="3"/>
+</g>
+<!-- labels -->
+<g>
+<text font-family="Noto Sans KR" font-weight="700" font-size="26" text-anchor="middle" fill="#14213D" x="190" y="205">프론트엔드</text>
+<text font-family="Noto Sans KR" font-weight="700" font-size="26" text-anchor="middle" fill="#14213D" x="618" y="205">API</text>
+<text font-family="Noto Sans KR" font-weight="700" font-size="26" text-anchor="middle" fill="#14213D" x="1046" y="205">백엔드</text>
+<text font-family="Noto Sans KR" font-weight="700" font-size="26" text-anchor="middle" fill="#14213D" x="1474" y="205">DB</text>
+</g>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" width="480" height="400" fill="none" stroke="#14213D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+<!-- wall screen -->
+<rect x="70" y="24" width="340" height="150" rx="14" fill="#FFFDF8"/>
+<!-- AI answer bubble -->
+<path d="M110 48H190Q204 48 204 62V98Q204 112 190 112H134L114 130V112H110Q96 112 96 98V62Q96 48 110 48Z" fill="#F2A541"/>
+<path d="M114 68H186M114 86H166"/>
+<!-- verification checklist -->
+<g>
+<circle cx="238" cy="66" r="11" fill="#F2A541"/><path d="M232 66L236 70L244 61"/>
+<path d="M262 66H388"/>
+<circle cx="238" cy="104" r="11" fill="#F2A541"/><path d="M232 104L236 108L244 99"/>
+<path d="M262 104H366"/>
+<circle cx="238" cy="142" r="11" fill="#FFFDF8"/>
+<path d="M262 142H340"/>
+</g>
+<!-- magnifier -->
+<circle cx="372" cy="134" r="14" fill="#FFFDF8"/>
+<path d="M382 144L394 156"/>
+<!-- desk -->
+<rect x="30" y="262" width="420" height="16" rx="8" fill="#F2A541"/>
+<path d="M60 278V330M420 278V330"/>
+<!-- laptops (screens facing students) -->
+<g>
+<rect x="76" y="200" width="88" height="62" rx="8" fill="#14213D"/>
+<rect x="84" y="208" width="72" height="46" rx="3" fill="#FFFDF8" stroke="none"/>
+<path d="M92 220H140M92 232H124" stroke-width="3"/>
+<rect x="196" y="200" width="88" height="62" rx="8" fill="#14213D"/>
+<rect x="204" y="208" width="72" height="46" rx="3" fill="#FFFDF8" stroke="none"/>
+<circle cx="240" cy="231" r="11" fill="#F2A541" stroke-width="3"/><path d="M234 231L238 235L246 226" stroke-width="3"/>
+<rect x="316" y="200" width="88" height="62" rx="8" fill="#14213D"/>
+<rect x="324" y="208" width="72" height="46" rx="3" fill="#FFFDF8" stroke="none"/>
+<path d="M332 220H380M332 232H364M332 244H350" stroke-width="3"/>
+</g>
+<!-- students (back view silhouettes) -->
+<g fill="#14213D">
+<circle cx="120" cy="296" r="24"/>
+<path d="M58 400V372Q58 336 120 336Q182 336 182 372V400Z"/>
+<circle cx="240" cy="292" r="24"/>
+<path d="M178 400V372Q178 332 240 332Q302 332 302 372V400Z" fill="#F2A541"/>
+<circle cx="360" cy="296" r="24"/>
+<path d="M298 400V372Q298 336 360 336Q422 336 422 372V400Z"/>
+</g>
+</svg>
