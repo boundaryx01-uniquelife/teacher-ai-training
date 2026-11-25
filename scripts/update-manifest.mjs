@@ -3,7 +3,12 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 const path = "assets/manifest.json";
 const m = JSON.parse(readFileSync(path, "utf8"));
 for (const a of m.assets) {
-  if (a.producer === "capture") continue;
+  if (a.producer === "capture") {
+    // done once scripts/postprocess.mjs has produced the sized file from assets/_raw/
+    const p = `assets/${a.file}`;
+    if (existsSync(p)) { a.status = "done"; a.path = p; if (a.id === "IMG-04") a.status_note = "공개 페이지라 Code가 직접 캡처(포털 + 실제 JSON, 부경고 2026-11-25)"; }
+    continue;
+  }
   if (a.id === "IMG-14") {
     const official = ["drive", "calendar", "gmail", "canva", "notion", "outlook", "teams", "sharepoint", "github"].every((n) => existsSync(`assets/IMG-14_logos/${n}.svg`));
     a.status = official ? "done" : "fallback";

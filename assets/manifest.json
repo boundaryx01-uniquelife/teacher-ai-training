@@ -137,7 +137,9 @@
       "description_ko": "나이스 교육정보 개방 포털 급식 API 안내 화면 + 브라우저에 띄운 JSON 결과(2컷 합성)",
       "notes": "If API key/URL differs from slide text, report it.",
       "alt_ko": "나이스 교육정보 개방 포털 급식 API 안내 화면 + 브라우저에 띄운 JSON 결과(2컷 합성)",
-      "status": "todo"
+      "status": "done",
+      "path": "assets/IMG-04_neis-api.png",
+      "status_note": "공개 페이지라 Code가 직접 캡처(포털 + 실제 JSON, 부경고 2026-11-25)"
     },
     {
       "id": "IMG-05a",
