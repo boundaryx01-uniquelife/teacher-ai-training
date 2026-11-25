@@ -1,0 +1,16 @@
+.pc-filters { margin: 8px 0 4px; }
+.pc-filter { min-width: 88px; }
+.pc-filter[aria-pressed="true"] { background: var(--navy); color: #fff; border-color: var(--navy); }
+.pc-filter[aria-pressed="true"]:hover { background: #22325a; color: #fff; }
+.pc-status { color: var(--text-soft); margin: 4px 0 12px; }
+.pc-grid { align-items: start; }
+.pc-card[hidden] { display: none; }
+.pc-card { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.pc-card.pc-work { border-top: 5px solid var(--navy); }
+.pc-card.pc-sites { border-top: 5px solid var(--orange); }
+.pc-card.pc-skill { border-top: 5px solid var(--orange-dark); }
+.pc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.pc-head h3 { margin: 0; }
+.pc-when, .pc-note { margin: 0; }
+.pc-note { color: var(--text-soft); font-size: .9rem; }
+.pc-card .copy-box pre { max-height: 16em; overflow: auto; }
