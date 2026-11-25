@@ -23,18 +23,32 @@ pre { background: var(--navy); color: #f7f5ef; padding: 14px 16px; border-radius
 .site-header .inner { max-width: 1200px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .brand { color: #fff; text-decoration: none; font-weight: 900; font-size: 1.05rem; }
 .brand:hover { color: var(--orange); }
-.nav-toggle { margin-left: auto; background: transparent; color: #fff; border: 2px solid #fff; border-radius: 8px; padding: 4px 12px; font: inherit; font-size: .9rem; cursor: pointer; min-height: 44px; }
-.site-nav { width: 100%; display: none; }
-.site-nav.open { display: block; }
-.site-nav ul { list-style: none; margin: 0; padding: 4px 0 8px; display: flex; flex-wrap: wrap; gap: 4px 6px; }
-.site-nav a { color: #fff; text-decoration: none; padding: 8px 10px; border-radius: 8px; display: inline-block; font-size: .9rem; min-height: 44px; }
+/* v3 §2: four menu items — top bar on desktop, bottom tab bar on mobile (no hamburger) */
+.site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+.site-nav a { color: #fff; text-decoration: none; display: flex; align-items: center; gap: 6px; min-height: 44px; border-radius: 8px; }
 .site-nav a[aria-current="page"] { background: var(--orange); color: var(--navy); font-weight: 700; }
-.site-nav a:hover { background: rgba(255,255,255,.12); color: #fff; }
-@media (min-width: 1024px) {
-  .nav-toggle { display: none; }
-  .site-nav { display: block; width: auto; margin-left: auto; }
-  .site-nav ul { padding: 0; }
+.site-nav a:hover { color: #fff; background: rgba(255,255,255,.12); }
+.site-nav a[aria-current="page"]:hover { background: var(--orange); color: var(--navy); }
+@media (max-width: 899px) {
+  body { padding-bottom: 68px; }
+  .site-nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--navy); border-top: 2px solid var(--orange); }
+  .site-nav ul { justify-content: space-around; }
+  .site-nav li { flex: 1; }
+  .site-nav a { flex-direction: column; justify-content: center; gap: 0; padding: 6px 2px; font-size: .72rem; line-height: 1.2; text-align: center; border-radius: 0; min-height: 60px; }
+  .site-nav .nav-icon { font-size: 1.25rem; }
 }
+@media (min-width: 900px) {
+  .site-nav { margin-left: auto; }
+  .site-nav ul { gap: 4px; }
+  .site-nav a { padding: 8px 12px; font-size: .95rem; }
+}
+
+/* practice helpers on module pages */
+.practice-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; margin: 0 0 12px; }
+.practice-fallback { flex: 1 1 320px; background: var(--white); border: 2px solid var(--orange); border-radius: var(--radius); }
+.practice-fallback > summary { cursor: pointer; padding: 10px 14px; min-height: 44px; font-weight: 700; }
+.practice-fallback-body { padding: 0 14px 14px; }
+.practice-item h3 { font-size: 1rem; margin: .8em 0 .3em; }
 
 main { max-width: 1200px; margin: 0 auto; padding: 16px 16px 48px; }
 .site-footer { border-top: 1px solid var(--line); color: var(--text-soft); font-size: .9rem; }

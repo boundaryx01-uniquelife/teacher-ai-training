@@ -21,15 +21,29 @@
   status = 404
 
 [[redirects]]
+  from = "/slides"
+  to = "/slides/"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
+# Page CSPs are set per page with <meta http-equiv> (strict for the SPA in index.html, viewer-specific in /slides/),
+# because two CSP headers would be intersected and break the provided slide viewer. Only the parts that a <meta>
+# cannot express are sent as a header for every path.
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: blob:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+    Content-Security-Policy = "frame-ancestors 'none'; object-src 'none'; base-uri 'self'"
     Referrer-Policy = "no-referrer"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/slides/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Service-Worker-Allowed = "/slides/"

@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { readdirSync, readFileSync } from "node:fs";
 import { trackConsole } from "./helpers";
-const PAGES = ["/", "/m1", "/m2", "/m3", "/m4", "/m5", "/m6", "/m7", "/prompts", "/copilot", "/final"];
+const PAGES = ["/", "/lab", "/guide", "/trainer", "/m1", "/m2", "/m3", "/m4", "/m5", "/m6", "/m7", "/prompts", "/copilot", "/final"];
 for (const p of PAGES) {
   test(`페이지 열림·콘솔 에러 0: ${p}`, async ({ page }) => {
     const errors = trackConsole(page);
