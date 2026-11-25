@@ -71,7 +71,11 @@ self.addEventListener("fetch", (e) => {
   const key = u.pathname === "/slides" || u.pathname === "/slides/index.html" ? "/slides/" : u.pathname;
   if (key === "/slides/") {
     // network first for the page (fresh deck when online), cache fallback offline
-    e.respondWith(fetch(e.request).then((r) => { if (r.ok) { const c = r.clone(); caches.open(CACHE).then((x) => x.put("/slides/", c)); } return r; }).catch(() => caches.match("/slides/")));
+    // non-OK answers (e.g. a CDN 403/5xx) fall back to the cached deck as well
+    e.respondWith(fetch(e.request).then((r) => {
+      if (r.ok) { const c = r.clone(); caches.open(CACHE).then((x) => x.put("/slides/", c)); return r; }
+      return caches.match("/slides/").then((hit) => hit || r);
+    }).catch(() => caches.match("/slides/")));
     return;
   }
   e.respondWith(caches.match(key).then((hit) => hit || fetch(e.request)));
