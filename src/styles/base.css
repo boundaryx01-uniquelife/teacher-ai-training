@@ -49,6 +49,7 @@ pre { background: var(--navy); color: #f7f5ef; padding: 14px 16px; border-radius
 .practice-fallback > summary { cursor: pointer; padding: 10px 14px; min-height: 44px; font-weight: 700; }
 .practice-fallback-body { padding: 0 14px 14px; }
 .practice-item h3 { font-size: 1rem; margin: .8em 0 .3em; }
+.practice-extra { border-color: var(--navy); }
 
 main { max-width: 1200px; margin: 0 auto; padding: 16px 16px 48px; }
 .site-footer { border-top: 1px solid var(--line); color: var(--text-soft); font-size: .9rem; }

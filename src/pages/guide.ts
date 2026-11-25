@@ -1,3 +1,4 @@
+import { TROUBLE } from "../content/trouble.ts";
 import "./guide.css";
 import { h } from "../lib/ui.ts";
 import { GUIDE_HTML, GUIDE_TOC, GUIDE_ALIASES } from "../content/guide-content.ts";
@@ -40,14 +41,26 @@ export function mount(el: HTMLElement) {
         d.fake ? h("span", { class: "guide-badge" }, "가상 자료") : null,
         h("span", { class: "guide-dl-desc" }, d.desc)))));
 
+  // "안 될 때" — grouped by stage, each item has a fixed anchor #trouble-<id>
+  const stages = [...new Set(TROUBLE.map((t) => t.stage))];
+  const trouble = h("section", { class: "guide-trouble card", id: "trouble", "aria-labelledby": "trouble-h" },
+    h("h2", { id: "trouble-h" }, "안 될 때"),
+    h("p", {}, "자주 막히는 곳을 단계별로 모았어요. 그래도 안 되면 실습 화면의 '2번 해 봐도 안 되면'을 펼치거나 강사에게 손을 들어 주세요."),
+    stages.map((st) => h("div", { class: "guide-trouble-group" },
+      h("h3", {}, h("span", { class: "guide-stage" }, st)),
+      TROUBLE.filter((t) => t.stage === st).map((t) => h("details", { class: "guide-trouble-item", id: `trouble-${t.id}` },
+        h("summary", {}, t.q),
+        h("ul", {}, t.a.map((x) => h("li", {}, x))))))));
+
   el.append(
     h("h1", {}, "가이드북"),
     h("nav", { class: "guide-sub", "aria-label": "가이드북 하위 메뉴" },
       h("a", { class: "btn secondary", href: "/prompts", "data-link": "" }, "프롬프트 카드 모음"),
       h("a", { class: "btn secondary", href: "/copilot", "data-link": "" }, "Copilot 가이드"),
       h("a", { class: "btn secondary", href: "/final", "data-link": "" }, "최종 과제"),
+      h("a", { class: "btn secondary", href: "#trouble" }, "안 될 때"),
       h("a", { class: "btn secondary", href: "#downloads" }, "자료실")),
-    h("div", { class: "guide-layout" }, toc, h("div", { class: "guide-main" }, body, downloads)));
+    h("div", { class: "guide-layout" }, toc, h("div", { class: "guide-main" }, body, trouble, downloads)));
 
   // Close mobile TOC after choosing an entry
   tocList.addEventListener("click", (e) => {
@@ -60,6 +73,7 @@ export function mount(el: HTMLElement) {
     if (!raw) return;
     const id = GUIDE_ALIASES[raw] && !el.querySelector(`[id="${CSS.escape(raw)}"]`) ? GUIDE_ALIASES[raw] : raw;
     const target = el.querySelector(`[id="${CSS.escape(id)}"]`) ?? el.querySelector(`[id="${CSS.escape(raw)}"]`);
+    if (target instanceof HTMLDetailsElement) target.open = true;
     if (target) (target as HTMLElement).scrollIntoView({ block: "start" });
   };
   requestAnimationFrame(scrollToHash);

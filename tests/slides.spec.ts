@@ -21,7 +21,8 @@ test("슬라이드 실습 버튼 전수: 모듈로 이동 → 같은 슬라이�
     await expect(page).toHaveURL(new RegExp(`${ROUTE[p.module]}\\?from=${id}$`));
     const back = page.locator(".practice-back");
     await expect(back).toContainText(`슬라이드 ${n}번으로`);
-    await expect(page.locator(".practice-fallback summary")).toContainText("2번 해 봐도 안 되면");
+    await expect(page.locator("#fallback summary")).toContainText("2번 해 봐도 안 되면");
+    await expect(page.locator("#extra summary")).toContainText("빨리 끝냈다면");
     await back.click();
     await expect(page.locator("#count")).toHaveText(`${n} / ${data.order.length}`);
   }
