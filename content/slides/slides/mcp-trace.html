@@ -1,0 +1,16 @@
+<section id="mcp-trace">
+<p class="eyebrow">MCP가 실제로 오가는 모습</p>
+<h2 style="font-size:52px">“@Google Calendar 다음 주 화요일 15시에 협의회 등록해 줘”</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<div class="mini"><div class="num">1</div><p>캘린더가 주는 도구 목록 확인</p></div>
+<div class="mini"><div class="num">2</div><p>‘일정 만들기’ 도구 선택, 요청 작성</p></div>
+<div class="mini"><div class="num">3</div><p>쓰기 동작이라 <b>사람 승인</b></p></div>
+<div class="mini"><div class="num">4</div><p>결과 받아 “등록했습니다”</p></div>
+<p class="code sm" style="margin-top:12px">→ create_event { title: "1학년 협의회",<br>    start: "2026-12-01T15:00" }<br>← { status: "confirmed", link: "…" }</p>
+</div>
+<div class="ph" data-asset="IMG-11" title="일정 등록 전 승인 요청 카드" style="width:520px;height:380px;"><p>[IMG-11]<br>일정 등록 전<br>승인 요청 카드</p></div>
+</div>
+<p class="note">1교시 API와 같은 원리 · 차이는 어떤 도구를 언제 부를지 AI가 고른다는 것</p>
+
+</section>

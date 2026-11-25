@@ -1,0 +1,64 @@
+
+section { padding:128px; background:#F7F5EF; color:#14213D; font-family:'Noto Sans KR', Arial, sans-serif; display:flex; flex-direction:column; }
+section.dark { background:#14213D; color:#F7F5EF; }
+section.accent { background:#F2A541; color:#14213D; }
+.eyebrow { font-size:26px; font-weight:700; color:#A8530A; margin:0 0 12px 0; letter-spacing:2px; }
+.dark .eyebrow { color:#F2A541; }
+h1 { font-size:96px; font-weight:900; line-height:1.15; margin:0 0 32px 0; }
+h2 { font-size:64px; font-weight:900; line-height:1.2; margin:0 0 44px 0; }
+h3 { font-size:40px; font-weight:700; line-height:1.25; margin:0 0 16px 0; }
+p { font-size:32px; line-height:1.5; margin:0 0 20px 0; }
+.lead { font-size:40px; line-height:1.45; color:#14213D; }
+.dark .lead { color:#F7F5EF; }
+.sub { font-size:32px; color:#4A5568; }
+.dark .sub { color:#BFCBDD; }
+ul { font-size:32px; line-height:1.55; margin:0; padding-left:44px; }
+li { margin:0 0 14px 0; }
+.cards { display:flex; flex-direction:row; gap:32px; }
+.card { flex:1; background:#FFFDF8; border:2px solid #E2DDD0; border-radius:20px; padding:40px; animation:rise .5s ease-out both; }
+.dark .card { background:#1E2E52; border-color:#2E4270; }
+.card p { font-size:28px; color:#4A5568; margin:0 0 12px 0; }
+.dark .card p { color:#BFCBDD; }
+.card .tag { font-size:24px; font-weight:700; color:#A8530A; margin:0 0 8px 0; }
+.dark .card .tag { color:#F2A541; }
+.card.hl { border:4px solid #F2A541; }
+.d2 { animation-delay:.15s; }
+.d3 { animation-delay:.3s; }
+.d4 { animation-delay:.45s; }
+@keyframes rise { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+table { border-collapse:collapse; width:100%; font-size:26px; }
+th { background:#14213D; color:#F7F5EF; text-align:left; padding:14px 20px; font-weight:700; }
+td { padding:12px 20px; border-bottom:2px solid #E2DDD0; color:#14213D; vertical-align:top; }
+table.sm { font-size:24px; }
+table.sm td { padding:9px 18px; }
+table.sm th { padding:11px 18px; }
+.code { background:#14213D; color:#F7F5EF; border-radius:16px; padding:36px 44px; font-size:28px; line-height:1.6; margin:0; }
+.code .c { color:#F2A541; }
+.big { font-size:120px; font-weight:900; line-height:1.1; margin:0 0 24px 0; }
+.row { display:flex; flex-direction:row; gap:48px; }
+.col { flex:1; display:flex; flex-direction:column; }
+.note { font-size:26px; color:#4A5568; margin-top:auto; }
+.dark .note { color:#BFCBDD; }
+.step { display:flex; flex-direction:row; gap:28px; align-items:flex-start; margin:0 0 26px 0; animation:rise .5s ease-out both; }
+.num { width:84px; height:84px; border-radius:42px; background:#F2A541; color:#14213D; font-size:40px; font-weight:900; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.step h3 { margin:0 0 6px 0; }
+.step p { margin:0; color:#4A5568; font-size:28px; }
+.fragment { opacity:0; }
+.fragment.visible { opacity:1; }
+.ph { border:3px dashed #C9C2B0; border-radius:16px; background:#EFEBE1; display:flex; align-items:center; justify-content:center; padding:16px; box-sizing:border-box; flex-shrink:0; }
+.ph p { font-size:24px; color:#5E5848; text-align:center; margin:0; line-height:1.4; }
+.dark .ph { background:#1E2E52; border-color:#4A5F8F; }
+.dark .ph p { color:#BFCBDD; }
+.card .ph { margin:0 0 20px 0; }
+.code.sm { font-size:24px; line-height:1.5; padding:28px 32px; }
+.lbl { font-size:24px; font-weight:700; color:#A8530A; margin:0 0 10px 0; }
+.flow { display:flex; flex-direction:row; align-items:stretch; gap:12px; }
+.fbox { flex:1; background:#FFFDF8; border:2px solid #E2DDD0; border-radius:16px; padding:24px 20px; animation:rise .5s ease-out both; }
+.fbox h3 { font-size:30px; margin:0 0 8px 0; }
+.fbox p { font-size:24px; color:#4A5568; margin:0; line-height:1.4; }
+.fbox.hl { border:4px solid #F2A541; }
+.fa { font-size:40px; font-weight:900; color:#A8530A; align-self:center; }
+.mini { display:flex; flex-direction:row; gap:20px; align-items:flex-start; margin:0 0 18px 0; }
+.mini .num { width:60px; height:60px; border-radius:30px; font-size:28px; }
+.mini p { font-size:26px; margin:0; line-height:1.45; color:#14213D; padding-top:10px; }
+.arrow { font-size:48px; font-weight:900; color:#A8530A; align-self:center; }

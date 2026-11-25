@@ -1,0 +1,8 @@
+node_modules/
+build/
+.env*
+assets/_raw/
+dist/
+.netlify/
+test-results/
+playwright-report/

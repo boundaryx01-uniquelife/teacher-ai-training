@@ -1,0 +1,106 @@
+{
+ "v": 5,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-24T10:44:37Z"
+ },
+ "lists": "css",
+ "format": {
+  "v": 1,
+  "shared": [
+   "project/deck.css"
+  ]
+ },
+ "title": "교사 AI 활용 연수 (3시간)",
+ "order": [
+  "cover",
+  "agenda",
+  "goal",
+  "s1",
+  "llm",
+  "types",
+  "limits",
+  "quiz",
+  "terms1",
+  "terms2",
+  "submit-flow",
+  "code-front-back",
+  "neis-api",
+  "build-choice",
+  "s2",
+  "cwc",
+  "map",
+  "same",
+  "work-what",
+  "work-trace",
+  "work-scenarios",
+  "sites-what",
+  "sites-steps",
+  "sites-examples",
+  "skillmcp",
+  "compare3",
+  "plugin-install",
+  "mcp-trace",
+  "skill-make",
+  "skill-md",
+  "rec-mcp",
+  "rec-skill",
+  "demo3",
+  "skillnote",
+  "match",
+  "flow",
+  "student",
+  "subjects",
+  "s3",
+  "steps",
+  "step1",
+  "step2",
+  "step3",
+  "share",
+  "close",
+  "s4",
+  "cp-free",
+  "cp-chat",
+  "cp-teach-menu",
+  "cp-teach-lesson",
+  "cp-teach-modify",
+  "cp-notebooks",
+  "cp-notebooks-ex",
+  "cp-lz",
+  "cp-lz-limits",
+  "cp-teacher",
+  "cp-student",
+  "cp-vs",
+  "cp-admin"
+ ],
+ "cover": "cover",
+ "sections": {
+  "a": {
+   "description": "도입: 흐름과 산출물",
+   "start": "cover"
+  },
+  "b": {
+   "description": "1교시: LLM 개념, 필수 용어, 퀴즈 앱으로 보는 실전 예제",
+   "start": "s1"
+  },
+  "c": {
+   "description": "2교시: AI 도구 지도, ChatGPT Work·Sites, 스킬·플러그인·MCP 적용, 짝짓기, 학생 수업",
+   "start": "s2"
+  },
+  "d": {
+   "description": "3교시: ChatGPT 실습 3단계와 마무리",
+   "start": "s3"
+  },
+  "e": {
+   "description": "부록: Microsoft Copilot 활용(부산 PENZ 계정 기준)",
+   "start": "s4"
+  }
+ },
+ "faces": {
+  "noto-sans-kr": {
+   "family": "Noto Sans KR",
+   "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap"
+  }
+ },
+ "designSystems": []
+}
