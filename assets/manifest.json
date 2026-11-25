@@ -388,9 +388,9 @@
       "description_ko": "Google Drive·Calendar·Gmail·Canva·Notion·Outlook·Teams·SharePoint·GitHub 공식 로고를 한 줄로 합성한 그림",
       "notes": "Deliver IMG-14_logos/*.svg + IMG-14_logos-row.png (see HANDOFF S-9). Official brand files only; else text chips.",
       "alt_ko": "Google Drive·Calendar·Gmail·Canva·Notion·Outlook·Teams·SharePoint·GitHub 공식 로고를 한 줄로 합성한 그림",
-      "status": "fallback",
+      "status": "partial",
       "path": "assets/IMG-14_logos-row.png",
-      "status_note": "공식 로고 미수집 — 이름만 쓴 남색 칩 대체본. 사람이 공식 로고를 받아 scripts/compose-logos.mjs 실행"
+      "status_note": "공식 로고 8/9. 없는 것(canva)은 이름 칩. 사람이 공식 파일을 받아 assets/IMG-14_logos/에 넣고 scripts/compose-logos.mjs 실행"
     },
     {
       "id": "IMG-15a",

@@ -10,10 +10,13 @@ for (const a of m.assets) {
     continue;
   }
   if (a.id === "IMG-14") {
-    const official = ["drive", "calendar", "gmail", "canva", "notion", "outlook", "teams", "sharepoint", "github"].every((n) => existsSync(`assets/IMG-14_logos/${n}.svg`));
-    a.status = official ? "done" : "fallback";
+    const names = ["drive", "calendar", "gmail", "canva", "notion", "outlook", "teams", "sharepoint", "github"];
+    const have = names.filter((n) => existsSync(`assets/IMG-14_logos/${n}.svg`));
+    const official = have.length === names.length;
+    a.status = official ? "done" : have.length ? "partial" : "fallback";
     a.path = "assets/IMG-14_logos-row.png";
-    a.status_note = official ? "official logos composed" : "공식 로고 미수집 — 이름만 쓴 남색 칩 대체본. 사람이 공식 로고를 받아 scripts/compose-logos.mjs 실행";
+    const miss = names.filter((n) => !have.includes(n));
+    a.status_note = official ? "official logos composed" : `공식 로고 ${have.length}/9. 없는 것(${miss.join(", ")})은 이름 칩. 사람이 공식 파일을 받아 assets/IMG-14_logos/에 넣고 scripts/compose-logos.mjs 실행`;
     continue;
   }
   const p = `assets/${a.file}`;

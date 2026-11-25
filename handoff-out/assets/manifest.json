@@ -137,7 +137,9 @@
       "description_ko": "나이스 교육정보 개방 포털 급식 API 안내 화면 + 브라우저에 띄운 JSON 결과(2컷 합성)",
       "notes": "If API key/URL differs from slide text, report it.",
       "alt_ko": "나이스 교육정보 개방 포털 급식 API 안내 화면 + 브라우저에 띄운 JSON 결과(2컷 합성)",
-      "status": "todo"
+      "status": "done",
+      "path": "assets/IMG-04_neis-api.png",
+      "status_note": "공개 페이지라 Code가 직접 캡처(포털 + 실제 JSON, 부경고 2026-11-25)"
     },
     {
       "id": "IMG-05a",
@@ -386,9 +388,9 @@
       "description_ko": "Google Drive·Calendar·Gmail·Canva·Notion·Outlook·Teams·SharePoint·GitHub 공식 로고를 한 줄로 합성한 그림",
       "notes": "Deliver IMG-14_logos/*.svg + IMG-14_logos-row.png (see HANDOFF S-9). Official brand files only; else text chips.",
       "alt_ko": "Google Drive·Calendar·Gmail·Canva·Notion·Outlook·Teams·SharePoint·GitHub 공식 로고를 한 줄로 합성한 그림",
-      "status": "fallback",
+      "status": "partial",
       "path": "assets/IMG-14_logos-row.png",
-      "status_note": "공식 로고 미수집 — 이름만 쓴 남색 칩 대체본. 사람이 공식 로고를 받아 scripts/compose-logos.mjs 실행"
+      "status_note": "공식 로고 8/9. 없는 것(canva)은 이름 칩. 사람이 공식 파일을 받아 assets/IMG-14_logos/에 넣고 scripts/compose-logos.mjs 실행"
     },
     {
       "id": "IMG-15a",
