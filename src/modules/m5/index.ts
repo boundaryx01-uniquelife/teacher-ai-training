@@ -35,7 +35,7 @@ const SCENARIOS: Scenario[] = [
     chosen: "create_event",
     args: { title: "교과 협의회", start: "2026-12-01T15:00", end: "2026-12-01T16:00" },
     response: { status: "confirmed", link: "https://example.invalid/가상-일정" },
-    summary: "AI가 ‘일정 만들기’ 도구를 골라 요청을 만들고, 쓰기 동작이라 사람의 승인을 받은 뒤 등록했습니다. (가상 예시)",
+    summary: "AI가 ‘일정 만들기’ 도구를 골라 요청을 만들고 등록했습니다. 이 시뮬레이션은 승인 단계를 보여 주지만, 실제 ChatGPT는 설정에 따라 묻지 않고 바로 등록하기도 해요. (가상 예시)",
   },
   {
     id: 2,
@@ -143,7 +143,7 @@ export function mount(el: HTMLElement) {
           h("p", {}, `‘${s.chosen}’는 읽기 도구입니다. 이 시뮬레이션에서는 승인 단계 없이 다음으로 넘어갑니다. (실제 서비스에서는 설정에 따라 다를 수 있으니 직접 확인하세요.)`));
       }
       const body: (Node | string)[] = [
-        h("p", {}, "쓰기 동작이라 실행 전에 사람의 승인을 받습니다. 아래 요청을 실행할까요?"),
+        h("p", {}, "쓰기 동작이에요. 실제 서비스는 설정에 따라 실행 전에 묻거나 바로 실행해요(연수 준비 중 실제로는 묻지 않고 바로 등록됐어요). 이 시뮬레이션에서는 승인 단계를 직접 눌러 봅니다. 아래 요청을 실행할까요?"),
         h("pre", { "aria-label": "승인 요청 내용" }, json({ tool: s.chosen, arguments: s.args })),
       ];
       if (approval === "pending") {
@@ -171,7 +171,7 @@ export function mount(el: HTMLElement) {
         onclick: () => choose(s),
       },
         h("span", { class: "m5-choice-text" }, `${"①②③"[s.id - 1]} ${s.text}`),
-        h("span", { class: `m5-tag ${s.write ? "write" : "read"}` }, s.write ? "쓰기 · 승인 필요" : "읽기"))));
+        h("span", { class: `m5-tag ${s.write ? "write" : "read"}` }, s.write ? "쓰기 · 승인 확인" : "읽기"))));
 
     const stopped = approval === "rejected";
     indicator.replaceChildren(...STEP_LABELS.map((lb, i) => {

@@ -292,7 +292,7 @@ OpenAI 검증 배지(OpenAI Verified)가 있는 플러그인을 우선 쓴다. �
 
 1. AI가 연결된 캘린더가 제공하는 도구 목록을 확인한다(일정 조회, 일정 만들기 …).
 2. ‘일정 만들기’ 도구를 골라 아래 같은 요청을 만든다.
-3. 쓰기 동작이라 사람에게 승인을 받는다.
+3. 쓰기 동작이다. 설정에 따라 실행 전에 승인을 묻거나 바로 실행한다(2026-11-25 연수 준비 중 확인: 승인 없이 바로 등록됨). 그래서 쓰기 권한은 신중히 허용한다.
 4. 캘린더가 결과를 돌려주고, AI가 “등록했습니다”로 답한다.
 
 ```json
@@ -693,7 +693,7 @@ Copilot 앱 안의 교사 전용 화면이다. 빈 채팅창 대신 **과목·�
 | IMG-08 | sites-steps | 화면 캡처 | Sites 공유(Share) 창: 나만 / 지정한 사람 / 인터넷 누구나 선택지 | 640×400 | IMG-08\_sites-share.png |
 | IMG-09 | skillmcp | 일러스트 2종 | 스킬 = 업무 매뉴얼 책, MCP = USB-C 단자와 여러 서비스 아이콘 | 400×300 각 | IMG-09a\~b\_skill-mcp.png |
 | IMG-10 | plugin-install | 화면 캡처 | 플러그인 디렉터리에서 Google Drive 검색 → 상세 화면 → 연결 버튼(3컷 합성) | 800×520 | IMG-10\_plugin-install.png |
-| IMG-11 | mcp-trace | 화면 캡처 | 캘린더 일정 등록 전 승인 요청 카드 | 640×400 | IMG-11\_mcp-approve.png |
+| IMG-11 | mcp-trace | 화면 캡처 | 캘린더 일정 등록 완료 카드(승인 없이 바로 실행된 실제 화면) | 640×400 | IMG-11\_mcp-approve.png |
 | IMG-12 | skill-make | 화면 캡처 | “가정통신문 스킬 만들어 줘” 대화와 skill-creator의 질문 | 800×520 | IMG-12\_skill-create.png |
 | IMG-13 | skill-md | 도식 | 스킬 폴더 구조(SKILL.md·assets·references)를 파일 카드로 | 600×400 | IMG-13\_skill-folder.png |
 | IMG-14 | rec-mcp | 로고 모음 | Google Drive·Calendar·Gmail·Canva·Notion·Microsoft 365·GitHub 공식 로고(브랜드 가이드 준수) | 64×64 각 | IMG-14\_logos/\*.svg |

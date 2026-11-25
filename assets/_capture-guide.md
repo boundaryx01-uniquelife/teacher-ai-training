@@ -20,7 +20,7 @@ Claude Code는 로그인된 실제 서비스 화면을 찍을 수 없다. 아래
 | VID-03 | sites-steps | @Sites 요청 → 미리보기 → 수정 1회 → 배포 → 공유 범위 선택 → 링크 복사 (60초 이하) | 640×300 | VID-03_sites-steps.mp4 |  |
 | IMG-08 | sites-steps | Sites 공유 창에서 나만·지정한 사람·인터넷 누구나 중 공개 범위를 고르는 화면 | 640×220 | IMG-08_sites-share.png |  |
 | IMG-10 | plugin-install | ChatGPT 플러그인 디렉터리에서 Google Drive 검색 → 상세 → 연결 버튼 (3컷 합성) | 680×500 | IMG-10_plugin-install.png |  |
-| IMG-11 | mcp-trace | 캘린더 일정 등록 전 승인 요청 카드 | 520×380 | IMG-11_mcp-approve.png | Dummy calendar. |
+| IMG-11 | mcp-trace | 캘린더 일정 등록 완료 카드(승인 없이 바로 실행된 실제 화면) | 520×380 | IMG-11_mcp-approve.png | Dummy calendar. |
 | IMG-12 | skill-make | “가정통신문 스킬 만들어 줘” 대화와 skill-creator의 질문 | 680×500 | IMG-12_skill-create.png |  |
 | IMG-15a | demo3 | 드라이브 연결 시연 결과로 만들어진 학생용 시험 범위 안내문 화면 | 420×240 | IMG-15a_demo-drive.png |  |
 | IMG-15b | demo3 | 같은 요청을 스킬 없이·스킬로 만든 가정통신문을 좌우로 비교한 화면 | 420×240 | IMG-15b_demo-skill.png |  |
@@ -55,7 +55,7 @@ Claude Code는 로그인된 실제 서비스 화면을 찍을 수 없다. 아래
 
 ## 촬영 순서 제안
 
-1. ChatGPT: IMG-06 → IMG-10(플러그인 연결) → IMG-11(캘린더 승인) → IMG-12(스킬) → VID-02(Work) → IMG-07·VID-03·IMG-08(Sites) → IMG-15a~c(시연 결과)
+1. ChatGPT: IMG-06 → IMG-10(플러그인 연결) → IMG-11(캘린더 등록) → IMG-12(스킬) → VID-02(Work) → IMG-07·VID-03·IMG-08(Sites) → IMG-15a~c(시연 결과)
 2. Copilot(PENZ 교사 계정): IMG-18 → IMG-21 → IMG-22 → IMG-23 → IMG-24 → IMG-19 → IMG-25 → IMG-26
 3. Copilot(PENZ 학생 테스트 계정): IMG-20
 4. Learning Zone(Windows 11): IMG-27 → IMG-28 (영어 레슨으로 생성)

@@ -338,10 +338,11 @@
         380
       ],
       "file": "IMG-11_mcp-approve.png",
-      "description_ko": "캘린더 일정 등록 전 승인 요청 카드",
-      "notes": "Dummy calendar.",
-      "alt_ko": "캘린더 일정 등록 전 승인 요청 카드",
-      "status": "todo"
+      "description_ko": "캘린더 일정 등록 완료 카드(승인 없이 바로 실행된 실제 화면)",
+      "notes": "Decision (나) 2026-11-25: real ChatGPT registered without an approval card; slide/M5/lesson wording updated.",
+      "alt_ko": "캘린더 일정 등록 완료 카드(승인 없이 바로 실행된 실제 화면)",
+      "status": "done",
+      "path": "assets/IMG-11_mcp-approve.png"
     },
     {
       "id": "IMG-12",
