@@ -10,7 +10,7 @@
 .pc-card.pc-sites { border-top: 5px solid var(--orange); }
 .pc-card.pc-skill { border-top: 5px solid var(--orange-dark); }
 .pc-head { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
-.pc-head h3 { margin: 0; }
+.pc-head h2 { margin: 0; font-size: 1.1rem; }
 .pc-when, .pc-note { margin: 0; }
 .pc-note { color: var(--text-soft); font-size: .9rem; }
 .pc-card .copy-box pre { max-height: 16em; overflow: auto; }

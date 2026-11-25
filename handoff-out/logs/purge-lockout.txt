@@ -1,0 +1,12 @@
+## purge test (RETENTION_DAYS=0) 2026-11-25 13:33:47 KST
+before: total 3
+purge: {"deleted":11}
+session still exists?: {"error":"없는 회차 코드입니다"}
+## lockout test
+try 1: 401
+try 2: 401
+try 3: 401
+try 4: 401
+try 5: 429
+try 6: 429
+correct pin while locked: 429

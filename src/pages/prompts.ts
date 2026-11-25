@@ -125,7 +125,7 @@ export function mount(el: HTMLElement) {
     const article = h(
       "article",
       { class: `card pc-card pc-${c.cat}`, "aria-labelledby": titleId, "data-cat": c.cat },
-      h("div", { class: "pc-head" }, h("span", { class: "badge orange" }, CAT_LABEL[c.cat]), h("h3", { id: titleId }, c.title)),
+      h("div", { class: "pc-head" }, h("span", { class: "badge orange" }, CAT_LABEL[c.cat]), h("h2", { id: titleId, class: "pc-title" }, c.title)),
       h("p", { class: "pc-when" }, h("strong", {}, "언제 쓰나요? "), c.when),
       copyBlock(c.prompt),
       c.note ? h("p", { class: "pc-note" }, c.note) : null,
