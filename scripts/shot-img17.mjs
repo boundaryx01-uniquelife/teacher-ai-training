@@ -10,7 +10,7 @@ const answer = async (q, v) => {
   await page.locator(`#m2-card-${q} button`).click();
   await page.locator(`#m2-card-${q}.is-ok, #m2-card-${q}.is-bad`).waitFor();
 };
-await answer(1, "3"); await answer(2, "1"); await answer(3, "2"); await answer(4, "1");
+await answer(1, "2"); await answer(2, "3"); await answer(3, "2"); await answer(4, "1");
 await page.locator("#m2-card-4 .m2-hint").waitFor();
 await page.locator("#m2-card-4").evaluate((el) => el.scrollIntoView({ block: "center" }));
 await page.waitForTimeout(300);

@@ -18,8 +18,20 @@ test("서비스 정보 화면 상단 고지", async ({ page }) => {
   }
 });
 test("번들에 정답·힌트·해설 없음", async () => {
+  // Decision (a), 2026-11-25: the guidebook renders the lesson plan verbatim, and the lesson's own example code
+  // (ANSWERS = { 1: '3', 2: '1' } + the Q1 hint) is public on /guide and /slides. The live key was changed so that
+  // example no longer reveals it. So: (1) every chunk except the guide must contain no hint/explanation text, and
+  // (2) the answers shown in the public lesson example must NOT match the server key.
   const files = readdirSync("dist/assets").filter((f) => f.endsWith(".js") || f.endsWith(".map"));
-  const all = files.map((f) => readFileSync(`dist/assets/${f}`, "utf8")).join("\n");
-  for (const s of ["광합성에서 나오는", "창고·장부에 해당해요", "MVP = Minimum Viable Product", "산소는 온실효과를"]) expect(all.includes(s)).toBe(false);
+  const appChunks = files.filter((f) => !f.startsWith("guide-")).map((f) => readFileSync(`dist/assets/${f}`, "utf8")).join("\n");
+  for (const s of ["광합성에서 나오는", "창고·장부에 해당해요", "MVP = Minimum Viable Product", "산소는 온실효과를", "최소 시제품의 영어 약자"]) expect(appChunks.includes(s), s).toBe(false);
   expect(files.some((f) => f.endsWith(".map"))).toBe(false);
+  const key = readFileSync("netlify/lib/quiz.ts", "utf8");
+  const live = Object.fromEntries([...key.matchAll(/(\d): \{ answer: "(\d)"/g)].map((m) => [m[1], m[2]]));
+  const publicText = readFileSync("content/lesson-plan.md", "utf8") + readFileSync("site-slides/slides.html", "utf8");
+  for (const m of publicText.matchAll(/ANSWERS = \{([^}]*)\}/g)) {
+    for (const [, q, a] of m[1].matchAll(/(\d):\s*'(\d)'/g)) expect(live[q], `public example ${q}:'${a}' must not match the live key`).not.toBe(a);
+  }
+  // every other chunk must not contain the live key pattern either
+  expect(/answer:\s*"[1-4]",\s*hint:/.test(appChunks)).toBe(false);
 });
