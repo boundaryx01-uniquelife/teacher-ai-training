@@ -76,8 +76,8 @@ for (const [i, id] of deck.order.entries()) {
   if (!(await page.evaluate(() => document.fonts.check('700 40px "Noto Sans KR"')))) throw new Error("font not ready");
   await page.evaluate(() => Promise.all([...document.images].map((im) => im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; }))));
   await page.evaluate(() => Promise.all([...document.querySelectorAll("video")].map((v) => v.readyState >= 2 ? 0 : new Promise((r) => { v.onloadeddata = v.onerror = r; setTimeout(r, 3000); }))));
-  // show the finished state (same as the poster) rather than frame 0
-  await page.evaluate(() => Promise.all([...document.querySelectorAll("video")].map((v) => { v.pause(); v.currentTime = 14.5; return new Promise((r) => { v.onseeked = r; setTimeout(r, 2000); }); })));
+  // static preview: show the poster (finished state) instead of an arbitrary decoded frame
+  await page.evaluate(() => Promise.all([...document.querySelectorAll("video")].map((v) => { const img = new Image(); img.src = v.poster; img.setAttribute("style", v.getAttribute("style") ?? ""); v.replaceWith(img); return img.decode().catch(() => 0); })));
   await page.screenshot({ path: `build/previews/${String(i + 1).padStart(2, "0")}_${id}.png` });
 }
 await browser.close(); server.close();
