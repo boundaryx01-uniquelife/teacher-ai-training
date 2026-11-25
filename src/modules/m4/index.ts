@@ -3,14 +3,17 @@ import { h } from "../../lib/ui.ts";
 
 interface NeisRes { mode: "live" | "sample"; reason: string; requestUrl: string; raw: unknown; status: "ok" | "empty"; school: string; meals: { type: string; dishes: string[]; kcal: string }[]; message: string; error?: string }
 
+/** 연수 장소: 부경고등학교 (부산광역시교육청). 공개된 학교 코드이며 개인정보가 아님. */
+const DEFAULT = { name: "부경고등학교", office: "C10", school: "7150397" };
+
 function todayKst(): string {
   const d = new Date(Date.now() + 9 * 3600_000);
   return d.toISOString().slice(0, 10);
 }
 
 export function mount(el: HTMLElement) {
-  const office = h("input", { type: "text", id: "m4-office", maxlength: "3", autocomplete: "off", placeholder: "예: B10", "aria-describedby": "m4-office-help" }) as HTMLInputElement;
-  const school = h("input", { type: "text", id: "m4-school", maxlength: "7", inputmode: "numeric", autocomplete: "off", placeholder: "7자리 숫자", "aria-describedby": "m4-school-help" }) as HTMLInputElement;
+  const office = h("input", { type: "text", id: "m4-office", maxlength: "3", value: DEFAULT.office, autocomplete: "off", placeholder: "예: B10", "aria-describedby": "m4-office-help" }) as HTMLInputElement;
+  const school = h("input", { type: "text", id: "m4-school", maxlength: "7", value: DEFAULT.school, inputmode: "numeric", autocomplete: "off", placeholder: "7자리 숫자", "aria-describedby": "m4-school-help" }) as HTMLInputElement;
   const date = h("input", { type: "date", id: "m4-date", value: todayKst() }) as HTMLInputElement;
   const btn = h("button", { class: "btn", type: "submit" }, "급식 불러오기");
   const msg = h("p", { class: "bad", "aria-live": "assertive" });
@@ -23,7 +26,7 @@ export function mount(el: HTMLElement) {
       h("div", {}, h("label", { for: "m4-office" }, "교육청 코드 (ATPT_OFCDC_SC_CODE)"), office, h("p", { id: "m4-office-help", class: "hint" }, "영문 대문자 1자 + 숫자 2자리")),
       h("div", {}, h("label", { for: "m4-school" }, "학교 코드 (SD_SCHUL_CODE)"), school, h("p", { id: "m4-school-help", class: "hint" }, "숫자 7자리")),
       h("div", {}, h("label", { for: "m4-date" }, "날짜 (MLSV_YMD)"), date)),
-    h("p", { class: "hint" }, "학교 코드는 ", h("a", { href: "https://open.neis.go.kr", target: "_blank", rel: "noopener noreferrer" }, "나이스 교육정보 개방 포털(open.neis.go.kr)"), "에서 찾으세요. 이 사이트는 학교 검색을 하지 않아요."),
+    h("p", { class: "hint" }, `기본값은 연수 학교인 ${DEFAULT.name}(부산광역시교육청 ${DEFAULT.office} · ${DEFAULT.school})예요. 다른 학교 코드는 `, h("a", { href: "https://open.neis.go.kr", target: "_blank", rel: "noopener noreferrer" }, "나이스 교육정보 개방 포털(open.neis.go.kr)"), "에서 찾아 바꿔 넣으세요. 이 사이트는 학교 검색을 하지 않아요."),
     simulateFail ? h("p", { class: "notice" }, "실패 시험 모드(simulateFail=1): 서버가 실패로 처리하고 샘플로 전환해요.") : null,
     h("div", { class: "btn-row" }, btn), msg);
 
