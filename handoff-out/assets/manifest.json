@@ -211,7 +211,8 @@
       "description_ko": "ChatGPT 데스크톱 앱의 Chat·Work·Codex 탭과 Work 입력창",
       "notes": "",
       "alt_ko": "ChatGPT 데스크톱 앱의 Chat·Work·Codex 탭과 Work 입력창",
-      "status": "todo"
+      "status": "done",
+      "path": "assets/IMG-06_work-ui.png"
     },
     {
       "id": "VID-02",
@@ -324,7 +325,8 @@
       "description_ko": "ChatGPT 플러그인 디렉터리에서 Google Drive 검색 → 상세 → 연결 버튼 (3컷 합성)",
       "notes": "",
       "alt_ko": "ChatGPT 플러그인 디렉터리에서 Google Drive 검색 → 상세 → 연결 버튼 (3컷 합성)",
-      "status": "todo"
+      "status": "done",
+      "path": "assets/IMG-10_plugin-install.png"
     },
     {
       "id": "IMG-11",
