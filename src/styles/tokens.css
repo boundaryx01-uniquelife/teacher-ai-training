@@ -1,0 +1,18 @@
+:root {
+  --navy: #14213d;
+  --paper: #f7f5ef;
+  --orange: #f2a541;
+  --orange-dark: #a8530a;
+  --text: #14213d;
+  --text-soft: #4a5568;
+  --white: #ffffff;
+  --line: #d9d4c7;
+  --ok: #1f6f43;
+  --ok-bg: #e3f1e8;
+  --bad: #a8530a;
+  --bad-bg: #fbeedd;
+  --radius: 14px;
+  --font: "Noto Sans KR", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --fs: 18px;
+}
