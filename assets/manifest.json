@@ -240,9 +240,9 @@
         500
       ],
       "file": "IMG-07_sites-preview.png",
-      "description_ko": "Sites 미리보기의 형성평가 퀴즈 사이트, 폰 화면 포함",
-      "notes": "",
-      "alt_ko": "Sites 미리보기의 형성평가 퀴즈 사이트, 폰 화면 포함",
+      "description_ko": "Sites 미리보기의 형성평가 퀴즈 사이트 — 학생 퀴즈 화면 + 교사 통계(오답률) 화면 (2컷)",
+      "notes": "User decision 2026-11-25: phone view excluded; teacher stats view added. ChatGPT made its own sample questions (elementary), shown as demo.",
+      "alt_ko": "Sites 미리보기의 형성평가 퀴즈 사이트 — 학생 퀴즈 화면 + 교사 통계(오답률) 화면 (2컷)",
       "status": "done",
       "path": "assets/IMG-07_sites-preview.png"
     },
