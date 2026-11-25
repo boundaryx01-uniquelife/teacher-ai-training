@@ -243,7 +243,8 @@
       "description_ko": "Sites 미리보기의 형성평가 퀴즈 사이트, 폰 화면 포함",
       "notes": "",
       "alt_ko": "Sites 미리보기의 형성평가 퀴즈 사이트, 폰 화면 포함",
-      "status": "todo"
+      "status": "done",
+      "path": "assets/IMG-07_sites-preview.png"
     },
     {
       "id": "VID-03",
