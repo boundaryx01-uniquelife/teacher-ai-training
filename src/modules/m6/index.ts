@@ -96,8 +96,8 @@ export function mount(el: HTMLElement) {
   const cAssets = mkCheck("m6-assets", "assets/ 폴더 포함 (예: 학교 양식 파일)", "assets");
   const cRefs = mkCheck("m6-refs", "references/ 폴더 포함 (예: 잘 쓴 예시)", "references");
 
-  const treeOut = h("pre", { class: "m6-tree", "aria-live": "polite" });
-  const mdOut = h("div", { class: "m6-out", "aria-live": "polite" });
+  const treeOut = h("pre", { class: "m6-tree" });
+  const mdOut = h("div", { class: "m6-out" });
   const status = h("p", { class: "m6-status", role: "status" });
   const dl = h("button", { class: "btn accent", type: "button" }, "zip 내려받기");
   const fill = h("button", { class: "btn secondary", type: "button" }, "예시 채우기");

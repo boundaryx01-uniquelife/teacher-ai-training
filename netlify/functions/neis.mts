@@ -54,7 +54,7 @@ export default async (req: Request, context: Context) => {
 
   const realUrl = `${HOST}?${key ? `KEY=${encodeURIComponent(key)}&` : ""}${params}`;
   try {
-    const res = await fetch(realUrl, { signal: AbortSignal.timeout(5000) });
+    const res = await fetch(realUrl, { signal: AbortSignal.timeout(5000), redirect: "error" });
     if (res.status >= 500) return fallback(`나이스 서버 오류(${res.status})로 샘플 데이터로 전환했습니다`);
     if (!res.ok) return fallback(`나이스 응답 ${res.status}: 샘플 데이터로 전환했습니다`);
     const text = await res.text();
@@ -70,4 +70,4 @@ export default async (req: Request, context: Context) => {
   }
 };
 
-export const config: Config = { path: "/api/neis", method: ["GET"] };
+export const config: Config = { path: "/api/neis", method: ["GET"], rateLimit: { windowLimit: 30, windowSize: 60, aggregateBy: ["ip", "domain"] } };

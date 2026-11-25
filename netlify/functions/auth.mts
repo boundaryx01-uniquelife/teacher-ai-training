@@ -8,6 +8,7 @@ export default async (req: Request, context: Context) => {
   if (req.method === "DELETE") return json({ authed: false }, 200, { "Set-Cookie": clearCookie() });
   if (req.method !== "POST") return err(405, "허용하지 않는 메서드입니다");
   if (!configured()) return err(503, "관리자 PIN이 아직 설정되지 않았습니다(환경변수 TRAINER_PIN·AUTH_SECRET)");
+  if (isAuthed(req)) return json({ authed: true }, 200, { "Set-Cookie": issueCookie() });
   const lock = await lockState(context);
   if (lock.lockedUntil > Date.now()) return json({ error: "잠시 잠겼습니다. 15분 뒤 다시 시도하세요", lockedUntil: new Date(lock.lockedUntil).toISOString() }, 429);
   const r = await readJson(req, 256); if (!r.ok) return r.res;

@@ -26,7 +26,8 @@ export function mount(el: HTMLElement) {
   }
 
   function showLogin(configured: boolean) {
-    const pin = h("input", { type: "password", id: "m3-pin", inputmode: "numeric", autocomplete: "current-password", maxlength: "64" }) as HTMLInputElement;
+    if (timer) { clearInterval(timer); timer = undefined; }
+    const pin = h("input", { type: "password", id: "m3-pin", inputmode: "numeric", autocomplete: "off", maxlength: "64" }) as HTMLInputElement;
     const msg = h("p", { class: "bad", "aria-live": "assertive" });
     const form = h("form", { class: "card m3-login" },
       h("h2", {}, "연수 강사 PIN"),
@@ -37,7 +38,9 @@ export function mount(el: HTMLElement) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       msg.textContent = "";
-      const { res, data } = await api("/api/auth", { method: "POST", body: JSON.stringify({ pin: pin.value }) });
+      let res: Response, data: any;
+      try { ({ res, data } = await api("/api/auth", { method: "POST", body: JSON.stringify({ pin: pin.value }) })); }
+      catch { msg.textContent = "서버에 연결하지 못했어요"; return; }
       pin.value = "";
       if (res.ok) showDashboard(); else msg.textContent = data.error ?? "로그인하지 못했어요";
     });

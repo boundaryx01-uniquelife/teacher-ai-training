@@ -29,7 +29,7 @@ export function mount(el: HTMLElement) {
   let dragId: string | null = null;
   let focusKey: string | null = null;
 
-  const live = h("p", { class: "m7-score", role: "status", "aria-live": "polite" });
+  const live = h("p", { class: "m7-score", role: "status", "aria-live": "polite", tabindex: "-1" });
   const root = h("div", { class: "m7" });
   el.append(
     h("h1", {}, "업무 ↔ AI 짝짓기"),
@@ -90,8 +90,10 @@ export function mount(el: HTMLElement) {
     graded = true;
     const n = TASKS.filter((t) => state[t.id] === t.answer).length;
     const un = TASKS.filter((t) => !state[t.id]).length;
-    live.textContent = `점수 ${n}/${TASKS.length}` + (un ? ` (미분류 ${un}개는 오답 처리)` : "");
     render();
+    // set text after the node is back in the DOM so screen readers announce it; move focus off the removed button
+    live.textContent = `점수 ${n}/${TASKS.length}` + (un ? ` (미분류 ${un}개는 오답 처리)` : "");
+    live.focus();
   }
 
   function reset() {

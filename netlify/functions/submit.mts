@@ -1,6 +1,7 @@
 import type { Config, Context } from "@netlify/functions";
 import { checkOrigin, err, json, readJson, SESSION_RE } from "../lib/http.ts";
-import { submissions, sessionExists, purgeOld, type Row } from "../lib/store.ts";
+import { submissions, sessionExists, purgeOld, retentionMs, type Row } from "../lib/store.ts";
+import { randomUUID } from "node:crypto";
 import { KEY } from "../lib/quiz.ts";
 
 const ALLOWED = new Set(["sessionCode", "question", "answer"]);
@@ -25,12 +26,13 @@ export default async (req: Request, context: Context) => {
   let row: Row | null = null;
   if (!practice) {
     const now = Date.now();
-    const rand = Math.random().toString(36).slice(2, 6).padEnd(4, "0");
+    const rand = randomUUID().replace(/-/g, "").slice(0, 8);
     const key = `rows/${sessionCode}/${now}-${rand}`;
     row = { id: `${now}-${rand}`, sessionCode: sessionCode as string, question: q, answer, correct, at: new Date(now).toISOString() };
-    await submissions(context).setJSON(key, row);
+    const w = await submissions(context).setJSON(key, row, { onlyIfNew: true });
+    if (!w.modified) return err(409, "잠시 뒤 다시 제출해 주세요");
     // Lazy retention cleanup for this session, after the response (S-5).
-    context.waitUntil?.(purgeOld(context, `rows/${sessionCode}/`).catch(() => 0));
+    if (retentionMs() > 0 && Math.random() < 0.05) context.waitUntil?.(purgeOld(context, `rows/${sessionCode}/`).catch(() => 0));
   }
   return json({ correct, hint: correct ? "" : KEY[q].hint, trace, row, mode: practice ? "practice" : "session" });
 };

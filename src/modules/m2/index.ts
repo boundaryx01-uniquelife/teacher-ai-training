@@ -17,6 +17,7 @@ export function mount(el: HTMLElement) {
   const params = new URLSearchParams(location.search);
   const phone = params.get("view") === "phone";
   const results = new Map<number, boolean>();
+  const picks = new Map<number, string>();
   let busy = false;
 
   /* ---------- session code ---------- */
@@ -136,6 +137,7 @@ export function mount(el: HTMLElement) {
         showGrade(q.no, picked.value, d);
         showDb(d);
         results.set(q.no, d.correct);
+        picks.set(q.no, picked.value);
         fs.querySelectorAll("input").forEach((i) => ((i as HTMLInputElement).disabled = true));
         codeInput.disabled = true;
         btn.textContent = "제출함";
@@ -158,7 +160,8 @@ export function mount(el: HTMLElement) {
 
   async function showExplain() {
     try {
-      const res = await fetch("/api/explain");
+      const res = await fetch("/api/explain", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ answers: Object.fromEntries(picks) }) });
+      if (!res.ok) throw new Error(String(res.status));
       const { items } = (await res.json()) as { items: { question: number; explain: string }[] };
       const score = [...results.values()].filter(Boolean).length;
       explainBox.replaceChildren(

@@ -8,7 +8,7 @@ export default async (req: Request, context: Context) => {
   if (!isAuthed(req)) return err(401, "PIN 인증이 필요합니다");
   const code = new URL(req.url).searchParams.get("sessionCode") ?? "";
   if (!SESSION_RE.test(code)) return err(400, "회차 코드 형식이 올바르지 않습니다");
-  await purgeOld(context, `rows/${code}/`);
+  if (Math.random() < 0.1) await purgeOld(context, `rows/${code}/`); // lazy cleanup, throttled (daily purge is the main path)
   const store = submissions(context);
   const rows: Row[] = [];
   for await (const page of store.list({ prefix: `rows/${code}/`, paginate: true })) {

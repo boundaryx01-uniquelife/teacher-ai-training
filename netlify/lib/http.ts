@@ -22,7 +22,8 @@ export function checkOrigin(req: Request): Response | null {
   if (origin) {
     const self = new URL(req.url).origin;
     const host = req.headers.get("x-forwarded-host") ?? req.headers.get("host");
-    const ok = origin === self || (host !== null && new URL(origin).host === host);
+    let ok = origin === self;
+    try { ok = ok || (host !== null && new URL(origin).host === host); } catch { ok = false; }
     if (!ok) return err(403, "다른 출처의 요청은 허용하지 않습니다");
   }
   return null;
@@ -39,7 +40,7 @@ export async function readJson(req: Request, limit = 1024): Promise<{ ok: true; 
 }
 
 export function deployContext(context: Context): string {
-  const c = (context as any)?.deploy?.context || Netlify.env.get("CONTEXT") || "dev";
+  const c = (context as any)?.deploy?.context || Netlify.env.get("CONTEXT") || "production"; // fail closed
   return String(c).replace(/[^a-z0-9-]/gi, "-");
 }
 

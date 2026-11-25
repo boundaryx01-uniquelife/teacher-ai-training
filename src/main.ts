@@ -29,7 +29,9 @@ function buildShell() {
 
 const shell = buildShell();
 
+let renderToken = 0;
 async function render() {
+  const token = ++renderToken;
   if (typeof cleanup === "function") cleanup();
   cleanup = undefined;
   const route = findRoute(location.pathname);
@@ -46,6 +48,7 @@ async function render() {
   }
   pageTitle(route.title);
   const mod = await route.load();
+  if (token !== renderToken) return; // a newer navigation started
   const box = h("div", { class: "page" });
   main.append(box);
   cleanup = mod.mount(box);

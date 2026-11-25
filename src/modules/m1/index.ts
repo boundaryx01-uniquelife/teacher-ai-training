@@ -33,7 +33,7 @@ export function mount(el: HTMLElement) {
       ta);
   });
 
-  const out = h("pre", { class: "m1-out", id: "m1-out", "aria-live": "polite", "aria-label": "완성된 프롬프트" });
+  const out = h("pre", { class: "m1-out", id: "m1-out", "aria-label": "완성된 프롬프트" });
   const copyBtn = h("button", { class: "btn accent", type: "button" }, "완성 프롬프트 복사");
   copyBtn.addEventListener("click", () => { const t = assemble(); if (t) void copyText(t); });
   const fillBtn = h("button", { class: "btn secondary", type: "button" }, "강의안 예시 채우기");

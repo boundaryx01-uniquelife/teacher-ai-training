@@ -12,6 +12,13 @@
 [functions]
   node_bundler = "esbuild"
 
+# unmatched /api/* (wrong method or unknown path) → JSON 404, never the SPA shell
+[[redirects]]
+  from = "/api/*"
+  to = "/api-not-found.json"
+  status = 404
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
