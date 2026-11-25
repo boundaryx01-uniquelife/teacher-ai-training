@@ -1,6 +1,7 @@
 [build]
   command = "npm run build"
-  publish = "dist"
+  publish = "dist"          # only the Vite build is published — content/, HANDOFF.md, assets/ sources are not
+  functions = "netlify/functions"
 
 [dev]
   command = "npx vite build && npx vite preview --port 5173 --strictPort"
@@ -12,12 +13,12 @@
 [functions]
   node_bundler = "esbuild"
 
-# unmatched /api/* (wrong method or unknown path) → JSON 404, never the SPA shell
+# unmatched /api/* (wrong method or unknown path) → JSON 404, never the SPA shell.
+# Not forced: function routes (config.path) must win over this rule.
 [[redirects]]
   from = "/api/*"
   to = "/api-not-found.json"
   status = 404
-  force = true
 
 [[redirects]]
   from = "/*"
