@@ -1,116 +1,58 @@
 
 Running 52 tests using 1 worker
 
-  ✓   1 [desktop] › tests/concurrency.spec.ts:3:1 › 30건 동시 제출 → 집계 합계 일치 (3.8s)
-  ✘   2 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (11.3s)
-  ✓   3 [desktop] › tests/m2-m3.spec.ts:61:1 › 연습 모드: 저장 안 함, 없는 코드는 400 (1.9s)
-  ✓   4 [desktop] › tests/m4.spec.ts:9:1 › M4 기본값 = 부경고등학교 (350ms)
-  ✓   5 [desktop] › tests/m4.spec.ts:14:1 › M4 정상 호출 (2.3s)
-  ✓   6 [desktop] › tests/m4.spec.ts:21:1 › M4 실패 → 샘플 전환 (640ms)
-  ✓   7 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: / (929ms)
-  ✓   8 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /lab (874ms)
+  ✓   1 [desktop] › tests/concurrency.spec.ts:3:1 › 30건 동시 제출 → 집계 합계 일치 (3.6s)
+  ✓   2 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (6.1s)
+  ✓   3 [desktop] › tests/m2-m3.spec.ts:61:1 › 연습 모드: 저장 안 함, 없는 코드는 400 (1.8s)
+  ✓   4 [desktop] › tests/m4.spec.ts:9:1 › M4 기본값 = 부경고등학교 (322ms)
+  ✓   5 [desktop] › tests/m4.spec.ts:14:1 › M4 정상 호출 (1.7s)
+  ✓   6 [desktop] › tests/m4.spec.ts:21:1 › M4 실패 → 샘플 전환 (585ms)
+  ✓   7 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: / (862ms)
+  ✓   8 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /lab (813ms)
   ✓   9 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /guide (1.1s)
-  ✓  10 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /trainer (981ms)
-  ✓  11 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m1 (809ms)
-  ✓  12 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m2 (842ms)
-  ✓  13 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m3 (925ms)
-  ✓  14 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m4 (862ms)
-  ✓  15 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m5 (864ms)
-  ✓  16 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m6 (820ms)
-  ✓  17 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m7 (861ms)
-  ✓  18 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /prompts (844ms)
-  ✓  19 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /copilot (844ms)
-  ✓  20 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /final (836ms)
-  ✓  21 [desktop] › tests/pages.spec.ts:14:1 › 서비스 정보 화면 상단 고지 (747ms)
-  ✓  22 [desktop] › tests/pages.spec.ts:20:1 › 번들에 정답·힌트·해설 없음 (7ms)
-  ✓  23 [desktop] › tests/slides.spec.ts:9:1 › 슬라이드 실습 버튼 전수: 모듈로 이동 → 같은 슬라이드로 복귀 (12.9s)
-  ✓  24 [desktop] › tests/slides.spec.ts:33:1 › 폰: 실습 버튼 → 모듈 → 복귀 1건 (659ms)
+  ✓  10 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /trainer (922ms)
+  ✓  11 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m1 (805ms)
+  ✓  12 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m2 (865ms)
+  ✓  13 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m3 (902ms)
+  ✓  14 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m4 (801ms)
+  ✓  15 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m5 (887ms)
+  ✓  16 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m6 (809ms)
+  ✓  17 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m7 (807ms)
+  ✓  18 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /prompts (837ms)
+  ✓  19 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /copilot (836ms)
+  ✓  20 [desktop] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /final (829ms)
+  ✓  21 [desktop] › tests/pages.spec.ts:14:1 › 서비스 정보 화면 상단 고지 (693ms)
+  ✓  22 [desktop] › tests/pages.spec.ts:20:1 › 번들에 정답·힌트·해설 없음 (8ms)
+  ✓  23 [desktop] › tests/slides.spec.ts:9:1 › 슬라이드 실습 버튼 전수: 모듈로 이동 → 같은 슬라이드로 복귀 (12.7s)
+  ✓  24 [desktop] › tests/slides.spec.ts:33:1 › 폰: 실습 버튼 → 모듈 → 복귀 1건 (770ms)
   ✓  25 [desktop] › tests/slides.spec.ts:42:1 › 오프라인: /slides 59장 이동 (3.6s)
-  ✓  26 [desktop] › tests/slides.spec.ts:63:1 › 모든 경로 200 (325ms)
+  ✓  26 [desktop] › tests/slides.spec.ts:63:1 › 모든 경로 200 (322ms)
   -  27 [iphone] › tests/concurrency.spec.ts:3:1 › 30건 동시 제출 → 집계 합계 일치
-  ✘  28 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (10.3s)
-  ✓  29 [iphone] › tests/m2-m3.spec.ts:61:1 › 연습 모드: 저장 안 함, 없는 코드는 400 (1.9s)
-  ✓  30 [iphone] › tests/m4.spec.ts:9:1 › M4 기본값 = 부경고등학교 (322ms)
-  ✓  31 [iphone] › tests/m4.spec.ts:14:1 › M4 정상 호출 (1.7s)
-  ✓  32 [iphone] › tests/m4.spec.ts:21:1 › M4 실패 → 샘플 전환 (686ms)
-  ✓  33 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: / (879ms)
-  ✓  34 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /lab (815ms)
+  ✓  28 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (6.1s)
+  ✓  29 [iphone] › tests/m2-m3.spec.ts:61:1 › 연습 모드: 저장 안 함, 없는 코드는 400 (1.8s)
+  ✓  30 [iphone] › tests/m4.spec.ts:9:1 › M4 기본값 = 부경고등학교 (321ms)
+  ✓  31 [iphone] › tests/m4.spec.ts:14:1 › M4 정상 호출 (2.2s)
+  ✓  32 [iphone] › tests/m4.spec.ts:21:1 › M4 실패 → 샘플 전환 (631ms)
+  ✓  33 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: / (845ms)
+  ✓  34 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /lab (810ms)
   ✓  35 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /guide (1.1s)
-  ✓  36 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /trainer (939ms)
-  ✓  37 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m1 (822ms)
-  ✓  38 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m2 (807ms)
-  ✓  39 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m3 (918ms)
-  ✓  40 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m4 (797ms)
-  ✓  41 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m5 (803ms)
-  ✓  42 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m6 (872ms)
-  ✓  43 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m7 (779ms)
-  ✓  44 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /prompts (807ms)
-  ✓  45 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /copilot (846ms)
-  ✓  46 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /final (791ms)
-  ✓  47 [iphone] › tests/pages.spec.ts:14:1 › 서비스 정보 화면 상단 고지 (650ms)
-  ✓  48 [iphone] › tests/pages.spec.ts:20:1 › 번들에 정답·힌트·해설 없음 (5ms)
+  ✓  36 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /trainer (932ms)
+  ✓  37 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m1 (778ms)
+  ✓  38 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m2 (780ms)
+  ✓  39 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m3 (894ms)
+  ✓  40 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m4 (789ms)
+  ✓  41 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m5 (809ms)
+  ✓  42 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m6 (848ms)
+  ✓  43 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /m7 (798ms)
+  ✓  44 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /prompts (833ms)
+  ✓  45 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /copilot (798ms)
+  ✓  46 [iphone] › tests/pages.spec.ts:6:3 › 페이지 열림·콘솔 에러 0: /final (843ms)
+  ✓  47 [iphone] › tests/pages.spec.ts:14:1 › 서비스 정보 화면 상단 고지 (637ms)
+  ✓  48 [iphone] › tests/pages.spec.ts:20:1 › 번들에 정답·힌트·해설 없음 (9ms)
   -  49 [iphone] › tests/slides.spec.ts:9:1 › 슬라이드 실습 버튼 전수: 모듈로 이동 → 같은 슬라이드로 복귀
-  ✓  50 [iphone] › tests/slides.spec.ts:33:1 › 폰: 실습 버튼 → 모듈 → 복귀 1건 (744ms)
+  ✓  50 [iphone] › tests/slides.spec.ts:33:1 › 폰: 실습 버튼 → 모듈 → 복귀 1건 (653ms)
   -  51 [iphone] › tests/slides.spec.ts:42:1 › 오프라인: /slides 59장 이동
   -  52 [iphone] › tests/slides.spec.ts:63:1 › 모든 경로 200
 
-
-  1) [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 ───────────────────────────
-
-    Error: expect(locator).toContainText(expected) failed
-
-    Locator: locator('.m3-reset')
-    Expected substring: "5건을 삭제했어요"
-    Received string:    "초기화회차 GED884의 제출 기록만 지웁니다. 확인을 위해 회차 코드를 그대로 입력하세요.회차 코드 확인이 회차 기록 삭제"
-    Timeout: 5000ms
-
-    Call log:
-      - Expect "toContainText" locator('.m3-reset') with timeout 5000ms
-      - waiting for locator('.m3-reset')
-        14 × locator resolved to <div class="card m3-reset">…</div>
-           - unexpected value "초기화회차 GED884의 제출 기록만 지웁니다. 확인을 위해 회차 코드를 그대로 입력하세요.회차 코드 확인이 회차 기록 삭제"
-
-
-      54 |   await page.getByLabel("회차 코드 확인").fill(code);
-      55 |   await page.getByRole("button", { name: "이 회차 기록 삭제" }).click();
-    > 56 |   await expect(page.locator(".m3-reset")).toContainText("5건을 삭제했어요");
-         |                                           ^
-      57 |   await expect(page.locator(".m3-stats h2").first()).toContainText("제출 0건");
-      58 |   expect(errors).toEqual([]);
-      59 | });
-        at /home/user/pkg/tests/m2-m3.spec.ts:56:43
-
-    Error Context: test-results/m2-m3-M2-5문항-→-패널-4종-→-M3-오답률-→-초기화-desktop/error-context.md
-
-  2) [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 ────────────────────────────
-
-    Error: expect(locator).toContainText(expected) failed
-
-    Locator: locator('.m3-reset')
-    Expected substring: "5건을 삭제했어요"
-    Received string:    "초기화회차 J3RR9B의 제출 기록만 지웁니다. 확인을 위해 회차 코드를 그대로 입력하세요.회차 코드 확인이 회차 기록 삭제"
-    Timeout: 5000ms
-
-    Call log:
-      - Expect "toContainText" locator('.m3-reset') with timeout 5000ms
-      - waiting for locator('.m3-reset')
-        14 × locator resolved to <div class="card m3-reset">…</div>
-           - unexpected value "초기화회차 J3RR9B의 제출 기록만 지웁니다. 확인을 위해 회차 코드를 그대로 입력하세요.회차 코드 확인이 회차 기록 삭제"
-
-
-      54 |   await page.getByLabel("회차 코드 확인").fill(code);
-      55 |   await page.getByRole("button", { name: "이 회차 기록 삭제" }).click();
-    > 56 |   await expect(page.locator(".m3-reset")).toContainText("5건을 삭제했어요");
-         |                                           ^
-      57 |   await expect(page.locator(".m3-stats h2").first()).toContainText("제출 0건");
-      58 |   expect(errors).toEqual([]);
-      59 | });
-        at /home/user/pkg/tests/m2-m3.spec.ts:56:43
-
-    Error Context: test-results/m2-m3-M2-5문항-→-패널-4종-→-M3-오답률-→-초기화-iphone/error-context.md
-
-  2 failed
-    [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 ────────────────────────────
-    [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 ─────────────────────────────
   4 skipped
-  46 passed (1.4m)
+  48 passed (1.2m)

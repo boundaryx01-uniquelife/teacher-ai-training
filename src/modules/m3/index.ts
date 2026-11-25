@@ -13,6 +13,7 @@ async function api(path: string, init?: RequestInit) {
 export function mount(el: HTMLElement) {
   let timer: number | undefined;
   let current = "";
+  let resetNote = ""; // survives the re-render after a reset
   const status = h("p", { class: "m3-status", role: "status", "aria-live": "polite" });
   const body = h("div", {});
   el.append(
@@ -116,11 +117,12 @@ export function mount(el: HTMLElement) {
       if (!current) { resetBox.replaceChildren(h("p", { class: "hint" }, "회차를 만들면 여기서 초기화할 수 있어요.")); return; }
       const confirm = h("input", { type: "text", id: "m3-confirm", autocomplete: "off", maxlength: "6" }) as HTMLInputElement;
       const btn = h("button", { class: "btn danger", type: "button", disabled: true }, "이 회차 기록 삭제") as HTMLButtonElement;
-      const msg = h("p", { "aria-live": "polite" });
+      const msg = h("p", { "aria-live": "polite" }, resetNote);
       confirm.addEventListener("input", () => { confirm.value = confirm.value.toUpperCase(); btn.disabled = confirm.value !== current; });
       btn.addEventListener("click", async () => {
         const { res, data } = await api("/api/reset", { method: "POST", body: JSON.stringify({ sessionCode: current, confirm: confirm.value }) });
-        msg.textContent = res.ok ? `${data.deleted}건을 삭제했어요.` : data.error ?? "삭제하지 못했어요";
+        resetNote = res.ok ? `${data.deleted}건을 삭제했어요.` : data.error ?? "삭제하지 못했어요";
+        msg.textContent = resetNote;
         confirm.value = ""; btn.disabled = true;
         await loadStats();
       });
@@ -134,7 +136,7 @@ export function mount(el: HTMLElement) {
       if (res.status === 401) return showLogin(true);
       if (res.ok) { status.textContent = `새 회차 ${data.sessionCode}를 만들었어요.`; await loadSessions(data.sessionCode); }
     });
-    select.addEventListener("change", () => { current = select.value; loadStats(); });
+    select.addEventListener("change", () => { current = select.value; resetNote = ""; loadStats(); });
     logout.addEventListener("click", async () => { await api("/api/auth", { method: "DELETE" }); if (timer) clearInterval(timer); showLogin(true); });
     const tick = () => { if (auto.checked && document.visibilityState === "visible") loadStats(); };
     if (timer) clearInterval(timer);
