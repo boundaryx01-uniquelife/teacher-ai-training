@@ -67,5 +67,14 @@ test("모든 경로 200", async ({ request }, info) => {
     "/downloads/sample-official-letter.pdf", "/downloads/sample-assessment-plan.docx", "/downloads/sample-newsletter-1.docx", "/downloads/sample-newsletter-2.docx"]) {
     const r = await request.get(p);
     expect.soft(r.status(), p).toBe(200);
+    // a 200 can be the SPA fallback (index.html) — files must come back with their own type
+    const type = r.headers()["content-type"] ?? "";
+    if (/\.(png|pdf|zip|docx)$/.test(p)) expect.soft(type, p).not.toContain("text/html");
+  }
+  // every image the slide viewer references must really exist (not the SPA shell)
+  const html = await (await request.get("/slides/")).text();
+  for (const src of [...html.matchAll(/src="(\/slides\/assets\/[^"]+)"/g)].map((m) => m[1])) {
+    const r = await request.get(src);
+    expect.soft(r.headers()["content-type"] ?? "", src).not.toContain("text/html");
   }
 });
