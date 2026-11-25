@@ -1,10 +1,11 @@
 import type { Config, Context } from "@netlify/functions";
-import { checkOrigin, err, json, readJson } from "../lib/http.ts";
+import { checkOrigin, err, json, readJson, deployContext } from "../lib/http.ts";
 import { configured, pinMatches, issueCookie, clearCookie, isAuthed, lockState, recordFailure, clearFailures } from "../lib/auth.ts";
 
 export default async (req: Request, context: Context) => {
   const bad = checkOrigin(req); if (bad) return bad;
-  if (req.method === "GET") return json({ authed: isAuthed(req), configured: configured() });
+  // `context` is the deploy context name used for the Blobs store prefix (not secret) — lets us verify prod/preview separation
+  if (req.method === "GET") return json({ authed: isAuthed(req), configured: configured(), context: deployContext(context) });
   if (req.method === "DELETE") return json({ authed: false }, 200, { "Set-Cookie": clearCookie() });
   if (req.method !== "POST") return err(405, "허용하지 않는 메서드입니다");
   if (!configured()) return err(503, "관리자 PIN이 아직 설정되지 않았습니다(환경변수 TRAINER_PIN·AUTH_SECRET)");

@@ -40,7 +40,10 @@ export default async (req: Request, context: Context) => {
   const key = Netlify.env.get("NEIS_API_KEY") ?? "";
   const keyless = Netlify.env.get("NEIS_ALLOW_KEYLESS") === "1";
   const ctx = deployContext(context);
-  const simulateFail = q.get("simulateFail") === "1" && ctx !== "production";
+  // fail closed: the failure drill only runs on an explicit non-production context AND a non-primary host
+  const host = new URL(req.url).hostname;
+  const nonProd = ["deploy-preview", "branch-deploy", "dev"].includes(ctx) && host !== "teacher-ai-training.netlify.app";
+  const simulateFail = q.get("simulateFail") === "1" && nonProd;
   const params = new URLSearchParams({ Type: "json", ATPT_OFCDC_SC_CODE: office, SD_SCHUL_CODE: school, MLSV_YMD: date });
   const shownUrl = `${HOST}?${key ? "KEY=***&" : ""}${params}`;
 
