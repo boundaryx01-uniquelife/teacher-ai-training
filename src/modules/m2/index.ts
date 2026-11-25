@@ -128,6 +128,7 @@ export function mount(el: HTMLElement) {
           dbBox.replaceChildren(h("p", { class: "hint" }, "저장하지 않았어요."));
           feedback.replaceChildren(h("p", { class: "bad" }, data.error ?? "제출하지 못했어요"));
           btn.disabled = false; btn.textContent = "제출";
+          busy = false;
           await highlight();
           return;
         }
@@ -144,6 +145,7 @@ export function mount(el: HTMLElement) {
           : h("div", { class: "m2-hint" }, h("p", {}, h("strong", { class: "bad" }, "✗ 오답")), h("p", {}, `힌트: ${d.hint}`)));
         live.textContent = `${q.no}번 ${d.correct ? "정답" : "오답"}`;
         progress.textContent = `${results.size} / 5 제출 · 정답 ${[...results.values()].filter(Boolean).length}개`;
+        busy = false;
         await highlight();
         if (results.size === 5) await showExplain();
       } catch {
