@@ -27,9 +27,9 @@ html = html.replace(/<div class="ph" data-asset="([^"]+)"([^>]*)><p>[\s\S]*?<\/p
   precache.add(src);
   replaced++;
   if (file.endsWith(".mp4")) {
-    copyFileSync("assets/VID-01_poster.png", resolve(OUT, "assets", "VID-01_poster.png"));
-    precache.add("/slides/assets/VID-01_poster.png");
-    return `<div data-asset="${id}"${rest}><video src="${src}" poster="/slides/assets/VID-01_poster.png" muted loop autoplay playsinline aria-label="${esc(a.alt_ko)}" style="width:100%;height:100%;object-fit:contain"></video></div>`;
+    const poster = `${id}_poster.png`; // each video has its own poster (assets/<ID>_poster.png)
+    if (existsSync(`assets/${poster}`)) { copyFileSync(`assets/${poster}`, resolve(OUT, "assets", poster)); precache.add(`/slides/assets/${poster}`); }
+    return `<div data-asset="${id}"${rest}><video src="${src}" poster="/slides/assets/${poster}" muted loop autoplay playsinline aria-label="${esc(a.alt_ko)}" style="width:100%;height:100%;object-fit:contain"></video></div>`;
   }
   return `<div data-asset="${id}"${rest}><img src="${src}" alt="${esc(a.alt_ko)}" style="width:100%;height:100%;object-fit:contain;display:block"></div>`;
 });

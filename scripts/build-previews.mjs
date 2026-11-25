@@ -22,7 +22,7 @@ for (const f of readdirSync(resolve(OUT, "slides"))) {
     replaced++;
     const src = "../" + a.path; // assets/... relative to slides/
     const inner = a.kind === "motion" || a.path.endsWith(".mp4")
-      ? `<video src="${src}" poster="../assets/VID-01_poster.png" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:contain"></video>`
+      ? `<video src="${src}" poster="../assets/${id}_poster.png" muted loop autoplay playsinline style="width:100%;height:100%;object-fit:contain"></video>`
       : `<img src="${src}" alt="${esc(a.alt_ko)}" style="width:100%;height:100%;object-fit:contain;display:block">`;
     return `<div data-asset="${id}"${rest}>${inner}</div>`;
   });
