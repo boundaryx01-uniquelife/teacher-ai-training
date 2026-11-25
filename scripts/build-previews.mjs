@@ -40,6 +40,8 @@ html,body{margin:0}
 #stage{width:1920px;height:1080px;overflow:hidden;position:relative}
 #stage>section{width:1920px;height:1080px;box-sizing:border-box;position:relative}
 #stage aside{display:none}
+#stage section{word-break:keep-all;overflow-wrap:anywhere}
+#stage section :is(p,h1,h2,h3,li,td){text-wrap:pretty}
 .card,.step,.fbox{animation:none !important;opacity:1 !important;transform:none !important}
 </style></head><body><div id="stage"></div>
 <script>

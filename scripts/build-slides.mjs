@@ -56,7 +56,7 @@ for (const w of [400, 700, 900]) {
 writeFileSync(resolve(OUT, "fonts.css"), faces.join("\n") + "\n");
 
 const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'";
-const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css">`;
+const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css"><style>#scaler section{word-break:keep-all;overflow-wrap:anywhere}#scaler section :is(p,h1,h2,h3,li,td){text-wrap:pretty}</style>`;
 if (!html.includes('<meta name="viewport" content="width=device-width,initial-scale=1">')) throw new Error("viewport meta not found");
 html = html.replace('<meta name="viewport" content="width=device-width,initial-scale=1">', (m) => m + head);
 const barOpen = '<div id="bar" role="toolbar" aria-label="슬라이드 조작">';
