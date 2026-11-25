@@ -1,0 +1,17 @@
+.fa-section { margin: 28px 0; }
+.fa-paths { display: grid; gap: 14px; }
+@media (min-width: 720px) { .fa-paths { grid-template-columns: 1fr 1fr; align-items: start; } }
+.fa-path { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.fa-path h3, .fa-path h4, .fa-path p { margin: 0; }
+.fa-path h4 { font-size: 1rem; margin-top: 4px; }
+.fa-free { border-top: 5px solid var(--navy); }
+.fa-paid { border-top: 5px solid var(--orange); }
+.fa-path .badge { align-self: flex-start; }
+.fa-steps { margin: 0; padding-left: 1.4em; }
+.fa-steps li { margin: 4px 0; }
+.fa-note { color: var(--text-soft); font-size: .9rem; margin: 6px 0; }
+.fa-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.fa-check { display: flex; align-items: flex-start; gap: 12px; min-height: 44px; padding: 8px 12px; margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 10px; font-weight: 400; cursor: pointer; }
+.fa-check input { width: 24px; height: 24px; flex: none; margin-top: 2px; accent-color: var(--navy); }
+.fa-progress { font-weight: 700; margin: 10px 0 0; }
+.fa-priv { padding-left: 1.3em; }

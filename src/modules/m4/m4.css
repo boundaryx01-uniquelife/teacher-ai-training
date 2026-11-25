@@ -1,0 +1,11 @@
+.m4-fields { display: grid; gap: 6px 16px; }
+@media (min-width: 900px) { .m4-fields { grid-template-columns: repeat(3, 1fr); } }
+.m4-fields input { text-transform: none; }
+#m4-office { text-transform: uppercase; font-family: var(--mono); }
+.m4-head { margin: 6px 0 10px; font-size: 1.05rem; }
+.m4-meal ul { margin: 0; padding-left: 1.2em; }
+.m4-meal h3 { margin-top: 0; }
+.m4-url { font-size: .8rem; word-break: break-all; }
+.m4-raw { margin-top: 12px; }
+.m4-raw summary { cursor: pointer; min-height: 44px; padding: 8px 0; font-weight: 700; }
+.m4-raw pre { max-height: 360px; overflow: auto; font-size: .78rem; }

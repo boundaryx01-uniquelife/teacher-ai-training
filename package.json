@@ -1,0 +1,27 @@
+{
+  "name": "teacher-ai-training",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "netlify:dev": "netlify dev",
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@netlify/blobs": "^11.1.11",
+    "@netlify/functions": "^6.1.2",
+    "@playwright/test": "^1.65.1",
+    "netlify-cli": "^27.20.1",
+    "opentype.js": "^2.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.6"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/noto-sans-kr": "^5.3.1",
+    "fflate": "^0.8.3"
+  },
+  "private": true,
+  "type": "module"
+}

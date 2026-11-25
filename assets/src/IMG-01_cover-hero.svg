@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" fill="none" stroke="#14213D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<!-- floating items -->
+<!-- speech bubble -->
+<path d="M122 136H214Q232 136 232 154V204Q232 222 214 222H176L148 248V222H122Q104 222 104 204V154Q104 136 122 136Z" fill="#F2A541"/>
+<path d="M128 164H208M128 184H184" />
+<!-- document -->
+<g transform="rotate(5 300 140)">
+<path d="M254 62H324L352 90V196Q352 206 342 206H264Q254 206 254 196Z" fill="#FFFDF8"/>
+<path d="M324 62V90H352"/>
+<path d="M272 114H334M272 134H334M272 154H334M272 174H306"/>
+</g>
+<!-- app icons -->
+<g>
+<rect x="388" y="150" width="44" height="44" rx="12" fill="#14213D"/>
+<rect x="444" y="150" width="44" height="44" rx="12" fill="#FFFDF8"/>
+<rect x="388" y="206" width="44" height="44" rx="12" fill="#FFFDF8"/>
+<rect x="444" y="206" width="44" height="44" rx="12" fill="#F2A541"/>
+<circle cx="410" cy="172" r="7" fill="#F2A541" stroke="none"/>
+<path d="M458 172H474M458 180H468"/>
+<path d="M400 228H420M400 236H414"/>
+<path d="M458 236L466 222L474 236Z" fill="#14213D"/>
+</g>
+<!-- rising dots -->
+<g fill="#14213D" stroke="none">
+<circle cx="196" cy="276" r="5"/><circle cx="300" cy="248" r="5"/><circle cx="404" cy="280" r="5"/>
+</g>
+<!-- sparkles -->
+<g fill="#F2A541" stroke="#14213D" stroke-width="3">
+<path d="M64 96L70 110L84 116L70 122L64 136L58 122L44 116L58 110Z"/>
+<path d="M524 96L529 107L540 112L529 117L524 128L519 117L508 112L519 107Z"/>
+</g>
+<!-- laptop -->
+<rect x="170" y="290" width="260" height="146" rx="14" fill="#14213D"/>
+<rect x="184" y="304" width="232" height="118" rx="6" fill="#FFFDF8"/>
+<path d="M206 330H290M206 350H262M206 370H300" stroke-width="3"/>
+<circle cx="372" cy="362" r="22" fill="#F2A541"/>
+<path d="M362 362L370 370L384 354" stroke-width="4"/>
+<path d="M150 436H450L462 458H138Z" fill="#14213D"/>
+<!-- desk -->
+<rect x="60" y="458" width="480" height="18" rx="9" fill="#F2A541"/>
+<path d="M104 476V548M496 476V548"/>
+<path d="M60 548H540" stroke-width="3"/>
+<!-- plant -->
+<path d="M92 458V428H132V458" fill="#FFFDF8"/>
+<path d="M112 428V392M112 410Q96 408 90 392M112 404Q128 402 134 386" />
+<!-- mug -->
+<path d="M474 458V424H510V458" fill="#FFFDF8"/>
+<path d="M510 432Q526 432 526 444Q526 452 510 452"/>
+<path d="M488 414Q484 406 488 398M500 414Q496 406 500 398" stroke="#A8530A" stroke-width="3"/>
+</svg>

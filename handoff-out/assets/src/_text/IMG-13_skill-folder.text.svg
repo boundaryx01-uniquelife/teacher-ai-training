@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="560" height="300" fill="none" stroke="#14213D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+<!-- connectors -->
+<path d="M136 50V217M136 79H156M136 125H156M136 217H156" stroke-width="2.5"/>
+<path d="M172 142V171M172 171H192M172 234V263M172 263H192" stroke-width="2.5"/>
+<!-- root folder -->
+<rect x="120" y="16" width="320" height="34" rx="9" fill="#FFFDF8"/>
+<path d="M134 27H140L143 30H152V41H134Z" fill="#F2A541" stroke-width="2.2"/>
+<text x="162" y="39" font-family="JetBrains Mono, monospace" font-size="16" fill="#14213D">school-newsletter/</text>
+<!-- SKILL.md -->
+<rect x="156" y="62" width="284" height="34" rx="9" fill="#F2A541"/>
+<path d="M170 70H177L182 75V88H170Z" fill="#FFFDF8" stroke-width="2.2"/>
+<text x="192" y="85" font-family="JetBrains Mono, monospace" font-size="16" fill="#14213D">SKILL.md</text>
+<rect x="382" y="69" width="48" height="20" rx="10" fill="#14213D" stroke="none"/>
+<text x="406" y="84" text-anchor="middle" font-family="Noto Sans KR" font-weight="700" font-size="12" fill="#F7F5EF">필수</text>
+<!-- assets/ -->
+<rect x="156" y="108" width="284" height="34" rx="9" fill="#FFFDF8"/>
+<path d="M170 119H176L179 122H188V133H170Z" fill="#F2A541" stroke-width="2.2"/>
+<text x="198" y="131" font-family="JetBrains Mono, monospace" font-size="16" fill="#14213D">assets/</text>
+<!-- template.docx -->
+<rect x="192" y="154" width="248" height="34" rx="9" fill="#FFFDF8"/>
+<path d="M206 162H213L218 167V180H206Z" fill="#FFFDF8" stroke-width="2.2"/>
+<text x="228" y="177" font-family="JetBrains Mono, monospace" font-size="16" fill="#14213D">template.docx</text>
+<!-- references/ -->
+<rect x="156" y="200" width="284" height="34" rx="9" fill="#FFFDF8"/>
+<path d="M170 211H176L179 214H188V225H170Z" fill="#F2A541" stroke-width="2.2"/>
+<text x="198" y="223" font-family="JetBrains Mono, monospace" font-size="16" fill="#14213D">references/</text>
+<!-- examples.md -->
+<rect x="192" y="246" width="248" height="34" rx="9" fill="#FFFDF8"/>
+<path d="M206 254H213L218 259V272H206Z" fill="#FFFDF8" stroke-width="2.2"/>
+<text x="228" y="269" font-family="JetBrains Mono, monospace" font-size="16" fill="#14213D">examples.md</text>
+</svg>

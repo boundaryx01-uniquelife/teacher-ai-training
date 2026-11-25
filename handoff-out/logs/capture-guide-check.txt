@@ -1,0 +1,2 @@
+capture items: 23, guide rows: 23, matched: 23
+100% match

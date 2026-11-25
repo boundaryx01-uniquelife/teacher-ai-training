@@ -1,0 +1,639 @@
+{
+  "version": "2026-11-25",
+  "style": "flat illustration, navy #14213D lines/fills, warm paper background #F7F5EF, orange accent #F2A541, no gradients, no shadows, rounded corners, consistent 3px stroke, no text unless listed",
+  "fonts": "Noto Sans KR",
+  "palette": {
+    "navy": "#14213D",
+    "paper": "#F7F5EF",
+    "orange": "#F2A541",
+    "orange_dark": "#A8530A",
+    "text_soft": "#4A5568"
+  },
+  "assets": [
+    {
+      "id": "IMG-01",
+      "slide": "cover",
+      "kind": "illustration",
+      "producer": "code",
+      "size_px": [
+        600,
+        600
+      ],
+      "file": "IMG-01_cover-hero.png",
+      "description_ko": "교무실 책상 위 노트북 화면에서 말풍선·문서·앱 아이콘이 떠오르는 장면",
+      "notes": "No people faces. Optional small Korean-free icons only.",
+      "alt_ko": "교무실 책상 위 노트북 화면에서 말풍선·문서·앱 아이콘이 떠오르는 장면",
+      "status": "done",
+      "path": "assets/IMG-01_cover-hero.png",
+      "extra_files": [
+        "assets/src/IMG-01_cover-hero.svg"
+      ]
+    },
+    {
+      "id": "IMG-02a",
+      "slide": "types",
+      "kind": "icon",
+      "producer": "code",
+      "size_px": [
+        120,
+        120
+      ],
+      "file": "IMG-02a_chatbot.svg",
+      "description_ko": "챗봇: 말풍선 2개",
+      "notes": "",
+      "alt_ko": "챗봇: 말풍선 2개",
+      "status": "done",
+      "path": "assets/IMG-02a_chatbot.svg",
+      "extra_files": [
+        "assets/IMG-02a_chatbot@2x.png"
+      ]
+    },
+    {
+      "id": "IMG-02b",
+      "slide": "types",
+      "kind": "icon",
+      "producer": "code",
+      "size_px": [
+        120,
+        120
+      ],
+      "file": "IMG-02b_workflow.svg",
+      "description_ko": "워크플로우: 상자 3개가 일렬 화살표로 연결",
+      "notes": "",
+      "alt_ko": "워크플로우: 상자 3개가 일렬 화살표로 연결",
+      "status": "done",
+      "path": "assets/IMG-02b_workflow.svg",
+      "extra_files": [
+        "assets/IMG-02b_workflow@2x.png"
+      ]
+    },
+    {
+      "id": "IMG-02c",
+      "slide": "types",
+      "kind": "icon",
+      "producer": "code",
+      "size_px": [
+        120,
+        120
+      ],
+      "file": "IMG-02c_agent.svg",
+      "description_ko": "에이전트: 작은 로봇 + 체크리스트",
+      "notes": "",
+      "alt_ko": "에이전트: 작은 로봇 + 체크리스트",
+      "status": "done",
+      "path": "assets/IMG-02c_agent.svg",
+      "extra_files": [
+        "assets/IMG-02c_agent@2x.png"
+      ]
+    },
+    {
+      "id": "IMG-03",
+      "slide": "terms1",
+      "kind": "illustration",
+      "producer": "code",
+      "size_px": [
+        1664,
+        220
+      ],
+      "file": "IMG-03_restaurant.png",
+      "description_ko": "식당 단면도 4칸: 홀(손님·메뉴판)=프론트엔드, 주문서=API, 주방=백엔드, 창고·장부=DB",
+      "notes": "Korean labels allowed: 프론트엔드/API/백엔드/DB under each zone, Noto Sans KR",
+      "alt_ko": "식당 단면도 4칸: 홀(손님·메뉴판)=프론트엔드, 주문서=API, 주방=백엔드, 창고·장부=DB",
+      "status": "done",
+      "path": "assets/IMG-03_restaurant.png",
+      "extra_files": [
+        "assets/src/IMG-03_restaurant.svg"
+      ]
+    },
+    {
+      "id": "VID-01",
+      "slide": "submit-flow",
+      "kind": "motion",
+      "producer": "code",
+      "size_px": [
+        1664,
+        260
+      ],
+      "file": "VID-01_submit-flow.mp4",
+      "description_ko": "제출 버튼을 누르면 요청이 서버로 가 채점되고 DB에 한 줄이 추가된 뒤 힌트가 돌아오는 15초 애니메이션",
+      "notes": "Standalone 1664x260 HTML animation rendered to MP4 (see HANDOFF S-9). Do not record M2. Also VID-01_poster.png.",
+      "alt_ko": "제출 버튼을 누르면 요청이 서버로 가 채점되고 DB에 한 줄이 추가된 뒤 힌트가 돌아오는 15초 애니메이션",
+      "status": "done",
+      "path": "assets/VID-01_submit-flow.mp4",
+      "extra_files": [
+        "assets/VID-01_poster.png"
+      ]
+    },
+    {
+      "id": "IMG-04",
+      "slide": "neis-api",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        720,
+        520
+      ],
+      "file": "IMG-04_neis-api.png",
+      "description_ko": "나이스 교육정보 개방 포털 급식 API 안내 화면 + 브라우저에 띄운 JSON 결과(2컷 합성)",
+      "notes": "If API key/URL differs from slide text, report it.",
+      "alt_ko": "나이스 교육정보 개방 포털 급식 API 안내 화면 + 브라우저에 띄운 JSON 결과(2컷 합성)",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-05a",
+      "slide": "cwc",
+      "kind": "icon",
+      "producer": "code",
+      "size_px": [
+        120,
+        120
+      ],
+      "file": "IMG-05a_chat.svg",
+      "description_ko": "Chat: 말풍선",
+      "notes": "",
+      "alt_ko": "Chat: 말풍선",
+      "status": "done",
+      "path": "assets/IMG-05a_chat.svg",
+      "extra_files": [
+        "assets/IMG-05a_chat@2x.png"
+      ]
+    },
+    {
+      "id": "IMG-05b",
+      "slide": "cwc",
+      "kind": "icon",
+      "producer": "code",
+      "size_px": [
+        120,
+        120
+      ],
+      "file": "IMG-05b_work.svg",
+      "description_ko": "Work: 서류 + 톱니",
+      "notes": "",
+      "alt_ko": "Work: 서류 + 톱니",
+      "status": "done",
+      "path": "assets/IMG-05b_work.svg",
+      "extra_files": [
+        "assets/IMG-05b_work@2x.png"
+      ]
+    },
+    {
+      "id": "IMG-05c",
+      "slide": "cwc",
+      "kind": "icon",
+      "producer": "code",
+      "size_px": [
+        120,
+        120
+      ],
+      "file": "IMG-05c_code.svg",
+      "description_ko": "Code: </> 괄호",
+      "notes": "",
+      "alt_ko": "Code: </> 괄호",
+      "status": "done",
+      "path": "assets/IMG-05c_code.svg",
+      "extra_files": [
+        "assets/IMG-05c_code@2x.png"
+      ]
+    },
+    {
+      "id": "IMG-06",
+      "slide": "work-what",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        640,
+        480
+      ],
+      "file": "IMG-06_work-ui.png",
+      "description_ko": "ChatGPT 데스크톱 앱의 Chat·Work·Codex 탭과 Work 입력창",
+      "notes": "",
+      "alt_ko": "ChatGPT 데스크톱 앱의 Chat·Work·Codex 탭과 Work 입력창",
+      "status": "todo"
+    },
+    {
+      "id": "VID-02",
+      "slide": "work-trace",
+      "kind": "screen-recording",
+      "producer": "capture",
+      "size_px": [
+        680,
+        520
+      ],
+      "file": "VID-02_work-trace.mp4",
+      "description_ko": "Work에 ‘현장체험 준비’ 요청 → 계획 → 드라이브 검색 → 질문 → 파일 3개 생성 → 승인 요청 (배속 편집, 60초 이하)",
+      "notes": "Use dummy Drive files only.",
+      "alt_ko": "Work에 ‘현장체험 준비’ 요청 → 계획 → 드라이브 검색 → 질문 → 파일 3개 생성 → 승인 요청 (배속 편집, 60초 이하)",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-07",
+      "slide": "sites-what",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        680,
+        500
+      ],
+      "file": "IMG-07_sites-preview.png",
+      "description_ko": "Sites 미리보기의 형성평가 퀴즈 사이트, 폰 화면 포함",
+      "notes": "",
+      "alt_ko": "Sites 미리보기의 형성평가 퀴즈 사이트, 폰 화면 포함",
+      "status": "todo"
+    },
+    {
+      "id": "VID-03",
+      "slide": "sites-steps",
+      "kind": "screen-recording",
+      "producer": "capture",
+      "size_px": [
+        640,
+        300
+      ],
+      "file": "VID-03_sites-steps.mp4",
+      "description_ko": "@Sites 요청 → 미리보기 → 수정 1회 → 배포 → 공유 범위 선택 → 링크 복사 (60초 이하)",
+      "notes": "",
+      "alt_ko": "@Sites 요청 → 미리보기 → 수정 1회 → 배포 → 공유 범위 선택 → 링크 복사 (60초 이하)",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-08",
+      "slide": "sites-steps",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        640,
+        220
+      ],
+      "file": "IMG-08_sites-share.png",
+      "description_ko": "Sites 공유 창에서 나만·지정한 사람·인터넷 누구나 중 공개 범위를 고르는 화면",
+      "notes": "",
+      "alt_ko": "Sites 공유 창에서 나만·지정한 사람·인터넷 누구나 중 공개 범위를 고르는 화면",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-09a",
+      "slide": "skillmcp",
+      "kind": "illustration",
+      "producer": "code",
+      "size_px": [
+        160,
+        120
+      ],
+      "file": "IMG-09a_manual.svg",
+      "description_ko": "업무 매뉴얼 책",
+      "notes": "",
+      "alt_ko": "업무 매뉴얼 책",
+      "status": "done",
+      "path": "assets/IMG-09a_manual.svg",
+      "extra_files": [
+        "assets/IMG-09a_manual@2x.png"
+      ]
+    },
+    {
+      "id": "IMG-09b",
+      "slide": "skillmcp",
+      "kind": "illustration",
+      "producer": "code",
+      "size_px": [
+        160,
+        120
+      ],
+      "file": "IMG-09b_usbc.svg",
+      "description_ko": "USB-C 단자에서 여러 서비스 아이콘으로 선이 뻗음(로고 아님, 일반 아이콘)",
+      "notes": "",
+      "alt_ko": "USB-C 단자에서 여러 서비스 아이콘으로 선이 뻗음(로고 아님, 일반 아이콘)",
+      "status": "done",
+      "path": "assets/IMG-09b_usbc.svg",
+      "extra_files": [
+        "assets/IMG-09b_usbc@2x.png"
+      ]
+    },
+    {
+      "id": "IMG-10",
+      "slide": "plugin-install",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        680,
+        500
+      ],
+      "file": "IMG-10_plugin-install.png",
+      "description_ko": "ChatGPT 플러그인 디렉터리에서 Google Drive 검색 → 상세 → 연결 버튼 (3컷 합성)",
+      "notes": "",
+      "alt_ko": "ChatGPT 플러그인 디렉터리에서 Google Drive 검색 → 상세 → 연결 버튼 (3컷 합성)",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-11",
+      "slide": "mcp-trace",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        520,
+        380
+      ],
+      "file": "IMG-11_mcp-approve.png",
+      "description_ko": "캘린더 일정 등록 전 승인 요청 카드",
+      "notes": "Dummy calendar.",
+      "alt_ko": "캘린더 일정 등록 전 승인 요청 카드",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-12",
+      "slide": "skill-make",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        680,
+        500
+      ],
+      "file": "IMG-12_skill-create.png",
+      "description_ko": "“가정통신문 스킬 만들어 줘” 대화와 skill-creator의 질문",
+      "notes": "",
+      "alt_ko": "“가정통신문 스킬 만들어 줘” 대화와 skill-creator의 질문",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-13",
+      "slide": "skill-md",
+      "kind": "diagram",
+      "producer": "code",
+      "size_px": [
+        560,
+        300
+      ],
+      "file": "IMG-13_skill-folder.svg",
+      "description_ko": "스킬 폴더 구조: school-newsletter/ 아래 SKILL.md(필수), assets/template.docx, references/examples.md 파일 카드",
+      "notes": "Labels in monospace.",
+      "alt_ko": "스킬 폴더 구조: school-newsletter/ 아래 SKILL.md(필수), assets/template.docx, references/examples.md 파일 카드",
+      "status": "done",
+      "path": "assets/IMG-13_skill-folder.svg",
+      "extra_files": [
+        "assets/IMG-13_skill-folder@2x.png"
+      ]
+    },
+    {
+      "id": "IMG-14",
+      "slide": "rec-mcp",
+      "kind": "logos",
+      "producer": "brand",
+      "size_px": [
+        1664,
+        90
+      ],
+      "file": "IMG-14_logos/",
+      "description_ko": "Google Drive·Calendar·Gmail·Canva·Notion·Outlook·Teams·SharePoint·GitHub 공식 로고를 한 줄로 합성한 그림",
+      "notes": "Deliver IMG-14_logos/*.svg + IMG-14_logos-row.png (see HANDOFF S-9). Official brand files only; else text chips.",
+      "alt_ko": "Google Drive·Calendar·Gmail·Canva·Notion·Outlook·Teams·SharePoint·GitHub 공식 로고를 한 줄로 합성한 그림",
+      "status": "fallback",
+      "path": "assets/IMG-14_logos-row.png",
+      "status_note": "공식 로고 미수집 — 이름만 쓴 남색 칩 대체본. 사람이 공식 로고를 받아 scripts/compose-logos.mjs 실행"
+    },
+    {
+      "id": "IMG-15a",
+      "slide": "demo3",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        420,
+        240
+      ],
+      "file": "IMG-15a_demo-drive.png",
+      "description_ko": "드라이브 연결 시연 결과로 만들어진 학생용 시험 범위 안내문 화면",
+      "notes": "",
+      "alt_ko": "드라이브 연결 시연 결과로 만들어진 학생용 시험 범위 안내문 화면",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-15b",
+      "slide": "demo3",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        420,
+        240
+      ],
+      "file": "IMG-15b_demo-skill.png",
+      "description_ko": "같은 요청을 스킬 없이·스킬로 만든 가정통신문을 좌우로 비교한 화면",
+      "notes": "",
+      "alt_ko": "같은 요청을 스킬 없이·스킬로 만든 가정통신문을 좌우로 비교한 화면",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-15c",
+      "slide": "demo3",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        420,
+        240
+      ],
+      "file": "IMG-15c_demo-canva.png",
+      "description_ko": "Canva 연결로 만든 과학의 날 포스터 초안 화면",
+      "notes": "",
+      "alt_ko": "Canva 연결로 만든 과학의 날 포스터 초안 화면",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-16",
+      "slide": "student",
+      "kind": "illustration",
+      "producer": "code",
+      "size_px": [
+        480,
+        400
+      ],
+      "file": "IMG-16_classroom.png",
+      "description_ko": "모둠 학생들이 노트북으로 AI 답을 검증하는 수업 장면(뒷모습·실루엣, 얼굴 식별 불가)",
+      "notes": "Use illustration, not stock photo, unless licensed.",
+      "alt_ko": "모둠 학생들이 노트북으로 AI 답을 검증하는 수업 장면(뒷모습·실루엣, 얼굴 식별 불가)",
+      "status": "done",
+      "path": "assets/IMG-16_classroom.png",
+      "extra_files": [
+        "assets/src/IMG-16_classroom.svg"
+      ]
+    },
+    {
+      "id": "IMG-17",
+      "slide": "step3",
+      "kind": "screenshot",
+      "producer": "code",
+      "size_px": [
+        340,
+        600
+      ],
+      "file": "IMG-17_quiz-phone.png",
+      "description_ko": "완성된 퀴즈 페이지를 폰 크기로 푼 화면(정답·해설 표시)",
+      "notes": "Code makes it: /m2?view=phone 340x600, DPR 2, Q4 wrong-answer hint open.",
+      "alt_ko": "완성된 퀴즈 페이지를 폰 크기로 푼 화면(정답·해설 표시)",
+      "status": "done",
+      "path": "assets/IMG-17_quiz-phone.png"
+    },
+    {
+      "id": "IMG-18",
+      "slide": "cp-free",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        520,
+        420
+      ],
+      "file": "IMG-18_copilot-shield.png",
+      "description_ko": "PENZ 계정으로 로그인한 Microsoft 365 Copilot 앱, 데이터 보호(방패) 표시 확대",
+      "notes": "",
+      "alt_ko": "PENZ 계정으로 로그인한 Microsoft 365 Copilot 앱, 데이터 보호(방패) 표시 확대",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-19",
+      "slide": "cp-teacher",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        640,
+        480
+      ],
+      "file": "IMG-19_teach.png",
+      "description_ko": "Teach에서 수업 계획·퀴즈 만드는 화면",
+      "notes": "",
+      "alt_ko": "Teach에서 수업 계획·퀴즈 만드는 화면",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-20",
+      "slide": "cp-student",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        560,
+        420
+      ],
+      "file": "IMG-20_notebooks-study.png",
+      "description_ko": "학생 PENZ 계정의 Notebooks 학습 가이드·플래시카드",
+      "notes": "Test student account, dummy materials.",
+      "alt_ko": "학생 PENZ 계정의 Notebooks 학습 가이드·플래시카드",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-21",
+      "slide": "cp-chat",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        600,
+        420
+      ],
+      "file": "IMG-21_chat-summary.png",
+      "description_ko": "Copilot Chat에 가상 공문 PDF 업로드 → ‘할 일·기한 표’ 요약",
+      "notes": "",
+      "alt_ko": "Copilot Chat에 가상 공문 PDF 업로드 → ‘할 일·기한 표’ 요약",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-22",
+      "slide": "cp-teach-menu",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        560,
+        420
+      ],
+      "file": "IMG-22_teach-home.png",
+      "description_ko": "Teach 홈 메뉴(수업 계획·단원 계획·루브릭·퀴즈·학습 활동·콘텐츠 수정)",
+      "notes": "",
+      "alt_ko": "Teach 홈 메뉴(수업 계획·단원 계획·루브릭·퀴즈·학습 활동·콘텐츠 수정)",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-23",
+      "slide": "cp-teach-lesson",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        600,
+        480
+      ],
+      "file": "IMG-23_teach-lesson.png",
+      "description_ko": "수업 계획 입력 양식(통합과학·고1·50분) → 생성 결과 문서 (2컷)",
+      "notes": "",
+      "alt_ko": "수업 계획 입력 양식(통합과학·고1·50분) → 생성 결과 문서 (2컷)",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-24",
+      "slide": "cp-teach-modify",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        300,
+        300
+      ],
+      "file": "IMG-24_teach-modify.png",
+      "description_ko": "콘텐츠 수정 → 읽기 수준 수정 설정, 핵심 용어 칸에 ‘온실가스, 탄소중립’",
+      "notes": "",
+      "alt_ko": "콘텐츠 수정 → 읽기 수준 수정 설정, 핵심 용어 칸에 ‘온실가스, 탄소중립’",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-25",
+      "slide": "cp-notebooks",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        600,
+        460
+      ],
+      "file": "IMG-25_notebooks.png",
+      "description_ko": "Notebooks 3단 화면(참고 항목·페이지·채팅) + 학습 가이드 생성 창",
+      "notes": "",
+      "alt_ko": "Notebooks 3단 화면(참고 항목·페이지·채팅) + 학습 가이드 생성 창",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-26",
+      "slide": "cp-notebooks-ex",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        420,
+        360
+      ],
+      "file": "IMG-26_notebooks-teacher.png",
+      "description_ko": "교사용 ‘교육과정 지식방’ 노트북의 근거 링크 답변 또는 마인드맵",
+      "notes": "Use public/dummy school documents only.",
+      "alt_ko": "교사용 ‘교육과정 지식방’ 노트북의 근거 링크 답변 또는 마인드맵",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-27",
+      "slide": "cp-lz",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        600,
+        460
+      ],
+      "file": "IMG-27_lz-create.png",
+      "description_ko": "Learning Zone 새 레슨 설정(설명·학년·슬라이드 수·레슨 균형 슬라이더)",
+      "notes": "Needs Windows 11 PC with Learning Zone app.",
+      "alt_ko": "Learning Zone 새 레슨 설정(설명·학년·슬라이드 수·레슨 균형 슬라이더)",
+      "status": "todo"
+    },
+    {
+      "id": "IMG-28",
+      "slide": "cp-lz-limits",
+      "kind": "screenshot",
+      "producer": "capture",
+      "size_px": [
+        520,
+        420
+      ],
+      "file": "IMG-28_lz-review-report.png",
+      "description_ko": "보라점 검토 표시 슬라이드 목록 + 리포트 탭 (2컷)",
+      "notes": "",
+      "alt_ko": "보라점 검토 표시 슬라이드 목록 + 리포트 탭 (2컷)",
+      "status": "todo"
+    }
+  ]
+}

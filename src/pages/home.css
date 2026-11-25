@@ -1,0 +1,12 @@
+.home-periods { list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 14px; }
+@media (min-width: 900px) { .home-periods { grid-template-columns: repeat(3, 1fr); } }
+.home-period h2 { margin: .2em 0 .4em; }
+.home-when { color: var(--orange-dark); font-weight: 700; margin: 0; }
+.home-items { padding-left: 1.1em; margin: 0 0 12px; }
+.home-mods { display: grid; gap: 8px; }
+.home-flow { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 16px 20px; margin: 18px 0; }
+.home-flow h2 { color: #fff; margin-top: 0; }
+.home-flow-steps { display: grid; gap: 8px; padding-left: 1.3em; font-size: 1.1rem; }
+@media (min-width: 900px) { .home-flow-steps { grid-template-columns: repeat(3, 1fr); } }
+.home-tag { background: var(--orange); color: var(--navy); padding: 0 10px; border-radius: 6px; font-weight: 900; }
+.home-more ul { padding-left: 1.1em; }

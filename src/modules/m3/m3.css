@@ -1,0 +1,17 @@
+.m3-login { max-width: 460px; }
+.m3-login input { max-width: 260px; }
+.m3-controls { margin-bottom: 14px; }
+.m3-controls select { max-width: 420px; }
+.m3-check { font-weight: 400; display: flex; align-items: center; gap: 8px; min-height: 44px; }
+.m3-check input { width: 22px; height: 22px; accent-color: var(--navy); }
+.m3-code { font-family: var(--mono); letter-spacing: .12em; font-size: 1.3rem; background: var(--orange); color: var(--navy); padding: 0 8px; border-radius: 6px; }
+.m3-link { font-family: var(--mono); font-size: .85rem; word-break: break-all; color: var(--text-soft); }
+.m3-stats { display: grid; gap: 14px; margin-bottom: 14px; }
+@media (min-width: 1024px) { .m3-stats { grid-template-columns: 3fr 2fr; } }
+.m3-bars { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.m3-bar-label { font-size: .95rem; }
+.m3-track { height: 26px; background: #ece8dc; border-radius: 8px; overflow: hidden; margin: 4px 0; }
+.m3-fill { height: 100%; background: var(--orange); border-right: 3px solid var(--orange-dark); width: 0; transition: width .4s; }
+.m3-bar-val { font-size: .9rem; color: var(--text-soft); }
+.m3-reset input { max-width: 200px; text-transform: uppercase; font-family: var(--mono); letter-spacing: .12em; }
+.m3-status { color: var(--text-soft); font-size: .9rem; min-height: 1.5em; }
