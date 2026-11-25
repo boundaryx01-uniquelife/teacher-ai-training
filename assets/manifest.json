@@ -227,7 +227,8 @@
       "description_ko": "Work에 ‘현장체험 준비’ 요청 → 계획 → 드라이브 검색 → 질문 → 파일 3개 생성 → 승인 요청 (배속 편집, 60초 이하)",
       "notes": "Use dummy Drive files only.",
       "alt_ko": "Work에 ‘현장체험 준비’ 요청 → 계획 → 드라이브 검색 → 질문 → 파일 3개 생성 → 승인 요청 (배속 편집, 60초 이하)",
-      "status": "todo"
+      "status": "done",
+      "path": "assets/VID-02_work-trace.mp4"
     },
     {
       "id": "IMG-07",
@@ -357,7 +358,8 @@
       "description_ko": "“가정통신문 스킬 만들어 줘” 대화와 skill-creator의 질문",
       "notes": "",
       "alt_ko": "“가정통신문 스킬 만들어 줘” 대화와 skill-creator의 질문",
-      "status": "todo"
+      "status": "done",
+      "path": "assets/IMG-12_skill-create.png"
     },
     {
       "id": "IMG-13",
