@@ -12,8 +12,10 @@
     "@netlify/blobs": "^11.1.11",
     "@netlify/functions": "^6.1.2",
     "@playwright/test": "^1.65.1",
+    "marked": "^18.3.0",
     "netlify-cli": "^27.20.1",
     "opentype.js": "^2.0.0",
+    "qrcode": "^1.5.4",
     "typescript": "^5.9.3",
     "vite": "^6.4.6"
   },

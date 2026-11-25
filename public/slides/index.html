@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css">
+<title>교사 AI 연수 · 슬라이드</title>
+<style>
+/* ===== deck.css (원본 그대로, .stage 범위 안에서만 적용) ===== */
+
+section { padding:128px; background:#F7F5EF; color:#14213D; font-family:'Noto Sans KR', Arial, sans-serif; display:flex; flex-direction:column; }
+section.dark { background:#14213D; color:#F7F5EF; }
+section.accent { background:#F2A541; color:#14213D; }
+.eyebrow { font-size:26px; font-weight:700; color:#A8530A; margin:0 0 12px 0; letter-spacing:2px; }
+.dark .eyebrow { color:#F2A541; }
+h1 { font-size:96px; font-weight:900; line-height:1.15; margin:0 0 32px 0; }
+h2 { font-size:64px; font-weight:900; line-height:1.2; margin:0 0 44px 0; }
+h3 { font-size:40px; font-weight:700; line-height:1.25; margin:0 0 16px 0; }
+p { font-size:32px; line-height:1.5; margin:0 0 20px 0; }
+.lead { font-size:40px; line-height:1.45; color:#14213D; }
+.dark .lead { color:#F7F5EF; }
+.sub { font-size:32px; color:#4A5568; }
+.dark .sub { color:#BFCBDD; }
+ul { font-size:32px; line-height:1.55; margin:0; padding-left:44px; }
+li { margin:0 0 14px 0; }
+.cards { display:flex; flex-direction:row; gap:32px; }
+.card { flex:1; background:#FFFDF8; border:2px solid #E2DDD0; border-radius:20px; padding:40px; animation:rise .5s ease-out both; }
+.dark .card { background:#1E2E52; border-color:#2E4270; }
+.card p { font-size:28px; color:#4A5568; margin:0 0 12px 0; }
+.dark .card p { color:#BFCBDD; }
+.card .tag { font-size:24px; font-weight:700; color:#A8530A; margin:0 0 8px 0; }
+.dark .card .tag { color:#F2A541; }
+.card.hl { border:4px solid #F2A541; }
+.d2 { animation-delay:.15s; }
+.d3 { animation-delay:.3s; }
+.d4 { animation-delay:.45s; }
+@keyframes rise { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+table { border-collapse:collapse; width:100%; font-size:26px; }
+th { background:#14213D; color:#F7F5EF; text-align:left; padding:14px 20px; font-weight:700; }
+td { padding:12px 20px; border-bottom:2px solid #E2DDD0; color:#14213D; vertical-align:top; }
+table.sm { font-size:24px; }
+table.sm td { padding:9px 18px; }
+table.sm th { padding:11px 18px; }
+.code { background:#14213D; color:#F7F5EF; border-radius:16px; padding:36px 44px; font-size:28px; line-height:1.6; margin:0; }
+.code .c { color:#F2A541; }
+.big { font-size:120px; font-weight:900; line-height:1.1; margin:0 0 24px 0; }
+.row { display:flex; flex-direction:row; gap:48px; }
+.col { flex:1; display:flex; flex-direction:column; }
+.note { font-size:26px; color:#4A5568; margin-top:auto; }
+.dark .note { color:#BFCBDD; }
+.step { display:flex; flex-direction:row; gap:28px; align-items:flex-start; margin:0 0 26px 0; animation:rise .5s ease-out both; }
+.num { width:84px; height:84px; border-radius:42px; background:#F2A541; color:#14213D; font-size:40px; font-weight:900; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.step h3 { margin:0 0 6px 0; }
+.step p { margin:0; color:#4A5568; font-size:28px; }
+.fragment { opacity:0; }
+.fragment.visible { opacity:1; }
+.ph { border:3px dashed #C9C2B0; border-radius:16px; background:#EFEBE1; display:flex; align-items:center; justify-content:center; padding:16px; box-sizing:border-box; flex-shrink:0; }
+.ph p { font-size:24px; color:#5E5848; text-align:center; margin:0; line-height:1.4; }
+.dark .ph { background:#1E2E52; border-color:#4A5F8F; }
+.dark .ph p { color:#BFCBDD; }
+.card .ph { margin:0 0 20px 0; }
+.code.sm { font-size:24px; line-height:1.5; padding:28px 32px; }
+.lbl { font-size:24px; font-weight:700; color:#A8530A; margin:0 0 10px 0; }
+.flow { display:flex; flex-direction:row; align-items:stretch; gap:12px; }
+.fbox { flex:1; background:#FFFDF8; border:2px solid #E2DDD0; border-radius:16px; padding:24px 20px; animation:rise .5s ease-out both; }
+.fbox h3 { font-size:30px; margin:0 0 8px 0; }
+.fbox p { font-size:24px; color:#4A5568; margin:0; line-height:1.4; }
+.fbox.hl { border:4px solid #F2A541; }
+.fa { font-size:40px; font-weight:900; color:#A8530A; align-self:center; }
+.mini { display:flex; flex-direction:row; gap:20px; align-items:flex-start; margin:0 0 18px 0; }
+.mini .num { width:60px; height:60px; border-radius:30px; font-size:28px; }
+.mini p { font-size:26px; margin:0; line-height:1.45; color:#14213D; padding-top:10px; }
+.arrow { font-size:48px; font-weight:900; color:#A8530A; align-self:center; }
+
+/* ===== viewer ===== */
+html,body{margin:0;height:100%;background:#0d1730;font-family:'Noto Sans KR',Arial,sans-serif}
+#app{display:flex;flex-direction:column;height:100%}
+#bar{display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;gap:12px;padding:8px 14px;background:#14213D;color:#F7F5EF;font-size:15px}
+#bar button,#bar select,#bar a{font:inherit;color:#F7F5EF;background:#1E2E52;border:1px solid #2E4270;border-radius:8px;padding:6px 12px;cursor:pointer;text-decoration:none}
+#bar button:focus-visible,#bar select:focus-visible,#bar a:focus-visible{outline:3px solid #F2A541}
+#bar .sp{flex:1}
+#count{min-width:72px;text-align:center}
+#practice{background:#F2A541!important;color:#14213D!important;border-color:#F2A541!important;font-weight:700}
+#practice[hidden]{display:none}
+#wrap{flex:1;position:relative;overflow:hidden}
+#scaler{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:50% 50%}
+#scaler>section{position:absolute;inset:0;width:1920px;height:1080px;box-sizing:border-box;overflow:hidden;display:none}
+#scaler>section.on{display:flex}
+#tm{font-variant-numeric:tabular-nums;font-weight:700;min-width:0}
+#tm.run{background:#F2A541;color:#14213D;border-radius:8px;padding:6px 10px}
+#tm.done{background:#C0392B;color:#fff;border-radius:8px;padding:6px 10px}
+#black{position:absolute;inset:0;background:#000;display:none;z-index:5;color:#777;align-items:center;justify-content:center;font-size:18px}
+#black.on{display:flex}
+#notes{display:none;background:#F7F5EF;color:#14213D;padding:10px 16px;font-size:16px;max-height:22vh;overflow:auto;border-top:3px solid #F2A541}
+#app.show-notes #notes{display:block}
+.tgrp{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+#bar>*{flex-shrink:0;white-space:nowrap}#bar .sp{flex-shrink:1}#sec{max-width:340px;flex-shrink:1}
+@media (max-width:700px){#bar{flex-wrap:wrap}#sec{max-width:46vw}.tgrp,#go,#fs,#nt{display:none}}
+</style></head>
+<body>
+<div id="app">
+ <div id="bar" role="toolbar" aria-label="슬라이드 조작">
+  <a id="home" href="/" title="사이트 홈">홈</a>
+  <button id="prev" aria-label="이전 슬라이드">◀</button>
+  <span id="count" aria-live="polite"></span>
+  <input id="go" type="number" min="1" inputmode="numeric" placeholder="번호" aria-label="슬라이드 번호로 이동" style="width:64px;font:inherit;padding:5px 6px;border-radius:8px;border:1px solid #2E4270;background:#F7F5EF;color:#14213D">
+  <button id="next" aria-label="다음 슬라이드">▶</button>
+  <select id="sec" aria-label="교시로 이동"></select>
+  <span class="sp"></span>
+  <span id="tm" aria-live="off" title="활동 타이머"></span>
+  <span class="tgrp"><input id="tmin" type="number" min="0.5" step="0.5" aria-label="타이머 분" style="width:56px;font:inherit;padding:5px 6px;border-radius:8px;border:1px solid #2E4270;background:#F7F5EF;color:#14213D"><span>분</span>
+  <button id="tmb" title="T">타이머</button></span>
+  <a id="practice" href="#" hidden>▶ 실습하기</a>
+  <button id="nt" aria-pressed="false" title="N">강사 노트</button>
+  <button id="fs" title="F">전체 화면</button>
+ </div>
+ <div id="wrap"><div id="black" aria-hidden="true">B 키로 돌아가기</div><div id="scaler">
+<section id="cover" class="dark" data-transition="fade">
+<p class="eyebrow">교사 대상 AI 활용 연수 · 3시간</p>
+<h1 style="width:1000px;font-size:88px">AI, 개념에서 실습까지<br>선생님의 첫<br>AI 도구 만들기</h1>
+<p class="lead" style="width:960px">LLM 개념 · 필수 용어 · ChatGPT Work와 Sites · 스킬·플러그인·MCP · 실습 3단계</p>
+<div data-asset="IMG-01" title="표지 일러스트 교무실 노트북과 AI 결과물" style="width:600px;height:600px;position:absolute;right:128px;top:240px;"><img src="/slides/assets/IMG-01_cover-hero.png" alt="교무실 책상 위 노트북 화면에서 말풍선·문서·앱 아이콘이 떠오르는 장면" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+<p class="note">[연수 일자] · [강사명] · [학교·기관명]</p>
+
+</section>
+<section id="agenda">
+<p class="eyebrow">오늘의 흐름</p>
+<h2>3교시, 개념 → 지도 → 실습</h2>
+<div class="cards">
+<div class="card"><p class="tag">1교시 · 50분</p><h3>LLM 개념과 용어</h3><p>챗봇·워크플로우·에이전트</p><p>퀴즈 앱으로 보는 프론트·백·DB·API</p></div>
+<div class="card d2"><p class="tag">2교시 · 50분</p><h3>AI 도구 지도</h3><p>Chat/Work/Code, Work·Sites</p><p>스킬·플러그인·MCP 적용</p></div>
+<div class="card hl d3"><p class="tag">3교시 · 50분</p><h3>ChatGPT 실습</h3><p>프롬프트 → 나만의 GPT → 웹 퀴즈</p><p>학생 수업 적용</p></div>
+</div>
+<p class="note">쉬는 시간 10분 × 2 · 준비물: 노트북, ChatGPT 계정, 내 업무 자료 1개(개인정보 제거)</p>
+
+</section>
+<section id="goal">
+<p class="eyebrow">오늘 가져갈 것</p>
+<h2>끝날 때 손에 남는 3가지</h2>
+<div class="cards">
+<div class="card"><p class="big">1</p><h3>나만의 업무 프롬프트</h3><p>5요소로 다듬은 지시문</p></div>
+<div class="card d2"><p class="big">2</p><h3>맞춤형 GPT</h3><p>반복 업무를 고정한 도구</p></div>
+<div class="card d3"><p class="big">3</p><h3>학생용 웹 퀴즈</h3><p>링크로 나눠 주는 MVP</p></div>
+</div>
+
+</section>
+<section id="s1" class="dark" data-transition="fade">
+<p class="eyebrow">1교시</p>
+<h1>LLM은<br>무엇이고, 어디까지 하나</h1>
+<p class="lead">능력은 같은 LLM, 달라지는 것은 ‘누가 다음 단계를 정하느냐’</p>
+
+</section>
+<section id="llm">
+<p class="eyebrow">LLM = 대규모 언어 모델</p>
+<h2>방대한 글을 학습해<br>‘다음에 올 말’을 예측하는 모델</h2>
+<div class="row">
+<div class="col"><h3>그래서 잘하는 것</h3><ul><li>글 쓰기·요약·번역</li><li>설명·질문 만들기</li><li>코드 작성</li></ul></div>
+<div class="col"><h3>그래서 조심할 것</h3><ul><li>그럴듯하게 틀린다(환각)</li><li>사실 확인은 사람 몫</li></ul></div>
+</div>
+
+</section>
+<section id="types">
+<p class="eyebrow">LLM을 쓰는 세 가지 방식</p>
+<h2>챗봇 · 워크플로우 · AI 에이전트</h2>
+<div class="cards">
+<div class="card"><div data-asset="IMG-02a" title="챗봇 아이콘" style="width:120px;height:120px;"><img src="/slides/assets/IMG-02a_chatbot.svg" alt="챗봇: 말풍선 2개" style="width:100%;height:100%;object-fit:contain;display:block"></div><p class="tag">사람이 매번 묻는다</p><h3>챗봇</h3><p>“수행평가 루브릭 초안 써줘”</p><p>→ ChatGPT 일반 채팅</p></div>
+<div class="card d2"><div data-asset="IMG-02b" title="워크플로우 아이콘" style="width:120px;height:120px;"><img src="/slides/assets/IMG-02b_workflow.svg" alt="워크플로우: 상자 3개가 일렬 화살표로 연결" style="width:100%;height:100%;object-fit:contain;display:block"></div><p class="tag">정해진 순서로 반복</p><h3>워크플로우</h3><p>설문 응답 → 요약 → 가정통신문 초안</p><p>→ 맞춤형 GPT, 예약 작업</p></div>
+<div class="card hl d3"><div data-asset="IMG-02c" title="에이전트 아이콘" style="width:120px;height:120px;"><img src="/slides/assets/IMG-02c_agent.svg" alt="에이전트: 작은 로봇 + 체크리스트" style="width:100%;height:100%;object-fit:contain;display:block"></div><p class="tag">AI가 스스로 계획</p><h3>AI 에이전트</h3><p>“현장체험 자료 조사해 안내문·체크리스트까지”</p><p>→ ChatGPT Work, Codex</p></div>
+</div>
+
+</section>
+<section id="limits">
+<p class="eyebrow">교사가 꼭 알아야 할 한계</p>
+<h2>4가지만 기억하기</h2>
+<table>
+<tr><th>한계</th><th>무슨 뜻인가</th><th>그래서 이렇게</th></tr>
+<tr><td><b>환각</b></td><td>없는 출처·법령·통계를 지어낸다</td><td>공문·수치는 원문 확인</td></tr>
+<tr><td><b>최신성</b></td><td>학습 이후 정보는 모른다</td><td>검색 기능 켜기</td></tr>
+<tr><td><b>개인정보</b></td><td>입력 내용이 외부 서버로 간다</td><td>학생 실명·성적 입력 금지</td></tr>
+<tr><td><b>책임</b></td><td>AI는 서명하지 않는다</td><td>최종 판단은 교사</td></tr>
+</table>
+
+</section>
+<section id="quiz" class="accent">
+<p class="eyebrow">현장 퀴즈 · 1분</p>
+<h2>“매주 금요일, 주간학습안내를<br>같은 양식으로 만든다”</h2>
+<p class="lead">챗봇? 워크플로우? 에이전트?</p>
+<p class="lead fragment" style="color:#A8530A;font-weight:900">정답: 워크플로우 — 순서와 양식이 고정된 반복 업무</p>
+
+</section>
+<section id="terms1">
+<p class="eyebrow">필수 용어 ① 식당으로 비유하면</p>
+<h2>만드는 것의 구조</h2>
+<div class="cards">
+<div class="card"><p class="tag">홀 · 메뉴판</p><h3>프론트엔드</h3><p>사용자가 보고 누르는 화면</p></div>
+<div class="card d2"><p class="tag">주방</p><h3>백엔드</h3><p>보이지 않는 곳에서 처리·저장</p></div>
+<div class="card d3"><p class="tag">창고 · 장부</p><h3>데이터베이스</h3><p>자료를 정리해 두는 저장소</p></div>
+<div class="card d4"><p class="tag">주문서 양식</p><h3>API</h3><p>프로그램끼리 요청·응답하는 창구</p></div>
+</div>
+<div data-asset="IMG-03" title="식당 단면도 일러스트: 홀 · 주문서 · 주방 · 창고" style="width:1664px;height:220px;margin-top:32px;"><img src="/slides/assets/IMG-03_restaurant.png" alt="식당 단면도 4칸: 홀(손님·메뉴판)=프론트엔드, 주문서=API, 주방=백엔드, 창고·장부=DB" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+<p class="note">예: 퀴즈 웹페이지의 버튼(프론트) · 채점·저장(백엔드) · 제출 기록(DB)</p>
+
+</section>
+<section id="terms2">
+<p class="eyebrow">필수 용어 ② 만들고 내보내기</p>
+<h2>작게 만들고, 링크로 나눈다</h2>
+<table>
+<tr><th>용어</th><th>뜻</th><th>학교 예시</th></tr>
+<tr><td><b>MVP</b></td><td>핵심 기능만 넣은 최소 시제품</td><td>5문항 퀴즈로 먼저 수업해 보기</td></tr>
+<tr><td><b>PWA</b></td><td>앱처럼 설치되는 웹페이지</td><td>폰 홈 화면의 학급 알림장</td></tr>
+<tr><td><b>배포</b></td><td>인터넷 주소로 공개</td><td>링크를 학생에게 공유</td></tr>
+<tr><td><b>프롬프트</b></td><td>AI에게 주는 지시문</td><td>“고1 수준, 10문항, 표로”</td></tr>
+<tr><td><b>컨텍스트</b></td><td>AI가 한 번에 참고하는 자료</td><td>첨부한 교육과정 문서</td></tr>
+<tr><td><b>토큰</b></td><td>AI가 글을 세는 단위(사용량)</td><td>긴 문서일수록 많이 소모</td></tr>
+</table>
+
+</section>
+<section id="submit-flow">
+<p class="eyebrow">용어 실전 · 퀴즈 앱 뜯어보기</p>
+<h2>[제출]을 누른 0.5초 동안 일어나는 일</h2>
+<div class="flow">
+<div class="fbox"><p class="tag">프론트엔드</p><h3>① 학생 화면</h3><p>고른 답 ③을 읽는다</p></div>
+<p class="fa">→</p>
+<div class="fbox d2"><p class="tag">API 요청</p><h3>② 주문서</h3><p>{문제:1, 답:3}을 서버로</p></div>
+<p class="fa">→</p>
+<div class="fbox d3"><p class="tag">백엔드</p><h3>③ 채점</h3><p>정답은 서버에만 있다</p></div>
+<p class="fa">→</p>
+<div class="fbox d4"><p class="tag">데이터베이스</p><h3>④ 기록</h3><p>언제·몇 번·맞았나 한 줄</p></div>
+<p class="fa">→</p>
+<div class="fbox hl d4"><p class="tag">API 응답</p><h3>⑤ 힌트</h3><p>화면에 결과 표시</p></div>
+</div>
+<div data-asset="VID-01" title="제출 흐름 모션 15초: 점이 화살표를 따라 이동하고 DB에 한 줄이 추가됨" style="width:1664px;height:260px;margin-top:40px;"><video src="/slides/assets/VID-01_submit-flow.mp4" poster="/slides/assets/VID-01_poster.png" muted loop autoplay playsinline aria-label="제출 버튼을 누르면 요청이 서버로 가 채점되고 DB에 한 줄이 추가된 뒤 힌트가 돌아오는 15초 애니메이션" style="width:100%;height:100%;object-fit:contain"></video></div>
+
+</section>
+<section id="code-front-back">
+<p class="eyebrow">용어 실전 · 실제 코드는 이렇게 생겼다</p>
+<h2>같은 기능, 화면 쪽과 서버 쪽</h2>
+<div class="row" style="gap:32px">
+<div class="col"><p class="lbl">① 프론트엔드 · 학생 브라우저에서 실행</p>
+<p class="code sm">submit.onclick = async () =&gt; {<br>  const res = await fetch('/api/submit', {<br>    method: 'POST',<br>    body: JSON.stringify({ question: 1, answer })<br>  });<br>  const result = await res.json();<br>  alert(result.hint);<br>};</p></div>
+<div class="col"><p class="lbl">③ 백엔드 · 서버에서 실행</p>
+<p class="code sm">const ANSWERS = { 1: '3' };  <span class="c">// 정답은 서버에만</span><br>export default async (req) =&gt; {<br>  const { question, answer } = await req.json();<br>  const correct = ANSWERS[question] === answer;<br>  await db.insert('submissions', { ... });  <span class="c">// ④</span><br>  return Response.json({ correct, hint });<br>};</p></div>
+</div>
+<p class="lbl" style="margin-top:28px">④ 데이터베이스 · submissions 표</p>
+<table class="sm"><tr><th>id</th><th>question</th><th>answer</th><th>correct</th><th>at</th></tr>
+<tr><td>101</td><td>1</td><td>3</td><td>true</td><td>09:12</td></tr>
+<tr><td>102</td><td>1</td><td>2</td><td>false</td><td>09:12</td></tr></table>
+
+</section>
+<section id="neis-api">
+<p class="eyebrow">이미 쓰고 있는 API</p>
+<h2>나이스 급식 식단도 API로 온다</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<p>나이스 교육정보 개방 포털(open.neis.go.kr)은 급식·학사일정·시간표를 API로 제공한다.</p>
+<p class="code sm">open.neis.go.kr/hub/mealServiceDietInfo<br>  ?Type=json<br>  &amp;ATPT_OFCDC_SC_CODE=<span class="c">[교육청]</span><br>  &amp;SD_SCHUL_CODE=<span class="c">[학교]</span><br>  &amp;MLSV_YMD=<span class="c">20261124</span></p>
+<p class="sub" style="margin-top:20px">→ “오늘 급식 알려주는 학급 페이지” = 이 API를 부르는 프론트엔드</p>
+</div>
+<div class="ph" data-asset="IMG-04" title="나이스 API 안내 화면 + 브라우저의 JSON 결과" style="width:720px;height:520px;"><p>[IMG-04]<br>나이스 API 안내 화면 +<br>브라우저의 JSON 결과</p></div>
+</div>
+
+</section>
+<section id="build-choice">
+<p class="eyebrow">만들 때 고르는 법</p>
+<h2>무엇이 필요하냐에 따라 구성이 달라진다</h2>
+<table>
+<tr><th>필요한 것</th><th>구성</th><th>ChatGPT에서</th></tr>
+<tr><td>보여주기만 (안내 페이지, 자가 채점 퀴즈)</td><td>프론트엔드만</td><td>캔버스 HTML 파일</td></tr>
+<tr><td>기록을 모아야 (제출, 투표, 설문)</td><td>프론트 + 백엔드 + DB</td><td>Sites (저장·DB 포함)</td></tr>
+<tr><td>다른 서비스 자료 (급식, 날씨)</td><td>프론트 + 외부 API</td><td>Sites 또는 Codex</td></tr>
+</table>
+<p class="lead" style="margin-top:48px">코드를 몰라도 <b>용어로 요청</b>하면 결과가 달라진다<br><span class="sub">“제출 기록은 저장해 줘(DB)” · “정답은 서버에만 둬(백엔드)”</span></p>
+
+</section>
+<section id="s2" class="dark" data-transition="fade">
+<p class="eyebrow">2교시</p>
+<h1>AI 도구 지도<br>Chat · Work · Code</h1>
+<p class="lead">주요 AI는 모두 ‘대화 · 일 맡기기 · 코딩’ 3층으로 정리된다</p>
+
+</section>
+<section id="cwc">
+<p class="eyebrow">결과물로 구분하기</p>
+<h2>무엇을 받고 싶은가?</h2>
+<div class="cards">
+<div class="card"><div data-asset="IMG-05a" title="Chat 아이콘" style="width:120px;height:120px;"><img src="/slides/assets/IMG-05a_chat.svg" alt="Chat: 말풍선" style="width:100%;height:100%;object-fit:contain;display:block"></div><p class="tag">묻고 답하기</p><h3>Chat</h3><p>결과물: 답변·초안 텍스트</p><p>발문 아이디어, 가정통신문 초안</p></div>
+<div class="card d2"><div data-asset="IMG-05b" title="Work 아이콘" style="width:120px;height:120px;"><img src="/slides/assets/IMG-05b_work.svg" alt="Work: 서류 + 톱니" style="width:100%;height:100%;object-fit:contain;display:block"></div><p class="tag">목표를 주고 맡기기</p><h3>Work</h3><p>결과물: 문서·슬라이드·표·사이트</p><p>수업 슬라이드, 평가 결과 정리</p></div>
+<div class="card d3"><div data-asset="IMG-05c" title="Code 아이콘" style="width:120px;height:120px;"><img src="/slides/assets/IMG-05c_code.svg" alt="Code: &lt;/> 괄호" style="width:100%;height:100%;object-fit:contain;display:block"></div><p class="tag">코드를 짜고 실행</p><h3>Code</h3><p>결과물: 동작하는 프로그램</p><p>퀴즈 앱, 자리배치 도구, 학급 PWA</p></div>
+</div>
+<p class="note">ChatGPT도 2026년 7월 ChatGPT Work를 내놓으며 Chat · Work · Codex를 한 앱에 묶었다</p>
+
+</section>
+<section id="map">
+<p class="eyebrow">상용 AI 지도 · 2026년 11월 기준</p>
+<h2>서비스별 Chat / Work / Code</h2>
+<table>
+<tr><th>서비스</th><th>Chat</th><th>Work</th><th>Code</th><th>학교에서 강점</th></tr>
+<tr><td><b>ChatGPT</b></td><td>채팅, GPTs, 프로젝트</td><td>ChatGPT Work, Sites</td><td>Codex</td><td>가장 익숙함</td></tr>
+<tr><td><b>Claude</b></td><td>채팅</td><td>Cowork</td><td>Claude Code</td><td>긴 문서, 스킬·MCP</td></tr>
+<tr><td><b>Gemini</b></td><td>Gemini, NotebookLM</td><td>Workspace 연동</td><td>코딩 도구</td><td>구글 클래스룸·드라이브</td></tr>
+<tr><td><b>Copilot</b></td><td>Copilot 채팅</td><td>M365 안에서</td><td>GitHub Copilot</td><td>오피스 문서</td></tr>
+<tr><td><b>Perplexity</b></td><td>검색형 채팅</td><td>—</td><td>—</td><td>출처 달린 조사</td></tr>
+</table>
+<p class="note">기능과 요금제는 자주 바뀜 · 연수 전날 실제 화면으로 확인</p>
+
+</section>
+<section id="same">
+<p class="eyebrow">시연 · 같은 요청, 3층 비교</p>
+<h2>“기후변화 단원 평가를 도와줘”</h2>
+<div class="row" style="align-items:stretch">
+<div class="card"><p class="tag">Chat</p><h3>문항 10개 초안</h3><p>텍스트로 받는다</p></div>
+<p class="arrow">→</p>
+<div class="card d2"><p class="tag">Work</p><h3>평가지 파일</h3><p>문항·정답표·루브릭 문서</p></div>
+<p class="arrow">→</p>
+<div class="card hl d3"><p class="tag">Code</p><h3>퀴즈 웹페이지</h3><p>학생이 풀면 바로 채점</p></div>
+</div>
+
+</section>
+<section id="work-what">
+<p class="eyebrow">ChatGPT Work · 2026년 7월 출시</p>
+<h2>목표를 주면 단계를 나눠 완성물까지</h2>
+<div class="row" style="gap:40px">
+<table class="sm" style="flex:1">
+<tr><th>항목</th><th>내용</th></tr>
+<tr><td><b>어디서</b></td><td>웹·모바일 Work, 데스크톱 앱 Work 탭</td></tr>
+<tr><td><b>누가</b></td><td>웹: Pro·Edu 우선 → Plus·Business<br>데스크톱 앱: Free 포함 전 요금제</td></tr>
+<tr><td><b>자료 연결</b></td><td>플러그인, 프롬프트에 @앱이름</td></tr>
+<tr><td><b>결과물</b></td><td>문서·슬라이드·시트·Sites</td></tr>
+<tr><td><b>사람 역할</b></td><td>질문에 답하기, 방향 수정, 중요한 동작 승인</td></tr>
+<tr><td><b>예약 작업</b></td><td>한 번 / 반복 / 이벤트 / 변화 감시</td></tr>
+</table>
+<div class="ph" data-asset="IMG-06" title="ChatGPT 앱의 Chat · Work · Codex 탭 화면" style="width:640px;height:480px;"><p>[IMG-06]<br>ChatGPT 앱의<br>Chat · Work · Codex 탭 화면</p></div>
+</div>
+
+</section>
+<section id="work-trace">
+<p class="eyebrow">Work 안에서 실제로 일어나는 일</p>
+<h2>“현장체험 계획서로 통신문·체크리스트·시간표 만들어 줘”</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<div class="mini"><div class="num">1</div><p><b>계획</b> 할 일 4개를 화면에 적는다</p></div>
+<div class="mini"><div class="num">2</div><p><b>플러그인</b> @Google Drive 검색 → 파일 2개 읽기</p></div>
+<div class="mini"><div class="num">3</div><p><b>질문</b> “집합 시각이 두 개입니다. 8:30? 8:50?”</p></div>
+<div class="mini"><div class="num">4</div><p><b>생성</b> 통신문(문서)·체크리스트(표)·시간표(슬라이드)</p></div>
+<div class="mini"><div class="num">5</div><p><b>점검</b> 날짜·금액을 계획서와 대조</p></div>
+<div class="mini"><div class="num">6</div><p><b>승인</b> “드라이브에 저장할까요?”</p></div>
+</div>
+<div class="ph" data-asset="VID-02" title="Work 진행 화면 녹화 60초 계획 → 검색 → 질문 → 생성 → 승인" style="width:680px;height:520px;"><p>[VID-02]<br>Work 진행 화면 녹화 60초<br>계획 → 검색 → 질문 → 생성 → 승인</p></div>
+</div>
+
+</section>
+<section id="work-scenarios">
+<p class="eyebrow">학교 업무 시나리오 · 그대로 써 보기</p>
+<h2>Work에 맡길 만한 일</h2>
+<div class="cards">
+<div class="card"><p class="tag">평가</p><h3>수행평가 패키지</h3><p>“계획서로 루브릭 표, 학생 안내문, 채점 시트 템플릿을 만들어 줘.”</p></div>
+<div class="card d2"><p class="tag">분석</p><h3>설문 → 발표 자료</h3><p>“설문 엑셀을 분석해 학부모 설명회용 슬라이드 8장, 그래프 포함.”</p></div>
+<div class="card hl d3"><p class="tag">예약 작업</p><h3>매주 자동 초안</h3><p>“매주 금요일 15시, @Google Drive의 다음 주 학사 일정으로 주간학습안내 초안.”</p></div>
+</div>
+<p class="note">학교 계정 연결 시 학생 개인정보가 있는 폴더는 연결 범위에서 뺀다</p>
+
+</section>
+<section id="sites-what">
+<p class="eyebrow">ChatGPT Sites · 공개 베타</p>
+<h2>말로 설명하면 주소가 있는 웹사이트로</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<ul style="font-size:30px"><li>호스팅·접근 권한·저장소·DB 포함 → 프론트+백+DB+배포를 한 번에</li><li>Work(웹) 또는 Work·Codex(데스크톱)에서 <b>@Sites</b></li><li>Free·Go 제외 유료 요금제, 사용량 한도 있음</li><li>공개 범위: 나만 → 지정한 사람 → 워크스페이스 → 인터넷</li></ul>
+</div>
+<div class="ph" data-asset="IMG-07" title="Sites 미리보기: 형성평가 퀴즈 사이트(폰 화면 포함)" style="width:680px;height:500px;"><p>[IMG-07]<br>Sites 미리보기:<br>형성평가 퀴즈 사이트(폰 화면 포함)</p></div>
+</div>
+
+</section>
+<section id="sites-steps">
+<p class="eyebrow">Sites 만들기부터 공유까지</p>
+<h2>7단계</h2>
+<div class="row" style="gap:40px">
+<ol style="flex:1;font-size:28px;line-height:1.5">
+<li>Work에서 “@Sites …을 만들어 줘”</li>
+<li>비공개 미리보기 생성</li>
+<li>눌러 보며 테스트(폰 화면 포함)</li>
+<li>한 가지씩 수정 요청</li>
+<li>배포 → 주소 생성(아직 나만)</li>
+<li>공유에서 공개 범위 선택</li>
+<li>동료에게 ‘편집 가능’ 권한</li>
+</ol>
+<div class="col" style="flex:0 0 640px;gap:24px">
+<div class="ph" data-asset="VID-03" title="Sites 제작 → 배포 → 공유 녹화 60초" style="width:640px;height:300px;"><p>[VID-03]<br>Sites 제작 → 배포 → 공유 녹화 60초</p></div><div class="ph" data-asset="IMG-08" title="공유(Share) 창: 공개 범위 선택" style="width:640px;height:220px;margin-top:24px;"><p>[IMG-08]<br>공유(Share) 창: 공개 범위 선택</p></div>
+</div>
+</div>
+
+</section>
+<section id="sites-examples">
+<p class="eyebrow">학교에서 바로 쓸 Site</p>
+<h2>프롬프트 한 줄로 시작</h2>
+<table class="sm">
+<tr><th>Site</th><th>프롬프트 예</th><th>쓰는 기능</th></tr>
+<tr><td><b>형성평가 퀴즈</b></td><td>“@Sites 이 문항 5개로 퀴즈, 문항별 오답률은 교사만 보게”</td><td>프론트 + DB + 권한</td></tr>
+<tr><td><b>동아리 모집</b></td><td>“소개·활동 사진·지원 양식이 있는 페이지”</td><td>프론트 + 제출 저장</td></tr>
+<tr><td><b>학급 알림판</b></td><td>“주간 일정·준비물 페이지, 내가 매주 수정”</td><td>프론트 + 교사 편집</td></tr>
+<tr><td><b>투표·설문</b></td><td>“체험학습 장소 3곳 투표, 결과는 막대그래프”</td><td>프론트 + DB + 집계</td></tr>
+<tr><td><b>교무실 포털</b></td><td>“학기 일정·양식 링크·담당자 모음 내부 페이지”</td><td>워크스페이스 한정</td></tr>
+</table>
+<p class="note">공개 전: 학생 실명·성적 없음 · 입력받는 정보 안내 · 저작권 자료 확인 · 인터넷 전체 공개는 마지막 선택</p>
+
+</section>
+<section id="skillmcp">
+<p class="eyebrow">스킬과 MCP</p>
+<h2>‘어떻게’는 스킬, ‘무엇에 접근’은 MCP</h2>
+<div class="cards">
+<div class="card"><div data-asset="IMG-09a" title="매뉴얼 책 일러스트" style="width:160px;height:120px;"><img src="/slides/assets/IMG-09a_manual.svg" alt="업무 매뉴얼 책" style="width:100%;height:100%;object-fit:contain;display:block"></div><p class="tag">업무 매뉴얼</p><h3>스킬 (Skill)</h3><p>지시문·예시·양식을 담은 폴더</p><p>매번 설명 없이 같은 품질로 반복</p><p>예: “우리 학교 가정통신문 양식·말투로”</p></div>
+<div class="card d2"><div data-asset="IMG-09b" title="USB-C와 서비스들" style="width:160px;height:120px;"><img src="/slides/assets/IMG-09b_usbc.svg" alt="USB-C 단자에서 여러 서비스 아이콘으로 선이 뻗음(로고 아님, 일반 아이콘)" style="width:100%;height:100%;object-fit:contain;display:block"></div><p class="tag">USB-C 단자</p><h3>MCP</h3><p>AI와 외부 서비스를 잇는 공개 표준</p><p>드라이브·캘린더·노션 등을 읽고 쓰기</p><p>예: “평가 계획서 읽고 캘린더에 일정 등록”</p></div>
+</div>
+<p class="note">ChatGPT: 스킬 · 앱(옛 커넥터) · 플러그인(둘을 묶은 설치 단위) / Claude: 스킬 · 커넥터 · 플러그인</p>
+
+</section>
+<section id="compare3">
+<p class="eyebrow">헷갈리는 세 가지 (ChatGPT 기준)</p>
+<h2>맞춤형 GPT · 스킬 · 플러그인</h2>
+<table>
+<tr><th></th><th>맞춤형 GPT</th><th>스킬</th><th>플러그인</th></tr>
+<tr><td><b>무엇</b></td><td>목적별 ChatGPT</td><td>작업 절차서(SKILL.md)</td><td>스킬 + 앱(MCP) 묶음</td></tr>
+<tr><td><b>부르는 법</b></td><td>GPT를 골라 대화</td><td>자동 또는 @스킬명</td><td>자동 또는 @플러그인명</td></tr>
+<tr><td><b>쓰는 곳</b></td><td>그 GPT 안에서만</td><td>Chat·Work·Codex, 다른 AI</td><td>Chat·Work·Codex</td></tr>
+<tr><td><b>교사 예</b></td><td>형성평가 출제 도우미</td><td>가정통신문 작성</td><td>구글 드라이브, 교사용 플러그인</td></tr>
+</table>
+
+</section>
+<section id="plugin-install">
+<p class="eyebrow">적용 ① 플러그인 설치 = MCP 연결</p>
+<h2>구글 드라이브를 ChatGPT에 연결하기</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<div class="mini"><div class="num">1</div><p>사이드바 <b>Plugins</b> → “Google Drive” 검색</p></div>
+<div class="mini"><div class="num">2</div><p>포함된 앱·스킬·권한 확인 (OpenAI Verified 우선)</p></div>
+<div class="mini"><div class="num">3</div><p><b>설치·연결</b> → 구글 로그인 → 권한 허용</p></div>
+<div class="mini"><div class="num">4</div><p>새 채팅: “@Google Drive 에서 평가 계획서 찾아 요약해 줘”</p></div>
+<div class="mini"><div class="num">5</div><p>해제는 설정 → Plugins</p></div>
+</div>
+<div class="ph" data-asset="IMG-10" title="플러그인 디렉터리 → 상세 → 연결 버튼 (3컷 합성)" style="width:680px;height:500px;"><p>[IMG-10]<br>플러그인 디렉터리 → 상세 → 연결 버튼<br>(3컷 합성)</p></div>
+</div>
+
+</section>
+<section id="mcp-trace">
+<p class="eyebrow">MCP가 실제로 오가는 모습</p>
+<h2 style="font-size:52px">“@Google Calendar 다음 주 화요일 15시에 협의회 등록해 줘”</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<div class="mini"><div class="num">1</div><p>캘린더가 주는 도구 목록 확인</p></div>
+<div class="mini"><div class="num">2</div><p>‘일정 만들기’ 도구 선택, 요청 작성</p></div>
+<div class="mini"><div class="num">3</div><p>쓰기 동작이라 <b>사람 승인</b></p></div>
+<div class="mini"><div class="num">4</div><p>결과 받아 “등록했습니다”</p></div>
+<p class="code sm" style="margin-top:12px">→ create_event { title: "1학년 협의회",<br>    start: "2026-12-01T15:00" }<br>← { status: "confirmed", link: "…" }</p>
+</div>
+<div class="ph" data-asset="IMG-11" title="일정 등록 전 승인 요청 카드" style="width:520px;height:380px;"><p>[IMG-11]<br>일정 등록 전<br>승인 요청 카드</p></div>
+</div>
+<p class="note">1교시 API와 같은 원리 · 차이는 어떤 도구를 언제 부를지 AI가 고른다는 것</p>
+
+</section>
+<section id="skill-make">
+<p class="eyebrow">적용 ② 스킬 만들기</p>
+<h2>“가정통신문 작성 스킬을 만들어 줘”</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<div class="mini"><div class="num">1</div><p>채팅에 한 줄 요청 → 기본 스킬 <b>skill-creator</b> 작동</p></div>
+<div class="mini"><div class="num">2</div><p>입력 항목·순서·말투·점검 기준 질문에 답하기</p></div>
+<div class="mini"><div class="num">3</div><p>예전 통신문 1–2개 업로드 → 품질 상승</p></div>
+<div class="mini"><div class="num">4</div><p>SKILL.md 확인 후 설치</p></div>
+<div class="mini"><div class="num">5</div><p>“결업식 통신문 써 줘” → 자동 적용(또는 @스킬명)</p></div>
+</div>
+<div class="ph" data-asset="IMG-12" title="skill-creator와의 대화 화면" style="width:680px;height:500px;"><p>[IMG-12]<br>skill-creator와의 대화 화면</p></div>
+</div>
+<p class="note">채팅 속 개인 스킬: Business·Enterprise·Edu(관리자 활성화) · 개인 Free·Plus·Pro는 불가</p>
+
+</section>
+<section id="skill-md">
+<p class="eyebrow">스킬의 정체 · 폴더 하나</p>
+<h2>SKILL.md 실제 예시</h2>
+<div class="row" style="gap:32px">
+<div class="col" style="flex:0 0 560px">
+<p class="code sm">school-newsletter/<br>├ SKILL.md  <span class="c">← 필수</span><br>├ assets/template.docx<br>└ references/examples.md</p>
+<div data-asset="IMG-13" title="스킬 폴더 구조 도식" style="width:560px;height:300px;margin-top:24px;"><img src="/slides/assets/IMG-13_skill-folder.svg" alt="스킬 폴더 구조: school-newsletter/ 아래 SKILL.md(필수), assets/template.docx, references/examples.md 파일 카드" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+</div>
+<p class="code sm" style="flex:1">---<br>name: school-newsletter<br>description: ○○고 가정통신문을 학교 양식·<br>  공문체로 작성. “가정통신문” 요청에 사용<br>---<br><span class="c"># 필요한 입력</span><br>행사명, 일시, 장소, 대상, 준비물, 회신 여부<br><span class="c"># 절차</span><br>1. 빠진 입력은 먼저 묻는다<br>2. assets/template.docx 양식을 따른다<br><span class="c"># 끝내기 전 점검</span><br>날짜·요일 일치, 학생 개인정보 없음</p>
+</div>
+<p class="note">AI는 평소 이름과 설명만 알고 있다가, 요청이 맞으면 본문을 열어 따른다 → description이 핵심</p>
+
+</section>
+<section id="rec-mcp">
+<p class="eyebrow">꼭 써 볼 MCP · 앱/커넥터</p>
+<h2>교사에게 효과 큰 연결 7가지</h2>
+<table class="sm">
+<tr><th>이름</th><th>할 수 있는 일</th><th>교사 활용 예</th></tr>
+<tr><td><b>Google Drive</b></td><td>문서·시트·슬라이드 검색·읽기·만들기</td><td>평가 계획서 → 안내문</td></tr>
+<tr><td><b>Google Calendar</b></td><td>일정 조회·등록</td><td>학사 일정 → 주간학습안내</td></tr>
+<tr><td><b>Gmail</b></td><td>메일 검색·초안</td><td>공문 메일 요약, 회신 초안</td></tr>
+<tr><td><b>Canva</b></td><td>디자인 생성·편집</td><td>행사 포스터, 카드뉴스</td></tr>
+<tr><td><b>Notion</b></td><td>페이지·DB 읽기·쓰기</td><td>수업 기록, 업무 일지</td></tr>
+<tr><td><b>Outlook·Teams·SharePoint</b></td><td>메일·팀즈·문서(각각 별도)</td><td>MS 환경 학교용</td></tr>
+<tr><td><b>GitHub</b></td><td>코드 저장·배포</td><td>정보 수업, 웹앱 관리</td></tr>
+</table>
+<div data-asset="IMG-14" title="서비스 로고 7개 한 줄" style="width:1664px;height:90px;margin-top:24px;"><img src="/slides/assets/IMG-14_logos-row.png" alt="Google Drive·Calendar·Gmail·Canva·Notion·Outlook·Teams·SharePoint·GitHub 공식 로고를 한 줄로 합성한 그림" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+
+</section>
+<section id="rec-skill">
+<p class="eyebrow">꼭 써 볼 스킬</p>
+<h2>기본 2개 + 직접 만들 3개</h2>
+<table>
+<tr><th>스킬</th><th>하는 일</th><th>구하는 곳</th></tr>
+<tr><td><b>skill-creator</b></td><td>대화로 새 스킬을 만들고 고침</td><td>ChatGPT·Claude 기본</td></tr>
+<tr><td><b>문서 스킬</b></td><td>워드·PPT·엑셀·PDF 양식대로</td><td>Claude 기본 / ChatGPT Work 내장</td></tr>
+<tr><td><b>가정통신문</b></td><td>학교 양식·공문체</td><td>직접 제작(앞 예시)</td></tr>
+<tr><td><b>형성평가 출제</b></td><td>성취기준·해설·루브릭</td><td>3교시 GPT를 스킬로</td></tr>
+<tr><td><b>주간학습안내</b></td><td>학사 일정 → 고정 양식</td><td>캘린더 MCP와 함께</td></tr>
+</table>
+<p class="note">참고: OpenAI K–12 교사용 플러그인은 ChatGPT Edu·ChatGPT for Teachers(미국 K–12 교사) 환경 한정</p>
+
+</section>
+<section id="demo3">
+<p class="eyebrow">연수 중 시연 · 각 3분</p>
+<h2>눈으로 확인하는 스킬과 MCP</h2>
+<div class="cards">
+<div class="card"><div class="ph" data-asset="IMG-15a" title="시험 범위 안내문 결과" style="width:420px;height:240px;"><p>[IMG-15a]<br>시험 범위 안내문 결과</p></div><p class="tag">드라이브 MCP</p><h3>계획서 → 안내문</h3><p>검색 → 읽기 → 작성 기록 보기</p></div>
+<div class="card d2"><div class="ph" data-asset="IMG-15b" title="스킬 전후 비교" style="width:420px;height:240px;"><p>[IMG-15b]<br>스킬 전후 비교</p></div><p class="tag">스킬</p><h3>있을 때 vs 없을 때</h3><p>양식·말투·질문의 차이</p></div>
+<div class="card d3"><div class="ph" data-asset="IMG-15c" title="Canva 포스터 초안" style="width:420px;height:240px;"><p>[IMG-15c]<br>Canva 포스터 초안</p></div><p class="tag">Canva 연결</p><h3>포스터 초안 3개</h3><p>채팅에서 만들고 Canva에서 편집</p></div>
+</div>
+
+</section>
+<section id="skillnote">
+<p class="eyebrow">입문자를 위한 정리</p>
+<h2>처음엔 만들기보다 써 보기부터</h2>
+<div class="step"><div class="num">1</div><div><h3>플러그인 하나 연결</h3><p>구글 드라이브나 캘린더 하나로 MCP를 체감</p></div></div>
+<div class="step d2"><div class="num">2</div><div><h3>스킬은 skill-creator에게</h3><p>“방금 한 작업을 스킬로 만들어 줘” 한 줄이면 시작</p></div></div>
+<div class="step d3"><div class="num">3</div><div><h3>무료 계정은 GPT 지침·프로젝트로</h3><p>같은 원리(고정된 지침)를 체험</p></div></div>
+<div class="step d4"><div class="num">4</div><div><h3>학교 계정 연결 전 보안 지침 확인</h3><p>학생 개인정보 폴더는 연결 범위에서 제외</p></div></div>
+
+</section>
+<section id="match">
+<h2 style="margin-bottom:28px">활동 · 학교 업무 ↔ 알맞은 AI 짝짓기</h2>
+<table class="sm">
+<tr><th>학교 업무</th><th>결과물</th><th>층</th><th>도구(예)</th></tr>
+<tr><td>가정통신문·안내문 초안</td><td>텍스트</td><td>Chat</td><td>ChatGPT</td></tr>
+<tr><td>수업 발문·활동 아이디어</td><td>텍스트</td><td>Chat</td><td>ChatGPT, Claude</td></tr>
+<tr><td>교과서·연수 자료 요약·질문</td><td>요약</td><td>Chat</td><td>NotebookLM</td></tr>
+<tr><td>최신 정책·진학 정보 조사</td><td>출처 요약</td><td>Chat</td><td>Perplexity, ChatGPT 검색</td></tr>
+<tr><td>수행평가 루브릭 + 평가지</td><td>문서 파일</td><td>Work</td><td>ChatGPT Work, Claude Cowork</td></tr>
+<tr><td>연수·수업 슬라이드</td><td>슬라이드</td><td>Work</td><td>ChatGPT Work, Claude</td></tr>
+<tr><td>성적·설문 결과 정리</td><td>표·그래프</td><td>Work</td><td>ChatGPT Work, Copilot in Excel</td></tr>
+<tr><td>클래스룸·드라이브 자료 정리</td><td>문서·폴더</td><td>Work</td><td>Gemini(Workspace)</td></tr>
+<tr><td>주간학습안내 매주 반복</td><td>같은 양식</td><td>Work+스킬</td><td>맞춤형 GPT, 스킬</td></tr>
+<tr><td>학생용 퀴즈·단어장 웹앱</td><td>링크</td><td>Code</td><td>Codex, ChatGPT Sites</td></tr>
+<tr><td>동아리·학급 알림 PWA</td><td>앱</td><td>Code</td><td>Codex, Claude Code</td></tr>
+</table>
+
+</section>
+<section id="flow" class="accent">
+<p class="eyebrow">판단 흐름</p>
+<h1 style="font-size:80px">답만 필요하면 <span style="color:#14213D">Chat</span><br>파일이 필요하면 Work<br>학생이 쓸 도구면 Code</h1>
+<p class="lead">같은 일을 매주 한다면 → 스킬·맞춤형 GPT로 고정</p>
+
+</section>
+<section id="student">
+<p class="eyebrow">고등학생과 LLM으로 수업한다면</p>
+<h2>AI가 대신하는 수업이 아니라<br>AI의 답을 검증하는 수업</h2>
+<div class="row" style="gap:40px">
+<div class="col"><h3>수업 전 체크</h3><ul style="font-size:28px"><li>서비스 연령 기준·보호자 동의</li><li>학교·교육청 생성형 AI 지침</li><li>운영: 교사 시연 / 모둠 계정 / 교육용 플랫폼</li><li>‘AI 사용 표시’ 규칙</li></ul></div>
+<div class="col"><h3>1차시 흐름(50분)</h3><ul style="font-size:28px"><li>도입 5분: AI 한계 사례</li><li>AI 사용 15분</li><li>검증·수정 20분</li><li>성찰 10분: 틀린 점, 바꾼 점</li></ul></div>
+<div data-asset="IMG-16" title="모둠 수업 장면 (얼굴 식별 불가)" style="width:480px;height:400px;"><img src="/slides/assets/IMG-16_classroom.png" alt="모둠 학생들이 노트북으로 AI 답을 검증하는 수업 장면(뒷모습·실루엣, 얼굴 식별 불가)" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+</div>
+
+</section>
+<section id="subjects">
+<p class="eyebrow">교과별 아이디어</p>
+<h2>AI의 역할 · 학생이 하는 일</h2>
+<table class="sm">
+<tr><th>교과</th><th>수업 아이디어</th><th>AI 역할</th><th>학생이 하는 일</th></tr>
+<tr><td><b>국어</b></td><td>AI 설득문 고쳐 쓰기</td><td>초안 제공</td><td>논지 오류 찾기, 근거 보강</td></tr>
+<tr><td><b>영어</b></td><td>AI와 역할극 대화</td><td>대화 상대</td><td>표현 기록, 피드백 비교</td></tr>
+<tr><td><b>수학</b></td><td>AI 풀이의 오류 찾기</td><td>틀릴 수 있는 풀이</td><td>단계별 검증</td></tr>
+<tr><td><b>사회</b></td><td>여러 AI 답 비교</td><td>관점 제시</td><td>편향·출처 검증</td></tr>
+<tr><td><b>과학</b></td><td>실험 설계 피드백</td><td>조언자</td><td>실험 후 AI 예측과 비교</td></tr>
+<tr><td><b>정보</b></td><td>말로 웹앱 MVP 만들기</td><td>코드 생성</td><td>요구사항·테스트·수정 요청</td></tr>
+<tr><td><b>진로</b></td><td>직업 인터뷰 시뮬레이션</td><td>직업인 역할</td><td>질문 설계, 실제 자료와 대조</td></tr>
+</table>
+
+</section>
+<section id="s3" class="dark" data-transition="fade">
+<p class="eyebrow">3교시 · 실습</p>
+<h1>내 단원의<br>형성평가 도구 만들기</h1>
+<p class="lead">같은 주제를 Chat → 나만의 GPT → 웹 퀴즈로 키운다</p>
+
+</section>
+<section id="steps">
+<p class="eyebrow">실습 3단계 · 40분</p>
+<h2>한 주제, 세 번 키우기</h2>
+<div class="step"><div class="num">1</div><div><h3>프롬프트 다듬기 · 12분</h3><p>5요소로 지시문 만들기 → 문항 5개 + 해설 (Chat)</p></div></div>
+<div class="step d2"><div class="num">2</div><div><h3>나만의 GPT 만들기 · 15분</h3><p>반복 업무를 ‘지침’으로 고정 → 맞춤형 GPT 1개 (워크플로우·스킬)</p></div></div>
+<div class="step d3"><div class="num">3</div><div><h3>미니 웹 도구 · 13분</h3><p>문항을 학생용 퀴즈 페이지로 → HTML 1개 (Code·MVP)</p></div></div>
+
+</section>
+<section id="step1">
+<p class="eyebrow">1단계 · 프롬프트 5요소</p>
+<h2>“평가 문제 만들어줘”와 비교해 보기</h2>
+<p class="code"><span class="c">역할</span>  너는 고등학교 [과목] 교사야.<br><span class="c">대상</span>  고[학년] 학생, 학습 수준은 중간이야.<br><span class="c">과제</span>  [단원명] 형성평가 문항 5개를 만들어 줘.<br><span class="c">조건</span>  객관식 3개, 서술형 2개. 각 문항에 성취기준 표시.<br><span class="c">형식</span>  표로: 번호 | 문항 | 정답 | 해설 | 성취기준</p>
+<p class="note">확인: 정답·성취기준이 실제와 맞는지 교사가 검토 → 환각 체험</p>
+
+</section>
+<section id="step2">
+<p class="eyebrow">2단계 · 나만의 GPT</p>
+<h2>매번 설명하지 않아도 되게</h2>
+<div class="step"><div class="num">1</div><div><h3>만들기</h3><p>GPT 탐색 → 만들기 (무료 계정은 프로젝트로 대체)</p></div></div>
+<div class="step d2"><div class="num">2</div><div><h3>지침 넣기</h3><p>1단계 프롬프트를 규칙으로: “항상 표, 항상 성취기준 포함”</p></div></div>
+<div class="step d3"><div class="num">3</div><div><h3>지식 파일</h3><p>교육과정 성취기준 문서 업로드</p></div></div>
+<div class="step d4"><div class="num">4</div><div><h3>테스트</h3><p>단원명만 바꿔 2번 → 같은 품질인지 확인</p></div></div>
+
+</section>
+<section id="step3">
+<p class="eyebrow">3단계 · 미니 웹 도구(MVP)</p>
+<h2>문항을 학생용 퀴즈 페이지로</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<p class="code" style="font-size:26px">위 문항 5개로 학생용 퀴즈 웹페이지를 만들어 줘.<br>- HTML 파일 하나로<br>- 한 문제씩, 제출하면 정답·해설 표시<br>- 끝에 점수, 학생 이름은 받지 말 것<br>- 폰 화면에서도 보기 좋게</p>
+<ul style="margin-top:24px;font-size:28px"><li><b>무료</b>: 캔버스 미리보기 → HTML 내려받아 더블클릭</li><li><b>유료</b>: 앞에 “@Sites”를 붙이면 주소까지 발급</li><li>“오답이면 힌트 먼저”처럼 한 가지씩 수정</li></ul>
+</div>
+<div data-asset="IMG-17" title="완성된 퀴즈를 폰으로 푼 화면" style="width:340px;height:600px;"><img src="/slides/assets/IMG-17_quiz-phone.png" alt="완성된 퀴즈 페이지를 폰 크기로 푼 화면(정답·해설 표시)" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+</div>
+
+</section>
+<section id="share">
+<p class="eyebrow">공유 · 10분</p>
+<h2>다음 주 내 수업에 쓸 한 가지</h2>
+<div class="cards">
+<div class="card"><h3>보여주기</h3><p>2–3명이 만든 화면 공유</p></div>
+<div class="card d2"><h3>적어 내기</h3><p>“다음 주 내 수업에 쓸 한 가지”</p></div>
+<div class="card d3"><h3>2주 뒤</h3><p>실제로 써본 사례 1개 공유 → 학교 사례집</p></div>
+</div>
+
+</section>
+<section id="close" class="dark">
+<p class="eyebrow">기억할 세 문장</p>
+<h2>오늘의 정리</h2>
+<ul style="font-size:40px">
+<li>LLM은 그럴듯하게 틀린다 — 검증은 교사 몫</li>
+<li>답은 Chat, 파일은 Work, 학생 도구는 Code</li>
+<li>반복되면 스킬·GPT로 고정, 연결은 MCP</li>
+</ul>
+<p class="note">후속 연수 제안: 2차 Work·스킬·MCP 연결 실습 / 3차 PWA 배포</p>
+
+</section>
+<section id="s4" class="dark" data-transition="fade">
+<p class="eyebrow">부록</p>
+<h1>Microsoft Copilot<br>PENZ 계정으로 쓰기</h1>
+<p class="lead">교사·학생 모두 PENZ(교육디지털원패스) 한 계정 → 학생 수업은 Copilot부터</p>
+
+</section>
+<section id="cp-free">
+<p class="eyebrow">부록 · 무엇이 무료인가</p>
+<h2>PENZ(Microsoft 365 교육용)로 추가 비용 없이</h2>
+<div class="row" style="gap:40px">
+<table class="sm" style="flex:1">
+<tr><th>기능</th><th>무엇을 하나</th><th>대상</th></tr>
+<tr><td><b>Copilot Chat</b></td><td>대화형 AI, 웹 검색, 파일 업로드, Pages, 에이전트</td><td>교사·학생 13+</td></tr>
+<tr><td><b>Teach</b></td><td>수업·단원 계획, 수준 조절, 퀴즈·루브릭</td><td>교사</td></tr>
+<tr><td><b>Copilot Notebooks</b></td><td>내 자료 안에서만 답, 학습 가이드</td><td>교사·학생</td></tr>
+<tr><td><b>Study and Learn</b></td><td>힌트·질문으로 이끄는 학습 동반자</td><td>학생 13+</td></tr>
+<tr><td><b>Learning Zone</b></td><td>인터랙티브 레슨 생성·과제 연결</td><td>교사</td></tr>
+<tr><td>M365 Copilot <span style="color:#A8530A">(유료)</span></td><td>워드·엑셀·PPT 안의 Copilot</td><td>PENZ 포함 여부 확인</td></tr>
+</table>
+<div class="ph" data-asset="IMG-18" title="Copilot 앱 로그인 화면 데이터 보호(방패) 표시" style="width:520px;height:420px;"><p>[IMG-18]<br>Copilot 앱 로그인 화면<br>데이터 보호(방패) 표시</p></div>
+</div>
+<p class="note">입력 내용은 AI 학습에 쓰이지 않음 · 학생은 교육청이 켜야 사용 · 내 라이선스: myaccount.microsoft.com → 구독</p>
+
+</section>
+<section id="cp-chat">
+<p class="eyebrow">부록 · ① Copilot Chat</p>
+<h2>학교 계정으로 쓰는 대화형 AI</h2>
+<div class="row" style="gap:40px">
+<table class="sm" style="flex:1">
+<tr><th>하고 싶은 일</th><th>이렇게 요청</th></tr>
+<tr><td><b>공문 요약</b></td><td>PDF 첨부 → “담임이 할 일·기한만 표로”</td></tr>
+<tr><td><b>수업 삽화</b></td><td>“열대우림 단면도, 교과서 삽화 느낌, 글자 없이”</td></tr>
+<tr><td><b>최신 조사</b></td><td>“고교학점제 최근 발표 요약, 출처 링크 포함”</td></tr>
+<tr><td><b>동료 협업</b></td><td>답변을 Copilot Pages로 보내 함께 수정</td></tr>
+</table>
+<div class="ph" data-asset="IMG-21" title="공문 PDF를 할 일·기한 표로 요약한 화면" style="width:600px;height:420px;"><p>[IMG-21]<br>공문 PDF를<br>할 일·기한 표로 요약한 화면</p></div>
+</div>
+<p class="note">Teams 과제에 ‘Study and Learn’·시작 프롬프트 넣기(11월 전체 제공 예정) → 학생이 같은 규칙으로 시작</p>
+
+</section>
+<section id="cp-teach-menu">
+<p class="eyebrow">부록 · ② Teach</p>
+<h2>빈 채팅창 대신 ‘양식’이 나오는 교사 전용 화면</h2>
+<div class="row" style="gap:40px">
+<table class="sm" style="flex:1">
+<tr><th>메뉴</th><th>만드는 것</th><th>결과</th></tr>
+<tr><td><b>수업 계획</b></td><td>과목·학년·언어·기준·시간 선택</td><td>워드</td></tr>
+<tr><td><b>단원 계획</b></td><td>여러 차시 흐름 (10월 말 제공 목표)</td><td>워드</td></tr>
+<tr><td><b>루브릭</b></td><td>기준·수준별 서술</td><td>워드</td></tr>
+<tr><td><b>퀴즈</b></td><td>내 자료 기반 문항</td><td>Forms</td></tr>
+<tr><td><b>학습 활동</b></td><td>플래시카드 (빈칸 등 순차 추가)</td><td>학생용 링크</td></tr>
+<tr><td><b>콘텐츠 수정</b></td><td>기준 정렬·차별화·읽기 수준·예시 추가</td><td>수정본</td></tr>
+</table>
+<div class="ph" data-asset="IMG-22" title="Teach 홈 메뉴 화면" style="width:560px;height:420px;"><p>[IMG-22]<br>Teach 홈 메뉴 화면</p></div>
+</div>
+
+</section>
+<section id="cp-teach-lesson">
+<p class="eyebrow">부록 · Teach 실제 예시 1</p>
+<h2>수업 계획 → 퀴즈 → Teams 과제까지</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<div class="mini"><div class="num">1</div><p>Teach → <b>수업 계획</b></p></div>
+<div class="mini"><div class="num">2</div><p>통합과학 · 고1 · 한국어 · 50분<br>“기후변화와 에너지 전환, 모둠 토의 중심”</p></div>
+<div class="mini"><div class="num">3</div><p>한국 성취기준이 목록에 없으면 <b>문장을 붙여 넣거나 문서 첨부</b></p></div>
+<div class="mini"><div class="num">4</div><p>결과: 목표 → 도입 → 전개 → 정리 → 평가 초안, 워드 저장</p></div>
+<div class="mini"><div class="num">5</div><p>‘이 수업으로 퀴즈’ → Forms 5문항 → Teams 과제</p></div>
+</div>
+<div class="ph" data-asset="IMG-23" title="수업 계획 입력 양식 → 생성된 문서 (2컷)" style="width:600px;height:480px;"><p>[IMG-23]<br>수업 계획 입력 양식 →<br>생성된 문서 (2컷)</p></div>
+</div>
+
+</section>
+<section id="cp-teach-modify">
+<p class="eyebrow">부록 · Teach 실제 예시 2 · 콘텐츠 수정</p>
+<h2>같은 내용, 기초 학력 학생용으로</h2>
+<div class="row" style="gap:32px">
+<div class="card" style="animation:none"><p class="tag">원문</p><p style="font-size:26px;color:#14213D">화석연료 연소 과정에서 배출되는 온실가스가 대기 중 누적됨에 따라 지표의 복사 평형이 교란되었으며, 이에 대응하기 위한 탄소중립 전략이 요구된다.</p></div>
+<p class="arrow">→</p>
+<div class="card hl" style="animation:none"><p class="tag">읽기 수준 수정 · 핵심 용어 유지</p><p style="font-size:26px;color:#14213D">석탄·석유를 태우면 <b>온실가스</b>가 나온다. 온실가스가 공기에 쌓이면 지구가 더워진다. 그래서 내보내는 양과 줄이는 양을 같게 만드는 <b>탄소중립</b>이 필요하다.</p></div>
+<div class="ph" data-asset="IMG-24" title="읽기 수준 설정 핵심 용어 칸" style="width:300px;height:300px;"><p>[IMG-24]<br>읽기 수준 설정<br>핵심 용어 칸</p></div>
+</div>
+<p class="note">연수용으로 직접 쓴 예시 · 실제 사용: 콘텐츠 수정 → 붙여넣기/업로드 → ‘읽기 수준 수정’ → 핵심 용어 입력</p>
+
+</section>
+<section id="cp-notebooks">
+<p class="eyebrow">부록 · ③ Copilot Notebooks</p>
+<h2>내 자료로만 답하는 지식방 + 학습 가이드</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<div class="mini"><div class="num">1</div><p>Notebooks → 새 노트북, 이름 짓기</p></div>
+<div class="mini"><div class="num">2</div><p>참고 항목: 워드·PPT·PDF·엑셀·OneNote·회의 메모</p></div>
+<div class="mini"><div class="num">3</div><p>개요 페이지·마인드맵으로 전체 파악, 채팅으로 질문</p></div>
+<div class="mini"><div class="num">4</div><p>+ → <b>학습 가이드</b>: 요약 · 주제 페이지 · 플래시카드 · 퀴즈 · 빈칸 · 짝 맞추기</p></div>
+<p class="sub" style="margin-top:8px">퀴즈 결과는 비공개 · 자료 합계 약 10만 자 넘거나 보안 라벨 파일이면 플래시카드·빈칸·짝 맞추기가 빠질 수 있음 → 단원별로</p>
+</div>
+<div class="ph" data-asset="IMG-25" title="Notebooks 3단 화면 + 학습 가이드 생성 창" style="width:600px;height:460px;"><p>[IMG-25]<br>Notebooks 3단 화면 +<br>학습 가이드 생성 창</p></div>
+</div>
+
+</section>
+<section id="cp-notebooks-ex">
+<p class="eyebrow">부록 · Notebooks 실제 예시</p>
+<h2>학생은 시험 대비, 교사는 규정 지식방</h2>
+<div class="cards">
+<div class="card"><p class="tag">학생</p><h3>통합사회 2단원 시험 대비</h3><p>수업 슬라이드·학습지 PDF·내 필기 → 플래시카드로 매일 10분 → 전날 퀴즈 → 틀린 주제는 “예시로 다시 설명해 줘”</p></div>
+<div class="card d2"><p class="tag">교사</p><h3>우리 학교 교육과정 지식방</h3><p>편성표·학업성적관리규정·평가 계획(개인정보 없는 문서만) → “3학년 선택과목 개설 조건은?” → 근거 문서에 연결된 답</p></div>
+<div class="ph" data-asset="IMG-26" title="교사용 노트북의 근거 링크 답변·마인드맵" style="width:420px;height:360px;"><p>[IMG-26]<br>교사용 노트북의<br>근거 링크 답변·마인드맵</p></div>
+</div>
+<p class="note">교사가 만든 노트북을 공유해도 플래시카드·퀴즈는 학생이 각자 생성 → 모둠끼리 서로 문제 내기</p>
+
+</section>
+<section id="cp-lz">
+<p class="eyebrow">부록 · ④ Learning Zone</p>
+<h2>눌러 보며 배우는 인터랙티브 레슨</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<div class="mini"><div class="num">1</div><p>설명·학년·활동 유형·슬라이드 수, ‘레슨 균형’ 슬라이더</p></div>
+<div class="mini"><div class="num">2</div><p>AI 개요 → 교사가 고치기</p></div>
+<div class="mini"><div class="num">3</div><p>생성 → 미검토 슬라이드에 <b>보라색 점</b></p></div>
+<div class="mini"><div class="num">4</div><p>‘학생 보기’로 직접 풀어 보기</p></div>
+<div class="mini"><div class="num">5</div><p>공유: 짧은 코드 · 링크 · Teams 과제 · 실시간 수업 모드</p></div>
+<div class="mini"><div class="num">6</div><p>리포트: 학생·문항별 어려운 지점</p></div>
+</div>
+<div class="ph" data-asset="IMG-27" title="새 레슨 설정 화면 (레슨 균형 슬라이더)" style="width:600px;height:460px;"><p>[IMG-27]<br>새 레슨 설정 화면<br>(레슨 균형 슬라이더)</p></div>
+</div>
+
+</section>
+<section id="cp-lz-limits">
+<p class="eyebrow">부록 · Learning Zone 쓰기 전에</p>
+<h2>레슨 생성 언어에 한국어는 아직 없다</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<table class="sm">
+<tr><th>항목</th><th>현재(발표 기준)</th></tr>
+<tr><td><b>생성 기기</b></td><td>Copilot+ PC · 일반 Win11도 2027-08-01까지(1회 10장)</td></tr>
+<tr><td><b>생성 언어</b></td><td>영·스·프·이·일·포(브) — 한국어 없음</td></tr>
+<tr><td><b>앱 화면</b></td><td>50개 이상 언어</td></tr>
+<tr><td><b>AI 없이</b></td><td>파트너 레슨 라이브러리 · 배포 · 리포트</td></tr>
+</table>
+<p class="lbl" style="margin-top:24px">추천 활용</p>
+<p style="font-size:26px">영어 수업: “Grade 10 reading lesson on climate change vocabulary, 10 slides, matching + short answer” → 리포트의 오답 어휘를 다음 수업 도입에</p>
+</div>
+<div class="ph" data-asset="IMG-28" title="보라점 검토 목록 + 리포트 탭 (2컷)" style="width:520px;height:420px;"><p>[IMG-28]<br>보라점 검토 목록 +<br>리포트 탭 (2컷)</p></div>
+</div>
+
+</section>
+<section id="cp-teacher">
+<p class="eyebrow">부록 · 교사 활용</p>
+<h2>정리 · 내일 바로 해 볼 4가지</h2>
+<div class="row" style="gap:40px">
+<div class="col">
+<div class="mini"><div class="num">1</div><p><b>단원 계획</b> “고1 통합과학 기후변화 4차시, 활동 중심, 성취기준 포함”</p></div>
+<div class="mini"><div class="num">2</div><p><b>수준 조절</b> 읽기 자료 → “기초 학력 학생용으로 쉽게, 어휘 풀이”</p></div>
+<div class="mini"><div class="num">3</div><p><b>퀴즈·루브릭</b> 5문항·오답 해설 → Forms·Teams 과제로</p></div>
+<div class="mini"><div class="num">4</div><p><b>Notebooks</b> 교육과정·교재를 모아 “이 자료 안에서만 답해”</p></div>
+</div>
+<div class="ph" data-asset="IMG-19" title="Teach에서 수업 계획· 퀴즈 만드는 화면" style="width:640px;height:480px;"><p>[IMG-19]<br>Teach에서 수업 계획·<br>퀴즈 만드는 화면</p></div>
+</div>
+
+</section>
+<section id="cp-student">
+<p class="eyebrow">부록 · 학생 활용(13세 이상)</p>
+<h2>PENZ 학교 계정이라 수업에 넣기 쉽다</h2>
+<div class="row" style="gap:40px">
+<table class="sm" style="flex:1">
+<tr><th>장면</th><th>도구</th><th>학생이 하는 일</th></tr>
+<tr><td>시험 대비</td><td>Notebooks 학습 가이드</td><td>수업 자료로 자기 테스트</td></tr>
+<tr><td>개념이 막힐 때</td><td>Study and Learn</td><td>답 대신 힌트·질문으로 이해</td></tr>
+<tr><td>글쓰기 피드백</td><td>Copilot Chat</td><td>“논리 빈틈만 지적, 고쳐 쓰지 마”</td></tr>
+<tr><td>조사 활동</td><td>Copilot Chat(웹)</td><td>출처 링크를 열어 직접 확인</td></tr>
+</table>
+<div class="ph" data-asset="IMG-20" title="학생 계정의 Notebooks 학습 가이드 화면" style="width:560px;height:420px;"><p>[IMG-20]<br>학생 계정의 Notebooks<br>학습 가이드 화면</p></div>
+</div>
+<p class="note">퀴즈 결과는 학생이 공유해야 교사에게 보임 · AI 사용 표시 규칙은 ChatGPT 수업과 동일</p>
+
+</section>
+<section id="cp-vs">
+<p class="eyebrow">부록 · 어떻게 나눠 쓸까</p>
+<h2>학생 수업은 Copilot, 업무 자동화는 ChatGPT</h2>
+<table>
+<tr><th></th><th>Microsoft Copilot(에듀)</th><th>ChatGPT</th></tr>
+<tr><td><b>비용</b></td><td>PENZ 계정으로 무료(Chat·Teach·Notebooks)</td><td>무료 + 유료 기능(Work·Sites·스킬)</td></tr>
+<tr><td><b>학생 사용</b></td><td>PENZ, 교육청 관리·통제</td><td>PENZ로도 제공 — 플랜·학생 허용 범위 확인</td></tr>
+<tr><td><b>강점</b></td><td>Teams·OneNote·Forms·과제 연결, 교사용 Teach</td><td>에이전트(Work), 웹앱(Sites), 스킬·플러그인</td></tr>
+<tr><td><b>추천</b></td><td>학생 수업, 수업 준비</td><td>교사 업무 자동화, 도구 만들기</td></tr>
+</table>
+
+</section>
+<section id="cp-admin">
+<p class="eyebrow">부록 · 연수 전 관리자에게 확인</p>
+<h2>학생 PENZ 계정으로 실제 들어가지는가</h2>
+<div class="row" style="gap:48px">
+<div class="col"><h3>체크리스트</h3><ul style="font-size:28px">
+<li>PENZ 라이선스(A1·A3·A5)와 유료 M365 Copilot 포함 여부</li>
+<li>학생 계정 Copilot Chat 활성화(13세 이상)</li>
+<li>Teach · Notebooks · Study and Learn 허용</li>
+<li>테스트용 학생 PENZ 계정으로 접속 확인</li>
+<li>문의: 부산교육청 교육연구정보원</li></ul></div>
+<div class="col"><h3>부록 20분 운영안</h3><ul style="font-size:28px">
+<li>10분: Teach로 같은 단원 퀴즈 → 3교시 ChatGPT 결과와 비교</li>
+<li>10분: 학생 계정으로 Notebooks 학습 가이드 시연</li></ul>
+<p class="sub" style="margin-top:24px">메뉴 이름·위치와 한국어 지원 범위는 업데이트에 따라 다를 수 있음</p></div>
+</div>
+
+</section>
+ </div></div>
+ <div id="notes" aria-label="강사 노트"></div>
+</div>
+<script>
+const DATA = {"order": ["cover", "agenda", "goal", "s1", "llm", "types", "limits", "quiz", "terms1", "terms2", "submit-flow", "code-front-back", "neis-api", "build-choice", "s2", "cwc", "map", "same", "work-what", "work-trace", "work-scenarios", "sites-what", "sites-steps", "sites-examples", "skillmcp", "compare3", "plugin-install", "mcp-trace", "skill-make", "skill-md", "rec-mcp", "rec-skill", "demo3", "skillnote", "match", "flow", "student", "subjects", "s3", "steps", "step1", "step2", "step3", "share", "close", "s4", "cp-free", "cp-chat", "cp-teach-menu", "cp-teach-lesson", "cp-teach-modify", "cp-notebooks", "cp-notebooks-ex", "cp-lz", "cp-lz-limits", "cp-teacher", "cp-student", "cp-vs", "cp-admin"], "titles": {"cover": "AI, 개념에서 실습까지 선생님의 첫 AI 도구 만들기", "agenda": "3교시, 개념 → 지도 → 실습", "goal": "끝날 때 손에 남는 3가지", "s1": "LLM은 무엇이고, 어디까지 하나", "llm": "방대한 글을 학습해 ‘다음에 올 말’을 예측하는 모델", "types": "챗봇 · 워크플로우 · AI 에이전트", "limits": "4가지만 기억하기", "quiz": "“매주 금요일, 주간학습안내를 같은 양식으로 만든다”", "terms1": "만드는 것의 구조", "terms2": "작게 만들고, 링크로 나눈다", "submit-flow": "[제출]을 누른 0.5초 동안 일어나는 일", "code-front-back": "같은 기능, 화면 쪽과 서버 쪽", "neis-api": "나이스 급식 식단도 API로 온다", "build-choice": "무엇이 필요하냐에 따라 구성이 달라진다", "s2": "AI 도구 지도 Chat · Work · Code", "cwc": "무엇을 받고 싶은가?", "map": "서비스별 Chat / Work / Code", "same": "“기후변화 단원 평가를 도와줘”", "work-what": "목표를 주면 단계를 나눠 완성물까지", "work-trace": "“현장체험 계획서로 통신문·체크리스트·시간표 만들어 줘”", "work-scenarios": "Work에 맡길 만한 일", "sites-what": "말로 설명하면 주소가 있는 웹사이트로", "sites-steps": "7단계", "sites-examples": "프롬프트 한 줄로 시작", "skillmcp": "‘어떻게’는 스킬, ‘무엇에 접근’은 MCP", "compare3": "맞춤형 GPT · 스킬 · 플러그인", "plugin-install": "구글 드라이브를 ChatGPT에 연결하기", "mcp-trace": "“@Google Calendar 다음 주 화요일 15시에 협의회 등록해 줘”", "skill-make": "“가정통신문 작성 스킬을 만들어 줘”", "skill-md": "SKILL.md 실제 예시", "rec-mcp": "교사에게 효과 큰 연결 7가지", "rec-skill": "기본 2개 + 직접 만들 3개", "demo3": "눈으로 확인하는 스킬과 MCP", "skillnote": "처음엔 만들기보다 써 보기부터", "match": "활동 · 학교 업무 ↔ 알맞은 AI 짝짓기", "flow": "답만 필요하면  Chat  파일이 필요하면 Work 학생이 쓸 도구면 Code", "student": "AI가 대신하는 수업이 아니라 AI의 답을 검증하는 수업", "subjects": "AI의 역할 · 학생이 하는 일", "s3": "내 단원의 형성평가 도구 만들기", "steps": "한 주제, 세 번 키우기", "step1": "“평가 문제 만들어줘”와 비교해 보기", "step2": "매번 설명하지 않아도 되게", "step3": "문항을 학생용 퀴즈 페이지로", "share": "다음 주 내 수업에 쓸 한 가지", "close": "오늘의 정리", "s4": "Microsoft Copilot PENZ 계정으로 쓰기", "cp-free": "PENZ(Microsoft 365 교육용)로 추가 비용 없이", "cp-chat": "학교 계정으로 쓰는 대화형 AI", "cp-teach-menu": "빈 채팅창 대신 ‘양식’이 나오는 교사 전용 화면", "cp-teach-lesson": "수업 계획 → 퀴즈 → Teams 과제까지", "cp-teach-modify": "같은 내용, 기초 학력 학생용으로", "cp-notebooks": "내 자료로만 답하는 지식방 + 학습 가이드", "cp-notebooks-ex": "학생은 시험 대비, 교사는 규정 지식방", "cp-lz": "눌러 보며 배우는 인터랙티브 레슨", "cp-lz-limits": "레슨 생성 언어에 한국어는 아직 없다", "cp-teacher": "정리 · 내일 바로 해 볼 4가지", "cp-student": "PENZ 학교 계정이라 수업에 넣기 쉽다", "cp-vs": "학생 수업은 Copilot, 업무 자동화는 ChatGPT", "cp-admin": "학생 PENZ 계정으로 실제 들어가지는가"}, "sections": [{"title": "도입: 흐름과 산출물", "start": "cover"}, {"title": "1교시: LLM 개념, 필수 용어, 퀴즈 앱으로 보는 실전 예제", "start": "s1"}, {"title": "2교시: AI 도구 지도, ChatGPT Work·Sites, 스킬·플러그인·MCP 적용, 짝짓기, 학생 수업", "start": "s2"}, {"title": "3교시: ChatGPT 실습 3단계와 마무리", "start": "s3"}, {"title": "부록: Microsoft Copilot 활용(부산 PENZ 계정 기준)", "start": "s4"}], "practice": {"step1": {"module": "M1", "label": "프롬프트 5요소 빌더"}, "steps": {"module": "M1", "label": "실습 시작"}, "submit-flow": {"module": "M2", "label": "퀴즈 앱 해부 실습"}, "code-front-back": {"module": "M2", "label": "퀴즈 앱 해부 실습"}, "build-choice": {"module": "M3", "label": "교사 대시보드"}, "neis-api": {"module": "M4", "label": "나이스 급식 API 체험"}, "mcp-trace": {"module": "M5", "label": "MCP 호출 시뮬레이터"}, "plugin-install": {"module": "M5", "label": "MCP 호출 시뮬레이터"}, "skill-make": {"module": "M6", "label": "SKILL.md 만들기"}, "skill-md": {"module": "M6", "label": "SKILL.md 만들기"}, "match": {"module": "M7", "label": "업무↔AI 짝짓기"}, "flow": {"module": "M7", "label": "업무↔AI 짝짓기"}, "work-scenarios": {"module": "PROMPTS", "label": "프롬프트 카드"}, "sites-examples": {"module": "PROMPTS", "label": "프롬프트 카드"}, "step2": {"module": "PROMPTS", "label": "프롬프트 카드"}, "step3": {"module": "FINAL", "label": "최종 과제 안내"}, "share": {"module": "FINAL", "label": "최종 과제 안내"}, "cp-free": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-chat": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-teach-menu": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-teach-lesson": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-teach-modify": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-notebooks": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-notebooks-ex": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-lz": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-lz-limits": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-teacher": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-student": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-vs": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}, "cp-admin": {"module": "COPILOT", "label": "Copilot(PENZ) 가이드"}}, "notes": {"cover": "인사와 연수 목표 소개. 오늘 끝날 때 각자 만든 도구 1개를 가지고 간다는 점을 강조.", "agenda": "시간표 안내. 3교시 실습이 핵심이라는 점, 계정 로그인 미리 확인 요청.", "goal": "산출물 3개를 먼저 보여주고 시작.", "s1": "", "llm": "자동완성의 거대한 버전이라는 비유. 그래서 그럴듯함과 정확함은 다르다.", "types": "자율성의 차이로 설명. 같은 요청도 방식에 따라 결과물이 달라진다.", "limits": "개인정보 부분은 학교 지침과 연결해 강조.", "quiz": "손을 들게 해 답을 확인한 뒤 클릭해서 정답 공개.", "terms1": "식당 비유 하나로 통일.", "terms2": "요약 한 문장: MVP로 작게, 프론트엔드만으로 충분하면 백엔드 없이, 필요하면 PWA로 폰에.", "submit-flow": "식당 비유로 다시: 손님 주문(프론트) → 주문서(API) → 주방(백엔드) → 장부(DB) → 음식 서빙(응답).", "code-front-back": "코드를 외울 필요는 없다. '정답을 서버에만 두면 학생이 화면 소스를 열어도 못 본다'는 점만 짚는다.", "neis-api": "", "build-choice": "", "s2": "", "cwc": "출처: OpenAI 2026-07-09 발표. 기능·요금제별 제공 범위는 연수 전날 다시 확인.", "map": "", "same": "실제 ChatGPT로 Chat 결과만 시연하고 나머지는 3교시에서 직접.", "work-what": "출처: OpenAI 2026-07-09 발표. 요금제별 사용량 한도는 연수 전 확인.", "work-trace": "Chat은 붙여 넣은 내용으로 한 번에 답, Work는 직접 찾아 읽고 여러 파일을 만든다. 수 분~수십 분 소요.", "work-scenarios": "", "sites-what": "출처: OpenAI 도움말 'Creating and managing ChatGPT Sites'. 배포 주소는 모두 실제 운영 주소 → 고칠 땐 버전 저장 후 확인하고 배포.", "sites-steps": "", "sites-examples": "", "skillmcp": "MCP는 2024년 11월 Anthropic이 공개한 표준. ChatGPT·Claude·Copilot 등이 함께 씀.", "compare3": "", "plugin-install": "", "mcp-trace": "", "skill-make": "", "skill-md": "", "rec-mcp": "ChatGPT는 플러그인, Claude는 커넥터로 같은 서비스 대부분 제공. 당일 실제 설치 가능 여부 확인.", "rec-skill": "", "demo3": "시연용 계정에 가상 평가 계획서 1개, 예전 통신문 2개를 미리 넣어 둔다.", "skillnote": "", "match": "15분 활동. 층·도구 열을 가리고 모둠별로 먼저 짝지은 뒤 공개.", "flow": "", "student": "평가는 결과물보다 과정(프롬프트 기록·수정 이유)에 비중.", "subjects": "", "s3": "", "steps": "", "step1": "먼저 한 줄 프롬프트로 결과를 본 뒤 5요소 버전과 비교.", "step2": "개념 연결: 매번 설명하지 않아도 되는 지침이 곧 스킬의 출발점.", "step3": "백엔드가 없으면 점수는 저장되지 않음 → 저장하려면? 1교시 용어(DB)와 Sites 연결.", "share": "", "close": "질의응답과 마무리.", "s4": "", "cp-free": "'워드 안 Copilot 버튼이 안 돼요'는 대부분 유료 라이선스 문제. 무료/유료 경계를 분명히.", "cp-chat": "", "cp-teach-menu": "", "cp-teach-lesson": "", "cp-teach-modify": "", "cp-notebooks": "", "cp-notebooks-ex": "", "cp-lz": "", "cp-lz-limits": "", "cp-teacher": "", "cp-student": "", "cp-vs": "", "cp-admin": ""}, "timers": {"match": 15, "quiz": 1, "steps": 40, "step1": 12, "step2": 15, "step3": 13, "share": 10, "demo3": 9}};
+// Code가 실제 라우트로 바꿀 곳 (모듈 키 -> 경로)
+const ROUTES = window.PRACTICE_ROUTES || {M1:'/m1',M2:'/m2',M3:'/m3',M4:'/m4',M5:'/m5',M6:'/m6',M7:'/m7',PROMPTS:'/prompts',COPILOT:'/copilot',FINAL:'/final'};
+const secs=[...document.querySelectorAll('#scaler>section')];
+const ids=DATA.order; let cur=0;
+const $=s=>document.querySelector(s);
+const sel=$('#sec');
+DATA.sections.forEach(s=>{const o=document.createElement('option');o.value=ids.indexOf(s.start);o.textContent=s.title;sel.appendChild(o)});
+function fit(){const w=$('#wrap'),k=Math.min(w.clientWidth/1920,w.clientHeight/1080);$('#scaler').style.transform=`translate(-50%,-50%) scale(${k})`}
+function frags(){return [...secs[cur].querySelectorAll('.fragment')]}
+function show(i,fromHash){cur=Math.max(0,Math.min(ids.length-1,i));secs.forEach((s,j)=>{s.classList.toggle('on',j===cur);if(j===cur){s.querySelectorAll('.fragment').forEach(f=>f.classList.remove('visible'));
+ // replay arrival animations
+ s.querySelectorAll('*').forEach(e=>{const a=e.style.animation;e.style.animation='none';void e.offsetWidth;e.style.animation=a})}});
+ const id=ids[cur];$('#count').textContent=`${cur+1} / ${ids.length}`;
+ let si=0;DATA.sections.forEach((s,k)=>{if(ids.indexOf(s.start)<=cur)si=k});sel.selectedIndex=si;
+ const p=DATA.practice[id];const pa=$('#practice');if(p){pa.hidden=false;pa.href=ROUTES[p.module]+'?from='+encodeURIComponent(id);pa.textContent='▶ 실습하기 · '+p.label}else pa.hidden=true;
+ $('#notes').textContent=DATA.notes[id]||'(노트 없음)';if(!tmId)$('#tmin').value=(DATA.timers&&DATA.timers[id])||5;
+ if(!fromHash)history.replaceState(null,'','#slide-'+(cur+1));
+ document.title=`${cur+1}. ${DATA.titles[id]} · 교사 AI 연수`}
+function next(){const f=frags().find(f=>!f.classList.contains('visible'));if(f){f.classList.add('visible');return}show(cur+1)}
+function prev(){const v=frags().filter(f=>f.classList.contains('visible'));if(v.length){v.at(-1).classList.remove('visible');return}show(cur-1)}
+$('#next').onclick=next;$('#prev').onclick=prev;sel.onchange=()=>show(+sel.value);
+$('#nt').onclick=()=>{const on=$('#app').classList.toggle('show-notes');$('#nt').setAttribute('aria-pressed',on);fit()};
+$('#fs').onclick=()=>{try{const r=document.fullscreenElement?document.exitFullscreen():$('#app').requestFullscreen();r&&r.catch&&r.catch(()=>{})}catch(e){}};
+addEventListener('keydown',e=>{if(e.target.tagName==='SELECT'||e.target.tagName==='INPUT')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}else if(e.key==='Home')show(0);else if(e.key==='End')show(ids.length-1);else if(e.key==='n'||e.key==='N')$('#nt').click();else if(e.key==='f'||e.key==='F')$('#fs').click()});
+let tx=null;$('#wrap').addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});$('#wrap').addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)(d<0?next:prev)();tx=null});
+
+// 타이머 (T): 분 입력 → 상단 카운트다운, 끝나면 '시간 종료' 표시(색+글자)
+let tmEnd=0,tmId=0;function tick(){const r=Math.max(0,Math.round((tmEnd-Date.now())/1000)),el=$('#tm');if(r>0){el.className='run';el.textContent=`⏱ ${String(Math.floor(r/60)).padStart(2,'0')}:${String(r%60).padStart(2,'0')}`}else{el.className='done';el.textContent='⏱ 시간 종료';clearInterval(tmId);tmId=0}}
+$('#go').addEventListener('keydown',e=>{if(e.key==='Enter'){const v=+e.target.value;if(v)show(v-1);e.target.value='';e.target.blur()}});
+$('#tmb').onclick=()=>{if(tmId){clearInterval(tmId);tmId=0;$('#tm').className='';$('#tm').textContent='';return}const n=parseFloat($('#tmin').value);if(!n)return;tmEnd=Date.now()+n*60000;tick();tmId=setInterval(tick,500)};
+// 화면 가리기 (B), 번호로 이동 (G 또는 숫자+Enter)
+let numBuf='';
+addEventListener('keydown',e=>{if(e.target.tagName==='SELECT'||e.target.tagName==='INPUT')return;
+ if(e.key==='b'||e.key==='B'){$('#black').classList.toggle('on')}
+ else if(e.key==='t'||e.key==='T'){$('#tmb').click()}
+ else if(e.key==='g'||e.key==='G'){e.preventDefault();$('#go').focus()}
+ else if(/^[0-9]$/.test(e.key)){numBuf+=e.key}
+ else if(e.key==='Enter'&&numBuf){show(+numBuf-1);numBuf=''}
+});
+addEventListener('resize',fit);addEventListener('hashchange',()=>{const m=location.hash.match(/slide-(\d+)/);if(m)show(+m[1]-1,true)});
+const m0=location.hash.match(/slide-(\d+)/);fit();show(m0?+m0[1]-1:0,true);
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/slides/sw.js",{scope:"/slides/"}).catch(function(){})}</script>
+</body></html>

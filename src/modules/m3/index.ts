@@ -81,7 +81,9 @@ export function mount(el: HTMLElement) {
       share.replaceChildren(
         h("p", {}, "참가자 안내: M2에서 회차 코드 ", h("strong", { class: "m3-code" }, current), " 입력"),
         h("p", { class: "m3-link" }, link), h("button", { class: "btn secondary", type: "button", onclick: () => copyText(link) }, "링크 복사"));
-      const { res, data } = await api(`/api/stats?sessionCode=${current}`);
+      const asked = current;
+      const { res, data } = await api(`/api/stats?sessionCode=${asked}`);
+      if (asked !== current) return; // a newer selection is in flight; drop this stale response
       if (res.status === 401) return showLogin(true);
       if (!res.ok) { status.textContent = data.error ?? "불러오지 못했어요"; return; }
       renderStats(data as Stats);

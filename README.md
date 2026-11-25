@@ -35,6 +35,9 @@ npx playwright test                 # dev 서버가 떠 있어야 함
 node scripts/render-vid01.mjs       # VID-01 mp4 + poster
 node scripts/shot-img17.mjs         # IMG-17 (dev 서버 필요)
 node scripts/update-manifest.mjs    # manifest status/path 갱신
+node scripts/build-slides.mjs       # /slides (site-slides/slides.html + 이미지·폰트 subset·오프라인 SW) → public/slides/
+node scripts/build-guide.mjs        # 가이드북: content/lesson-plan.md → src/content/guide-content.ts
+npx vite build && node scripts/build-downloads.mjs   # 자료실 PDF·zip·QR → public/downloads/, public/qr.png
 node scripts/build-previews.mjs     # build/previews/ 슬라이드 교체 미리보기
 node scripts/postprocess.mjs        # assets/_raw/ 캡처 원본 → assets/ 규격본
 node scripts/check-capture-guide.mjs

@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { pin, trackConsole } from "./helpers";
 
 // answers used: Q1 wrong, Q2 right, Q3 right, Q4 wrong, Q5 right
-const PLAN: [number, string, boolean][] = [[1, "2", false], [2, "1", true], [3, "2", true], [4, "1", false], [5, "4", true]];
+const PLAN: [number, string, boolean][] = [[1, "1", false], [2, "3", true], [3, "2", true], [4, "1", false], [5, "4", true]];
 
 test("M2 5문항 → 패널 4종 → M3 오답률 → 초기화", async ({ page, isMobile }) => {
   const errors = trackConsole(page);
@@ -59,7 +59,7 @@ test("M2 5문항 → 패널 4종 → M3 오답률 → 초기화", async ({ page,
 });
 
 test("연습 모드: 저장 안 함, 없는 코드는 400", async ({ page, request }) => {
-  const r1 = await request.post("/api/submit", { data: { question: 1, answer: "3" } });
+  const r1 = await request.post("/api/submit", { data: { question: 1, answer: "2" } });
   expect((await r1.json()).row).toBeNull();
   const r2 = await request.post("/api/submit", { data: { sessionCode: "ZZZZZZ", question: 1, answer: "3" } });
   expect(r2.status()).toBe(400);

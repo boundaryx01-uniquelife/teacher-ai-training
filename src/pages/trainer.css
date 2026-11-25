@@ -1,0 +1,22 @@
+.trainer .tr-sec { margin: 28px 0; }
+.trainer table { width: 100%; border-collapse: collapse; }
+.trainer th, .trainer td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; background: var(--white); }
+.trainer thead th { background: #efece3; }
+.trainer .tr-group { margin: 14px 0; }
+.trainer .tr-check { list-style: none; padding: 0; margin: 0; }
+.trainer .tr-check li { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; }
+.trainer .tr-check input { margin-top: 6px; width: 20px; height: 20px; flex: none; }
+.trainer .tr-filter { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0; }
+.trainer .tr-filter input[type=text] { flex: 1 1 200px; min-width: 0; }
+.trainer .tr-filter select { flex: 1 1 200px; min-width: 0; max-width: 100%; }
+.trainer .tr-count { color: var(--text-soft); margin: 4px 0; }
+.trainer .tr-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.trainer .tr-slide { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; }
+.trainer .tr-slide[hidden] { display: none; }
+.trainer .tr-slide h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.trainer .tr-num { display: inline-block; min-width: 2em; padding: 0 8px; border-radius: 999px; background: var(--navy); color: var(--white); text-align: center; font-size: .85em; }
+.trainer .tr-meta { margin: 4px 0; color: var(--text-soft); font-size: .85em; }
+.trainer .tr-tag { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: #fff6e6; border: 1px solid var(--orange); color: var(--text); }
+.trainer .tr-note { margin: 6px 0; white-space: pre-wrap; }
+.trainer .tr-note.empty { color: var(--text-soft); }
+.trainer .tr-links { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; }

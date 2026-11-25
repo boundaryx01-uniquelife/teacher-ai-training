@@ -1,0 +1,25 @@
+
+Running 20 tests using 1 worker
+
+  ✓   1 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.1s)
+  ✓   2 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.3s)
+  ✓   3 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (3.9s)
+  ✓   4 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (3.9s)
+  ✓   5 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.6s)
+  ✓   6 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.4s)
+  ✓   7 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (3.9s)
+  ✓   8 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.2s)
+  ✓   9 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.7s)
+  ✓  10 [desktop] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.9s)
+  ✓  11 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.8s)
+  ✓  12 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.7s)
+  ✓  13 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.4s)
+  ✓  14 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.5s)
+  ✓  15 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.7s)
+  ✓  16 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.7s)
+  ✓  17 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.7s)
+  ✓  18 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.6s)
+  ✓  19 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.6s)
+  ✓  20 [iphone] › tests/m2-m3.spec.ts:7:1 › M2 5문항 → 패널 4종 → M3 오답률 → 초기화 (4.6s)
+
+  20 passed (1.7m)
