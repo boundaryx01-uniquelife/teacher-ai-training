@@ -19,17 +19,14 @@
 <!-- desk -->
 <rect x="30" y="262" width="420" height="16" rx="8" fill="#F2A541"/>
 <path d="M60 278V330M420 278V330"/>
-<!-- laptops (screens facing students) -->
+<!-- laptops seen from behind: lids face the viewer, screens face the students -->
 <g>
-<rect x="76" y="200" width="88" height="62" rx="8" fill="#14213D"/>
-<rect x="84" y="208" width="72" height="46" rx="3" fill="#FFFDF8" stroke="none"/>
-<path d="M92 220H140M92 232H124" stroke-width="3"/>
-<rect x="196" y="200" width="88" height="62" rx="8" fill="#14213D"/>
-<rect x="204" y="208" width="72" height="46" rx="3" fill="#FFFDF8" stroke="none"/>
-<circle cx="240" cy="231" r="11" fill="#F2A541" stroke-width="3"/><path d="M234 231L238 235L246 226" stroke-width="3"/>
-<rect x="316" y="200" width="88" height="62" rx="8" fill="#14213D"/>
-<rect x="324" y="208" width="72" height="46" rx="3" fill="#FFFDF8" stroke="none"/>
-<path d="M332 220H380M332 232H364M332 244H350" stroke-width="3"/>
+<path d="M80 200H160L156 262H84Z" fill="#14213D"/>
+<rect x="111" y="222" width="18" height="18" rx="5" fill="none" stroke="#F7F5EF" stroke-width="3"/>
+<path d="M200 200H280L276 262H204Z" fill="#14213D"/>
+<circle cx="240" cy="231" r="10" fill="#F2A541" stroke="#F7F5EF" stroke-width="3"/>
+<path d="M320 200H400L396 262H324Z" fill="#14213D"/>
+<rect x="351" y="222" width="18" height="18" rx="5" fill="none" stroke="#F7F5EF" stroke-width="3"/>
 </g>
 <!-- students (back view silhouettes) -->
 <g fill="#14213D">
