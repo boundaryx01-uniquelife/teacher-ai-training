@@ -1,0 +1,33 @@
+.m2-layout { display: grid; gap: 18px; }
+@media (min-width: 1024px) {
+  .m2-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  .m2-panels { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
+}
+.m2-intro input { max-width: 260px; text-transform: uppercase; letter-spacing: .15em; font-family: var(--mono); }
+.m2-progress { font-weight: 700; margin: 14px 0 8px; }
+.m2-q { margin: 0 0 14px; padding: 14px 16px; border: 2px solid var(--line); }
+.m2-q legend { font-weight: 700; font-size: 1.05rem; padding: 0 6px; }
+.m2-q.is-ok { border-color: var(--ok); }
+.m2-q.is-bad { border-color: var(--orange-dark); }
+.m2-choices { display: grid; gap: 6px; margin-top: 6px; }
+@media (min-width: 600px) { .m2-choices { grid-template-columns: 1fr 1fr; } }
+.m2-choice { display: flex; align-items: center; gap: 10px; font-weight: 400; margin: 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; min-height: 44px; cursor: pointer; background: #fff; }
+.m2-choice:has(input:checked) { border-color: var(--navy); background: #eef0f5; }
+.m2-choice input { width: 20px; height: 20px; accent-color: var(--navy); }
+.m2-feedback p { margin: .3em 0; }
+.m2-hint { background: var(--bad-bg); border-radius: 10px; padding: 8px 12px; }
+.m2-panels-title { margin-top: 0; }
+.m2-panel { background: #fff; border: 2px solid var(--line); border-radius: var(--radius); margin-bottom: 10px; transition: border-color .3s, box-shadow .3s; }
+.m2-panel > summary { cursor: pointer; padding: 10px 14px; min-height: 44px; list-style-position: inside; }
+.m2-panel-body { padding: 0 14px 12px; }
+.m2-panel.flash { border-color: var(--orange); box-shadow: 0 0 0 3px var(--orange); }
+.m2-num { display: inline-flex; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; align-items: center; justify-content: center; font-weight: 700; }
+.m2-json, .m2-code { font-size: .8rem; max-height: 320px; overflow: auto; }
+.m2-db table { font-size: .8rem; }
+.m2-newrow td { background: #fff6e6; }
+.m2-explain table { margin-top: 8px; }
+/* phone capture view (IMG-17) */
+.m2-phone-mode .site-header, .m2-phone-mode .site-footer, .m2-phone-mode .skip { display: none; }
+.m2-phone-mode main { padding: 12px; }
+.m2-phone .m2-phone-title { font-size: 1.3rem; margin: 4px 0; }
+.m2-phone .m2-choices { grid-template-columns: 1fr; }
