@@ -37,6 +37,8 @@ html = html.replace(/<div class="ph" data-asset="([^"]+)"([^>]*)><p>[\s\S]*?<\/p
 // Content correction (user decision (나), 2026-11-25): in the real ChatGPT the calendar write ran without an approval card.
 const FIXES = [
   ["<p>쓰기 동작이라 <b>사람 승인</b></p>", "<p>쓰기 동작 — <b>설정에 따라</b> 승인을 묻거나 바로 실행</p>"],
+  // user decision 2026-11-25: match the fixture (04_현장체험계획서_가상: 08:30 vs 08:00) and the real Work capture
+  ["8:30? 8:50?", "8:30? 8:00?"],
 ];
 for (const [from, to] of FIXES) { if (html.includes(from)) html = html.replace(from, to); else console.warn("slide text not found:", from); }
 
