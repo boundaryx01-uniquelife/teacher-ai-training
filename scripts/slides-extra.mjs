@@ -130,8 +130,14 @@ export const EXTRA_CSS = `
 #scaler .card .ex{font-size:24px;color:#14213D;background:#F2EEE3;border-radius:10px;padding:10px 14px;margin:12px 0 0}
 #scaler .cards2{flex-wrap:wrap}#scaler .cards2>.card{flex:1 1 40%}
 #scaler .hlt{background:linear-gradient(transparent 62%,#F2A541 62%)}
-#scaler .sm2{font-size:22px;color:#4A5568}
+#scaler .sm2{font-size:26px;color:#4A5568}
 #scaler table.addr td{font-size:30px;padding:16px 20px}#scaler table.addr .mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:26px;word-break:break-all}
 #scaler .c2{color:#A8530A;font-weight:700}
 #scaler .mini .num{font-size:24px}
+#scaler .eyebrow{font-size:30px}#scaler .note{font-size:28px}
+#scaler table{font-size:30px}#scaler table.sm{font-size:28px}#scaler td{padding:14px 20px}#scaler th{padding:14px 20px}
+#scaler .card p{font-size:30px}#scaler .card .tag{font-size:26px}#scaler .card .ex{font-size:26px}
+#scaler .fbox p{font-size:27px}#scaler .fbox h3{font-size:32px}#scaler .mini p{font-size:30px}#scaler .step p{font-size:30px}
+#scaler .code.sm{font-size:26px}#scaler .lbl{font-size:26px}
+#scaler [data-asset^="IMG-02"],#scaler [data-asset^="IMG-05"],#scaler [data-asset^="IMG-09"]{width:180px!important;height:180px!important}
 `;

@@ -177,14 +177,14 @@ html = html.replace(barOpen, barOpen + '\n  <a id="home" href="/" title="사이�
 html = html.replace('<button id="nt" ', '<button id="nw" title="노트를 별도 창으로 (프로젝터에는 슬라이드만)">노트 창</button>\n  <button id="nt" ');
 const fitScript = `<div id="lb" role="dialog" aria-label="그림 크게 보기"></div>
 <script>(function(){
-// fit-to-fill: scale each slide's content so it fills the free area (0.72x–1.4x), measured once fonts are loaded
+// fit-to-fill: scale each slide's content so it fills the free area (0.72x–1.6x), measured once fonts are loaded
 function fitAll(){document.querySelectorAll("#scaler>section").forEach(function(sec){var f=sec.querySelector(":scope>.fit");if(!f)return;
  var was=sec.style.display;sec.style.display="flex";sec.style.visibility=sec.classList.contains("on")?"":"hidden";
  f.style.transform="";f.style.width="";f.style.height="";f.style.flex="";
  var cs=getComputedStyle(sec),W=sec.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),H=sec.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
  function ok(z){f.style.flex="none";f.style.width=(W/z)+"px";f.style.height=(H/z)+"px";return f.scrollHeight<=f.clientHeight+1&&f.scrollWidth<=f.clientWidth+1}
  if([].some.call(f.children,function(e){return getComputedStyle(e).position==="absolute"})){f.style.flex="";f.style.width="";f.style.height="";f.dataset.fit="1";sec.style.display=was;sec.style.visibility="";return}
- var lo=0.72,hi=1.4;if(ok(hi))lo=hi;else{for(var i=0;i<9;i++){var m=(lo+hi)/2;if(ok(m))lo=m;else hi=m}}
+ var lo=0.72,hi=1.6;if(ok(hi))lo=hi;else{for(var i=0;i<9;i++){var m=(lo+hi)/2;if(ok(m))lo=m;else hi=m}}
  ok(lo);f.style.transform="scale("+lo+")";f.dataset.fit=lo.toFixed(2);sec.style.display=was;sec.style.visibility=""})}
 (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){fitAll();window.__fitDone=true});
 // click a picture to see it full screen (screenshots are small on a projector)
