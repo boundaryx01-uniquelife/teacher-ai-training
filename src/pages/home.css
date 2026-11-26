@@ -46,3 +46,5 @@
 .home-period strong { font-size: 1.05rem; line-height: 1.35; flex: 1; }
 .home-when { color: var(--orange-dark); font-weight: 700; font-size: .9rem; }
 .home-go { font-size: .9rem; font-weight: 700; }
+.home-keys { font-size: .88rem; color: var(--text-soft); line-height: 1.45; flex: 1; }
+.home-period strong { flex: 0; }

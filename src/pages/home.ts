@@ -3,11 +3,11 @@ import { h, PADLET_URL } from "../lib/ui.ts";
 import { slideNumber } from "../lib/slides.ts";
 
 const PERIODS = [
-  { t: "도입", title: "흐름과 산출물", start: "cover" },
-  { t: "1교시 · 50분", title: "LLM 개념과 용어", start: "s1" },
-  { t: "2교시 · 50분", title: "AI 도구 지도", start: "s2" },
-  { t: "3교시 · 50분", title: "ChatGPT 실습", start: "s3" },
-  { t: "부록", title: "Copilot (PENZ)", start: "s4" },
+  { t: "도입", title: "흐름과 산출물", keys: "오늘 손에 남는 3가지", start: "cover" },
+  { t: "1교시 · 50분", title: "LLM 개념과 용어", keys: "챗봇·에이전트 · 프론트·API·DB", start: "s1" },
+  { t: "2교시 · 50분", title: "AI 도구 지도", keys: "Chat·Work·Code · 스킬·MCP", start: "s2" },
+  { t: "3교시 · 50분", title: "ChatGPT 실습", keys: "프롬프트 → 나만의 GPT → 웹 퀴즈", start: "s3" },
+  { t: "부록", title: "Copilot (PENZ)", keys: "Chat · 전자 필기장 · 학습", start: "s4" },
 ];
 
 export function mount(el: HTMLElement) {
@@ -26,7 +26,7 @@ export function mount(el: HTMLElement) {
       h("a", { class: "home-start-card accent", href: "/slides/" },
         h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🖥"), h("strong", {}, "강의 슬라이드"), h("span", {}, "1–53번 · 오프라인")),
       h("a", { class: "home-start-card", href: "/lab", "data-link": "" },
-        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🧪"), h("strong", {}, "실습 워크벤치"), h("span", {}, "M1–M7 · 바로 해 보기")),
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🧪"), h("strong", {}, "실습 워크벤치"), h("span", {}, "실습 7가지 · 바로 해 보기")),
       h("a", { class: "home-start-card", href: "/guide", "data-link": "" },
         h("span", { class: "home-start-icon", "aria-hidden": "true" }, "📘"), h("strong", {}, "가이드북·자료실"), h("span", {}, "강의안 · PDF · 예시")),
       h("a", { class: "home-start-card", href: PADLET_URL, target: "_blank", rel: "noopener" },
@@ -37,15 +37,9 @@ export function mount(el: HTMLElement) {
       return h("li", {}, h("a", { class: "home-period", href: n ? `/slides/#slide-${n}` : "/slides/" },
         h("span", { class: "home-when" }, p.t),
         h("strong", {}, p.title),
+        h("span", { class: "home-keys" }, p.keys),
         h("span", { class: "home-go" }, n ? `슬라이드 ${n}번 →` : "슬라이드 →")));
     })),
-    h("section", { class: "home-flow", "aria-labelledby": "flow-h" },
-      h("h2", { id: "flow-h" }, "판단 흐름"),
-      h("ol", { class: "home-flow-steps" },
-        h("li", {}, h("strong", {}, "답"), "만 필요하면 ", h("span", { class: "home-tag" }, "Chat")),
-        h("li", {}, h("strong", {}, "파일"), "이 필요하면 ", h("span", { class: "home-tag" }, "Work")),
-        h("li", {}, h("strong", {}, "학생이 쓸 도구"), "면 ", h("span", { class: "home-tag" }, "Code"))),
-      h("p", {}, "같은 일을 매주 한다면 → 스킬·맞춤형 GPT로 고정")),
     h("section", { class: "card home-promise", "aria-labelledby": "promise-h" },
       h("h2", { id: "promise-h" }, "연수 약속"),
       h("ul", { class: "home-promise-list" },
