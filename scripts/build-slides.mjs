@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, copyFileSync, existsSyn
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { resolve, basename } from "node:path";
-import { REPLACE, INSERT, EXTRA_CSS, EXTRA_CSS2 } from "./slides-extra.mjs";
+import { REPLACE, INSERT, EXTRA_CSS, EXTRA_CSS2, EXTRA_CSS3 } from "./slides-extra.mjs";
 
 const OUT = resolve("public/slides");
 rmSync(OUT, { recursive: true, force: true });
@@ -65,7 +65,7 @@ edit("<li>10분: Teach로 같은 단원 퀴즈 → 3교시 ChatGPT 결과와 비
 html = html.replace(/<div class="ph" data-asset="IMG-15b"[^>]*><p>[\s\S]*?<\/p><\/div>\n?/, ""); // skill comparison picture dropped
 html = html.replace(/<div class="ph" data-asset="IMG-20"[^>]*><p>[\s\S]*?<\/p><\/div>\n?/, ""); // student Notebooks capture dropped
 // bigger screenshots (trainer: "삽입된 이미지는 너무 작아서 가시성이 없다") — the fit step rebalances the slide afterwards
-for (const [id, k] of Object.entries({ "IMG-06": 1.45, "VID-02": 1.3, "IMG-07": 1.35, "VID-03": 1.45, "IMG-08": 1.45, "IMG-10": 1.3, "IMG-11": 1.5, "IMG-12": 1.3, "IMG-21": 1.4, "IMG-19": 1.3, "IMG-25": 1.3, "IMG-18": 1.3 })) {
+for (const [id, k] of Object.entries({ "IMG-06": 1.45, "VID-02": 1.3, "IMG-07": 1.35, "VID-03": 1.45, "IMG-08": 1.45, "IMG-10": 1.3, "IMG-11": 1.5, "IMG-12": 1.3, "IMG-21": 1.4, "IMG-19": 1.3, "IMG-25": 1.3, "IMG-18": 1.0 })) {
   const re = new RegExp(`(data-asset="${id}"[^>]*style="width:)(\\d+)px;height:(\\d+)px;`);
   if (!re.test(html)) { console.warn("asset box not found:", id); continue; }
   html = html.replace(re, (_m, pre, w, h) => `${pre}${Math.round(w * k)}px;height:${Math.round(h * k)}px;`);
@@ -152,6 +152,16 @@ for (const f of JSON.parse(readFileSync("scripts/jargon-fixes.json", "utf8"))) {
 }
 // short parentheticals stay on one line ("보기 싫은 줄바꿈" fix): wrap "(…)" of <=16 chars in <nobr> inside text nodes only
 html = html.replace(/<section [\s\S]*?<\/section>/g, (sec) => sec.replace(/>([^<>]+)</g, (m, txt) => ">" + txt.replace(/\(([^()]{2,16})\)/g, "<nobr>($1)</nobr>") + "<"));
+// keyword highlight (5th color): first occurrence per slide of core glossary words, in body text only (not headings/tags/tables' header)
+const KW = ["프론트엔드", "백엔드", "데이터베이스", "인증키", "JSON", "API", "서버", "환각", "프롬프트", "맞춤형 GPT", "워크플로우", "에이전트", "챗봇", "스킬", "MCP", "플러그인"];
+html = html.replace(/<section [\s\S]*?<\/section>/g, (sec) => {
+  const used = new Set();
+  return sec.replace(/(<(?:p|li|td)(?: class="(?:lead|sub|ex)")?(?: style="[^"]*")?>)([^<]+)/g, (m, open, txt) => {
+    let t = txt;
+    for (const k of KW) { if (used.has(k) || !t.includes(k)) continue; used.add(k); t = t.replace(k, `<b class="kw">${k}</b>`); }
+    return open + t;
+  });
+});
 // fit-to-fill: every slide's content sits in .fit and is scaled to use the free space (runtime, after fonts load)
 html = html.replace(/(<section [^>]*>)([\s\S]*?)(<\/section>)/g, (_m, o, inner, c) => `${o}<div class="fit">${inner}</div>${c}`);
 
@@ -169,7 +179,7 @@ for (const w of [400, 700, 900]) {
 writeFileSync(resolve(OUT, "fonts.css"), faces.join("\n") + "\n");
 
 const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'";
-const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css"><style>#scaler section{word-break:keep-all;overflow-wrap:anywhere}#scaler section :is(td,th){overflow-wrap:break-word}#scaler section :is(p,h1,h2,h3,li,td){text-wrap:pretty}${EXTRA_CSS.replace(/\n/g, "")}${EXTRA_CSS2}#scaler>section{padding:72px 104px}#scaler>section>.fit{display:flex;flex-direction:column;flex:1 0 auto;transform-origin:0 0}#scaler img.zoomable,#scaler video{cursor:zoom-in}#lb{position:fixed;inset:0;z-index:50;background:rgba(10,18,38,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:96vw;max-height:94vh;background:#fff;border-radius:8px}#bar button,#bar select,#bar a,#bar input{min-height:44px;min-width:44px}#bar a{display:inline-flex;align-items:center;justify-content:center}#app:has(#black.on) :is(#bar,#notes){visibility:hidden}@media (max-width:700px) and (orientation:portrait){#bar::after{content:"📱 폰을 가로로 돌리면 슬라이드가 더 크게 보여요";flex-basis:100%;text-align:center;font-size:14px;color:#F2A541}}</style>`;
+const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css"><style>#scaler section{word-break:keep-all;overflow-wrap:anywhere}#scaler section :is(td,th){overflow-wrap:break-word}#scaler section :is(p,h1,h2,h3,li,td){text-wrap:pretty}${EXTRA_CSS.replace(/\n/g, "")}${EXTRA_CSS2}${EXTRA_CSS3.replace(/\n/g, "")}#scaler>section{padding:72px 104px}#scaler>section>.fit{display:flex;flex-direction:column;flex:1 0 auto;transform-origin:0 0}#scaler img.zoomable,#scaler video{cursor:zoom-in}#lb{position:fixed;inset:0;z-index:50;background:rgba(10,18,38,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:96vw;max-height:94vh;background:#fff;border-radius:8px}#bar button,#bar select,#bar a,#bar input{min-height:44px;min-width:44px}#bar a{display:inline-flex;align-items:center;justify-content:center}#app:has(#black.on) :is(#bar,#notes){visibility:hidden}@media (max-width:700px) and (orientation:portrait){#bar::after{content:"📱 폰을 가로로 돌리면 슬라이드가 더 크게 보여요";flex-basis:100%;text-align:center;font-size:14px;color:#F2A541}}</style>`;
 if (!html.includes('<meta name="viewport" content="width=device-width,initial-scale=1">')) throw new Error("viewport meta not found");
 html = html.replace('<meta name="viewport" content="width=device-width,initial-scale=1">', (m) => m + head);
 const barOpen = '<div id="bar" role="toolbar" aria-label="슬라이드 조작">';

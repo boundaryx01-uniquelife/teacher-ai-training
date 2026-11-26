@@ -144,3 +144,20 @@ export const EXTRA_CSS = `
 
 /* 한 줄이 어색하게 끊기지 않게 */
 export const EXTRA_CSS2 = `#scaler :is(h1,h2,h3,.lead){text-wrap:balance}#scaler .tag,#scaler .lbl,#scaler .eyebrow{white-space:normal;text-wrap:balance}#scaler nobr{white-space:nowrap}#scaler :is(td,th,.fbox p,.card p,.mini p,.step p){text-wrap:balance}#scaler table tr>:first-child:is(td,th){white-space:nowrap}#scaler table.addr tr>:first-child{white-space:normal}`;
+
+/* ===== design pass 2026-11-26: 5th (keyword) color, indentation, aligned cards ===== */
+// palette: navy #14213D · paper #F7F5EF · orange #F2A541 · dark-orange #A8530A (numbers, eyebrows) · NEW teal #0B7A75 (keywords)
+export const EXTRA_CSS3 = `
+#scaler section b,#scaler section .kw{color:#0B7A75;font-weight:900;background:linear-gradient(transparent 64%,rgba(31,168,154,.24) 64%);padding:0 3px;border-radius:2px}
+#scaler section.dark b,#scaler section.dark .kw{color:#6FE3D6;background:none}
+#scaler section.accent b,#scaler section.accent .kw{color:#14213D;background:linear-gradient(transparent 64%,rgba(255,255,255,.55) 64%)}
+#scaler :is(th,.code,.num,.eyebrow,.tag,.lbl) :is(b,.kw){color:inherit;background:none;padding:0}
+#scaler .code b{color:#F2A541}
+#scaler .fit>:is(.lead,.sub){margin-left:28px}
+#scaler :is(ul,ol){padding-left:64px}#scaler li::marker{color:#A8530A;font-weight:900}
+#scaler .step>div,#scaler .mini>p{margin-left:6px}
+#scaler .card :is(p:not(.tag)){margin-left:2px}
+#terms1 .cards{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto auto auto auto;gap:0 28px}
+#terms1 .card{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:12px;padding:34px 30px;align-content:start}
+#terms1 .card>p,#terms1 .card>h3{margin:0}#terms1 .card .ex{display:block;line-height:1.4;padding:12px 16px}#terms1 .card .ex b{display:block;background:none;padding:0;color:#0B7A75}
+`;
