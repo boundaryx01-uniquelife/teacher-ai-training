@@ -26,7 +26,7 @@ export function mount(el: HTMLElement) {
       h("a", { class: "home-start-card accent", href: "/slides/" },
         h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🖥"), h("strong", {}, "강의 슬라이드"), h("span", {}, "강의 따라가기 · 오프라인")),
       h("a", { class: "home-start-card", href: "/lab", "data-link": "" },
-        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🧪"), h("strong", {}, "실습 워크벤치"), h("span", {}, "실습 7가지 · 바로 해 보기")),
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🧪"), h("strong", {}, "실습 워크벤치"), h("span", {}, "바로 해 보는 실습")),
       h("a", { class: "home-start-card", href: "/guide", "data-link": "" },
         h("span", { class: "home-start-icon", "aria-hidden": "true" }, "📘"), h("strong", {}, "가이드북·자료실"), h("span", {}, "강의안 · PDF · 예시")),
       h("a", { class: "home-start-card", href: PADLET_URL, target: "_blank", rel: "noopener" },

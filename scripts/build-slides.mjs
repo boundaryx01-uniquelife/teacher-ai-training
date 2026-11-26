@@ -79,9 +79,10 @@ for (const [id, sec] of Object.entries(REPLACE)) {
 for (let pending = [...INSERT], guard = 0; pending.length; ) { // an insert may anchor to another inserted slide → retry until all placed
   const next = [];
   for (const x of pending) {
-    const at = html.indexOf(`<section id="${x.before}"`);
-    if (at < 0) { next.push(x); continue; }
-    html = html.slice(0, at) + x.html + "\n" + html.slice(at);
+    let at;
+    if (x.after) { const m = html.match(new RegExp(`<section id="${x.after}"[\\s\\S]*?</section>`)); at = m ? m.index + m[0].length : -1; if (at >= 0) { html = html.slice(0, at) + "\n" + x.html + html.slice(at); continue; } }
+    else { at = html.indexOf(`<section id="${x.before}"`); if (at >= 0) { html = html.slice(0, at) + x.html + "\n" + html.slice(at); continue; } }
+    next.push(x);
   }
   if (next.length === pending.length || ++guard > 10) throw new Error("insert anchor not found: " + next.map((x) => x.before).join(","));
   pending = next;
@@ -99,10 +100,10 @@ notes["demo3"] = (notes["demo3"] || "") + " 시연이 안 되면(로그인·인�
 // 2교시 짝짓기: 강의안(25분)에 맞춰 타이머 25분 (user decision 2026-11-26: 시간은 넉넉하게)
 const timers = { ...keep(raw.timers), match: 25 };
 const order = raw.order.filter((id) => !gone.has(id));
-for (let pending = [...INSERT]; pending.length; ) { const next = []; for (const x of pending) { const k = order.indexOf(x.before); if (k < 0) next.push(x); else order.splice(k, 0, x.id); } if (next.length === pending.length) throw new Error("order anchor missing"); pending = next; }
+for (let pending = [...INSERT]; pending.length; ) { const next = []; for (const x of pending) { const k = order.indexOf(x.after ?? x.before); if (k < 0) next.push(x); else order.splice(x.after ? k + 1 : k, 0, x.id); } if (next.length === pending.length) throw new Error("order anchor missing"); pending = next; }
 const titles = { ...keep(raw.titles), ...Object.fromEntries(INSERT.map((x) => [x.id, x.title])) };
 titles["neis-api"] = "부경고 급식을 API로 받아 보자"; titles["build-choice"] = "만들고 싶은 것에 따라 필요한 부분이 다르다"; titles["terms1"] = "웹서비스는 네 부분으로 나뉜다";
-const data = { ...raw, order, titles, notes, practice: { ...keep(raw.practice), match2: raw.practice.match }, timers };
+const data = { ...raw, order, titles, notes, practice: { ...keep(raw.practice), match2: raw.practice.match, "vibe-what": { module: "VIBE", label: "바이브 코딩 체험" }, "gemini-map": { module: "GEMINI", label: "Gemini 가이드" }, "gemini-steps": { module: "GEMINI", label: "Gemini 가이드" } }, timers: { ...timers, "vibe-what": 12 } };
 for (const sec of data.sections) if (gone.has(sec.start)) throw new Error("removed slide is a section start: " + sec.start);
 mkdirSync("src/content", { recursive: true });
 writeFileSync("src/content/slides-data.json", JSON.stringify(data, null, 1) + "\n");
@@ -143,6 +144,7 @@ const FIXES = [
   ["<p><b>승인</b> “드라이브에 저장할까요?”</p>", "<p><b>저장 전 확인</b> 설정에 따라 묻거나 바로 저장</p>"],
   ["“결업식 통신문 써 줘”", "“종업식 통신문 써 줘”"],
   ["description: ○○고 가정통신문을", "description: 한빛고 가정통신문을"],
+  ["FINAL:'/final'}", "FINAL:'/final',VIBE:'/vibe',GEMINI:'/gemini'}"],
   ["[연수 일자] · [강사명] · [학교·기관명]", "2026. 11. 27. · 동래발명교육센터 박재현 · 부경고등학교 교사 대상 연수"],
   // trainer review: after picking a 교시 the select kept focus, so → jumped a whole 교시
   ["sel.onchange=()=>show(+sel.value);", "sel.onchange=()=>{show(+sel.value);sel.blur()};"],

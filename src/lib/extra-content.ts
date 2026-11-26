@@ -4,6 +4,21 @@
 
 export interface ExtraItem { label: string; text: string; kind?: "prompt" | "note" }
 export const EXTRA: Record<string, { summary: string; items: ExtraItem[] }> = {
+  "/gemini": {
+    summary: "Gemini와 ChatGPT(또는 Copilot) 결과를 비교해 보세요.",
+    items: [
+      { label: "같은 문장으로 비교", kind: "note", text: "같은 5요소 문장을 두 도구에 넣고 문항의 정확성·성취기준 표시·표 형식을 비교해 보세요. 틀린 곳이 있으면 적어 두세요." },
+      { label: "NotebookLM에 내 자료 올리기", kind: "note", text: "교육과정 문서나 교재 일부를 올리고 ‘이 자료 안에서만 답해’라고 해 보세요. 개인정보가 든 자료는 올리지 않아요." },
+    ],
+  },
+  "/vibe": {
+    summary: "내 과목 단원으로 바꿔서 한 번 더 해 보세요.",
+    items: [
+      { label: "내 단원으로 바꾸기", kind: "prompt", text: "고등학교 [과목] [단원명] 단원의 객관식 퀴즈 웹페이지를 만들어 줘. 문제 3개, 보기 4개, HTML 파일 하나로. 학생 이름은 받지 말고 점수는 화면에서만 보여 줘." },
+      { label: "이어서 고쳐 보기", kind: "prompt", text: "문제를 하나씩 보여 주고, 마지막에 점수와 틀린 문제 번호를 보여 줘." },
+      { label: "확인 습관", kind: "note", text: "AI가 만든 정답·해설이 맞는지는 교사가 확인해요. 틀린 곳이 있으면 그 문제 번호와 이유를 AI에게 말해 고치게 하세요." },
+    ],
+  },
   // 출처: lesson-plan.md 444-456행 (1단계), src/modules/m1/index.ts
   "/m1": {
     summary: "같은 5요소로 다른 과목·단원의 프롬프트를 하나 더 만들어 비교해 보세요.",

@@ -111,6 +111,7 @@ export function mount(el: HTMLElement) {
     h("section", { class: "fa-section", "aria-labelledby": "fa-prep-h" },
       h("h2", { id: "fa-prep-h" }, "먼저: 문항 5개"),
       h("p", {}, "먼저 “평가 문제 만들어줘”만 입력해 결과를 본 뒤, 5요소(역할·대상·과제·조건·형식)를 넣은 아래 프롬프트와 비교해 보세요."),
+      h("p", { class: "fa-note" }, "ChatGPT 계정이 없으면 같은 문장을 Gemini에 붙여 넣어도 돼요 → ", h("a", { href: "/gemini", "data-link": "" }, "Gemini 가이드"), " · ", h("a", { href: "/vibe", "data-link": "" }, "바이브 코딩 체험"), "."),
       h("p", { class: "fa-note" }, "[ ] 안(과목·학년·단원명)은 내 내용으로 바꾼 뒤 붙여넣으세요. 바꾸지 않으면 AI가 대괄호 글자를 그대로 씁니다."),
       copyBlock(Q_PROMPT),
       h("p", { class: "fa-note" }, "정답·성취기준이 실제와 맞는지 교사가 반드시 검토하세요(환각 체험)."),

@@ -12,7 +12,9 @@ export const routes: Route[] = [
   { path: "/m5", title: "MCP 호출 시뮬레이터", load: () => import("./modules/m5/index.ts") },
   { path: "/m6", title: "스킬 파일 만들기", load: () => import("./modules/m6/index.ts") },
   { path: "/m7", title: "업무 ↔ AI 짝짓기", load: () => import("./modules/m7/index.ts") },
+  { path: "/vibe", title: "바이브 코딩 체험", load: () => import("./modules/vibe/index.ts") },
   { path: "/prompts", title: "프롬프트 카드 모음", load: () => import("./pages/prompts.ts") },
+  { path: "/gemini", title: "Gemini 가이드", load: () => import("./pages/gemini.ts") },
   { path: "/copilot", title: "Copilot(PENZ) 가이드", load: () => import("./pages/copilot.ts") },
   { path: "/final", title: "최종 과제 안내", load: () => import("./pages/final.ts") },
 ];
@@ -21,8 +23,8 @@ export const routes: Route[] = [
 export const MENU = [
   { href: "/", label: "홈", icon: "🏠", spa: true, match: (p: string) => p === "/" },
   { href: "/slides/", label: "강의 슬라이드", icon: "🖥", spa: false, match: (_p: string) => false },
-  { href: "/lab", label: "실습 워크벤치", icon: "🧪", spa: true, match: (p: string) => p === "/lab" || /^\/m[1-7]$/.test(p) },
-  { href: "/guide", label: "가이드북", icon: "📘", spa: true, match: (p: string) => ["/guide", "/prompts", "/copilot", "/final"].includes(p) },
+  { href: "/lab", label: "실습 워크벤치", icon: "🧪", spa: true, match: (p: string) => p === "/lab" || /^\/m[1-7]$/.test(p) || p === "/vibe" },
+  { href: "/guide", label: "가이드북", icon: "📘", spa: true, match: (p: string) => ["/guide", "/prompts", "/copilot", "/gemini", "/final"].includes(p) },
 ];
 
 export function findRoute(pathname: string): Route | undefined {

@@ -1,0 +1,5 @@
+.gm-page section { margin-top: 22px; }
+.gm-page th[scope=row] { background: #fff; font-weight: 700; }
+.gm-page table { min-width: 560px; }
+.gm-page h3 { margin-top: 1.1em; }
+.gm-limits { border-color: var(--orange); border-width: 2px; }

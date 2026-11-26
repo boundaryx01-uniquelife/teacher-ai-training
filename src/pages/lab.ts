@@ -10,6 +10,7 @@ const MODULES = [
   { route: "/m5", icon: "🔌", title: "MCP 호출 시뮬레이터", desc: "AI가 캘린더·드라이브 도구를 부르는 과정과 승인 단계를 따라가요.", min: 5 },
   { route: "/m6", icon: "🧰", title: "스킬 파일 만들기", desc: "양식을 채우면 스킬 파일과 폴더가 만들어지고 zip으로 받아요.", min: 10 },
   { route: "/m7", icon: "🧩", title: "업무 ↔ AI 짝짓기", desc: "학교 업무 11개를 Chat·Work·Code로 나누고 채점해요.", min: 15 },
+  { route: "/vibe", icon: "🎧", title: "바이브 코딩 체험", desc: "코드 없이 말로 부탁하고, 결과를 눌러 보며 한 가지씩 고쳐요. 진짜 ChatGPT 실습 문장도 있어요.", min: 15 },
 ];
 
 export function mount(el: HTMLElement) {

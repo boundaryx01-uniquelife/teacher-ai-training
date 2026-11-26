@@ -51,6 +51,46 @@ export const REPLACE = {
 };
 
 export const INSERT = [
+  { after: "cp-admin", id: "gemini-map", title: "Gemini로도 같은 실습을 할 수 있다", html: `<section id="gemini-map">
+<p class="eyebrow">부록 · ChatGPT 계정이 없다면</p>
+<h2>Gemini로도 같은 실습을 할 수 있다</h2>
+<p class="sub" style="margin-top:-24px">PENZ(학교) 구글 계정으로 gemini.google.com 에 들어가 보세요 — 학교 설정에 따라 꺼져 있을 수 있어요</p>
+<table>
+<tr><th>연수에서 한 것</th><th>ChatGPT</th><th>Gemini에서는</th></tr>
+<tr><td>문항 만들기(5요소)</td><td>채팅</td><td>Gemini 채팅 — 같은 문장 붙여 넣기</td></tr>
+<tr><td>나만의 GPT</td><td>맞춤형 GPT</td><td>Gem(맞춤 도우미) — 지침 저장</td></tr>
+<tr><td>학생용 퀴즈 웹페이지</td><td>캔버스 / Sites</td><td>Gemini의 캔버스로 미리보기 → HTML 저장</td></tr>
+<tr><td>내 자료 안에서만 답</td><td>프로젝트</td><td>NotebookLM</td></tr>
+</table>
+<p class="note">메뉴 이름은 자주 바뀐다 · 학생 사용 가능 여부는 교육청·학교 정책 확인 · 개인정보는 넣지 않는다</p>
+</section>` },
+  { after: "gemini-map", id: "gemini-steps", title: "Gemini 따라 하기 3단계", html: `<section id="gemini-steps">
+<p class="eyebrow">부록 · Gemini 따라 하기</p>
+<h2>같은 문장을 Gemini에 붙여 넣는다</h2>
+<div class="step"><div class="num">1</div><div><h3>문항 만들기</h3><p>5요소 문장의 [ ] 안을 내 과목·학년·단원으로 바꿔 붙여 넣기</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>Gem 만들기</h3><p>Gem 관리자 → 새 Gem → 지침 칸에 규칙(“항상 표, 항상 성취기준”) 저장</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>퀴즈 웹페이지 만들기</h3><p>“HTML 파일 하나로, 한 문제씩, 정답·해설 표시, 이름은 받지 말 것” → 캔버스에서 눌러 보며 한 가지씩 고치기</p></div></div>
+<p class="note">▶ 실습하기를 누르면 복사할 문장이 모두 있는 Gemini 가이드로 이동한다</p>
+</section>` },
+
+  { before: "step3", id: "vibe-what", title: "바이브 코딩: 말로 만들고 말로 고친다", html: `<section id="vibe-what">
+<p class="eyebrow">3교시 · 바이브 코딩 체험</p>
+<h2>코드는 AI가 쓰고, 나는 <span class="hlt">말</span>로 고친다</h2>
+<p class="sub" style="margin-top:-24px">바이브 코딩 = 만들고 싶은 느낌(바이브)을 말로 설명하고, 결과를 보며 계속 말로 다듬는 방법</p>
+<div class="row" style="gap:56px;margin-top:24px">
+<div class="col">
+<div class="step"><div class="num">1</div><div><h3>말로 부탁한다</h3><p>“광합성 퀴즈 웹페이지 만들어 줘. 문제 1개, 보기 4개”</p></div></div>
+<div class="step"><div class="num">2</div><div><h3>눌러 보고 확인한다</h3><p>정답·오답이 맞게 나오는지 직접 눌러 본다</p></div></div>
+<div class="step"><div class="num">3</div><div><h3>한 가지씩 말로 고친다</h3><p>“보기를 크게”, “오답이면 힌트부터”처럼 하나씩</p></div></div>
+</div>
+<div class="card hl" style="flex:0 0 680px"><p class="tag">잘 시키는 습관 3가지</p>
+<h3>① 눈에 보이는 결과로 말한다</h3>
+<h3>② 한 번에 한 가지만 고친다</h3>
+<h3>③ 개인정보는 받지 않게 적는다</h3></div>
+</div>
+<p class="note">▶ 실습하기: 체험판에서 먼저 연습하고, 같은 문장을 진짜 ChatGPT에 붙여 넣어 해 본다</p>
+</section>` },
+
   { before: "submit-flow", id: "mvp-pwa", title: "MVP와 PWA, 무엇이 다를까", html: `<section id="mvp-pwa">
 <p class="eyebrow">필수 용어 ② 보충 · 헷갈리기 쉬운 두 단어</p>
 <h2>MVP와 PWA, 무엇이 다를까</h2>

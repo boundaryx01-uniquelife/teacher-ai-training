@@ -16,7 +16,7 @@ const D = data as unknown as {
 
 const ROUTES: Record<string, string> = {
   M1: "/m1", M2: "/m2", M3: "/m3", M4: "/m4", M5: "/m5", M6: "/m6", M7: "/m7",
-  PROMPTS: "/prompts", COPILOT: "/copilot", FINAL: "/final",
+  PROMPTS: "/prompts", COPILOT: "/copilot", FINAL: "/final", VIBE: "/vibe", GEMINI: "/gemini",
 };
 
 // index = section index in slides-data (0 = 도입, 1~3 = 교시, 4 = 부록)

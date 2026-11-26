@@ -4,7 +4,7 @@ export const SLIDE_ORDER: string[] = data.order;
 export const SLIDE_TITLES: Record<string, string> = data.titles;
 type Practice = Record<string, { module: string; label: string }>;
 export const PRACTICE: Practice = data.practice as Practice;
-export const MODULE_ROUTE: Record<string, string> = { M1: "/m1", M2: "/m2", M3: "/m3", M4: "/m4", M5: "/m5", M6: "/m6", M7: "/m7", PROMPTS: "/prompts", COPILOT: "/copilot", FINAL: "/final" };
+export const MODULE_ROUTE: Record<string, string> = { M1: "/m1", M2: "/m2", M3: "/m3", M4: "/m4", M5: "/m5", M6: "/m6", M7: "/m7", PROMPTS: "/prompts", COPILOT: "/copilot", FINAL: "/final", VIBE: "/vibe", GEMINI: "/gemini" };
 
 /** 1-based slide number for a slide id, or null. */
 export function slideNumber(id: string): number | null {
