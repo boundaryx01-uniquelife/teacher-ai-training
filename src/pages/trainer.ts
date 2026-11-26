@@ -101,7 +101,7 @@ export function mount(el: HTMLElement) {
       timer ? h("span", { class: "tr-tag" }, `타이머 ${timer}분`) : null,
       pr ? h("span", { class: "tr-tag" }, `실습 ${pr.module} · ${pr.label}`) : null);
     const links = h("p", { class: "tr-links" },
-      h("a", { class: "btn secondary", href: `/slides/#slide-${n}` }, "슬라이드 열기"),
+      h("a", { class: "btn secondary", href: `/slides/#slide-${n}`, target: "_blank", rel: "noopener" }, "슬라이드 열기 ↗"),
       pr ? h("a", { class: "btn accent", href: `${ROUTES[pr.module] ?? "/lab"}?from=${encodeURIComponent(id)}`, "data-link": "" }, `실습: ${pr.label}`) : null);
     const hasNote = !!(note && note.trim());
     const li = h("li", { class: "tr-slide" },
@@ -144,7 +144,7 @@ export function mount(el: HTMLElement) {
       cb.checked = !!state[id];
       cb.addEventListener("change", () => { state[id] = cb.checked; saveChecks(state); });
       boxes.push(cb);
-      return h("li", {}, cb, h("label", { for: id }, t));
+      return h("li", {}, h("label", { for: id }, cb, h("span", {}, t)));
     }))));
   const reset = h("button", { class: "btn danger", type: "button", onclick: () => {
     for (const b of boxes) b.checked = false;

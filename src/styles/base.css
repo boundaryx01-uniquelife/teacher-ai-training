@@ -8,6 +8,8 @@ body {
 }
 /* 마지막 줄에 한 어절만 남는 꼬리를 줄인다(지원 브라우저) */
 p, li, h1, h2, h3, legend, td, summary { text-wrap: pretty; }
+/* 표 칸은 anywhere면 최소 폭이 0이 되어 좁은 화면에서 글자 단위로 쪼개진다 → 칸 안에서는 break-word */
+th, td { overflow-wrap: break-word; }
 a { color: var(--navy); text-underline-offset: 3px; }
 a:hover { color: var(--orange-dark); }
 :focus-visible { outline: 3px solid var(--orange-dark); outline-offset: 2px; }
@@ -25,7 +27,7 @@ pre { background: var(--navy); color: #f7f5ef; padding: 14px 16px; border-radius
 /* header / nav */
 .site-header { background: var(--navy); color: #fff; }
 .site-header .inner { max-width: 1200px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.brand { color: #fff; text-decoration: none; font-weight: 900; font-size: 1.05rem; }
+.brand { color: #fff; text-decoration: none; font-weight: 900; font-size: 1.05rem; display: inline-flex; align-items: center; min-height: 44px; }
 .brand:hover { color: var(--orange); }
 /* v3 §2: four menu items — top bar on desktop, bottom tab bar on mobile (no hamburger) */
 .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
@@ -38,7 +40,7 @@ pre { background: var(--navy); color: #f7f5ef; padding: 14px 16px; border-radius
   .site-nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--navy); border-top: 2px solid var(--orange); }
   .site-nav ul { justify-content: space-around; }
   .site-nav li { flex: 1; }
-  .site-nav a { flex-direction: column; justify-content: center; gap: 0; padding: 6px 2px; font-size: .72rem; line-height: 1.2; text-align: center; border-radius: 0; min-height: 60px; }
+  .site-nav a { flex-direction: column; justify-content: center; gap: 0; padding: 6px 2px; font-size: .8rem; line-height: 1.2; text-align: center; border-radius: 0; min-height: 60px; }
   .site-nav .nav-icon { font-size: 1.25rem; }
 }
 @media (min-width: 900px) {

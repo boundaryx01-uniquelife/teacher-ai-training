@@ -21,7 +21,7 @@ const m = lesson.match(/```markdown\n(---\nname: school-newsletter[\s\S]*?)```/)
 if (!m) throw new Error("SKILL.md example not found in lesson plan");
 writeFileSync(resolve(OUT, "skill-template.zip"), zipSync({
   "school-newsletter/SKILL.md": strToU8(m[1]),
-  "school-newsletter/assets/": new Uint8Array(0),
+  "school-newsletter/assets/template.docx": readFileSync(resolve("fixtures", "03_가정통신문_예시1.docx")),
   "school-newsletter/references/": new Uint8Array(0),
 }));
 

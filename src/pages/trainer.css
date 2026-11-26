@@ -4,8 +4,8 @@
 .trainer thead th { background: #efece3; }
 .trainer .tr-group { margin: 14px 0; }
 .trainer .tr-check { list-style: none; padding: 0; margin: 0; }
-.trainer .tr-check li { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; }
-.trainer .tr-check input { margin-top: 6px; width: 20px; height: 20px; flex: none; }
+.trainer .tr-check label { display: flex; gap: 12px; align-items: flex-start; min-height: 44px; padding: 8px 0; margin: 0; font-weight: 400; cursor: pointer; }
+.trainer .tr-check input { margin-top: 2px; width: 26px; height: 26px; flex: none; accent-color: var(--navy); }
 .trainer .tr-filter { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0; }
 .trainer .tr-filter input[type=text] { flex: 1 1 200px; min-width: 0; }
 .trainer .tr-filter select { flex: 1 1 200px; min-width: 0; max-width: 100%; }

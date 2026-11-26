@@ -41,7 +41,7 @@ function adminChecklist(): HTMLElement {
     cb.checked = !!state[id];
     cb.addEventListener("change", () => { state[id] = cb.checked; saveChecks(state); });
     boxes.push(cb);
-    return h("li", {}, cb, h("label", { for: id }, t));
+    return h("li", {}, h("label", { for: id }, cb, h("span", {}, t)));
   }));
   const reset = h("button", { class: "btn danger", type: "button", onclick: () => {
     for (const b of boxes) b.checked = false;
@@ -62,7 +62,7 @@ function panels(): { id: string; label: string; body: HTMLElement }[] {
     h("h3", {}, "단계"),
     steps([
       "PENZ에 교육디지털원패스로 로그인한 뒤 Microsoft 365를 연다. 또는 m365.cloud.microsoft(Microsoft 365 Copilot 앱)에 PENZ 계정으로 로그인한다. 개인 Microsoft 계정이 아니다.",
-      "Copilot 화면에 방패(데이터 보호) 표시가 있는지 확인한다. 있으면 입력 내용이 학습에 쓰이지 않는 학교 계정 상태다.",
+      "Copilot 화면에 방패(데이터 보호) 표시가 있는지 확인한다. 있으면 학교 계정의 데이터 보호가 적용된 상태다(Microsoft 안내상 입력 내용이 AI 모델 학습에 쓰이지 않음). 그래도 개인정보는 넣지 않는다.",
       "하고 싶은 일을 아래 표처럼 요청한다(공문 요약·수업 삽화·최신 자료 조사·동료와 초안 협업).",
     ]),
     table(["하고 싶은 일", "이렇게 요청", "나오는 것"], [

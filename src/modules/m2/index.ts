@@ -41,10 +41,10 @@ export function mount(el: HTMLElement) {
   const dbBox = h("div", { class: "m2-db" }, h("p", { class: "hint" }, "제출하면 장부에 한 줄이 추가돼요"));
   const resPre = h("pre", { class: "m2-json" }, "아직 응답이 없어요");
   const panelDefs = [
-    { n: "①", title: "요청 JSON", sub: "프론트엔드 → API", body: h("div", {}, reqPre, h("p", { class: "hint" }, "실제로 보낸 본문 그대로예요. 슬라이드 예시는 단순화한 것이에요.")) },
-    { n: "②", title: "서버 채점", sub: "백엔드", body: gradeBox },
-    { n: "③", title: "DB 추가 행", sub: "데이터베이스", body: dbBox },
-    { n: "④", title: "응답 JSON", sub: "API → 프론트엔드", body: resPre },
+    { n: "①", title: "요청 JSON", sub: "화면이 서버에 보낸 쪽지 (프론트엔드 → API)", body: h("div", {}, reqPre, h("p", { class: "hint" }, "실제로 보낸 본문 그대로예요. 슬라이드 예시는 단순화한 것이에요.")) },
+    { n: "②", title: "서버 채점", sub: "서버가 정답과 맞춰 봄 (백엔드)", body: gradeBox },
+    { n: "③", title: "DB 추가 행", sub: "기록장에 한 줄 적기 (데이터베이스)", body: dbBox },
+    { n: "④", title: "응답 JSON", sub: "서버가 화면에 보낸 답장 (API → 프론트엔드)", body: resPre },
   ];
   const panels = panelDefs.map((p) => {
     const sec = h("details", { class: "m2-panel", open: true },
@@ -79,7 +79,7 @@ export function mount(el: HTMLElement) {
       h("p", {}, `${q}번 문제: 보낸 답 "${answer}"을 서버에만 있는 정답과 비교합니다.`),
       h("pre", { class: "m2-code" }, `ANSWERS[${q}] === "${answer}"\n→ ■■■ === "${answer}"`),
       h("p", { class: ok ? "ok" : "bad" }, h("strong", {}, ok ? "✓ 비교 결과: 정답" : "✗ 비교 결과: 오답")),
-      h("p", { class: "hint" }, "■■■ 자리의 정답은 화면·응답 어디에도 보내지 않아요(부정행위 방지)."));
+      h("p", { class: "hint" }, "■■■ 자리의 정답 번호는 응답에 담지 않아요. 다만 정답·오답 결과는 알려 주므로 여러 번 찍어 보면 알아낼 수 있어요 — 실제 평가라면 제출 횟수 제한이 함께 필요해요."));
   }
   function showDb(data: SubmitResponse) {
     if (!data.row) {
@@ -178,7 +178,7 @@ export function mount(el: HTMLElement) {
 
   /* ---------- layout ---------- */
   const intro = h("div", { class: "m2-intro" },
-    h("p", { class: "lead" }, "[제출]을 누른 0.5초 동안 프론트엔드 → API → 백엔드 → 데이터베이스를 한 바퀴 돕니다. 문제를 풀면서 옆 패널에서 실제로 오가는 내용을 확인하세요."),
+    h("p", { class: "lead" }, "[제출]을 누른 0.5초 동안 프론트엔드 → API → 백엔드 → 데이터베이스를 한 바퀴 돕니다. 문제를 풀면서 ‘지금 오가는 데이터’ 패널(넓은 화면은 오른쪽, 좁은 화면은 아래)에서 실제로 오가는 내용을 확인하세요. 영어·코드는 몰라도 괜찮아요 — 패널 제목의 쉬운 말만 보면 돼요."),
     h("label", { for: "m2-code" }, "회차 코드 ", h("span", { class: "hint" }, "(선택 · 강사가 알려 줘요)")), codeInput, modeLine,
     h("p", { class: "hint" }, "이름·학번 등 개인정보는 받지 않아요."));
   const quizCol = h("section", { class: "m2-quiz", "aria-label": "퀴즈" }, phone ? null : intro, progress, cards, explainBox);

@@ -9,7 +9,8 @@
 .cp-compare .card p { margin: 0; }
 .cp-after { border-color: var(--orange); border-width: 2px; }
 .cp-check { list-style: none; padding: 0; margin: 0 0 8px; }
-.cp-check li { display: flex; align-items: flex-start; gap: 12px; min-height: 44px; padding: 8px 0; max-width: none; }
+.cp-check li { max-width: none; }
+.cp-check label { display: flex; align-items: flex-start; gap: 12px; min-height: 44px; padding: 8px 0; }
 .cp-check input[type=checkbox] { flex: none; width: 28px; height: 28px; margin: 2px 0 0; accent-color: var(--navy); }
 .cp-check label { margin: 0; font-weight: 400; cursor: pointer; }
 .cp-page th[scope=row] { background: #fff; font-weight: 700; }

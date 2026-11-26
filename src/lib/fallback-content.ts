@@ -24,7 +24,7 @@ const QUIZ_PAGE_PROMPT = [
 const SKILL_MD = [
   "---",
   "name: school-newsletter",
-  "description: ○○고 가정통신문을 학교 양식과 공문체로 작성한다. \"가정통신문\", \"학부모 안내\" 요청에 사용.",
+  "description: 한빛고 가정통신문을 학교 양식과 공문체로 작성한다. \"가정통신문\", \"학부모 안내\" 요청에 사용.",
   "---",
   "# 가정통신문 작성",
   "",

@@ -14,7 +14,7 @@ type TextKey = "name" | "description" | "title" | "inputs" | "steps" | "tone" | 
 // 예시: content-extract.md M6 (lesson-plan.md 305-348행) "SKILL.md 실제 예시"
 const EXAMPLE: State = {
   name: "school-newsletter",
-  description: "○○고 가정통신문을 학교 양식과 공문체로 작성한다. \"가정통신문\", \"학부모 안내\" 요청에 사용.",
+  description: "한빛고 가정통신문을 학교 양식과 공문체로 작성한다. \"가정통신문\", \"학부모 안내\" 요청에 사용.",
   title: "가정통신문 작성",
   inputs: "행사명, 일시, 장소, 대상, 준비물, 회신 필요 여부",
   steps: "빠진 입력이 있으면 먼저 묻는다\nassets/template.docx 양식을 따른다\n인사말 → 안내 본문 → 회신서 순서로 쓴다",
@@ -157,7 +157,12 @@ export function mount(el: HTMLElement) {
         h("h3", {}, "폴더 구조"), treeOut,
         h("h3", {}, "SKILL.md"), mdOut,
         h("div", { class: "btn-row" }, dl),
-        status)));
+        status,
+        h("h3", {}, "3. 내려받은 뒤"),
+        h("ol", {},
+          h("li", {}, "assets/ 폴더에 내 학교 가정통신문 양식을 template.docx 이름으로 넣어요(자료실의 예시 양식도 쓸 수 있어요)."),
+          h("li", {}, "ChatGPT 설정의 스킬 메뉴에서 폴더(zip)를 올려요. 스킬은 요금제·학교 관리자 설정에 따라 메뉴가 없을 수 있어요."),
+          h("li", {}, "스킬 메뉴가 없으면 SKILL.md 내용을 맞춤형 GPT나 프로젝트 지침에 붙여 넣어 같은 효과를 내요.")))));
   render();
   return () => { if (url) URL.revokeObjectURL(url); };
 }

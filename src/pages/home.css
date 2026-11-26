@@ -4,7 +4,7 @@
 .home-address { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 14px 18px; margin: 12px 0; }
 .home-address p { margin: 0; max-width: none; }
 .home-address-label { font-size: .9rem; color: #d9dde8; }
-.home-address-url { font-size: clamp(1.2rem, 4.2vw, 1.9rem); font-weight: 900; color: var(--orange); word-break: break-all; letter-spacing: -.01em; }
+.home-address-url { font-size: clamp(15px, 5.2vw, 1.9rem); font-weight: 900; color: var(--orange); white-space: nowrap; overflow-wrap: normal; letter-spacing: -.02em; }
 .home-address-hint { font-size: .85rem; color: #d9dde8; margin-top: 4px; }
 .home-address-hint strong { color: #fff; }
 .demo { background: #fff; border: 2px solid var(--navy); border-radius: var(--radius); overflow: hidden; }

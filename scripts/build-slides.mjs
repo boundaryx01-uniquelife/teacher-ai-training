@@ -104,6 +104,12 @@ const FIXES = [
   ["<p>쓰기 동작이라 <b>사람 승인</b></p>", "<p>쓰기 동작 — <b>설정에 따라</b> 승인을 묻거나 바로 실행</p>"],
   // user decision 2026-11-25: match the fixture (04_현장체험계획서_가상: 08:30 vs 08:00) and the real Work capture
   ["8:30? 8:50?", "8:30? 8:00?"],
+  // reviewer pass 2026-11-26: same wording everywhere (approval depends on settings), typo
+  ["<td>질문에 답하기, 방향 수정, 중요한 동작 승인</td>", "<td>질문에 답하기, 방향 수정, 저장·발송 범위 정하기(“초안만”)</td>"],
+  ["<p><b>승인</b> “드라이브에 저장할까요?”</p>", "<p><b>저장 전 확인</b> 설정에 따라 묻거나 바로 저장</p>"],
+  ["“결업식 통신문 써 줘”", "“종업식 통신문 써 줘”"],
+  // trainer review: after picking a 교시 the select kept focus, so → jumped a whole 교시
+  ["sel.onchange=()=>show(+sel.value);", "sel.onchange=()=>{show(+sel.value);sel.blur()};"],
 ];
 for (const [from, to] of FIXES) { if (html.includes(from)) html = html.replace(from, to); else console.warn("slide text not found:", from); }
 
@@ -121,7 +127,7 @@ for (const w of [400, 700, 900]) {
 writeFileSync(resolve(OUT, "fonts.css"), faces.join("\n") + "\n");
 
 const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'";
-const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css"><style>#scaler section{word-break:keep-all;overflow-wrap:anywhere}#scaler section :is(p,h1,h2,h3,li,td){text-wrap:pretty}</style>`;
+const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css"><style>#scaler section{word-break:keep-all;overflow-wrap:anywhere}#scaler section :is(p,h1,h2,h3,li,td){text-wrap:pretty}#bar button,#bar select,#bar a,#bar input{min-height:44px;min-width:44px}#bar a{display:inline-flex;align-items:center;justify-content:center}#app:has(#black.on) :is(#bar,#notes){visibility:hidden}@media (max-width:700px) and (orientation:portrait){#bar::after{content:"📱 폰을 가로로 돌리면 슬라이드가 더 크게 보여요";flex-basis:100%;text-align:center;font-size:14px;color:#F2A541}}</style>`;
 if (!html.includes('<meta name="viewport" content="width=device-width,initial-scale=1">')) throw new Error("viewport meta not found");
 html = html.replace('<meta name="viewport" content="width=device-width,initial-scale=1">', (m) => m + head);
 const barOpen = '<div id="bar" role="toolbar" aria-label="슬라이드 조작">';

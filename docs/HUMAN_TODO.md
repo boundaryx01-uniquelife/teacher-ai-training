@@ -62,7 +62,7 @@ $b = New-Object byte[] 32; [Security.Cryptography.RandomNumberGenerator]::Create
 | --- | --- | --- | --- |
 | **IMG-06** | ChatGPT **데스크톱 앱** 열기 → Work 탭 선택 | 상단 Chat·Work·Codex 탭 + Work 입력창 | — |
 | **IMG-10** (3컷) | ① 플러그인(앱) 디렉터리에서 "Google Drive" 검색 결과 ② 상세 화면 ③ 연결 버튼 | 세 화면 각각 | — |
-| **IMG-11** | Calendar 연결 후 채팅: `@Google Calendar 다음 주 화요일 15시에 협의회 등록해 줘` | 실행 전 **승인 요청 카드** (승인 누르기 전 상태) | 더미 캘린더 |
+| **IMG-11** | Calendar 연결 후 채팅: `@Google Calendar 다음 주 화요일 15시에 협의회 등록해 줘` | **등록 완료 카드**(설정에 따라 승인 없이 바로 실행됨 — 촬영 완료) | 더미 캘린더 |
 | **IMG-12** | 채팅: `가정통신문 작성 스킬을 만들어 줘` | 요청 + skill-creator가 되묻는 질문 | `03_가정통신문_예시1·2.docx` 첨부 가능 |
 | **VID-02** (영상) | 드라이브에 `04_현장체험계획서_가상.docx` 올려 둔 뒤 Work에: `@Google Drive의 ‘현장체험 계획서’를 읽고, 가정통신문·학생 안전 체크리스트·당일 시간표 슬라이드를 만들어 줘. 발송은 하지 말고 초안만.` | 계획 → 드라이브 검색 → (집합 시각이 두 개라) 되묻는 질문 → 파일 3개 → 승인 요청 | `04_현장체험계획서_가상.docx` |
 | **IMG-07** | Work에서 `@Sites 이 문항 5개로 퀴즈 사이트, 문항별 오답률을 교사만 보게` (문항 5개 붙여 넣기) → 미리보기 | Sites 미리보기 화면 + **폰 화면 미리보기** | — |
@@ -123,7 +123,8 @@ Claude에게 "캡처 넣었어"라고 알려 주세요. Claude가 다음을 합�
 5. `cp-admin`: "Teach · Notebooks · Study and Learn 허용" → "Notebooks · Study and Learn 허용", "10분: Teach로 같은 단원 퀴즈" → "10분: Copilot Chat으로 같은 단원 퀴즈 문항"
 6. `demo3`: 가운데 카드(스킬)의 이미지 자리(IMG-15b) 삭제
 7. `mcp-trace` 3단계 문구 → "쓰기 동작 — 설정에 따라 승인을 묻거나 바로 실행", `work-trace` 3단계 → "8:30? 8:00?"
-8. 줄바꿈: `section { word-break: keep-all; overflow-wrap: anywhere; }`, 문단·제목에 `text-wrap: pretty`
+8. 2026-11-26 리뷰 반영: `work-what` 표 '사람 역할' → "질문에 답하기, 방향 수정, 저장·발송 범위 정하기(“초안만”)", `work-trace` 6단계 → "저장 전 확인 — 설정에 따라 묻거나 바로 저장", `skill-make` 5단계 "결업식" → "종업식"
+9. 줄바꿈: `section { word-break: keep-all; overflow-wrap: anywhere; }`, 문단·제목에 `text-wrap: pretty`
 
 ## 2026-11-26 Copilot 간소화 (사용자 결정)
 - 전자 필기장(Notebooks)은 **NotebookLM과 비교하는 수준**으로만 다룸: 슬라이드 cp-notebooks를 비교표로 교체, cp-notebooks-ex 삭제, 사이트·가이드북도 같은 비교표.

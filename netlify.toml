@@ -47,3 +47,8 @@
   [headers.values]
     Cache-Control = "no-cache"
     Service-Worker-Allowed = "/slides/"
+
+[[headers]]
+  for = "/downloads/*.docx"
+  [headers.values]
+    Content-Type = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
