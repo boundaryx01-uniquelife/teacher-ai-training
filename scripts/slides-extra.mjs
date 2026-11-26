@@ -18,6 +18,12 @@ export const REPLACE = {
 <p class="note">‘많이 쓰는 곳’은 AI로 웹서비스를 만들 때 자주 고르는 서비스의 예시다. 퀴즈 앱이라면: 버튼(프론트엔드) → 채점·저장(백엔드) → 제출 기록(DB)</p>
 </section>`,
 
+  match: `<section id="match">
+<p class="eyebrow">활동 ① 25분 · 짝과 함께</p>
+<h2>학교 업무 ↔ 알맞은 AI 짝짓기 (1/2)</h2>
+<p class="sub" style="margin-top:-24px">‘층’ 칸을 가리고 보세요. 이 일은 Chat / Work / Code 중 어디일까요?</p>
+<table>\n<tr><th>학교 업무</th><th>결과물</th><th>층</th><th>도구(예)</th></tr>\n<tr><td>가정통신문·안내문 초안</td><td>텍스트</td><td><b>Chat</b></td><td>ChatGPT</td></tr>\n<tr><td>수업 발문·활동 아이디어</td><td>텍스트</td><td><b>Chat</b></td><td>ChatGPT, Claude</td></tr>\n<tr><td>교과서·연수 자료 요약·질문</td><td>요약</td><td><b>Chat</b></td><td>NotebookLM</td></tr>\n<tr><td>최신 정책·진학 정보 조사</td><td>출처가 달린 요약</td><td><b>Chat</b></td><td>Perplexity, ChatGPT 검색</td></tr>\n<tr><td>수행평가 루브릭 + 평가지</td><td>문서 파일</td><td><b>Work</b></td><td>ChatGPT Work, Claude Cowork</td></tr>\n<tr><td>연수·수업 슬라이드</td><td>슬라이드</td><td><b>Work</b></td><td>ChatGPT Work, Claude</td></tr>\n</table>
+</section>`,
   "neis-api": `<section id="neis-api">
 <p class="eyebrow">API ⑥ 직접 받아 보기</p>
 <h2>부경고 급식을 API로 받아 보자</h2>
@@ -45,6 +51,24 @@ export const REPLACE = {
 };
 
 export const INSERT = [
+  { before: "flow", id: "match2", title: "업무 ↔ AI 짝짓기 (2/2)", html: `<section id="match2">
+<p class="eyebrow">활동 ② 25분 · 짝과 함께</p>
+<h2>학교 업무 ↔ 알맞은 AI 짝짓기 (2/2)</h2>
+<p class="sub" style="margin-top:-24px">같은 일을 매주 한다면 스킬·맞춤형 GPT로 고정할 수 있어요</p>
+<table>\n<tr><th>학교 업무</th><th>결과물</th><th>층</th><th>도구(예)</th></tr>\n<tr><td>성적·설문 결과 정리</td><td>표·그래프</td><td><b>Work</b></td><td>ChatGPT Work, Copilot(엑셀 안)</td></tr>\n<tr><td>클래스룸·드라이브 자료 정리</td><td>문서·폴더</td><td><b>Work</b></td><td>Gemini(구글 워크스페이스)</td></tr>\n<tr><td>주간학습안내 매주 반복</td><td>같은 양식</td><td><b>Work+스킬</b></td><td>맞춤형 GPT, 스킬</td></tr>\n<tr><td>학생용 퀴즈·단어장 웹앱</td><td>링크</td><td><b>Code</b></td><td>Codex, ChatGPT Sites</td></tr>\n<tr><td>동아리·학급 알림 PWA</td><td>폰에 설치되는 앱</td><td><b>Code</b></td><td>Codex, Claude Code</td></tr>\n</table>
+</section>` },
+  { before: "api-what", id: "code-db", title: "기록장(DB)에는 이런 표가 쌓인다", html: `<section id="code-db">
+<p class="eyebrow">용어 실전 · ④ 데이터베이스(기록장)</p>
+<h2>제출할 때마다 표에 한 줄씩 쌓인다</h2>
+<table class="addr">
+<tr><th>id</th><th>question<br><span class="sm2">몇 번 문제</span></th><th>answer<br><span class="sm2">고른 답</span></th><th>correct<br><span class="sm2">정답 여부</span></th><th>at<br><span class="sm2">제출 시각</span></th></tr>
+<tr><td>101</td><td>1</td><td>3</td><td>true</td><td>09:12</td></tr>
+<tr><td>102</td><td>1</td><td>2</td><td>false</td><td>09:12</td></tr>
+</table>
+<p class="lead" style="margin-top:40px">이 표를 모아 <b>문항별 오답률</b>을 계산한 것이 오늘 보게 될 <b>교사 대시보드</b>다</p>
+<p class="note">학생 이름·학번은 저장하지 않는다 — 회차 코드와 답 기록만 남는다</p>
+</section>` },
+
   { before: "neis-api", id: "api-what", title: "API란 무엇인가", html: `<section id="api-what">
 <p class="eyebrow">API ① API란 무엇인가</p>
 <h2>프로그램끼리 <span class="hlt">정해진 양식으로 부탁하고 답을 받는 창구</span></h2>

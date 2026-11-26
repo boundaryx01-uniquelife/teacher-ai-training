@@ -76,10 +76,15 @@ for (const [id, sec] of Object.entries(REPLACE)) {
   if (!re.test(html)) throw new Error("slide to replace not found: " + id);
   html = html.replace(re, () => sec);
 }
-for (const x of INSERT) {
-  const at = html.indexOf(`<section id="${x.before}"`);
-  if (at < 0) throw new Error("insert anchor not found: " + x.before);
-  html = html.slice(0, at) + x.html + "\n" + html.slice(at);
+for (let pending = [...INSERT], guard = 0; pending.length; ) { // an insert may anchor to another inserted slide → retry until all placed
+  const next = [];
+  for (const x of pending) {
+    const at = html.indexOf(`<section id="${x.before}"`);
+    if (at < 0) { next.push(x); continue; }
+    html = html.slice(0, at) + x.html + "\n" + html.slice(at);
+  }
+  if (next.length === pending.length || ++guard > 10) throw new Error("insert anchor not found: " + next.map((x) => x.before).join(","));
+  pending = next;
 }
 
 // filtered slide data: used by the viewer's inline DATA, the site (src/lib/slides.ts, /trainer) and the tests
@@ -94,10 +99,10 @@ notes["demo3"] = (notes["demo3"] || "") + " 시연이 안 되면(로그인·인�
 // 2교시 짝짓기: 강의안(25분)에 맞춰 타이머 25분 (user decision 2026-11-26: 시간은 넉넉하게)
 const timers = { ...keep(raw.timers), match: 25 };
 const order = raw.order.filter((id) => !gone.has(id));
-for (const x of INSERT) order.splice(order.indexOf(x.before), 0, x.id);
+for (let pending = [...INSERT]; pending.length; ) { const next = []; for (const x of pending) { const k = order.indexOf(x.before); if (k < 0) next.push(x); else order.splice(k, 0, x.id); } if (next.length === pending.length) throw new Error("order anchor missing"); pending = next; }
 const titles = { ...keep(raw.titles), ...Object.fromEntries(INSERT.map((x) => [x.id, x.title])) };
 titles["neis-api"] = "부경고 급식을 API로 받아 보자"; titles["build-choice"] = "만들고 싶은 것에 따라 필요한 부분이 다르다"; titles["terms1"] = "웹서비스는 네 부분으로 나뉜다";
-const data = { ...raw, order, titles, notes, practice: keep(raw.practice), timers };
+const data = { ...raw, order, titles, notes, practice: { ...keep(raw.practice), match2: raw.practice.match }, timers };
 for (const sec of data.sections) if (gone.has(sec.start)) throw new Error("removed slide is a section start: " + sec.start);
 mkdirSync("src/content", { recursive: true });
 writeFileSync("src/content/slides-data.json", JSON.stringify(data, null, 1) + "\n");
@@ -152,6 +157,8 @@ for (const f of JSON.parse(readFileSync("scripts/jargon-fixes.json", "utf8"))) {
 }
 // short parentheticals stay on one line ("보기 싫은 줄바꿈" fix): wrap "(…)" of <=16 chars in <nobr> inside text nodes only
 html = html.replace(/<section [\s\S]*?<\/section>/g, (sec) => sec.replace(/>([^<>]+)</g, (m, txt) => ">" + txt.replace(/\(([^()]{2,16})\)/g, "<nobr>($1)</nobr>") + "<"));
+// split slide 12: the DB table moves to its own slide (code-db)
+html = html.replace(/(<section id="code-front-back"[\s\S]*?)<p class="lbl" style="margin-top:28px">[\s\S]*?<\/table>(\s*<\/div>\s*<\/section>|\s*<\/section>)/, (m, head, tail) => head + tail);
 // keyword highlight (5th color): first occurrence per slide of core glossary words, in body text only (not headings/tags/tables' header)
 const KW = ["프론트엔드", "백엔드", "데이터베이스", "인증키", "JSON", "API", "서버", "환각", "프롬프트", "맞춤형 GPT", "워크플로우", "에이전트", "챗봇", "스킬", "MCP", "플러그인"];
 html = html.replace(/<section [\s\S]*?<\/section>/g, (sec) => {
