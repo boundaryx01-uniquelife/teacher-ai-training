@@ -36,12 +36,9 @@ Claude Code는 로그인된 실제 서비스 화면을 찍을 수 없다. 아래
 | IMG-25 | cp-notebooks | Notebooks 3단 화면(참고 항목·페이지·채팅) + 학습 가이드 생성 창 | 600×460 | IMG-25_notebooks.png |  |
 | IMG-26 | cp-notebooks-ex | 교사용 ‘교육과정 지식방’ 노트북의 근거 링크 답변 또는 마인드맵 | 420×360 | IMG-26_notebooks-teacher.png | Use public/dummy school documents only. |
 
-## Learning Zone
 
 | ID | 슬라이드 | 무엇을 찍나 | 크기 | 파일명 | 메모 |
 | --- | --- | --- | --- | --- | --- |
-| IMG-27 | cp-lz | Learning Zone 새 레슨 설정(설명·학년·슬라이드 수·레슨 균형 슬라이더) | 600×460 | IMG-27_lz-create.png | Needs Windows 11 PC with Learning Zone app. |
-| IMG-28 | cp-lz-limits | 보라점 검토 표시 슬라이드 목록 + 리포트 탭 (2컷) | 520×420 | IMG-28_lz-review-report.png |  |
 
 ## 기타
 
@@ -54,7 +51,6 @@ Claude Code는 로그인된 실제 서비스 화면을 찍을 수 없다. 아래
 1. ChatGPT: IMG-06 → IMG-10(플러그인 연결) → IMG-11(캘린더 등록) → IMG-12(스킬) → VID-02(Work) → IMG-07·VID-03·IMG-08(Sites) → IMG-15a·15c(시연 결과)
 2. Copilot(PENZ 교사 계정): IMG-18 → IMG-21 → IMG-19(학습) → IMG-25 → IMG-26
 3. Copilot(PENZ 학생 테스트 계정): IMG-20
-4. Learning Zone(Windows 11): IMG-27 → IMG-28 (영어 레슨으로 생성)
-5. 나이스 API: IMG-04
+4. 나이스 API: IMG-04
 
 기능이 계정에서 보이지 않으면 촬영하지 말고 `assets/_capture-report.md`에 '없음'으로 기록한다. 이 기록이 연수 자료 정정 근거가 된다.

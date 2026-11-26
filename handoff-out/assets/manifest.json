@@ -555,36 +555,6 @@
       "notes": "Use public/dummy school documents only.",
       "alt_ko": "교사용 ‘교육과정 지식방’ 노트북의 근거 링크 답변 또는 마인드맵",
       "status": "todo"
-    },
-    {
-      "id": "IMG-27",
-      "slide": "cp-lz",
-      "kind": "screenshot",
-      "producer": "capture",
-      "size_px": [
-        600,
-        460
-      ],
-      "file": "IMG-27_lz-create.png",
-      "description_ko": "Learning Zone 새 레슨 설정(설명·학년·슬라이드 수·레슨 균형 슬라이더)",
-      "notes": "Needs Windows 11 PC with Learning Zone app.",
-      "alt_ko": "Learning Zone 새 레슨 설정(설명·학년·슬라이드 수·레슨 균형 슬라이더)",
-      "status": "todo"
-    },
-    {
-      "id": "IMG-28",
-      "slide": "cp-lz-limits",
-      "kind": "screenshot",
-      "producer": "capture",
-      "size_px": [
-        520,
-        420
-      ],
-      "file": "IMG-28_lz-review-report.png",
-      "description_ko": "보라점 검토 표시 슬라이드 목록 + 리포트 탭 (2컷)",
-      "notes": "",
-      "alt_ko": "보라점 검토 표시 슬라이드 목록 + 리포트 탭 (2컷)",
-      "status": "todo"
     }
   ]
 }

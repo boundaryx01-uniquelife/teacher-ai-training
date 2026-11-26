@@ -7,7 +7,7 @@ const PERIODS = [
   { t: "1교시 · 50분", title: "LLM 개념과 용어", start: "s1", items: ["챗봇·워크플로우·에이전트", "퀴즈 앱으로 보는 프론트·백·DB·API"], mods: [["/m2", "M2 퀴즈 앱 해부"], ["/m3", "M3 교사 대시보드"], ["/m4", "M4 나이스 급식 API"]] as [string, string][] },
   { t: "2교시 · 50분", title: "AI 도구 지도", start: "s2", items: ["Chat/Work/Code, Work·Sites", "스킬·플러그인·MCP 적용"], mods: [["/m5", "M5 MCP 시뮬레이터"], ["/m6", "M6 SKILL.md 만들기"], ["/m7", "M7 업무 ↔ AI 짝짓기"]] as [string, string][] },
   { t: "3교시 · 50분", title: "ChatGPT 실습", start: "s3", items: ["프롬프트 → 나만의 GPT → 웹 퀴즈", "학생 수업 적용"], mods: [["/m1", "M1 프롬프트 5요소"], ["/prompts", "프롬프트 카드"], ["/final", "최종 과제"]] as [string, string][] },
-  { t: "부록", title: "Microsoft Copilot (PENZ)", start: "s4", items: ["Chat · Notebooks · 학습 · Learning Zone"], mods: [["/copilot", "Copilot 가이드"]] as [string, string][] },
+  { t: "부록", title: "Microsoft Copilot (PENZ)", start: "s4", items: ["Chat · Notebooks · 학습"], mods: [["/copilot", "Copilot 가이드"]] as [string, string][] },
 ];
 
 // Lesson plan 3교시 1단계: a one-line prompt vs the 5-element prompt (lesson wording).

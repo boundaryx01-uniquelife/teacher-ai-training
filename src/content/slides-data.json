@@ -50,8 +50,6 @@
   "cp-chat",
   "cp-notebooks",
   "cp-notebooks-ex",
-  "cp-lz",
-  "cp-lz-limits",
   "cp-teacher",
   "cp-student",
   "cp-vs",
@@ -108,8 +106,6 @@
   "cp-chat": "학교 계정으로 쓰는 대화형 AI",
   "cp-notebooks": "내 자료로만 답하는 지식방 + 학습 가이드",
   "cp-notebooks-ex": "학생은 시험 대비, 교사는 규정 지식방",
-  "cp-lz": "눌러 보며 배우는 인터랙티브 레슨",
-  "cp-lz-limits": "레슨 생성 언어에 한국어는 아직 없다",
   "cp-teacher": "정리 · 내일 바로 해 볼 4가지",
   "cp-student": "PENZ 학교 계정이라 수업에 넣기 쉽다",
   "cp-vs": "학생 수업은 Copilot, 업무 자동화는 ChatGPT",
@@ -222,14 +218,6 @@
    "module": "COPILOT",
    "label": "Copilot(PENZ) 가이드"
   },
-  "cp-lz": {
-   "module": "COPILOT",
-   "label": "Copilot(PENZ) 가이드"
-  },
-  "cp-lz-limits": {
-   "module": "COPILOT",
-   "label": "Copilot(PENZ) 가이드"
-  },
   "cp-teacher": {
    "module": "COPILOT",
    "label": "Copilot(PENZ) 가이드"
@@ -298,8 +286,6 @@
   "cp-chat": "",
   "cp-notebooks": "",
   "cp-notebooks-ex": "",
-  "cp-lz": "",
-  "cp-lz-limits": "",
   "cp-teacher": "",
   "cp-student": "",
   "cp-vs": "",

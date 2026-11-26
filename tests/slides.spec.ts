@@ -26,7 +26,7 @@ test("슬라이드 실습 버튼 전수: 모듈로 이동 → 같은 슬라이�
     await back.click();
     await expect(page.locator("#count")).toHaveText(`${n} / ${data.order.length}`);
   }
-  expect(practice.length).toBeGreaterThanOrEqual(27);
+  expect(practice.length).toBeGreaterThanOrEqual(25);
   expect(errors).toEqual([]);
 });
 

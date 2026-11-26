@@ -20,7 +20,7 @@ const byId = Object.fromEntries(manifest.assets.map((a) => [a.id, a]));
 // 1) The PENZ (교육청) teacher account has no Teach menu → Teach slides/rows are removed.
 // 2) Skill: explained as a concept only; the with/without-skill comparison picture (IMG-15b) is dropped.
 // site-slides/slides.html itself stays untouched; to restore anything, edit this block and rebuild.
-const REMOVE_SLIDES = ["cp-teach-menu", "cp-teach-lesson", "cp-teach-modify"];
+const REMOVE_SLIDES = ["cp-teach-menu", "cp-teach-lesson", "cp-teach-modify", "cp-lz", "cp-lz-limits"]; // Teach and Learning Zone: not available on the PENZ teacher account
 for (const id of REMOVE_SLIDES) {
   const re = new RegExp(`<section id="${id}"[\\s\\S]*?</section>\\n?`);
   if (!re.test(html)) throw new Error("slide not found: " + id);
@@ -31,7 +31,7 @@ edit('<tr><td><b>Teach</b></td><td>수업·단원 계획, 수준 조절, 퀴즈�
 edit("PENZ 계정으로 무료(Chat·Teach·Notebooks)", "PENZ 계정으로 무료(Chat·Notebooks)");
 edit("Teams·OneNote·Forms·과제 연결, 교사용 Teach", "Teams·OneNote·Forms·과제 연결");
 edit("부록 · ③ Copilot Notebooks", "부록 · ② Copilot Notebooks");
-edit("부록 · ④ Learning Zone", "부록 · ③ Learning Zone");
+edit('<tr><td><b>Learning Zone</b></td><td>인터랙티브 레슨 생성·과제 연결</td><td>교사</td></tr>\n', "");
 edit("<li>Teach · Notebooks · Study and Learn 허용</li>", "<li>Notebooks · Study and Learn 허용</li>");
 edit("<li>10분: Teach로 같은 단원 퀴즈 → 3교시 ChatGPT 결과와 비교</li>", "<li>10분: Copilot Chat으로 같은 단원 퀴즈 문항 → 3교시 ChatGPT 결과와 비교</li>");
 { // cp-teacher: the four "do tomorrow" items without Teach (wording from the lesson plan's Chat / Notebooks / 학생 활용 tables)

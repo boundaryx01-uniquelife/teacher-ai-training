@@ -19,9 +19,7 @@ export const TROUBLE: Trouble[] = [
   { id: "personal-info", stage: "ChatGPT", q: "업무 자료를 넣어도 되나요?", a: ["학생 이름·성적·상담 내용 등 개인정보는 실습에 넣지 않아요.", "개인정보를 지운 자료만 사용하세요."] },
   // 부록 무료 vs 유료 표·29행
   { id: "copilot-button", stage: "Copilot", q: "워드 안의 Copilot 버튼이 안 돼요", a: ["대부분 유료 라이선스 문제예요. Microsoft 365 Copilot은 학교가 구매하는 유료 추가 라이선스예요.", "myaccount.microsoft.com의 구독에서 확인하세요. Copilot Chat까지만 보이면 오피스 안 Copilot은 쓸 수 없어요."] },
-  // 부록 Teach 한계·Learning Zone 제약
-  { id: "teach-missing", stage: "Copilot", q: "Copilot에 Teach 메뉴가 없어요(‘학습’만 보여요)", a: ["연수 준비 중 교육청(PENZ) 교사 계정에서는 Teach가 보이지 않고 ‘학습’ 메뉴만 보였어요. 그래서 이 연수에서는 Teach를 다루지 않아요.", "내 계정에 Teach가 보이면 계정·라이선스에 따라 열린 거예요. 학교 정보 담당자에게 허용 여부를 확인하세요."] },
-  { id: "copilot-korean", stage: "Copilot", q: "Learning Zone 결과가 한국어로 안 나와요", a: ["Learning Zone의 레슨 생성 언어에 한국어는 현재(발표 기준) 없어요. 성취기준은 직접 붙여 넣거나 문서를 첨부하세요.", "언어·기능 제공 범위는 업데이트로 바뀔 수 있으니 연수 전에 확인하세요."] },
+  { id: "teach-missing", stage: "Copilot", q: "Copilot에 Teach·Learning Zone 메뉴가 없어요(‘학습’만 보여요)", a: ["연수 준비 중 교육청(PENZ) 교사 계정에서는 Teach가 보이지 않고 ‘학습’ 메뉴만 보였어요. 그래서 이 연수에서는 Teach와 Learning Zone을 다루지 않아요.", "내 계정에 Teach가 보이면 계정·라이선스에 따라 열린 거예요. 학교 정보 담당자에게 허용 여부를 확인하세요."] },
   // src/modules/m2/index.ts 31-33, 119행
   { id: "m2-code", stage: "실습 사이트", q: "M2에서 회차 코드를 넣었는데 안 돼요", a: ["회차 코드는 영문 대문자·숫자 6자리예요(0·O·1·I 제외). 없는 회차 코드라면 강사에게 코드를 확인하세요.", "코드 없이 풀면 연습 모드예요. 채점만 하고 저장하지 않아요."] },
   // src/modules/m3/index.ts 34-37행

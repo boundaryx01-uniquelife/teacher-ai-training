@@ -504,7 +504,6 @@ description: ○○고 가정통신문을 학교 양식과 공문체로 작성�
 | Microsoft 365 Copilot Chat | 대화형 AI. 웹 검색, 파일 업로드, 이미지 생성, Copilot Pages, 에이전트 | ○ | ○(관리자 활성화) | 무료 |
 | Copilot Notebooks + 학습 가이드 | 내 자료를 모아 그 안에서만 답하는 작업 공간, 자료로 학습 가이드·자기 테스트 생성 | ○ | ○ | 무료 |
 | Study and Learn 에이전트 | 학습 과학 기반 학습 동반자(개념 설명·연습·피드백) | — | ○ | 무료 |
-| Learning Zone | 수업용 인터랙티브 레슨 생성·과제 연결 | ○ | 레슨 참여 | 무료(생성은 Copilot+ PC, 일반 Windows 11은 2027-08-01까지 1회 10슬라이드) |
 | Microsoft 365 Copilot | 워드·엑셀·파워포인트 안 Copilot, Researcher·Analyst 에이전트 | △ | △ | 유료 추가 라이선스(학교 구매) |
 
 연수 때 무료 범위와 유료 범위를 분명히 나눠 보여준다. “워드 안의 Copilot 버튼이 왜 안 되죠?”는 대부분 유료 라이선스 문제다.
@@ -550,80 +549,6 @@ description: ○○고 가정통신문을 학교 양식과 공문체로 작성�
 **실제 예시 — 교사**: ‘우리 학교 교육과정 지식방’ 노트북에 학교 교육과정 편성표·학업성적관리규정·평가 계획을 넣는다(학생 개인정보 없는 문서만) → “3학년 선택과목 개설 조건은?”, “수행평가 반영 비율 규정 조항”처럼 질문 → 근거 문서에 연결된 답. 마인드맵으로 신규 교사 안내 자료도 만든다.
 
 **수업 운영 팁**: 교사가 단원 자료를 넣은 노트북을 만들어 학급과 공유해도, 플래시카드·퀴즈는 학생이 각자 생성해야 한다. 모둠별로 서로의 플래시카드로 문제를 내는 활동으로 연결하면 좋다.
-
-### ③ Learning Zone — 학생이 눌러 보며 배우는 인터랙티브 레슨
-
-설명을 입력하면 **내용 슬라이드와 연습 문제가 섞인 레슨**을 만들고, 학생에게 내준 뒤 누가 어디서 막혔는지 리포트로 본다. Windows 앱이며 교육용 A1·A3·A5에 포함된다([Microsoft 지원](https://support.microsoft.com/en-us/education/getting-started-with-microsoft-learning-zone), [learningzone.microsoft.com](https://learningzone.microsoft.com/)).
-
-**레슨 만들고 내주기 흐름**
-
-1. 새 레슨 → 레슨 설명 입력, 성취기준·학년·활동 유형·언어·슬라이드 수 설정, ‘레슨 균형’ 슬라이더로 설명:연습 비율 조절.
-2. AI가 레슨 개요를 먼저 만든다 → 교사가 항목을 고치거나 순서를 바꾼다.
-3. 레슨 생성 → 슬라이드가 하나씩 만들어진다. 검토하지 않은 AI 슬라이드에는 **보라색 점**이 붙어, 모두 확인하기 전에는 공유 전 알림이 뜬다.
-4. 슬라이드 다시 생성·문장 쉽게 하기·이미지 추가 → ‘학생 보기’로 직접 풀어 본다.
-5. 공유: 짧은 코드, 링크, Teams 과제, LMS. 교사가 화면을 이끄는 실시간 수업 모드도 있다.
-6. 리포트 탭: 과제별 참여 인원·평균, 학생·문항별로 어려워한 곳을 확인.
-
-**쓰기 전에 꼭 알아야 할 제약**
-
-| 항목 | 현재 상태(발표 기준) |
-| --- | --- |
-| 레슨 생성 기기 | Copilot+ PC. 일반 Windows 11 PC도 2027-08-01까지 생성 가능(1회 최대 10슬라이드) |
-| 레슨 생성 언어 | **영어·스페인어**·프랑스어·이탈리아어·일본어·포르투갈어(브라질). 한국어는 현재 목록에 없음 |
-| 앱 화면 언어 | 50개 이상(한국어 화면 사용 가능성) |
-| AI 없이 쓸 수 있는 것 | 파트너 레슨 라이브러리, 과제 배포, 리포트 |
-
-**실제 예시 — 영어 수업(생성 언어 제약에 맞춘 추천)**: “High school grade 10, reading lesson on climate change vocabulary, 10 slides, include matching and short-answer practice” → 개요 확인 → 생성 → 보라점 슬라이드 검토 → 짧은 코드로 학생에게 공유 → 리포트에서 오답이 많은 어휘를 다음 수업 도입에 반영.
-
-**다른 교과는**: 한국어 생성이 지원되지 않으므로 ① 파트너 레슨 라이브러리에서 고르거나 ② 빈 레슨에 직접 슬라이드·문항을 넣고 배포·리포트 기능만 쓴다.
-
-**접속 방법**
-
-1. PENZ에 교육디지털원패스로 로그인한 뒤 Microsoft 365를 연다. 또는 m365.cloud.microsoft(Microsoft 365 Copilot 앱)에 **PENZ 계정**으로 로그인한다. 개인 Microsoft 계정이 아니다.
-2. Copilot 화면에 방패(데이터 보호) 표시가 있는지 확인한다. 있으면 입력 내용이 학습에 쓰이지 않는 학교 계정 상태다.
-3. 앱 왼쪽 메뉴에서 Notebooks·학습(Study and Learn 에이전트)을 찾는다(메뉴 이름·위치는 업데이트로 바뀔 수 있음). 2026-11-26 확인: 교육청(PENZ) 교사 계정에는 교사 전용 Teach 메뉴가 없어 이 강의안에서는 다루지 않는다.
-4. 내 라이선스 확인: myaccount.microsoft.com → 구독. “Microsoft 365 Copilot”이 보이면 워드·엑셀·파워포인트 안 Copilot까지, A1·A3 등만 보이면 Copilot Chat까지다.
-
-**교사 활용 — 바로 해 볼 4가지**
-
-| 하고 싶은 일 | 도구 | 이렇게 요청 |
-| --- | --- | --- |
-| 공문 요약 | Copilot Chat | PDF 공문을 올리고 “담임이 할 일·기한만 표로” |
-| 수업 삽화 | Copilot Chat | “열대우림 단면도를 교과서 삽화 느낌으로, 글자 없이” |
-| 단원 자료 지식방 | Copilot Notebooks | 교육과정·교재·워크시트를 모아 “이 자료 안에서만 답해” |
-| 개념이 막힐 때 | 학습(Study and Learn 에이전트) | 답 대신 힌트·질문으로 이해 |
-
-**학생 활용 — 수업 안에서**
-
-| 장면 | 도구 | 학생이 하는 일 | 교사가 확인할 것 |
-| --- | --- | --- | --- |
-| 시험 대비 복습 | Notebooks 학습 가이드 | 수업 자료를 넣고 자기 테스트 | 퀴즈 결과는 학생이 공유해야 보인다 |
-| 개념이 막힐 때 | Study and Learn 에이전트 | 답 대신 힌트·질문으로 이해 | 대화 기록을 성찰지로 제출 |
-| 글쓰기 피드백 | Copilot Chat | 초안을 올리고 “논리 빈틈만 지적, 고쳐 쓰지 마” | AI 사용 표시 규칙 |
-| 조사 활동 | Copilot Chat(웹 검색) | 답변의 출처 링크를 열어 직접 확인 | 출처와 내용 일치 여부 |
-
-**ChatGPT와 어떻게 나눠 쓸까**
-
-|  | Microsoft Copilot(에듀) | ChatGPT |
-| --- | --- | --- |
-| 비용 | PENZ 계정으로 무료(Chat·Notebooks) | 무료 + 유료 기능(Work·Sites·스킬) |
-| 학생 사용 | 학교가 관리하는 계정, 관리자 통제 | PENZ로도 제공됨 — 플랜·학생 허용 범위는 확인 필요 |
-| 강점 | Teams·OneNote·Forms·과제와 연결 | 에이전트(Work), 웹앱(Sites), 스킬·플러그인 생태계 |
-| 추천 용도 | **학생 수업**, 수업 준비 | **교사 업무 자동화**, 도구 만들기 |
-
-**관리자(학교·교육청 정보 담당)에게 미리 확인**
-
-- [ ] PENZ Microsoft 365 라이선스가 A1·A3·A5 중 무엇이고, 유료 Microsoft 365 Copilot이 포함되는지(교사·학생 각각)
-- [ ] 학생 계정 연령대 설정과 Copilot Chat 활성화 여부(고등학생은 13세 이상 기준)
-- [ ] Notebooks·Study and Learn 에이전트 허용 여부
-- [ ] 연수 전 테스트용 학생 PENZ 계정 1개로 실제 접속 확인
-- [ ] 문의처: 부산교육청 교육연구정보원(PENZ 담당)
-
-**연수 운영 팁(부록 20분 버전)**: Copilot Chat으로 같은 단원 퀴즈 문항을 만들어 3교시 ChatGPT 결과와 비교(10분) → 학생 계정으로 Notebooks 학습 가이드 시연(10분).
-
-참고: 기능 이름·메뉴 위치는 국가·업데이트·계정에 따라 다를 수 있다. 연수 전 실제 화면으로 확인한다. 교사 전용 Teach는 2026-11-26 교육청(PENZ) 교사 계정에서 보이지 않아 뺐다(계정·라이선스에 따라 보일 수도 있음).
-
-출처: [Microsoft — Copilot in education](https://www.microsoft.com/en-gb/education/products/copilot-in-education) · [Copilot Chat for Students 13+](https://techcommunity.microsoft.com/blog/educationblog/microsoft-365-copilot-chat-for-students-13/4440370) · [Copilot Notebooks·Study guide](https://techcommunity.microsoft.com/blog/educationblog/copilot-notebooks-and-study-guide-now-available-to-copilot-chat-users/4527320) · [What's New in Microsoft EDU — 2026년 10월](https://techcommunity.microsoft.com/blog/educationblog/whats-new-in-microsoft-edu-%E2%80%93-october-2026/4516290) · [Microsoft AI in Education 발표(2026-06)](https://news.microsoft.com/2026/06/24/microsofts-new-ai-in-education-report-highlights-widespread-adoption-and-increasing-demand-for-support/)
 
 ## 시각 자료 제작 목록 (Code 전달용)
 
@@ -676,8 +601,6 @@ description: ○○고 가정통신문을 학교 양식과 공문체로 작성�
 | IMG-24 | cp-teach-modify | 화면 캡처 | 콘텐츠 수정 → 읽기 수준 수정 설정, 핵심 용어 칸에 ‘온실가스, 탄소중립’ | 560×400 | IMG-24\_teach-modify.png |
 | IMG-25 | cp-notebooks | 화면 캡처 | Notebooks 3단 화면(참고 항목 · 페이지 · 채팅)과 학습 가이드 생성 창 | 680×460 | IMG-25\_notebooks.png |
 | IMG-26 | cp-notebooks-ex | 화면 캡처 | 교사용 ‘교육과정 지식방’ 노트북의 마인드맵 또는 근거 링크가 붙은 답변 | 560×400 | IMG-26\_notebooks-teacher.png |
-| IMG-27 | cp-lz | 화면 캡처 | Learning Zone 새 레슨 설정(설명·학년·슬라이드 수·레슨 균형 슬라이더) | 680×460 | IMG-27\_lz-create.png |
-| IMG-28 | cp-lz-limits | 화면 캡처 2컷 | 보라점 검토 표시가 있는 슬라이드 목록 + 리포트 탭 | 560×400 | IMG-28\_lz-review-report.png |
 
 제작 후 슬라이드 교체: 각 슬라이드의 `data-asset="IMG-xx"` 상자를 업로드한 이미지(또는 영상 정지 화면)로 바꾼다.
 

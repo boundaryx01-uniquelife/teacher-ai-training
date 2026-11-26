@@ -86,14 +86,6 @@ $b = New-Object byte[] 32; [Security.Cryptography.RandomNumberGenerator]::Create
 | --- | --- | --- | --- |
 | **IMG-20** | Notebooks → 자료 추가 → 학습 가이드 → **플래시카드** 열기 | 학습 가이드 + 플래시카드 | `05_통합사회2단원_수업슬라이드.pptx`, `05_통합사회2단원_학습지.pdf` |
 
-### 3-D. Learning Zone (Windows 11 PC + Learning Zone 앱) — 2개, 약 15분
-
-| ID | 순서 | 화면에 꼭 보여야 할 것 |
-| --- | --- | --- |
-| **IMG-27** | 새 레슨 → 설명·학년·슬라이드 수 입력 | **레슨 균형 슬라이더** 포함 설정 화면 |
-| **IMG-28** (2컷) | 생성된 레슨 ① 슬라이드 목록(보라색 점 = 검토 필요 표시) ② 리포트 탭 | 두 화면 |
-
-※ Learning Zone은 레슨 생성 언어에 한국어가 아직 없습니다(강의안 기준). 영어로 만들어도 됩니다.
 
 ### 3-E. 로고 1개
 
@@ -120,11 +112,12 @@ Claude에게 "캡처 넣었어"라고 알려 주세요. Claude가 다음을 합�
 ## 2026-11-26 정리 (사용자 결정)
 - **Teach 삭제**: 교육청(PENZ) 교사 계정에 Teach 메뉴가 없어서, 슬라이드 3장(cp-teach-menu·lesson·modify)과 캡처 IMG-22·23·24를 뺐습니다. IMG-19는 ‘학습’ 메뉴 화면으로 바꿔 반영했습니다.
 - **스킬 비교 삭제**: 스킬은 개념 설명까지만. IMG-15b(스킬 전후 비교)를 뺐습니다.
-- **남은 캡처(9개)**: IMG-15c(Canva 포스터) · IMG-08 · VID-03(Sites 배포 후) · IMG-18(방패 확대) · IMG-25 · IMG-26 · IMG-20(학생 계정) · IMG-27 · IMG-28(Learning Zone)
+- **Learning Zone 삭제**: 사이드바에 없어서(윈도 앱·기기 조건) 슬라이드 2장(cp-lz·cp-lz-limits)과 캡처 IMG-27·28을 뺐습니다.
+- **남은 캡처(7개)**: IMG-15c(Canva 포스터) · IMG-08 · VID-03(Sites 배포 후) · IMG-18(방패 확대) · IMG-25 · IMG-26 · IMG-20(학생 계정)
 
 ### 원본 덱(Cowork)에 같은 수정 전달
-1. 슬라이드 삭제: `cp-teach-menu`, `cp-teach-lesson`, `cp-teach-modify`
-2. `cp-free` 표에서 Teach 행 삭제, 번호 정리: `cp-notebooks` 제목 위 "③ Copilot Notebooks" → "② Copilot Notebooks", `cp-lz` "④ Learning Zone" → "③ Learning Zone"
+1. 슬라이드 삭제: `cp-teach-menu`, `cp-teach-lesson`, `cp-teach-modify`, `cp-lz`, `cp-lz-limits`
+2. `cp-free` 표에서 Teach 행 삭제, `cp-free` 표에서 Learning Zone 행도 삭제, 번호 정리: `cp-notebooks` 제목 위 "③ Copilot Notebooks" → "② Copilot Notebooks"
 3. `cp-teacher`: 제목은 그대로(정리 · 내일 바로 해 볼 4가지), 항목을 ① 공문 요약(PDF 공문 → “담임이 할 일·기한만 표로”) ② 수업 삽화(“열대우림 단면도를 교과서 삽화 느낌으로, 글자 없이”) ③ Notebooks(교육과정·교재를 모아 “이 자료 안에서만 답해”) ④ 학습 메뉴(개념이 막힐 때 답 대신 힌트·질문으로 이해)로 교체, 이미지는 IMG-19(‘학습’ 메뉴 화면)
 4. `cp-vs`: "Chat·Teach·Notebooks" → "Chat·Notebooks", "교사용 Teach" 삭제
 5. `cp-admin`: "Teach · Notebooks · Study and Learn 허용" → "Notebooks · Study and Learn 허용", "10분: Teach로 같은 단원 퀴즈" → "10분: Copilot Chat으로 같은 단원 퀴즈 문항"
