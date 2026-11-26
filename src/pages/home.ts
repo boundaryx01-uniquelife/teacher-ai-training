@@ -3,11 +3,11 @@ import { h, PADLET_URL } from "../lib/ui.ts";
 import { slideNumber } from "../lib/slides.ts";
 
 const PERIODS = [
-  { t: "도입", title: "흐름과 산출물", start: "cover", items: ["끝날 때 손에 남는 3가지"], mods: [] as [string, string][] },
-  { t: "1교시 · 50분", title: "LLM 개념과 용어", start: "s1", items: ["챗봇·워크플로우·에이전트", "퀴즈 앱으로 보는 프론트·백·DB·API"], mods: [["/m2", "M2 퀴즈 앱 해부"], ["/m3", "M3 교사 대시보드"], ["/m4", "M4 나이스 급식 API"]] as [string, string][] },
-  { t: "2교시 · 50분", title: "AI 도구 지도", start: "s2", items: ["Chat/Work/Code, Work·Sites", "스킬·플러그인·MCP 적용"], mods: [["/m5", "M5 MCP 시뮬레이터"], ["/m6", "M6 SKILL.md 만들기"], ["/m7", "M7 업무 ↔ AI 짝짓기"]] as [string, string][] },
-  { t: "3교시 · 50분", title: "ChatGPT 실습", start: "s3", items: ["프롬프트 → 나만의 GPT → 웹 퀴즈", "학생 수업 적용"], mods: [["/m1", "M1 프롬프트 5요소"], ["/prompts", "프롬프트 카드"], ["/final", "최종 과제"]] as [string, string][] },
-  { t: "부록", title: "Microsoft Copilot (PENZ)", start: "s4", items: ["Chat · 전자 필기장 · 학습"], mods: [["/copilot", "Copilot 가이드"]] as [string, string][] },
+  { t: "도입", title: "흐름과 산출물", start: "cover" },
+  { t: "1교시 · 50분", title: "LLM 개념과 용어", start: "s1" },
+  { t: "2교시 · 50분", title: "AI 도구 지도", start: "s2" },
+  { t: "3교시 · 50분", title: "ChatGPT 실습", start: "s3" },
+  { t: "부록", title: "Copilot (PENZ)", start: "s4" },
 ];
 
 export function mount(el: HTMLElement) {
@@ -34,13 +34,10 @@ export function mount(el: HTMLElement) {
     h("h2", {}, "오늘의 흐름"),
     h("ol", { class: "home-periods" }, PERIODS.map((p) => {
       const n = slideNumber(p.start);
-      return h("li", { class: "card home-period" },
-        h("p", { class: "home-when" }, p.t),
-        h("h3", {}, p.title),
-        h("ul", { class: "home-items" }, p.items.map((i) => h("li", {}, i))),
-        h("div", { class: "home-mods" },
-          n ? h("a", { class: "btn secondary", href: `/slides/#slide-${n}` }, `🖥 슬라이드 ${n}번부터`) : null,
-          p.mods.map(([href, label]) => h("a", { class: "btn secondary", href, "data-link": "" }, label))));
+      return h("li", {}, h("a", { class: "home-period", href: n ? `/slides/#slide-${n}` : "/slides/" },
+        h("span", { class: "home-when" }, p.t),
+        h("strong", {}, p.title),
+        h("span", { class: "home-go" }, n ? `슬라이드 ${n}번 →` : "슬라이드 →")));
     })),
     h("section", { class: "home-flow", "aria-labelledby": "flow-h" },
       h("h2", { id: "flow-h" }, "판단 흐름"),
