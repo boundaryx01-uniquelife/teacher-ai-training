@@ -16,9 +16,9 @@ Claude Code는 로그인된 실제 서비스 화면을 찍을 수 없다. 아래
 | --- | --- | --- | --- | --- | --- |
 | IMG-06 | work-what | ChatGPT 데스크톱 앱의 Chat·Work·Codex 탭과 Work 입력창 | 640×480 | IMG-06_work-ui.png |  |
 | VID-02 | work-trace | Work에 ‘현장체험 준비’ 요청 → 계획 → 드라이브 검색 → 질문 → 파일 3개 생성 → 승인 요청 (배속 편집, 60초 이하) | 680×520 | VID-02_work-trace.mp4 | Use dummy Drive files only. |
-| IMG-07 | sites-what | Sites 미리보기의 형성평가 퀴즈 사이트 — 학생 퀴즈 화면 + 교사 통계(오답률) 화면 (2컷) | 680×500 | IMG-07_sites-preview.png |  |
-| VID-03 | sites-steps | @Sites 요청 → 미리보기 → 수정 1회 → 배포 → 공유 범위 선택 → 링크 복사 (60초 이하) | 640×300 | VID-03_sites-steps.mp4 |  |
-| IMG-08 | sites-steps | Sites 공유 창에서 나만·지정한 사람·인터넷 누구나 중 공개 범위를 고르는 화면 | 640×220 | IMG-08_sites-share.png |  |
+| IMG-07 | sites-what | ChatGPT Sites로 공개한 기후변화 형성평가 퀴즈 — PC 화면 + 폰 화면 | 680×500 | IMG-07_sites-preview.png |  |
+| VID-03 | sites-steps | Sites 진행 기록(생성·배포·공개 권한) → 공개된 사이트 → 게시 카드·공유 (사진 3장 연결, 14초) | 640×300 | VID-03_sites-steps.mp4 |  |
+| IMG-08 | sites-steps | Sites 게시 카드(공개 범위: 링크가 있는 모든 사용자 · 공유 버튼) + 공개된 사이트 | 640×220 | IMG-08_sites-share.png |  |
 | IMG-10 | plugin-install | ChatGPT 플러그인 디렉터리에서 Google Drive 검색 → 상세 → 연결 버튼 (3컷 합성) | 680×500 | IMG-10_plugin-install.png |  |
 | IMG-11 | mcp-trace | 캘린더 일정 등록 완료 카드(승인 없이 바로 실행된 실제 화면) | 520×380 | IMG-11_mcp-approve.png | Dummy calendar. |
 | IMG-12 | skill-make | “가정통신문 스킬 만들어 줘” 대화와 skill-creator의 질문 | 680×500 | IMG-12_skill-create.png |  |
