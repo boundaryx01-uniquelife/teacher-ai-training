@@ -44,3 +44,6 @@ export function serviceNotice(): HTMLElement {
 }
 
 export function pageTitle(title: string) { document.title = `${title} · 교사 AI 연수 실습`; }
+
+/** 연수 나눔 게시판(패들렛, 외부 서비스) */
+export const PADLET_URL = "https://padlet.com/teacher00_12/padlet-s025tobmjy9nzt4weurr";

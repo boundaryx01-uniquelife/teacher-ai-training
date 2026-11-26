@@ -8,7 +8,7 @@ test("인트로: 첫 방문 재생 → 건너뛰기 → 시작 카드, 재방문
   await expect(page.locator(".intro-skip")).toBeFocused();
   await page.locator(".intro-skip").click();
   await expect(page.locator(".intro")).toHaveCount(0);
-  await expect(page.locator(".home-start-card")).toHaveCount(3);
+  await expect(page.locator(".home-start-card")).toHaveCount(4);
   await page.reload();
   await expect(page.locator(".home-start-card").first()).toBeVisible();
   await expect(page.locator(".intro")).toHaveCount(0);

@@ -1,5 +1,5 @@
 import "./home.css";
-import { h } from "../lib/ui.ts";
+import { h, PADLET_URL } from "../lib/ui.ts";
 import { slideNumber } from "../lib/slides.ts";
 
 const PERIODS = [
@@ -60,7 +60,9 @@ export function mount(el: HTMLElement) {
       h("a", { class: "home-start-card", href: "/lab", "data-link": "" },
         h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🧪"), h("strong", {}, "실습 워크벤치"), h("span", {}, "M1–M7 · 바로 해 보기")),
       h("a", { class: "home-start-card", href: "/guide", "data-link": "" },
-        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "📘"), h("strong", {}, "가이드북 · 자료실"), h("span", {}, "강의안 · PDF · 예시 자료"))),
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "📘"), h("strong", {}, "가이드북 · 자료실"), h("span", {}, "강의안 · PDF · 예시 자료")),
+      h("a", { class: "home-start-card", href: PADLET_URL, target: "_blank", rel: "noopener" },
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "💬"), h("strong", {}, "함께 나누기 ↗"), h("span", {}, "패들렛 · 질문 · 결과물 · 사례"))),
     h("h2", {}, "오늘의 흐름"),
     h("ol", { class: "home-periods" }, PERIODS.map((p) => {
       const n = slideNumber(p.start);

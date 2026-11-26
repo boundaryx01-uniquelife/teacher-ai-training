@@ -1,4 +1,4 @@
-import { h, copyBlock, serviceNotice, pageTitle } from "../lib/ui.ts";
+import { h, copyBlock, serviceNotice, pageTitle, PADLET_URL } from "../lib/ui.ts";
 import "./final.css";
 
 const STORE_KEY = "final-checklist";
@@ -141,9 +141,11 @@ export function mount(el: HTMLElement) {
     h("section", { class: "fa-section", "aria-labelledby": "fa-share-h" },
       h("h2", { id: "fa-share-h" }, "공유와 사후 과제"),
       h("ul", {},
-        h("li", {}, "공유(10분): 2–3명이 화면을 보여 주고, “다음 주 내 수업에 쓸 한 가지”를 적어 내요."),
-        h("li", {}, "사후 과제: 2주 뒤 ‘실제로 써본 사례 1개’ 공유 → 학교 내 활용 사례집으로 축적(공유 방법은 강사가 안내해요)"),
+        h("li", {}, "공유(10분): 2–3명이 화면을 보여 주고, “다음 주 내 수업에 쓸 한 가지”를 패들렛 ‘✋ 다음 주에 쓸 한 가지’에 적어요."),
+        h("li", {}, "사후 과제: 2주 뒤 ‘실제로 써본 사례 1개’를 패들렛 ‘📚 2주 뒤 사례 나눔’에 올려요 → 학교 내 활용 사례집으로 축적"),
       ),
+      h("p", {}, h("a", { class: "btn accent", href: PADLET_URL, target: "_blank", rel: "noopener" }, "💬 패들렛 열기 ↗")),
+      h("p", { class: "fa-note" }, "패들렛에는 이름 대신 과목·학년만 적고, 학생 이름·성적·사진은 올리지 않아요. 패들렛은 외부 서비스예요."),
     ),
 
     h("section", { class: "fa-section", "aria-labelledby": "fa-next-h" },
