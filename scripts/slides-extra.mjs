@@ -9,13 +9,13 @@ export const REPLACE = {
 <p class="eyebrow">필수 용어 ① 식당으로 비유하면</p>
 <h2>웹서비스는 네 부분으로 나뉜다</h2>
 <div class="cards">
-<div class="card"><p class="tag">홀 · 메뉴판</p><h3>프론트엔드</h3><p>사람이 보고 누르는 <b>화면</b></p>${ex("네이버 첫 화면, 학교 홈페이지, 카카오톡 대화창")}</div>
-<div class="card d2"><p class="tag">주방</p><h3>백엔드(서버)</h3><p>보이지 않는 곳에서 <b>처리</b>하는 컴퓨터</p>${ex("로그인 확인, 채점, 결제 처리 · 서버를 빌려주는 곳: AWS, 네이버 클라우드")}</div>
-<div class="card d3"><p class="tag">창고 · 장부</p><h3>데이터베이스(DB)</h3><p>자료를 표처럼 <b>쌓아 두는</b> 저장소</p>${ex("나이스의 성적·출결 기록, 은행 거래 내역 · 구글 시트도 간단한 DB")}</div>
-<div class="card d4"><p class="tag">주문서 양식</p><h3>API</h3><p>프로그램끼리 <b>부탁하고 답을 받는 창구</b></p>${ex("나이스 급식 API, 기상청 날씨 API, 카카오맵 API")}</div>
+<div class="card"><p class="tag">홀 · 메뉴판</p><h3>프론트엔드</h3><p>사람이 보고 누르는 <b>화면</b></p>${ex("<b>예시</b> <nobr>네이버 첫 화면</nobr>, <nobr>학교 홈페이지</nobr>")}${ex("<b>많이 쓰는 곳</b> Netlify, Vercel")}</div>
+<div class="card d2"><p class="tag">주방</p><h3>백엔드(서버)</h3><p>보이지 않는 곳에서 <b>처리</b>하는 컴퓨터</p>${ex("<b>예시</b> <nobr>로그인 확인</nobr>, <nobr>채점</nobr>")}${ex("<b>많이 쓰는 곳</b> Vultr, AWS")}</div>
+<div class="card d3"><p class="tag">창고 · 장부</p><h3>데이터베이스(DB)</h3><p>자료를 표처럼 <b>쌓아 두는</b> 저장소</p>${ex("<b>예시</b> <nobr>나이스 성적·출결</nobr>")}${ex("<b>많이 쓰는 곳</b> Supabase, Firebase")}</div>
+<div class="card d4"><p class="tag">주문서 양식</p><h3>API</h3><p>프로그램끼리 <b>부탁하고 답을 받는 창구</b></p>${ex("<b>예시</b> <nobr>나이스 급식</nobr>, <nobr>기상청 날씨</nobr>")}${ex("<b>AI도 API로 부른다</b> <nobr>OpenAI, Claude</nobr>")}</div>
 </div>
-<div class="ph" data-asset="IMG-03" title="식당 단면도 일러스트: 홀 · 주문서 · 주방 · 창고" style="width:1664px;height:220px;margin-top:28px;"><p>[IMG-03]<br>식당 단면도 일러스트: 홀 · 주문서 · 주방 · 창고</p></div>
-<p class="note">예: 퀴즈 웹페이지의 버튼(프론트엔드) → 채점·저장(백엔드) → 제출 기록(DB)</p>
+<div class="ph" data-asset="IMG-03" title="식당 단면도 일러스트: 홀 · 주문서 · 주방 · 창고" style="width:1664px;height:190px;margin-top:24px;"><p>[IMG-03]<br>식당 단면도 일러스트: 홀 · 주문서 · 주방 · 창고</p></div>
+<p class="note">‘많이 쓰는 곳’은 AI로 웹서비스를 만들 때 자주 고르는 서비스의 예시다. 퀴즈 앱이라면: 버튼(프론트엔드) → 채점·저장(백엔드) → 제출 기록(DB)</p>
 </section>`,
 
   "neis-api": `<section id="neis-api">
@@ -127,7 +127,7 @@ export const INSERT = [
 
 /** extra CSS for the rewritten slides */
 export const EXTRA_CSS = `
-#scaler .card .ex{font-size:24px;color:#14213D;background:#F2EEE3;border-radius:10px;padding:10px 14px;margin:12px 0 0}
+#scaler .card .ex{font-size:27px;color:#14213D;background:#F2EEE3;border-radius:10px;padding:10px 14px;margin:12px 0 0}
 #scaler .cards2{flex-wrap:wrap}#scaler .cards2>.card{flex:1 1 40%}
 #scaler .hlt{background:linear-gradient(transparent 62%,#F2A541 62%)}
 #scaler .sm2{font-size:26px;color:#4A5568}
@@ -136,8 +136,11 @@ export const EXTRA_CSS = `
 #scaler .mini .num{font-size:24px}
 #scaler .eyebrow{font-size:30px}#scaler .note{font-size:28px}
 #scaler table{font-size:30px}#scaler table.sm{font-size:28px}#scaler td{padding:14px 20px}#scaler th{padding:14px 20px}
-#scaler .card p{font-size:30px}#scaler .card .tag{font-size:26px}#scaler .card .ex{font-size:26px}
+#scaler .card p{font-size:28px}#scaler .card .tag{font-size:26px}#scaler .card .ex{font-size:26px}
 #scaler .fbox p{font-size:27px}#scaler .fbox h3{font-size:32px}#scaler .mini p{font-size:30px}#scaler .step p{font-size:30px}
 #scaler .code.sm{font-size:26px}#scaler .lbl{font-size:26px}
 #scaler [data-asset^="IMG-02"],#scaler [data-asset^="IMG-05"],#scaler [data-asset^="IMG-09"]{width:180px!important;height:180px!important}
 `;
+
+/* 한 줄이 어색하게 끊기지 않게 */
+export const EXTRA_CSS2 = `#scaler :is(h1,h2,h3,.lead){text-wrap:balance}#scaler .tag,#scaler .lbl,#scaler .eyebrow{white-space:normal;text-wrap:balance}#scaler nobr{white-space:nowrap}#scaler :is(td,th,.fbox p,.card p,.mini p,.step p){text-wrap:balance}#scaler table tr>:first-child:is(td,th){white-space:nowrap}#scaler table.addr tr>:first-child{white-space:normal}`;

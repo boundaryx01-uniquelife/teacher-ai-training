@@ -87,12 +87,12 @@
 {
 "slide": "submit-flow",
 "old": "<p class=\"tag\">프론트엔드</p>",
-"new": "<p class=\"tag\">프론트엔드(눈에 보이는 화면)</p>"
+"new": "<p class=\"tag\">프론트엔드 · 화면</p>"
 },
 {
 "slide": "submit-flow",
 "old": "<p class=\"tag\">데이터베이스</p>",
-"new": "<p class=\"tag\">데이터베이스(기록 저장소)</p>"
+"new": "<p class=\"tag\">데이터베이스 · 기록장</p>"
 },
 {
 "slide": "submit-flow",
@@ -447,12 +447,12 @@
 {
 "slide": "submit-flow",
 "old": "<p class=\"tag\">API 요청</p>",
-"new": "<p class=\"tag\">화면 → 서버로 쪽지(요청)</p>"
+"new": "<p class=\"tag\">요청 · 쪽지</p>"
 },
 {
 "slide": "submit-flow",
 "old": "<p class=\"tag\">API 응답(서버의 대답)</p>",
-"new": "<p class=\"tag\">서버 → 화면으로 대답(응답)</p>"
+"new": "<p class=\"tag\">응답 · 대답</p>"
 },
 {
 "slide": "submit-flow",
@@ -608,5 +608,10 @@
 "slide": "close",
 "old": "3차 PWA(폰에 설치되는 웹페이지) 공개",
 "new": "3차 폰에 설치되는 학급 웹앱 만들기"
+},
+{
+"slide": "submit-flow",
+"old": "<p>정답은 서버에만 있다</p>",
+"new": "<p>정답은 서버에만</p>"
 }
 ]
