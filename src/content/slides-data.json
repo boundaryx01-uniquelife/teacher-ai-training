@@ -49,7 +49,6 @@
   "cp-free",
   "cp-chat",
   "cp-notebooks",
-  "cp-notebooks-ex",
   "cp-teacher",
   "cp-student",
   "cp-vs",
@@ -105,7 +104,6 @@
   "cp-free": "PENZ(Microsoft 365 교육용)로 추가 비용 없이",
   "cp-chat": "학교 계정으로 쓰는 대화형 AI",
   "cp-notebooks": "내 자료로만 답하는 지식방 + 학습 가이드",
-  "cp-notebooks-ex": "학생은 시험 대비, 교사는 규정 지식방",
   "cp-teacher": "정리 · 내일 바로 해 볼 4가지",
   "cp-student": "PENZ 학교 계정이라 수업에 넣기 쉽다",
   "cp-vs": "학생 수업은 Copilot, 업무 자동화는 ChatGPT",
@@ -214,10 +212,6 @@
    "module": "COPILOT",
    "label": "Copilot(PENZ) 가이드"
   },
-  "cp-notebooks-ex": {
-   "module": "COPILOT",
-   "label": "Copilot(PENZ) 가이드"
-  },
   "cp-teacher": {
    "module": "COPILOT",
    "label": "Copilot(PENZ) 가이드"
@@ -285,7 +279,6 @@
   "cp-free": "'워드 안 Copilot 버튼이 안 돼요'는 대부분 유료 라이선스 문제. 무료/유료 경계를 분명히.",
   "cp-chat": "",
   "cp-notebooks": "",
-  "cp-notebooks-ex": "",
   "cp-teacher": "",
   "cp-student": "",
   "cp-vs": "",

@@ -34,7 +34,7 @@ const ALIAS_RULES = [
   ["extras", (t) => t.startsWith("그 외 제안")],
   ["copilot", (t) => t.startsWith("부록: Microsoft Copilot")],
   ["copilot-chat", (t) => t.startsWith("① Copilot Chat")],
-  ["copilot-notebooks", (t) => t.startsWith("② Copilot Notebooks")],
+  ["copilot-notebooks", (t) => t.startsWith("② 전자 필기장")],
   ["visual-assets", (t) => t.startsWith("시각 자료 제작")],
   ["sources", (t) => t === "출처"],
 ];

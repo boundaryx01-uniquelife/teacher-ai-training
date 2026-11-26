@@ -20,7 +20,7 @@ const byId = Object.fromEntries(manifest.assets.map((a) => [a.id, a]));
 // 1) The PENZ (교육청) teacher account has no Teach menu → Teach slides/rows are removed.
 // 2) Skill: explained as a concept only; the with/without-skill comparison picture (IMG-15b) is dropped.
 // site-slides/slides.html itself stays untouched; to restore anything, edit this block and rebuild.
-const REMOVE_SLIDES = ["cp-teach-menu", "cp-teach-lesson", "cp-teach-modify", "cp-lz", "cp-lz-limits"]; // Teach and Learning Zone: not available on the PENZ teacher account
+const REMOVE_SLIDES = ["cp-teach-menu", "cp-teach-lesson", "cp-teach-modify", "cp-lz", "cp-lz-limits", "cp-notebooks-ex"]; // + Notebooks example (Copilot kept short) // Teach and Learning Zone: not available on the PENZ teacher account
 for (const id of REMOVE_SLIDES) {
   const re = new RegExp(`<section id="${id}"[\\s\\S]*?</section>\\n?`);
   if (!re.test(html)) throw new Error("slide not found: " + id);
@@ -30,7 +30,21 @@ const edit = (from, to) => { if (!html.includes(from)) throw new Error("slide te
 edit('<tr><td><b>Teach</b></td><td>수업·단원 계획, 수준 조절, 퀴즈·루브릭</td><td>교사</td></tr>\n', "");
 edit("PENZ 계정으로 무료(Chat·Teach·Notebooks)", "PENZ 계정으로 무료(Chat·Notebooks)");
 edit("Teams·OneNote·Forms·과제 연결, 교사용 Teach", "Teams·OneNote·Forms·과제 연결");
-edit("부록 · ③ Copilot Notebooks", "부록 · ② Copilot Notebooks");
+{ // cp-notebooks: short comparison with Google NotebookLM (user decision 2026-11-26)
+  const re = /(<section id="cp-notebooks">)[\s\S]*?(<div class="ph" data-asset="IMG-25")/;
+  if (!re.test(html)) throw new Error("cp-notebooks not found");
+  html = html.replace(re, (_, open, ph) => `${open}
+<p class="eyebrow">부록 · ② 전자 필기장(Copilot Notebooks)</p>
+<h2>NotebookLM과 비슷한 ‘내 자료 지식방’</h2>
+<div class="row" style="gap:40px">
+<table class="sm" style="flex:1">
+<tr><th></th><th>전자 필기장(Notebooks)</th><th>Google NotebookLM</th></tr>
+<tr><td><b>하는 일</b></td><td>내 자료 안에서만 답, 학습 가이드(요약·플래시카드·퀴즈)</td><td>올린 자료 안에서만 답</td></tr>
+<tr><td><b>계정</b></td><td>PENZ 학교 계정(무료, 데이터 보호)</td><td>개인 구글 계정</td></tr>
+<tr><td><b>찾는 곳</b></td><td>Copilot 사이드바 ‘전자 필기장’</td><td>NotebookLM 웹</td></tr>
+</table>
+${ph}`);
+}
 edit('<tr><td><b>Learning Zone</b></td><td>인터랙티브 레슨 생성·과제 연결</td><td>교사</td></tr>\n', "");
 edit("<li>Teach · Notebooks · Study and Learn 허용</li>", "<li>Notebooks · Study and Learn 허용</li>");
 edit("<li>10분: Teach로 같은 단원 퀴즈 → 3교시 ChatGPT 결과와 비교</li>", "<li>10분: Copilot Chat으로 같은 단원 퀴즈 문항 → 3교시 ChatGPT 결과와 비교</li>");
@@ -48,6 +62,7 @@ edit("<li>10분: Teach로 같은 단원 퀴즈 → 3교시 ChatGPT 결과와 비
   edit("<p>[IMG-19]<br>Teach에서 수업 계획·<br>퀴즈 만드는 화면</p>", "<p>[IMG-19]<br>Copilot 학습 메뉴 화면</p>");
 }
 html = html.replace(/<div class="ph" data-asset="IMG-15b"[^>]*><p>[\s\S]*?<\/p><\/div>\n?/, ""); // skill comparison picture dropped
+html = html.replace(/<div class="ph" data-asset="IMG-20"[^>]*><p>[\s\S]*?<\/p><\/div>\n?/, ""); // student Notebooks capture dropped
 
 // filtered slide data: used by the viewer's inline DATA, the site (src/lib/slides.ts, /trainer) and the tests
 const raw = JSON.parse(readFileSync("site-slides/slides-data.json", "utf8"));

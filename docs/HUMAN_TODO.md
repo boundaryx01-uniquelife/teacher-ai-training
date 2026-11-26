@@ -124,3 +124,9 @@ Claude에게 "캡처 넣었어"라고 알려 주세요. Claude가 다음을 합�
 6. `demo3`: 가운데 카드(스킬)의 이미지 자리(IMG-15b) 삭제
 7. `mcp-trace` 3단계 문구 → "쓰기 동작 — 설정에 따라 승인을 묻거나 바로 실행", `work-trace` 3단계 → "8:30? 8:00?"
 8. 줄바꿈: `section { word-break: keep-all; overflow-wrap: anywhere; }`, 문단·제목에 `text-wrap: pretty`
+
+## 2026-11-26 Copilot 간소화 (사용자 결정)
+- 전자 필기장(Notebooks)은 **NotebookLM과 비교하는 수준**으로만 다룸: 슬라이드 cp-notebooks를 비교표로 교체, cp-notebooks-ex 삭제, 사이트·가이드북도 같은 비교표.
+- IMG-20(학생 계정), IMG-26(지식방 답변) 제외. cp-student는 표만 남기고 이미지 자리 삭제.
+- **남은 캡처 2개**: IMG-18(방패 + "엔터프라이즈 데이터 보호" 말풍선), IMG-25(사이드바 ‘전자 필기장’ 첫 화면)
+- 원본 덱(Cowork)에도: `cp-notebooks-ex` 삭제, `cp-notebooks` 비교표로 교체, `cp-student` 이미지 자리 삭제
