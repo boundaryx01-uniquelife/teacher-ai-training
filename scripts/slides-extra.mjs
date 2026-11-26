@@ -51,6 +51,22 @@ export const REPLACE = {
 };
 
 export const INSERT = [
+  { before: "submit-flow", id: "mvp-pwa", title: "MVP와 PWA, 무엇이 다를까", html: `<section id="mvp-pwa">
+<p class="eyebrow">필수 용어 ② 보충 · 헷갈리기 쉬운 두 단어</p>
+<h2>MVP와 PWA, 무엇이 다를까</h2>
+<div class="cards">
+<div class="card hl"><p class="tag">질문: 무엇을 먼저 만들까?</p><h3>MVP</h3><p><b>꼭 필요한 기능만</b> 넣어 먼저 만든 시험용 첫 버전</p>${ex("<b>비유</b> 메뉴 하나로 먼저 문 여는 식당")}${ex("<b>예시</b> 5문항 퀴즈로 먼저 수업해 보기")}</div>
+<div class="card d2"><p class="tag">질문: 어떤 모양으로 내놓을까?</p><h3>PWA</h3><p><b>앱처럼 폰에 설치</b>해 쓰는 웹페이지</p>${ex("<b>비유</b> 가게를 배달앱에 올려 폰에서 바로 주문")}${ex("<b>예시</b> 폰 홈 화면에 아이콘으로 두는 학급 알림장")}</div>
+</div>
+<table style="margin-top:28px">
+<tr><th></th><th>MVP</th><th>PWA</th></tr>
+<tr><td>무엇에 대한 말?</td><td>만드는 <b>순서·범위</b> (작게 시작)</td><td>보여 주는 <b>모양·방식</b> (앱처럼)</td></tr>
+<tr><td>설치가 필요한가?</td><td>상관없음 (링크로 열어도 됨)</td><td>앱스토어 없이 인터넷 창에서 ‘홈 화면에 추가’</td></tr>
+<tr><td>오늘 실습</td><td>퀴즈 웹페이지를 <b>작게</b> 만든다</td><td>맛보기만 — 후속 연수에서</td></tr>
+</table>
+<p class="note">둘은 경쟁이 아니라 함께 쓴다: 먼저 <b>MVP</b>로 만들어 반응을 보고, 쓸 만하면 <b>PWA</b>로 폰에 설치되게 키운다</p>
+</section>` },
+
   { before: "flow", id: "match2", title: "업무 ↔ AI 짝짓기 (2/2)", html: `<section id="match2">
 <p class="eyebrow">활동 ② 25분 · 짝과 함께</p>
 <h2>학교 업무 ↔ 알맞은 AI 짝짓기 (2/2)</h2>
