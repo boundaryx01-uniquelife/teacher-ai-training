@@ -10,37 +10,6 @@ const PERIODS = [
   { t: "부록", title: "Microsoft Copilot (PENZ)", start: "s4", items: ["Chat · 전자 필기장 · 학습"], mods: [["/copilot", "Copilot 가이드"]] as [string, string][] },
 ];
 
-// Lesson plan 3교시 1단계: a one-line prompt vs the 5-element prompt (lesson wording).
-const ONE_LINE = "평가 문제 만들어줘";
-const FIVE = [
-  ["역할", "너는 고등학교 [과목] 교사야."],
-  ["대상", "고[학년] 학생, 학습 수준은 중간이야."],
-  ["과제", "[단원명] 단원의 형성평가 문항 5개를 만들어 줘."],
-  ["조건", "객관식 3개, 서술형 2개. 각 문항에 성취기준을 표시해."],
-  ["형식", "표로: 번호 | 문항 | 정답 | 해설 | 성취기준"],
-] as const;
-
-function demoPanel(): HTMLElement {
-  const body = h("div", { class: "demo-body", "aria-live": "polite" });
-  const btnA = h("button", { type: "button", class: "demo-tab", "aria-pressed": "true" }, "한 줄 프롬프트");
-  const btnB = h("button", { type: "button", class: "demo-tab", "aria-pressed": "false" }, "5요소 프롬프트");
-  const show = (five: boolean) => {
-    btnA.setAttribute("aria-pressed", String(!five)); btnB.setAttribute("aria-pressed", String(five));
-    body.replaceChildren(five
-      ? h("ul", { class: "demo-five" }, FIVE.map(([k, v]) => h("li", {}, h("span", { class: "demo-key" }, k), " ", v)))
-      : h("p", { class: "demo-one" }, ONE_LINE),
-      h("p", { class: "demo-note" }, five ? "요구가 분명해져 결과를 그대로 수업에 쓰기 쉬워져요." : "무엇을, 누구에게, 어떤 형식으로 줄지 AI가 짐작해야 해요."));
-  };
-  btnA.addEventListener("click", () => show(false));
-  btnB.addEventListener("click", () => show(true));
-  show(false);
-  return h("aside", { class: "demo", "aria-label": "프롬프트 비교 미리 보기" },
-    h("div", { class: "demo-bar" }, h("span", { class: "demo-dots", "aria-hidden": "true" }, "● ● ●"), " ChatGPT에 붙여 넣을 지시문"),
-    h("div", { class: "demo-tabs", role: "group", "aria-label": "비교" }, btnA, btnB),
-    body,
-    h("a", { class: "demo-link", href: "/m1", "data-link": "" }, "M1에서 직접 만들어 보기 →"));
-}
-
 export function mount(el: HTMLElement) {
   el.append(
     h("section", { class: "home-hero" },
@@ -51,18 +20,17 @@ export function mount(el: HTMLElement) {
           h("p", { class: "home-address-label" }, h("span", { "aria-hidden": "true" }, "📱 "), "연수 자료 주소"),
           h("p", { class: "home-address-url" }, "teacher-ai-training.netlify.app"),
           h("p", { class: "home-address-hint" }, "검색창이 아니라 ", h("strong", {}, "브라우저 맨 위 주소창"), "에 그대로 입력하세요. 연수가 끝나도 같은 주소예요.")),
-        h("p", { class: "home-replay" }, h("a", { href: "/?intro=1" }, "▶ 인트로 다시 보기"))),
-      demoPanel()),
+        h("p", { class: "home-replay" }, h("a", { href: "/?intro=1" }, "▶ 인트로 다시 보기")))),
     // start choice — same three cards, same order as the last frame of the intro
     h("nav", { class: "home-start", "aria-label": "어디서 시작할까요" },
       h("a", { class: "home-start-card accent", href: "/slides/" },
-        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🖥"), h("strong", {}, "강의 슬라이드"), h("span", {}, "1–53번 · 강의 따라가기 · 오프라인")),
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🖥"), h("strong", {}, "강의 슬라이드"), h("span", {}, "1–53번 · 오프라인")),
       h("a", { class: "home-start-card", href: "/lab", "data-link": "" },
         h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🧪"), h("strong", {}, "실습 워크벤치"), h("span", {}, "M1–M7 · 바로 해 보기")),
       h("a", { class: "home-start-card", href: "/guide", "data-link": "" },
-        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "📘"), h("strong", {}, "가이드북 · 자료실"), h("span", {}, "강의안 · PDF · 예시 자료")),
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "📘"), h("strong", {}, "가이드북·자료실"), h("span", {}, "강의안 · PDF · 예시")),
       h("a", { class: "home-start-card", href: PADLET_URL, target: "_blank", rel: "noopener" },
-        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "💬"), h("strong", {}, "함께 나누기 ↗"), h("span", {}, "패들렛 · 질문 · 결과물 · 사례"))),
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "💬"), h("strong", {}, "함께 나누기 ↗"), h("span", {}, "패들렛 · 질문·결과물"))),
     h("h2", {}, "오늘의 흐름"),
     h("ol", { class: "home-periods" }, PERIODS.map((p) => {
       const n = slideNumber(p.start);
