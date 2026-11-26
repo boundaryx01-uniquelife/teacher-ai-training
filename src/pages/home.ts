@@ -51,11 +51,16 @@ export function mount(el: HTMLElement) {
           h("p", { class: "home-address-label" }, h("span", { "aria-hidden": "true" }, "📱 "), "연수 자료 주소"),
           h("p", { class: "home-address-url" }, "teacher-ai-training.netlify.app"),
           h("p", { class: "home-address-hint" }, "검색창이 아니라 ", h("strong", {}, "브라우저 맨 위 주소창"), "에 그대로 입력하세요. 연수가 끝나도 같은 주소예요.")),
-        h("div", { class: "btn-row" },
-          h("a", { class: "btn accent", href: "/slides/" }, "강의 슬라이드 열기"),
-          h("a", { class: "btn secondary", href: "/lab", "data-link": "" }, "실습 워크벤치"),
-          h("a", { class: "btn secondary", href: "/guide", "data-link": "" }, "가이드북"))),
+        h("p", { class: "home-replay" }, h("a", { href: "/?intro=1" }, "▶ 인트로 다시 보기"))),
       demoPanel()),
+    // start choice — same three cards, same order as the last frame of the intro
+    h("nav", { class: "home-start", "aria-label": "어디서 시작할까요" },
+      h("a", { class: "home-start-card accent", href: "/slides/" },
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🖥"), h("strong", {}, "강의 슬라이드"), h("span", {}, "1–53번 · 강의 따라가기 · 오프라인")),
+      h("a", { class: "home-start-card", href: "/lab", "data-link": "" },
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🧪"), h("strong", {}, "실습 워크벤치"), h("span", {}, "M1–M7 · 바로 해 보기")),
+      h("a", { class: "home-start-card", href: "/guide", "data-link": "" },
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "📘"), h("strong", {}, "가이드북 · 자료실"), h("span", {}, "강의안 · PDF · 예시 자료"))),
     h("h2", {}, "오늘의 흐름"),
     h("ol", { class: "home-periods" }, PERIODS.map((p) => {
       const n = slideNumber(p.start);

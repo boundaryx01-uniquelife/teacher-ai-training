@@ -33,6 +33,7 @@ npm install
 scripts/dev.sh                      # netlify dev (운영과 같은 빌드본, http://localhost:8888)
 npx playwright test                 # dev 서버가 떠 있어야 함
 node scripts/render-vid01.mjs       # VID-01 mp4 + poster
+node scripts/render-intro.mjs mp4 public/downloads/ai-training-intro.mp4   # 첫 화면 인트로 → mp4 (dev 서버 필요, sheet 모드는 검토용 프레임)
 node scripts/shot-img17.mjs         # IMG-17 (dev 서버 필요)
 node scripts/update-manifest.mjs    # manifest status/path 갱신
 node scripts/build-slides.mjs       # /slides (site-slides/slides.html + 이미지·폰트 subset·오프라인 SW) → public/slides/

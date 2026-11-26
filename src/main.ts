@@ -8,6 +8,19 @@ import { MENU, findRoute } from "./router.ts";
 import { practiceBar } from "./lib/practice.ts";
 import { h, pageTitle } from "./lib/ui.ts";
 
+// first-visit intro on "/" (cover the page synchronously so the home does not flash before the overlay)
+if (location.pathname === "/") {
+  const q = new URLSearchParams(location.search);
+  let seen = false;
+  try { seen = localStorage.getItem("intro-seen") === "1"; } catch { /* storage blocked */ }
+  const want = q.get("intro") === "1" || q.has("cap") || (q.get("intro") !== "0" && !seen && !matchMedia("(prefers-reduced-motion: reduce)").matches);
+  if (want) {
+    document.documentElement.classList.add("intro-pending");
+    setTimeout(() => document.documentElement.classList.remove("intro-pending"), 4000); // never leave the page covered
+    import("./intro/player.ts").then((m) => m.maybePlayIntro()).catch(() => document.documentElement.classList.remove("intro-pending"));
+  }
+}
+
 const app = document.getElementById("app")!;
 let cleanup: void | (() => void);
 
