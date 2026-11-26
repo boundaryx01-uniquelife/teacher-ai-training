@@ -427,7 +427,8 @@
       "description_ko": "Canva 연결로 만든 과학의 날 포스터 초안 화면",
       "notes": "",
       "alt_ko": "Canva 연결로 만든 과학의 날 포스터 초안 화면",
-      "status": "todo"
+      "status": "done",
+      "path": "assets/IMG-15c_demo-canva.png"
     },
     {
       "id": "IMG-16",
