@@ -68,7 +68,7 @@ export function mount(el: HTMLElement) {
   }
 
   el.append(
-    h("h1", {}, "M4 나이스 급식 API 체험"),
+    h("h1", {}, "나이스 급식 API 체험"),
     h("p", { class: "lead" }, "나이스 교육정보 개방 포털(open.neis.go.kr)은 급식·학사일정·시간표를 API로 제공합니다. 주소에 학교 코드와 날짜를 넣으면 그날 메뉴가 JSON으로 와요."),
     h("p", {}, "“오늘 급식 알려주는 학급 페이지” = 이 API를 부르는 프론트엔드"),
     form, result);

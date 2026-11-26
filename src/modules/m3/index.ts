@@ -17,8 +17,8 @@ export function mount(el: HTMLElement) {
   const status = h("p", { class: "m3-status", role: "status", "aria-live": "polite" });
   const body = h("div", {});
   el.append(
-    h("h1", {}, "M3 교사 대시보드"),
-    h("p", { class: "lead" }, "M2에서 모인 제출 기록을 문항별 오답률로 봅니다. 오답률이 높은 문항이 다음 수업에서 다시 다룰 곳이에요."),
+    h("h1", {}, "교사 대시보드"),
+    h("p", { class: "lead" }, "퀴즈 앱 해부 실습에서 모인 제출 기록을 문항별 오답률로 봅니다. 오답률이 높은 문항이 다음 수업에서 다시 다룰 곳이에요."),
     status, body);
 
   async function start() {
@@ -84,7 +84,7 @@ export function mount(el: HTMLElement) {
       if (!current) { statsBox.replaceChildren(); share.replaceChildren(); renderReset(); return; }
       const link = `${location.origin}/m2?code=${current}`;
       share.replaceChildren(
-        h("p", {}, "참가자 안내: M2에서 회차 코드 ", h("strong", { class: "m3-code" }, current), " 입력"),
+        h("p", {}, "참가자 안내: 퀴즈 앱 해부 실습에서 회차 코드 ", h("strong", { class: "m3-code" }, current), " 입력"),
         h("p", { class: "m3-link" }, link), h("button", { class: "btn secondary", type: "button", onclick: () => copyText(link) }, "링크 복사"));
       const asked = current;
       const { res, data } = await api(`/api/stats?sessionCode=${asked}`);
@@ -110,7 +110,7 @@ export function mount(el: HTMLElement) {
       statsBox.replaceChildren(
         h("section", { class: "card" },
           h("h2", {}, `문항별 오답률 · 제출 ${s.total}건`),
-          s.total ? h("ol", { class: "m3-bars" }, bars) : h("p", { class: "hint" }, "아직 제출이 없어요. 참가자가 M2에서 제출하면 막대가 나타나요.")),
+          s.total ? h("ol", { class: "m3-bars" }, bars) : h("p", { class: "hint" }, "아직 제출이 없어요. 참가자가 퀴즈 앱 해부 실습에서 제출하면 막대가 나타나요.")),
         h("section", { class: "card" },
           h("h2", {}, "최근 제출 (최대 20건)"),
           recent.length ? h("div", { class: "table-wrap" }, h("table", {},

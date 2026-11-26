@@ -39,7 +39,7 @@ test("폰: 실습 버튼 → 모듈 → 복귀 1건", async ({ page }) => {
   await expect(page.locator("#count")).toHaveText(`${n} / ${data.order.length}`);
 });
 
-test("오프라인: /slides 59장 이동", async ({ page, context }, info) => {
+test("오프라인: /slides 전체 이동", async ({ page, context }, info) => {
   test.skip(info.project.name !== "desktop", "SW check once");
   await page.goto("/slides/");
   await page.evaluate(async () => { await navigator.serviceWorker.ready; });

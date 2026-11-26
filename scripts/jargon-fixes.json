@@ -1,0 +1,402 @@
+[
+{
+"slide": "sites-what",
+"old": "호스팅·접근 권한·저장소·DB 포함 → 프론트+백+DB+배포를 한 번에",
+"new": "사이트를 올려 둘 공간, 접근 권한, 저장 공간, 데이터 저장소까지 포함되어 화면·서버·저장·공개를 한 번에 해결"
+},
+{
+"slide": "agenda",
+"old": "퀴즈 앱으로 보는 프론트·백·DB·API",
+"new": "퀴즈 앱으로 알아보는 화면·서버·저장소·연결 방식"
+},
+{
+"slide": "agenda",
+"old": "Chat/Work/Code, Work·Sites",
+"new": "대화·업무 맡기기·코딩 3가지 도구, 업무 맡기기와 웹사이트 만들기"
+},
+{
+"slide": "cover",
+"old": "LLM 개념 · 필수 용어 · ChatGPT Work와 Sites · 스킬·플러그인·MCP · 실습 3단계",
+"new": "AI의 기본 원리, 꼭 알아야 할 용어, ChatGPT의 업무 맡기기·웹사이트 만들기 기능, 그리고 직접 만들어 보는 실습 3단계"
+},
+{
+"slide": "skillmcp",
+"old": "AI와 외부 서비스를 잇는 공개 표준",
+"new": "AI와 외부 서비스(드라이브 등)를 잇는 공개된 연결 규격"
+},
+{
+"slide": "skillmcp",
+"old": "ChatGPT: 스킬 · 앱(옛 커넥터) · 플러그인(둘을 묶은 설치 단위) / Claude: 스킬 · 커넥터 · 플러그인",
+"new": "ChatGPT: 스킬 · 앱(옛 이름 커넥터, 외부 서비스 연결) · 플러그인(스킬과 앱을 묶어 설치) / Claude: 스킬 · 커넥터 · 플러그인"
+},
+{
+"slide": "plugin-install",
+"old": "적용 ① 플러그인 설치 = MCP 연결",
+"new": "적용 ① 플러그인 설치 = 외부 서비스 연결(MCP)"
+},
+{
+"slide": "plugin-install",
+"old": "포함된 앱·스킬·권한 확인 (OpenAI Verified 우선)",
+"new": "포함된 앱·스킬과 허용할 권한(내 자료를 어디까지 보게 할지) 확인 (OpenAI가 검증한 것 우선)"
+},
+{
+"slide": "plugin-install",
+"old": "설치·연결</b> → 구글 로그인 → 권한 허용",
+"new": "설치·연결</b> → 구글 로그인 → ‘내 드라이브를 읽어도 된다’고 허용"
+},
+{
+"slide": "compare3",
+"old": "스킬 + 앱(MCP) 묶음",
+"new": "스킬 + 앱(MCP로 연결되는 외부 서비스)을 묶은 것"
+},
+{
+"slide": "compare3",
+"old": "작업 절차서(SKILL.md)",
+"new": "작업 절차를 적은 설명서(SKILL.md 파일)"
+},
+{
+"slide": "terms2",
+"old": "핵심 기능만 넣은 최소 시제품",
+"new": "꼭 필요한 기능만 넣어 먼저 만든 시험용 첫 버전"
+},
+{
+"slide": "terms2",
+"old": "앱처럼 설치되는 웹페이지",
+"new": "앱처럼 폰에 설치해 쓰는 웹페이지(인터넷 화면)"
+},
+{
+"slide": "terms2",
+"old": "AI가 글을 세는 단위(사용량)",
+"new": "AI가 글자를 세는 단위로, 사용량의 기준"
+},
+{
+"slide": "terms2",
+"old": "AI가 한 번에 참고하는 자료",
+"new": "AI가 대화 중 한 번에 읽고 참고하는 자료"
+},
+{
+"slide": "code-front-back",
+"old": "① 프론트엔드 · 학생 브라우저에서 실행",
+"new": "① 프론트엔드(화면 쪽) · 학생의 인터넷 창에서 실행"
+},
+{
+"slide": "code-front-back",
+"old": "④ 데이터베이스 · submissions 표",
+"new": "④ 데이터베이스(기록 저장소) · 제출 기록 표(submissions)"
+},
+{
+"slide": "submit-flow",
+"old": "<p class=\"tag\">프론트엔드</p>",
+"new": "<p class=\"tag\">프론트엔드(눈에 보이는 화면)</p>"
+},
+{
+"slide": "submit-flow",
+"old": "<p class=\"tag\">데이터베이스</p>",
+"new": "<p class=\"tag\">데이터베이스(기록 저장소)</p>"
+},
+{
+"slide": "submit-flow",
+"old": "{문제:1, 답:3}을 서버로",
+"new": "‘1번 문제, 답은 3’이라는 쪽지를 서버로"
+},
+{
+"slide": "submit-flow",
+"old": "언제·몇 번·맞았나 한 줄",
+"new": "제출 시각, 문제 번호, 정답 여부를 한 줄로"
+},
+{
+"slide": "sites-what",
+"old": "공개 범위: 나만 → 지정한 사람 → 워크스페이스 → 인터넷",
+"new": "공개 범위: 나만 → 지정한 사람 → 우리 조직(워크스페이스) → 인터넷 전체"
+},
+{
+"slide": "sites-steps",
+"old": "배포 → 주소 생성(아직 나만)",
+"new": "배포(공개 준비) → 주소 생성(아직 나만 볼 수 있음)"
+},
+{
+"slide": "sites-examples",
+"old": "워크스페이스 한정",
+"new": "우리 학교(조직) 안에서만"
+},
+{
+"slide": "sites-examples",
+"old": "프론트 + DB + 권한",
+"new": "화면 + 저장소 + 접근 권한"
+},
+{
+"slide": "sites-examples",
+"old": "프론트 + 제출 저장",
+"new": "화면 + 제출 내용 저장"
+},
+{
+"slide": "sites-examples",
+"old": "프론트 + 교사 편집",
+"new": "화면 + 교사만 수정"
+},
+{
+"slide": "sites-examples",
+"old": "프론트 + DB + 집계",
+"new": "화면 + 저장소 + 결과 모아 계산"
+},
+{
+"slide": "work-what",
+"old": "플러그인, 프롬프트에 @앱이름",
+"new": "플러그인(연결 기능), 지시문에 @앱이름 입력"
+},
+{
+"slide": "work-what",
+"old": "한 번 / 반복 / 이벤트 / 변화 감시",
+"new": "한 번 실행 / 정기 반복 / 특정 일이 생기면 / 내용이 바뀌면 알림"
+},
+{
+"slide": "work-what",
+"old": "웹·모바일 Work, 데스크톱 앱 Work 탭",
+"new": "웹·모바일의 Work, 컴퓨터 설치 앱의 Work 탭"
+},
+{
+"slide": "work-what",
+"old": "질문에 답하기, 방향 수정, 저장·발송 범위 정하기(“초안만”)",
+"new": "AI의 질문에 답하기, 방향 고쳐 주기, 저장·발송 범위 정하기(예: “초안만 만들어”)"
+},
+{
+"slide": "sites-what",
+"old": "ChatGPT Sites · 공개 베타",
+"new": "ChatGPT Sites(웹사이트 만들기) · 공개 시험 서비스"
+},
+{
+"slide": "cwc",
+"old": "ChatGPT도 2026년 7월 ChatGPT Work를 내놓으며 Chat · Work · Codex를 한 앱에 묶었다",
+"new": "ChatGPT도 2026년 7월 ChatGPT Work(업무 맡기기)를 내놓으며 대화 · 업무 맡기기 · Codex(코딩 도구)를 한 앱에 묶었다"
+},
+{
+"slide": "map",
+"old": "채팅, GPTs, 프로젝트",
+"new": "채팅, 맞춤형 GPT, 프로젝트(자료 묶음)"
+},
+{
+"slide": "map",
+"old": "Workspace 연동",
+"new": "구글 문서·드라이브와 연결"
+},
+{
+"slide": "map",
+"old": "<h2>서비스별 Chat / Work / Code</h2>",
+"new": "<h2>서비스별 대화 / 업무 맡기기 / 코딩 도구</h2>"
+},
+{
+"slide": "work-trace",
+"old": "<p><b>플러그인</b> @Google Drive",
+"new": "<p><b>플러그인(연결 기능)</b> @Google Drive"
+},
+{
+"slide": "work-scenarios",
+"old": "<p class=\"tag\">예약 작업</p>",
+"new": "<p class=\"tag\">예약 작업(자동 실행)</p>"
+},
+{
+"slide": "skillmcp",
+"old": "<h2>‘어떻게’는 스킬, ‘무엇에 접근’은 MCP</h2>",
+"new": "<h2>‘일하는 방법’은 스킬, ‘어디에 접속할지’는 MCP</h2>"
+},
+{
+"slide": "mcp-trace",
+"old": "캘린더가 주는 도구 목록 확인",
+"new": "캘린더가 ‘할 수 있는 일’ 목록을 AI에게 알려 줌"
+},
+{
+"slide": "mcp-trace",
+"old": "1교시 API와 같은 원리 · 차이는 어떤 도구를 언제 부를지 AI가 고른다는 것",
+"new": "1교시의 API(서버에 부탁하는 방식)와 같은 원리 · 차이는 어떤 기능을 언제 부를지 AI가 직접 고른다는 것"
+},
+{
+"slide": "skill-md",
+"old": "AI는 평소 이름과 설명만 알고 있다가, 요청이 맞으면 본문을 열어 따른다 → description이 핵심",
+"new": "AI는 평소 이름과 설명만 알고 있다가, 요청이 맞으면 본문을 열어 따른다 → 설명(description)을 잘 써야 한다"
+},
+{
+"slide": "skill-make",
+"old": "채팅 속 개인 스킬: Business·Enterprise·Edu(관리자 활성화) · 개인 Free·Plus·Pro는 불가",
+"new": "채팅에서 개인 스킬 쓰기: 기관용 요금제(Business·Enterprise·Edu, 관리자가 켜야 함)만 가능 · 개인 Free·Plus·Pro는 불가"
+},
+{
+"slide": "rec-skill",
+"old": "참고: OpenAI K–12 교사용 플러그인은 ChatGPT Edu·ChatGPT for Teachers(미국 K–12 교사) 환경 한정",
+"new": "참고: OpenAI의 초·중·고(K–12) 교사용 플러그인은 ChatGPT Edu·ChatGPT for Teachers(미국 초·중·고 교사) 환경에서만 사용 가능"
+},
+{
+"slide": "rec-mcp",
+"old": "페이지·DB 읽기·쓰기",
+"new": "페이지·데이터 표 읽기·쓰기"
+},
+{
+"slide": "rec-mcp",
+"old": "메일·팀즈·문서(각각 별도)",
+"new": "메일·팀즈(메신저)·문서 저장소(각각 따로 연결)"
+},
+{
+"slide": "rec-mcp",
+"old": "코드 저장·배포",
+"new": "코드 저장·공개"
+},
+{
+"slide": "goal",
+"old": "링크로 나눠 주는 MVP",
+"new": "링크 하나로 나눠 주는 시험용 첫 버전"
+},
+{
+"slide": "goal",
+"old": "5요소로 다듬은 지시문",
+"new": "역할·대상·과제·조건·형식 5가지로 다듬은 지시문"
+},
+{
+"slide": "types",
+"old": "설문 응답 → 요약 → 가정통신문 초안",
+"new": "설문 응답을 받고, 요약하고, 가정통신문 초안까지 차례로"
+},
+{
+"slide": "types",
+"old": "→ 맞춤형 GPT, 예약 작업",
+"new": "예: 맞춤형 GPT, 예약 작업(정해 둔 시간에 자동 실행)"
+},
+{
+"slide": "submit-flow",
+"old": "용어 실전 · 퀴즈 앱 뜯어보기",
+"new": "용어 실전 · 퀴즈 앱의 내부를 살펴보기"
+},
+{
+"slide": "submit-flow",
+"old": "API 응답",
+"new": "API 응답(서버의 대답)"
+},
+{
+"slide": "code-front-back",
+"old": "용어 실전 · 실제 코드는 이렇게 생겼다",
+"new": "용어 실전 · 실제 코드(컴퓨터에 내리는 명령문)는 이렇게 생겼다"
+},
+{
+"slide": "s2",
+"old": "주요 AI는 모두 ‘대화 · 일 맡기기 · 코딩’ 3층으로 정리된다",
+"new": "주요 AI 서비스는 ‘대화하기 · 일 맡기기 · 프로그램 만들기’ 3가지로 나눠 볼 수 있다"
+},
+{
+"slide": "cwc",
+"old": "결과물로 구분하기",
+"new": "받고 싶은 결과물로 나눠 보기"
+},
+{
+"slide": "cwc",
+"old": "코드를 짜고 실행",
+"new": "프로그램(코드)을 만들어 실행"
+},
+{
+"slide": "mcp-trace",
+"old": "MCP가 실제로 오가는 모습",
+"new": "MCP로 AI와 캘린더가 실제로 주고받는 모습"
+},
+{
+"slide": "skill-make",
+"old": "입력 항목·순서·말투·점검 기준 질문에 답하기",
+"new": "AI가 묻는 입력 항목·순서·말투·점검 기준에 답하기"
+},
+{
+"slide": "skill-make",
+"old": "예전 통신문 1–2개 업로드 → 품질 상승",
+"new": "예전 통신문 1–2개를 올리면 결과가 더 좋아짐"
+},
+{
+"slide": "skill-md",
+"old": "스킬의 정체 · 폴더 하나",
+"new": "스킬의 정체 · 폴더(자료 묶음) 하나"
+},
+{
+"slide": "rec-mcp",
+"old": "꼭 써 볼 MCP · 앱/커넥터",
+"new": "꼭 써 볼 연결 기능(MCP) · 앱/커넥터"
+},
+{
+"slide": "rec-skill",
+"old": "꼭 써 볼 스킬",
+"new": "꼭 써 볼 스킬(AI의 업무 매뉴얼)"
+},
+{
+"slide": "rec-skill",
+"old": "성취기준·해설·루브릭",
+"new": "성취기준·해설·채점 기준표"
+},
+{
+"slide": "rec-skill",
+"old": "학사 일정 → 고정 양식",
+"new": "학사 일정을 정해진 양식에 채움"
+},
+{
+"slide": "rec-skill",
+"old": "캘린더 MCP와 함께",
+"new": "캘린더 연결(MCP)과 함께"
+},
+{
+"slide": "rec-skill",
+"old": "3교시 GPT를 스킬로",
+"new": "3교시에 만든 GPT 내용을 스킬로 옮기기"
+},
+{
+"slide": "demo3",
+"old": "검색 → 읽기 → 작성 기록 보기",
+"new": "찾기 → 읽기 → 쓰기, 각 과정의 기록 보기"
+},
+{
+"slide": "skillnote",
+"old": "구글 드라이브나 캘린더 하나로 MCP를 체감",
+"new": "구글 드라이브나 캘린더 하나만 연결해 MCP를 직접 느껴 보기"
+},
+{
+"slide": "flow",
+"old": "같은 일을 매주 한다면 → 스킬·맞춤형 GPT로 고정",
+"new": "같은 일을 매주 한다면 스킬·맞춤형 GPT로 만들어 두기"
+},
+{
+"slide": "steps",
+"old": "5요소로 지시문 만들기 → 문항 5개 + 해설 (Chat)",
+"new": "역할·대상·과제·조건·형식으로 지시문을 만들어 문항 5개와 해설 받기 (Chat)"
+},
+{
+"slide": "steps",
+"old": "반복 업무를 ‘지침’으로 고정 → 맞춤형 GPT 1개 (워크플로우·스킬)",
+"new": "반복 업무를 ‘지침’(미리 적어 둔 규칙)으로 고정해 맞춤형 GPT 1개 만들기"
+},
+{
+"slide": "steps",
+"old": "문항을 학생용 퀴즈 페이지로 → HTML 1개 (Code·MVP)",
+"new": "문항을 학생용 퀴즈 페이지로 만들어 HTML(웹페이지 파일) 1개 완성"
+},
+{
+"slide": "step1",
+"old": "확인: 정답·성취기준이 실제와 맞는지 교사가 검토 → 환각 체험",
+"new": "확인: 정답·성취기준이 실제와 맞는지 교사가 검토하며 환각(AI가 그럴듯하게 틀리는 일) 직접 보기"
+},
+{
+"slide": "step3",
+"old": "3단계 · 미니 웹 도구(MVP)",
+"new": "3단계 · 작은 웹 도구(시험용 첫 버전)"
+},
+{
+"slide": "close",
+"old": "반복되면 스킬·GPT로 고정, 연결은 MCP",
+"new": "반복되면 스킬·GPT로 고정, 외부 서비스 연결은 MCP"
+},
+{
+"slide": "close",
+"old": "후속 연수 제안: 2차 Work·스킬·MCP 연결 실습 / 3차 PWA 배포",
+"new": "후속 연수 제안: 2차 업무 맡기기·스킬·MCP 연결 실습 / 3차 PWA(폰에 설치되는 웹페이지) 공개"
+},
+{
+"slide": "cp-free",
+"old": "대화형 AI, 웹 검색, 파일 업로드, Pages, 에이전트",
+"new": "대화형 AI, 웹 검색, 파일 올리기, Pages(함께 고치는 문서), 에이전트(AI 도우미)"
+},
+{
+"slide": "cp-free",
+"old": "입력 내용은 AI 학습에 쓰이지 않음 · 학생은 교육청이 켜야 사용 · 내 라이선스: myaccount.microsoft.com → 구독",
+"new": "방패 표시가 있으면 입력 내용은 AI 학습에 쓰이지 않음(Microsoft 안내) · 학생은 교육청이 켜 줘야 사용 · 내 이용권(라이선스) 확인: myaccount.microsoft.com → 구독"
+}
+]

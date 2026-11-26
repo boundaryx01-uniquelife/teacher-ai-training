@@ -42,11 +42,12 @@ const server = createServer((req, res) => {
 const B = `http://localhost:${server.address().port}`;
 const browser = await launch();
 
-// 1) slides PDF: all 59 sections, one per 1920x1080 page
+// 1) slides PDF: all sections, one per 1920x1080 page
 {
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
   await page.goto(`${B}/slides/`);
   await page.evaluate(() => document.fonts.ready);
+  await page.waitForFunction(() => window.__fitDone === true, null, { timeout: 30000 }); // slides are scaled to fill (fit-to-fill) before printing
   await page.addStyleTag({ content: `#bar,#notes,#black{display:none!important} html,body,#app,#wrap{height:auto!important;overflow:visible!important;background:#F7F5EF}
     #scaler{position:static!important;transform:none!important;width:1920px!important;height:auto!important}
     #scaler>section{display:flex!important;position:relative!important;inset:auto!important;page-break-after:always;break-after:page}

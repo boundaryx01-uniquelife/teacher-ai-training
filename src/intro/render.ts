@@ -95,7 +95,7 @@ const NODES: [string, string, string][] = [["화면", "프론트엔드", "screen
 const CAPS: [number, number, string][] = [
   [0.2, 2.3, "한 줄 프롬프트"], [2.3, 4.6, "5요소로 다듬기"], [4.6, 7.7, "화면 → API → 서버 → DB"], [7.7, 10.4, "내 수업용 퀴즈 도구"],
 ];
-export const START_CARDS: [string, string, string][] = [["강의 슬라이드", "1–53번 · 오프라인", "screen"], ["실습 워크벤치", "실습 7가지 · 바로 해 보기", "flask"], ["가이드북 · 자료실", "강의안 · PDF · 예시", "book"]];
+export const START_CARDS: [string, string, string][] = [["강의 슬라이드", "강의 따라가기 · 오프라인", "screen"], ["실습 워크벤치", "실습 7가지 · 바로 해 보기", "flask"], ["가이드북 · 자료실", "강의안 · PDF · 예시", "book"]];
 
 const OPTS = ["빛", "물", "이산화탄소", "질소"];
 const MISC = "형성평가 퀴즈 1 / 5 광합성에 필요하지 않은 것은? ①②③④ 정답! 다음 문제 → +1 AI, 개념에서 실습까지 선생님의 첫 AI 도구 만들기 2026. 11. 27. · 부경고등학교 교사 연수 · teacher-ai-training.netlify.app";

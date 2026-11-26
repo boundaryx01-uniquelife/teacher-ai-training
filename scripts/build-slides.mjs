@@ -6,6 +6,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, copyFileSync, existsSyn
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { resolve, basename } from "node:path";
+import { REPLACE, INSERT, EXTRA_CSS } from "./slides-extra.mjs";
 
 const OUT = resolve("public/slides");
 rmSync(OUT, { recursive: true, force: true });
@@ -63,6 +64,23 @@ edit("<li>10분: Teach로 같은 단원 퀴즈 → 3교시 ChatGPT 결과와 비
 }
 html = html.replace(/<div class="ph" data-asset="IMG-15b"[^>]*><p>[\s\S]*?<\/p><\/div>\n?/, ""); // skill comparison picture dropped
 html = html.replace(/<div class="ph" data-asset="IMG-20"[^>]*><p>[\s\S]*?<\/p><\/div>\n?/, ""); // student Notebooks capture dropped
+// bigger screenshots (trainer: "삽입된 이미지는 너무 작아서 가시성이 없다") — the fit step rebalances the slide afterwards
+for (const [id, k] of Object.entries({ "IMG-06": 1.45, "VID-02": 1.3, "IMG-07": 1.35, "VID-03": 1.45, "IMG-08": 1.45, "IMG-10": 1.3, "IMG-11": 1.5, "IMG-12": 1.3, "IMG-21": 1.4, "IMG-19": 1.3, "IMG-25": 1.3, "IMG-18": 1.3 })) {
+  const re = new RegExp(`(data-asset="${id}"[^>]*style="width:)(\\d+)px;height:(\\d+)px;`);
+  if (!re.test(html)) { console.warn("asset box not found:", id); continue; }
+  html = html.replace(re, (_m, pre, w, h) => `${pre}${Math.round(w * k)}px;height:${Math.round(h * k)}px;`);
+}
+// beginner rewrite: replace whole slides and insert new ones (scripts/slides-extra.mjs)
+for (const [id, sec] of Object.entries(REPLACE)) {
+  const re = new RegExp(`<section id="${id}"[\\s\\S]*?</section>`);
+  if (!re.test(html)) throw new Error("slide to replace not found: " + id);
+  html = html.replace(re, () => sec);
+}
+for (const x of INSERT) {
+  const at = html.indexOf(`<section id="${x.before}"`);
+  if (at < 0) throw new Error("insert anchor not found: " + x.before);
+  html = html.slice(0, at) + x.html + "\n" + html.slice(at);
+}
 
 // filtered slide data: used by the viewer's inline DATA, the site (src/lib/slides.ts, /trainer) and the tests
 const raw = JSON.parse(readFileSync("site-slides/slides-data.json", "utf8"));
@@ -71,11 +89,15 @@ const keep = (o) => Object.fromEntries(Object.entries(o).filter(([k]) => !gone.h
 // trainer notes: fill empty ones from scripts/trainer-notes.json (existing notes are kept); demo slide gets a fallback line
 const extraNotes = JSON.parse(readFileSync("scripts/trainer-notes.json", "utf8"));
 const notes = keep(raw.notes);
-for (const [id, t] of Object.entries(extraNotes)) { if (!(id in raw.order.reduce((o, k) => (o[k] = 1, o), {}))) throw new Error("unknown slide in trainer-notes: " + id); if (!gone.has(id) && !notes[id]) notes[id] = t; }
+for (const [id, t] of Object.entries(extraNotes)) { if (!raw.order.includes(id) && !INSERT.some((x) => x.id === id)) throw new Error("unknown slide in trainer-notes: " + id); if (!gone.has(id) && !notes[id]) notes[id] = t; }
 notes["demo3"] = (notes["demo3"] || "") + " 시연이 안 되면(로그인·인터넷): 슬라이드의 캡처 화면과 /prompts 카드로 말로 시연하고 넘어간다.";
 // 2교시 짝짓기: 강의안(25분)에 맞춰 타이머 25분 (user decision 2026-11-26: 시간은 넉넉하게)
 const timers = { ...keep(raw.timers), match: 25 };
-const data = { ...raw, order: raw.order.filter((id) => !gone.has(id)), titles: keep(raw.titles), notes, practice: keep(raw.practice), timers };
+const order = raw.order.filter((id) => !gone.has(id));
+for (const x of INSERT) order.splice(order.indexOf(x.before), 0, x.id);
+const titles = { ...keep(raw.titles), ...Object.fromEntries(INSERT.map((x) => [x.id, x.title])) };
+titles["neis-api"] = "부경고 급식을 API로 받아 보자"; titles["build-choice"] = "만들고 싶은 것에 따라 필요한 부분이 다르다"; titles["terms1"] = "웹서비스는 네 부분으로 나뉜다";
+const data = { ...raw, order, titles, notes, practice: keep(raw.practice), timers };
 for (const sec of data.sections) if (gone.has(sec.start)) throw new Error("removed slide is a section start: " + sec.start);
 mkdirSync("src/content", { recursive: true });
 writeFileSync("src/content/slides-data.json", JSON.stringify(data, null, 1) + "\n");
@@ -115,11 +137,21 @@ const FIXES = [
   ["<td>질문에 답하기, 방향 수정, 중요한 동작 승인</td>", "<td>질문에 답하기, 방향 수정, 저장·발송 범위 정하기(“초안만”)</td>"],
   ["<p><b>승인</b> “드라이브에 저장할까요?”</p>", "<p><b>저장 전 확인</b> 설정에 따라 묻거나 바로 저장</p>"],
   ["“결업식 통신문 써 줘”", "“종업식 통신문 써 줘”"],
+  ["description: ○○고 가정통신문을", "description: 한빛고 가정통신문을"],
   ["[연수 일자] · [강사명] · [학교·기관명]", "2026. 11. 27. · 동래발명교육센터 박재현 · 부경고등학교 교사 대상 연수"],
   // trainer review: after picking a 교시 the select kept focus, so → jumped a whole 교시
   ["sel.onchange=()=>show(+sel.value);", "sel.onchange=()=>{show(+sel.value);sel.blur()};"],
 ];
 for (const [from, to] of FIXES) { if (html.includes(from)) html = html.replace(from, to); else console.warn("slide text not found:", from); }
+// beginner plain-language pass (reviewed 2026-11-26): replace only inside the named slide
+for (const f of JSON.parse(readFileSync("scripts/jargon-fixes.json", "utf8"))) {
+  const re = new RegExp(`<section id="${f.slide}"[\\s\\S]*?</section>`);
+  const m = html.match(re);
+  if (!m || !m[0].includes(f.old)) { console.warn("jargon fix not applied:", f.slide, f.old.slice(0, 40)); continue; }
+  html = html.replace(m[0], () => m[0].replace(f.old, () => f.new));
+}
+// fit-to-fill: every slide's content sits in .fit and is scaled to use the free space (runtime, after fonts load)
+html = html.replace(/(<section [^>]*>)([\s\S]*?)(<\/section>)/g, (_m, o, inner, c) => `${o}<div class="fit">${inner}</div>${c}`);
 
 // Fonts: subset Noto Sans KR to the characters used in the deck (keeps offline cache small).
 const text = html.replace(/<[^>]+>/g, " ") + " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,:;!?'\"()[]{}<>/\\|-_=+*&^%$#@~`·…→←↑↓▶◀⏱①②③④⑤“”‘’";
@@ -135,7 +167,7 @@ for (const w of [400, 700, 900]) {
 writeFileSync(resolve(OUT, "fonts.css"), faces.join("\n") + "\n");
 
 const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'";
-const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css"><style>#scaler section{word-break:keep-all;overflow-wrap:anywhere}#scaler section :is(p,h1,h2,h3,li,td){text-wrap:pretty}#bar button,#bar select,#bar a,#bar input{min-height:44px;min-width:44px}#bar a{display:inline-flex;align-items:center;justify-content:center}#app:has(#black.on) :is(#bar,#notes){visibility:hidden}@media (max-width:700px) and (orientation:portrait){#bar::after{content:"📱 폰을 가로로 돌리면 슬라이드가 더 크게 보여요";flex-basis:100%;text-align:center;font-size:14px;color:#F2A541}}</style>`;
+const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css"><style>#scaler section{word-break:keep-all;overflow-wrap:anywhere}#scaler section :is(td,th){overflow-wrap:break-word}#scaler section :is(p,h1,h2,h3,li,td){text-wrap:pretty}${EXTRA_CSS.replace(/\n/g, "")}#scaler>section{padding:72px 104px}#scaler>section>.fit{display:flex;flex-direction:column;flex:1 0 auto;transform-origin:0 0}#scaler img.zoomable,#scaler video{cursor:zoom-in}#lb{position:fixed;inset:0;z-index:50;background:rgba(10,18,38,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:96vw;max-height:94vh;background:#fff;border-radius:8px}#bar button,#bar select,#bar a,#bar input{min-height:44px;min-width:44px}#bar a{display:inline-flex;align-items:center;justify-content:center}#app:has(#black.on) :is(#bar,#notes){visibility:hidden}@media (max-width:700px) and (orientation:portrait){#bar::after{content:"📱 폰을 가로로 돌리면 슬라이드가 더 크게 보여요";flex-basis:100%;text-align:center;font-size:14px;color:#F2A541}}</style>`;
 if (!html.includes('<meta name="viewport" content="width=device-width,initial-scale=1">')) throw new Error("viewport meta not found");
 html = html.replace('<meta name="viewport" content="width=device-width,initial-scale=1">', (m) => m + head);
 const barOpen = '<div id="bar" role="toolbar" aria-label="슬라이드 조작">';
@@ -143,6 +175,24 @@ if (!html.includes(barOpen)) throw new Error("viewer bar not found");
 html = html.replace(barOpen, barOpen + '\n  <a id="home" href="/" title="사이트 홈">홈</a>');
 // 강사 노트 별도 창(?notes) + 타이머 자동 정지 (trainer review 2026-11-26)
 html = html.replace('<button id="nt" ', '<button id="nw" title="노트를 별도 창으로 (프로젝터에는 슬라이드만)">노트 창</button>\n  <button id="nt" ');
+const fitScript = `<div id="lb" role="dialog" aria-label="그림 크게 보기"></div>
+<script>(function(){
+// fit-to-fill: scale each slide's content so it fills the free area (0.72x–1.4x), measured once fonts are loaded
+function fitAll(){document.querySelectorAll("#scaler>section").forEach(function(sec){var f=sec.querySelector(":scope>.fit");if(!f)return;
+ var was=sec.style.display;sec.style.display="flex";sec.style.visibility=sec.classList.contains("on")?"":"hidden";
+ f.style.transform="";f.style.width="";f.style.height="";f.style.flex="";
+ var cs=getComputedStyle(sec),W=sec.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),H=sec.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+ function ok(z){f.style.flex="none";f.style.width=(W/z)+"px";f.style.height=(H/z)+"px";return f.scrollHeight<=f.clientHeight+1&&f.scrollWidth<=f.clientWidth+1}
+ if([].some.call(f.children,function(e){return getComputedStyle(e).position==="absolute"})){f.style.flex="";f.style.width="";f.style.height="";f.dataset.fit="1";sec.style.display=was;sec.style.visibility="";return}
+ var lo=0.72,hi=1.4;if(ok(hi))lo=hi;else{for(var i=0;i<9;i++){var m=(lo+hi)/2;if(ok(m))lo=m;else hi=m}}
+ ok(lo);f.style.transform="scale("+lo+")";f.dataset.fit=lo.toFixed(2);sec.style.display=was;sec.style.visibility=""})}
+(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){fitAll();window.__fitDone=true});
+// click a picture to see it full screen (screenshots are small on a projector)
+var lb=document.getElementById("lb");
+document.querySelectorAll("#scaler img").forEach(function(im){if(im.naturalWidth===0||im.closest(".card")&&im.width<200)return;im.classList.add("zoomable")});
+document.getElementById("scaler").addEventListener("click",function(e){var t=e.target;if(t.tagName==="VIDEO")return;if(t.tagName==="IMG"){var im=new Image();im.alt="";im.src=t.currentSrc||t.src;lb.replaceChildren(im);lb.classList.add("on");e.stopPropagation()}});
+lb.addEventListener("click",function(){lb.classList.remove("on")});addEventListener("keydown",function(e){if(e.key==="Escape")lb.classList.remove("on")});
+})()</script>\n`;
 const notesScript = `<style>.notes-only #wrap,.notes-only #bar{display:none}.notes-only #notes{display:block;max-height:none;min-height:100vh;font-size:30px;line-height:1.6;border-top:0;padding:24px 32px}#ntitle{font-weight:900;font-size:22px;color:#A8530A;margin:0 0 12px}</style>
 <script>(function(){
 var bc=window.BroadcastChannel?new BroadcastChannel("ai-slides"):null;
@@ -155,7 +205,7 @@ else{if(bc)bc.onmessage=function(e){if(e.data&&e.data.hello)bc.postMessage({i:cu
 $("#nw").onclick=function(){window.open("/slides/?notes#slide-"+(cur+1),"ai-notes","width=720,height=640")}}
 if(nm&&bc)bc.postMessage({hello:1});
 })()</script>\n`;
-html = html.replace("</body>", () => notesScript + "</body>");
+html = html.replace("</body>", () => fitScript + notesScript + "</body>");
 html = html.replace("</body>", `<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/slides/sw.js",{scope:"/slides/"}).catch(function(){})}</script>\n</body>`);
 writeFileSync(resolve(OUT, "index.html"), html);
 

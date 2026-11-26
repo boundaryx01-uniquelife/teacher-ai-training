@@ -24,7 +24,7 @@ export function mount(el: HTMLElement) {
     // start choice — same three cards, same order as the last frame of the intro
     h("nav", { class: "home-start", "aria-label": "어디서 시작할까요" },
       h("a", { class: "home-start-card accent", href: "/slides/" },
-        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🖥"), h("strong", {}, "강의 슬라이드"), h("span", {}, "1–53번 · 오프라인")),
+        h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🖥"), h("strong", {}, "강의 슬라이드"), h("span", {}, "강의 따라가기 · 오프라인")),
       h("a", { class: "home-start-card", href: "/lab", "data-link": "" },
         h("span", { class: "home-start-icon", "aria-hidden": "true" }, "🧪"), h("strong", {}, "실습 워크벤치"), h("span", {}, "실습 7가지 · 바로 해 보기")),
       h("a", { class: "home-start-card", href: "/guide", "data-link": "" },

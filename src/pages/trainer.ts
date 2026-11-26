@@ -157,9 +157,9 @@ export function mount(el: HTMLElement) {
     groups, h("div", { class: "btn-row" }, reset));
 
   const m3 = h("section", { class: "tr-sec", "aria-labelledby": "tr-h-m3" },
-    h("h2", { id: "tr-h-m3" }, "M3 교사 대시보드 진입"),
-    h("p", {}, "M3는 PIN이 필요해요. PIN은 Netlify 환경 변수(TRAINER_PIN)에 설정하며, 이 페이지에는 표시하지 않아요."),
-    h("p", {}, h("a", { class: "btn", href: "/m3", "data-link": "" }, "M3로 이동")));
+    h("h2", { id: "tr-h-m3" }, "교사 대시보드 진입"),
+    h("p", {}, "교사 대시보드는 PIN이 필요해요. PIN은 Netlify 환경 변수(TRAINER_PIN)에 설정하며, 이 페이지에는 표시하지 않아요."),
+    h("p", {}, h("a", { class: "btn", href: "/m3", "data-link": "" }, "교사 대시보드로 이동")));
 
   el.append(h("div", { class: "trainer" },
     h("h1", {}, "강사용 진행 페이지"),
@@ -169,9 +169,9 @@ export function mount(el: HTMLElement) {
       h("summary", {}, h("strong", {}, "인터넷·로그인이 안 될 때 대안")),
       h("ul", {},
         h("li", {}, "슬라이드(/slides)는 한 번 열어 두면 오프라인으로도 넘겨져요."),
-        h("li", {}, "M4 급식 API 실패 → 샘플 모드로 자동 전환돼요. ‘실제 호출이 안 돼도 앱이 멈추지 않게 설계한다’로 설명하세요."),
+        h("li", {}, "나이스 급식 API 체험 급식 API 실패 → 샘플 모드로 자동 전환돼요. ‘실제 호출이 안 돼도 앱이 멈추지 않게 설계한다’로 설명하세요."),
         h("li", {}, "33번 데모(ChatGPT 로그인 필요) 실패 → 슬라이드 캡처와 프롬프트 카드로 말로 시연하고 넘어가요."),
-        h("li", {}, "M3 PIN 로그인 실패 → 설명만 하고 M2 실습을 계속해요(제출은 연습 모드로도 가능)."),
+        h("li", {}, "교사 대시보드 PIN 로그인 실패 → 설명만 하고 퀴즈 앱 해부 실습 실습을 계속해요(제출은 연습 모드로도 가능)."),
         h("li", {}, "학교 와이파이에서 사이트가 보안 확인 화면으로 막히면 폰 테더링으로 접속을 확인해 두세요."))),
     timetable, checklist, m3, script));
 

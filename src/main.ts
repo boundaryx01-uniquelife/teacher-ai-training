@@ -31,7 +31,7 @@ function buildShell() {
   const header = h("header", { class: "site-header" }, h("div", { class: "inner" }, h("a", { class: "brand", href: "/", "data-link": "" }, "교사 AI 연수"), nav));
   const main = h("main", { id: "main", tabindex: "-1" });
   const footer = h("footer", { class: "site-footer" }, h("div", { class: "inner" },
-    h("p", {}, "이 사이트는 개인정보를 받지 않아요. 저장하는 것은 M2 퀴즈를 회차 코드로 풀었을 때의 답 기록뿐이며, 최대 30일 뒤 자동 삭제돼요."),
+    h("p", {}, "이 사이트는 개인정보를 받지 않아요. 저장하는 것은 퀴즈 앱 해부 실습 퀴즈를 회차 코드로 풀었을 때의 답 기록뿐이며, 최대 30일 뒤 자동 삭제돼요."),
     h("p", {}, "이 사이트는 ChatGPT·Copilot 등 외부 AI를 직접 호출하지 않습니다. 프롬프트는 복사해서 각자 쓰는 서비스에 붙여 넣으세요.")));
   app.replaceChildren(h("a", { class: "skip", href: "#main" }, "본문 바로가기"), header, main, footer);
   return { main, nav };

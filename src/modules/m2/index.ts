@@ -187,7 +187,7 @@ export function mount(el: HTMLElement) {
   el.classList.add("m2");
   if (phone) el.classList.add("m2-phone");
   el.append(
-    phone ? h("h1", { class: "m2-phone-title" }, "용어 퀴즈") : h("h1", {}, "M2 퀴즈 앱 해부 실습"),
+    phone ? h("h1", { class: "m2-phone-title" }, "용어 퀴즈") : h("h1", {}, "퀴즈 앱 해부 실습"),
     h("div", { class: "m2-layout" }, quizCol, phone ? null : panelCol), live);
   if (phone) document.documentElement.classList.add("m2-phone-mode");
   return () => { mq.removeEventListener("change", onMq); document.documentElement.classList.remove("m2-phone-mode"); };
