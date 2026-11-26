@@ -69,7 +69,11 @@ export function mount(el: HTMLElement) {
     async function loadSessions(selectCode?: string) {
       const { res, data } = await api("/api/sessions");
       if (res.status === 401) return showLogin(true);
-      const list = (data.sessions ?? []) as { sessionCode: string; createdAt: string }[];
+      let list = ((data.sessions ?? []) as { sessionCode: string; createdAt: string }[]).slice().sort((x, y) => y.createdAt.localeCompare(x.createdAt));
+      const all = list.length;
+      list = list.slice(0, 5); // 최근 5개만 (지난 테스트 회차가 쌓여도 화면이 길어지지 않게)
+      if (selectCode && !list.some((x) => x.sessionCode === selectCode)) list.unshift({ sessionCode: selectCode, createdAt: new Date().toISOString() });
+      void all;
       select.replaceChildren(...(list.length ? list.map((s) => h("option", { value: s.sessionCode }, `${s.sessionCode} · ${new Date(s.createdAt).toLocaleString("ko-KR", { timeZone: "Asia/Seoul", hour12: false })}`)) : [h("option", { value: "" }, "회차가 없어요 — [새 회차 만들기]")]));
       if (selectCode) select.value = selectCode;
       current = select.value;
@@ -96,6 +100,7 @@ export function mount(el: HTMLElement) {
       const bars = s.perQuestion.map((p) => {
         const fill = h("div", { class: "m3-fill" });
         fill.style.width = `${p.wrongRate}%`;
+        if (!p.wrongRate) fill.style.borderRight = "0";
         return h("li", { class: "m3-bar" },
           h("div", { class: "m3-bar-label" }, h("strong", {}, `${p.question}번`), " ", QTEXT[p.question - 1]),
           h("div", { class: "m3-track", role: "img", "aria-label": `${p.question}번 오답률 ${p.wrongRate}%` }, fill),
@@ -105,12 +110,12 @@ export function mount(el: HTMLElement) {
       statsBox.replaceChildren(
         h("section", { class: "card" },
           h("h2", {}, `문항별 오답률 · 제출 ${s.total}건`),
-          h("ol", { class: "m3-bars" }, bars)),
+          s.total ? h("ol", { class: "m3-bars" }, bars) : h("p", { class: "hint" }, "아직 제출이 없어요. 참가자가 M2에서 제출하면 막대가 나타나요.")),
         h("section", { class: "card" },
           h("h2", {}, "최근 제출 (최대 20건)"),
           recent.length ? h("div", { class: "table-wrap" }, h("table", {},
             h("thead", {}, h("tr", {}, ["순번", "문항", "답", "결과", "시각"].map((c) => h("th", { scope: "col" }, c)))),
-            h("tbody", {}, recent.map((r) => h("tr", {}, h("td", {}, String(r.no)), h("td", {}, `${r.question}번`), h("td", {}, r.answer), h("td", {}, r.correct ? "✓ 정답" : "✗ 오답"), h("td", {}, new Date(r.at).toLocaleTimeString("ko-KR", { timeZone: "Asia/Seoul", hour12: false }))))))) : h("p", { class: "hint" }, "아직 제출이 없어요.")));
+            h("tbody", {}, recent.map((r) => h("tr", {}, h("td", {}, String(r.no)), h("td", {}, `${r.question}번`), h("td", {}, ["", "①", "②", "③", "④"][Number(r.answer)] ?? r.answer), h("td", {}, r.correct ? "✓ 정답" : "✗ 오답"), h("td", {}, new Date(r.at).toLocaleTimeString("ko-KR", { timeZone: "Asia/Seoul", hour12: false }))))))) : h("p", { class: "hint" }, "아직 제출이 없어요.")));
     }
 
     function renderReset() {

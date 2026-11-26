@@ -68,7 +68,14 @@ html = html.replace(/<div class="ph" data-asset="IMG-20"[^>]*><p>[\s\S]*?<\/p><\
 const raw = JSON.parse(readFileSync("site-slides/slides-data.json", "utf8"));
 const gone = new Set(REMOVE_SLIDES);
 const keep = (o) => Object.fromEntries(Object.entries(o).filter(([k]) => !gone.has(k)));
-const data = { ...raw, order: raw.order.filter((id) => !gone.has(id)), titles: keep(raw.titles), notes: keep(raw.notes), practice: keep(raw.practice), timers: keep(raw.timers) };
+// trainer notes: fill empty ones from scripts/trainer-notes.json (existing notes are kept); demo slide gets a fallback line
+const extraNotes = JSON.parse(readFileSync("scripts/trainer-notes.json", "utf8"));
+const notes = keep(raw.notes);
+for (const [id, t] of Object.entries(extraNotes)) { if (!(id in raw.order.reduce((o, k) => (o[k] = 1, o), {}))) throw new Error("unknown slide in trainer-notes: " + id); if (!gone.has(id) && !notes[id]) notes[id] = t; }
+notes["demo3"] = (notes["demo3"] || "") + " 시연이 안 되면(로그인·인터넷): 슬라이드의 캡처 화면과 /prompts 카드로 말로 시연하고 넘어간다.";
+// 2교시 짝짓기: 강의안(25분)에 맞춰 타이머 25분 (user decision 2026-11-26: 시간은 넉넉하게)
+const timers = { ...keep(raw.timers), match: 25 };
+const data = { ...raw, order: raw.order.filter((id) => !gone.has(id)), titles: keep(raw.titles), notes, practice: keep(raw.practice), timers };
 for (const sec of data.sections) if (gone.has(sec.start)) throw new Error("removed slide is a section start: " + sec.start);
 mkdirSync("src/content", { recursive: true });
 writeFileSync("src/content/slides-data.json", JSON.stringify(data, null, 1) + "\n");
@@ -108,6 +115,7 @@ const FIXES = [
   ["<td>질문에 답하기, 방향 수정, 중요한 동작 승인</td>", "<td>질문에 답하기, 방향 수정, 저장·발송 범위 정하기(“초안만”)</td>"],
   ["<p><b>승인</b> “드라이브에 저장할까요?”</p>", "<p><b>저장 전 확인</b> 설정에 따라 묻거나 바로 저장</p>"],
   ["“결업식 통신문 써 줘”", "“종업식 통신문 써 줘”"],
+  ["[연수 일자] · [강사명] · [학교·기관명]", "2026. 11. 27. · 동래발명교육센터 박재현 · 부경고등학교 교사 대상 연수"],
   // trainer review: after picking a 교시 the select kept focus, so → jumped a whole 교시
   ["sel.onchange=()=>show(+sel.value);", "sel.onchange=()=>{show(+sel.value);sel.blur()};"],
 ];
@@ -133,6 +141,21 @@ html = html.replace('<meta name="viewport" content="width=device-width,initial-s
 const barOpen = '<div id="bar" role="toolbar" aria-label="슬라이드 조작">';
 if (!html.includes(barOpen)) throw new Error("viewer bar not found");
 html = html.replace(barOpen, barOpen + '\n  <a id="home" href="/" title="사이트 홈">홈</a>');
+// 강사 노트 별도 창(?notes) + 타이머 자동 정지 (trainer review 2026-11-26)
+html = html.replace('<button id="nt" ', '<button id="nw" title="노트를 별도 창으로 (프로젝터에는 슬라이드만)">노트 창</button>\n  <button id="nt" ');
+const notesScript = `<style>.notes-only #wrap,.notes-only #bar{display:none}.notes-only #notes{display:block;max-height:none;min-height:100vh;font-size:30px;line-height:1.6;border-top:0;padding:24px 32px}#ntitle{font-weight:900;font-size:22px;color:#A8530A;margin:0 0 12px}</style>
+<script>(function(){
+var bc=window.BroadcastChannel?new BroadcastChannel("ai-slides"):null;
+var nm=/[?&]notes(&|$)/.test(location.search);
+var _show=show;
+function title(){var n=document.getElementById("ntitle");if(!n){n=document.createElement("p");n.id="ntitle";document.getElementById("notes").before(n)}n.textContent=(cur+1)+" / "+ids.length+" · "+DATA.titles[ids[cur]]}
+show=function(i,f){if(!nm&&tmId&&i!==cur)$("#tmb").click();_show(i,f);if(bc&&!nm)bc.postMessage({i:cur});if(nm)title()};
+if(nm){document.body.classList.add("notes-only");$("#app").classList.add("show-notes");title();if(bc)bc.onmessage=function(e){if(e.data&&typeof e.data.i==="number")show(e.data.i,true)}}
+else{if(bc)bc.onmessage=function(e){if(e.data&&e.data.hello)bc.postMessage({i:cur})};
+$("#nw").onclick=function(){window.open("/slides/?notes#slide-"+(cur+1),"ai-notes","width=720,height=640")}}
+if(nm&&bc)bc.postMessage({hello:1});
+})()</script>\n`;
+html = html.replace("</body>", () => notesScript + "</body>");
 html = html.replace("</body>", `<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("/slides/sw.js",{scope:"/slides/"}).catch(function(){})}</script>\n</body>`);
 writeFileSync(resolve(OUT, "index.html"), html);
 

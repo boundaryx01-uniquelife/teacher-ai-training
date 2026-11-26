@@ -92,6 +92,7 @@ export function mount(el: HTMLElement) {
   el.append(
     h("h1", {}, "프롬프트 5요소 빌더"),
     h("p", { class: "lead" }, "1단계 · 프롬프트 다듬기: 좋은 지시문의 5요소(역할·대상·과제·조건·형식) 익히기"),
+    h("p", { class: "hint" }, "예시의 [과목]·[학년]·[단원명]처럼 대괄호 안은 내 내용으로 바꿔 쓰세요. 바꾸지 않으면 AI가 글자 그대로 씁니다."),
     h("div", { class: "m1-cols" }, left, right),
     compare);
   update();

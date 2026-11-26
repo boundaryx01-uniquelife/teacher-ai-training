@@ -22,7 +22,7 @@ const ROUTES: Record<string, string> = {
 // index = section index in slides-data (0 = 도입, 1~3 = 교시, 4 = 부록)
 const TIMETABLE: Record<number, [string, string, string]> = {
   1: ["1교시", "50분", "LLM 개념 + 필수 용어 / 강의 30분, 퀴즈·질문 20분"],
-  2: ["2교시", "50분", "상용 AI 지도, Chat/Work/Code, 스킬·MCP / 강의 25분, 업무↔AI 짝짓기 25분"],
+  2: ["2교시", "50분", "상용 AI 지도, Chat/Work/Code, 스킬·MCP / 강의 25분, 업무↔AI 짝짓기 25분(시간은 넉넉하게, 진행 상황 보며 조정)"],
   3: ["3교시", "50분", "실습 프로젝트 3단계 + 학생 수업 적용 / 실습 40분, 공유 10분"],
 };
 
@@ -164,6 +164,15 @@ export function mount(el: HTMLElement) {
   el.append(h("div", { class: "trainer" },
     h("h1", {}, "강사용 진행 페이지"),
     h("p", { class: "notice" }, "메뉴에 노출되지 않는 페이지예요. 참가자에게 주소를 공유하지 마세요."),
+    h("p", {}, "슬라이드 노트는 프로젝터에 보이지 않게 ‘노트 창’ 버튼(별도 창)으로 열고, 그 창을 강사 화면으로 옮겨 두세요. 슬라이드를 넘기면 노트도 같이 넘어가요."),
+    h("details", { class: "card" },
+      h("summary", {}, h("strong", {}, "인터넷·로그인이 안 될 때 대안")),
+      h("ul", {},
+        h("li", {}, "슬라이드(/slides)는 한 번 열어 두면 오프라인으로도 넘겨져요."),
+        h("li", {}, "M4 급식 API 실패 → 샘플 모드로 자동 전환돼요. ‘실제 호출이 안 돼도 앱이 멈추지 않게 설계한다’로 설명하세요."),
+        h("li", {}, "33번 데모(ChatGPT 로그인 필요) 실패 → 슬라이드 캡처와 프롬프트 카드로 말로 시연하고 넘어가요."),
+        h("li", {}, "M3 PIN 로그인 실패 → 설명만 하고 M2 실습을 계속해요(제출은 연습 모드로도 가능)."),
+        h("li", {}, "학교 와이파이에서 사이트가 보안 확인 화면으로 막히면 폰 테더링으로 접속을 확인해 두세요."))),
     timetable, checklist, m3, script));
 
   return () => meta.remove();
