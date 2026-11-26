@@ -161,3 +161,20 @@ export const EXTRA_CSS3 = `
 #terms1 .card{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:12px;padding:34px 30px;align-content:start}
 #terms1 .card>p,#terms1 .card>h3{margin:0}#terms1 .card .ex{display:block;line-height:1.4;padding:12px 16px}#terms1 .card .ex b{display:block;background:none;padding:0;color:#0B7A75}
 `;
+
+/* ===== design review 2026-11-26 (Sonnet design critic → applied with the real class names) ===== */
+export const EXTRA_CSS4 = `
+#scaler .fit>:is(.cards,table,.row,.flow,.step:first-of-type){margin-top:auto}
+#scaler .fit>:is(.cards,table,.row,.flow){margin-bottom:auto}
+#scaler .fit>.note{margin-top:auto;padding-top:24px;font-size:26px}
+#scaler .card p:not(.tag){font-size:30px}
+#scaler td b,#scaler td .kw{background:none!important;padding:0;font-weight:800}
+#scaler :is(td,.sm,.note,.ex,.sm2) :is(b,.kw){color:#086661}
+#scaler img:not([src$=".svg"]):not([src*="IMG-03"]):not([src*="IMG-14"]):not([src*="IMG-01"]){border-radius:12px;box-shadow:0 8px 24px rgba(20,33,61,.16)}
+#scaler section.dark>.fit{justify-content:center}
+#scaler section.accent>.fit :is(.eyebrow,.lead,.sub,h2,p){color:#14213D!important}
+#scaler section.accent>.fit .lead.fragment{font-size:44px;font-weight:900}
+#sites-steps ol{font-size:32px!important;line-height:1.7!important}
+#cp-admin ul{font-size:30px!important}#cp-admin li{margin-bottom:20px}
+#cp-free table,#cp-notebooks table{width:100%}
+`;

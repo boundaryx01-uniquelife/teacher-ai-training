@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, copyFileSync, existsSyn
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
 import { resolve, basename } from "node:path";
-import { REPLACE, INSERT, EXTRA_CSS, EXTRA_CSS2, EXTRA_CSS3 } from "./slides-extra.mjs";
+import { REPLACE, INSERT, EXTRA_CSS, EXTRA_CSS2, EXTRA_CSS3, EXTRA_CSS4 } from "./slides-extra.mjs";
 
 const OUT = resolve("public/slides");
 rmSync(OUT, { recursive: true, force: true });
@@ -114,7 +114,7 @@ const precache = new Set(["/slides/", "/slides/fonts.css"]);
 let replaced = 0, kept = 0;
 html = html.replace(/<div class="ph" data-asset="([^"]+)"([^>]*)><p>[\s\S]*?<\/p><\/div>/g, (whole, id, rest) => {
   const a = byId[id];
-  if (!a || !a.path || a.status === "todo" || !existsSync(a.path)) { kept++; return whole; }
+  if (!a || !a.path || a.status === "todo" || !existsSync(a.path)) { kept++; return ""; } // capture not delivered yet: show no dashed placeholder box (the slide reflows to full width)
   const file = basename(a.path);
   copyFileSync(a.path, resolve(OUT, "assets", file));
   const src = `/slides/assets/${file}`;
@@ -158,7 +158,7 @@ html = html.replace(/<section [\s\S]*?<\/section>/g, (sec) => {
   const used = new Set();
   return sec.replace(/(<(?:p|li|td)(?: class="(?:lead|sub|ex)")?(?: style="[^"]*")?>)([^<]+)/g, (m, open, txt) => {
     let t = txt;
-    for (const k of KW) { if (used.has(k) || !t.includes(k)) continue; used.add(k); t = t.replace(k, `<b class="kw">${k}</b>`); }
+    for (const k of KW) { if (used.size >= 2 || used.has(k) || !t.includes(k)) continue; used.add(k); t = t.replace(k, `<b class="kw">${k}</b>`); }
     return open + t;
   });
 });
@@ -179,7 +179,7 @@ for (const w of [400, 700, 900]) {
 writeFileSync(resolve(OUT, "fonts.css"), faces.join("\n") + "\n");
 
 const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'";
-const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css"><style>#scaler section{word-break:keep-all;overflow-wrap:anywhere}#scaler section :is(td,th){overflow-wrap:break-word}#scaler section :is(p,h1,h2,h3,li,td){text-wrap:pretty}${EXTRA_CSS.replace(/\n/g, "")}${EXTRA_CSS2}${EXTRA_CSS3.replace(/\n/g, "")}#scaler>section{padding:72px 104px}#scaler>section>.fit{display:flex;flex-direction:column;flex:1 0 auto;transform-origin:0 0}#scaler img.zoomable,#scaler video{cursor:zoom-in}#lb{position:fixed;inset:0;z-index:50;background:rgba(10,18,38,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:96vw;max-height:94vh;background:#fff;border-radius:8px}#bar button,#bar select,#bar a,#bar input{min-height:44px;min-width:44px}#bar a{display:inline-flex;align-items:center;justify-content:center}#app:has(#black.on) :is(#bar,#notes){visibility:hidden}@media (max-width:700px) and (orientation:portrait){#bar::after{content:"📱 폰을 가로로 돌리면 슬라이드가 더 크게 보여요";flex-basis:100%;text-align:center;font-size:14px;color:#F2A541}}</style>`;
+const head = `<meta http-equiv="Content-Security-Policy" content="${CSP}"><meta name="referrer" content="no-referrer"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/slides/fonts.css"><style>#scaler section{word-break:keep-all;overflow-wrap:anywhere}#scaler section :is(td,th){overflow-wrap:break-word}#scaler section :is(p,h1,h2,h3,li,td){text-wrap:pretty}${EXTRA_CSS.replace(/\n/g, "")}${EXTRA_CSS2}${EXTRA_CSS3.replace(/\n/g, "")}${EXTRA_CSS4.replace(/\n/g, "")}#scaler>section{padding:72px 104px}#scaler>section>.fit{display:flex;flex-direction:column;flex:1 0 auto;transform-origin:0 0}#scaler img.zoomable,#scaler video{cursor:zoom-in}#lb{position:fixed;inset:0;z-index:50;background:rgba(10,18,38,.92);display:none;align-items:center;justify-content:center;cursor:zoom-out}#lb.on{display:flex}#lb img{max-width:96vw;max-height:94vh;background:#fff;border-radius:8px}#bar button,#bar select,#bar a,#bar input{min-height:44px;min-width:44px}#bar a{display:inline-flex;align-items:center;justify-content:center}#app:has(#black.on) :is(#bar,#notes){visibility:hidden}@media (max-width:700px) and (orientation:portrait){#bar::after{content:"📱 폰을 가로로 돌리면 슬라이드가 더 크게 보여요";flex-basis:100%;text-align:center;font-size:14px;color:#F2A541}}</style>`;
 if (!html.includes('<meta name="viewport" content="width=device-width,initial-scale=1">')) throw new Error("viewport meta not found");
 html = html.replace('<meta name="viewport" content="width=device-width,initial-scale=1">', (m) => m + head);
 const barOpen = '<div id="bar" role="toolbar" aria-label="슬라이드 조작">';
@@ -189,14 +189,14 @@ html = html.replace(barOpen, barOpen + '\n  <a id="home" href="/" title="사이�
 html = html.replace('<button id="nt" ', '<button id="nw" title="노트를 별도 창으로 (프로젝터에는 슬라이드만)">노트 창</button>\n  <button id="nt" ');
 const fitScript = `<div id="lb" role="dialog" aria-label="그림 크게 보기"></div>
 <script>(function(){
-// fit-to-fill: scale each slide's content so it fills the free area (0.72x–1.25x), measured once fonts are loaded
+// fit-to-fill: scale each slide's content so it fills the free area (0.72x–1.35x), measured once fonts are loaded
 function fitAll(){document.querySelectorAll("#scaler>section").forEach(function(sec){var f=sec.querySelector(":scope>.fit");if(!f)return;
  var was=sec.style.display;sec.style.display="flex";sec.style.visibility=sec.classList.contains("on")?"":"hidden";
  f.style.transform="";f.style.width="";f.style.height="";f.style.flex="";
  var cs=getComputedStyle(sec),W=sec.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),H=sec.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
- function ok(z){f.style.flex="none";f.style.width=(W/z)+"px";f.style.height=(H/z)+"px";return f.scrollHeight<=f.clientHeight+1&&f.scrollWidth<=f.clientWidth+1}
+ function ok(z){f.style.flex="none";f.style.width=(W/z)+"px";f.style.height=(H/z)+"px";return f.scrollHeight<=f.clientHeight+8&&f.scrollWidth<=f.clientWidth+2}
  if([].some.call(f.children,function(e){return getComputedStyle(e).position==="absolute"})){f.style.flex="";f.style.width="";f.style.height="";f.dataset.fit="1";sec.style.display=was;sec.style.visibility="";return}
- var lo=0.72,hi=1.25;if(ok(hi))lo=hi;else{for(var i=0;i<9;i++){var m=(lo+hi)/2;if(ok(m))lo=m;else hi=m}}
+ var lo=0.72,hi=1.35;if(ok(hi))lo=hi;else{for(var i=0;i<9;i++){var m=(lo+hi)/2;if(ok(m))lo=m;else hi=m}}
  ok(lo);f.style.transform="scale("+lo+")";f.dataset.fit=lo.toFixed(2);sec.style.display=was;sec.style.visibility=""})}
 (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){fitAll();window.__fitDone=true});
 // click a picture to see it full screen (screenshots are small on a projector)
