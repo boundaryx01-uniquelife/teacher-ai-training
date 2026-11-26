@@ -20,6 +20,7 @@ export const TROUBLE: Trouble[] = [
   // 부록 무료 vs 유료 표·29행
   { id: "copilot-button", stage: "Copilot", q: "워드 안의 Copilot 버튼이 안 돼요", a: ["대부분 유료 라이선스 문제예요. Microsoft 365 Copilot은 학교가 구매하는 유료 추가 라이선스예요.", "myaccount.microsoft.com의 구독에서 확인하세요. Copilot Chat까지만 보이면 오피스 안 Copilot은 쓸 수 없어요."] },
   // 부록 Teach 한계·Learning Zone 제약
+  { id: "teach-missing", stage: "Copilot", q: "Copilot에 Teach 메뉴가 없어요(‘학습’만 보여요)", a: ["연수 준비 중 교육청(PENZ) 교사 계정에서도 Teach는 보이지 않고 ‘학습’ 메뉴만 보였어요. 계정의 라이선스·관리자 설정·업데이트에 따라 다를 수 있어요.", "학교 정보 담당자에게 Teach 허용 여부를 확인하고, 안 보이면 이 가이드의 Teach 예시는 설명으로만 보세요."] },
   { id: "copilot-korean", stage: "Copilot", q: "Teach나 Learning Zone 결과가 한국어로 안 나와요", a: ["Teach의 한국어 지원 범위와 한국 교육과정 기준 목록 제공 여부는 연수 전 직접 확인이 필요해요.", "Learning Zone의 레슨 생성 언어에 한국어는 현재(발표 기준) 없어요. 성취기준은 직접 붙여 넣거나 문서를 첨부하세요."] },
   // src/modules/m2/index.ts 31-33, 119행
   { id: "m2-code", stage: "실습 사이트", q: "M2에서 회차 코드를 넣었는데 안 돼요", a: ["회차 코드는 영문 대문자·숫자 6자리예요(0·O·1·I 제외). 없는 회차 코드라면 강사에게 코드를 확인하세요.", "코드 없이 풀면 연습 모드예요. 채점만 하고 저장하지 않아요."] },

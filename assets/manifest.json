@@ -537,7 +537,8 @@
       "description_ko": "Copilot Chat에 가상 공문 PDF 업로드 → ‘할 일·기한 표’ 요약",
       "notes": "",
       "alt_ko": "Copilot Chat에 가상 공문 PDF 업로드 → ‘할 일·기한 표’ 요약",
-      "status": "todo"
+      "status": "done",
+      "path": "assets/IMG-21_chat-summary.png"
     },
     {
       "id": "IMG-22",

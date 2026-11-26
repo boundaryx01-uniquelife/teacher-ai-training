@@ -659,7 +659,7 @@ Copilot 앱 안의 교사 전용 화면이다. 빈 채팅창 대신 **과목·�
 
 **연수 운영 팁(부록 20분 버전)**: Teach로 같은 단원 퀴즈를 만들어 3교시 ChatGPT 결과와 비교(10분) → 학생 계정으로 Notebooks 학습 가이드 시연(10분).
 
-참고: Teach의 한국어 지원 범위, 기능 이름·메뉴 위치는 국가·업데이트에 따라 다를 수 있다. 연수 전 실제 화면으로 확인한다.
+참고: Teach의 한국어 지원 범위, 기능 이름·메뉴 위치는 국가·업데이트에 따라 다를 수 있다. 연수 전 실제 화면으로 확인한다. **2026-11-26 확인: 교육청(PENZ) 교사 계정의 Copilot 화면에는 Teach 메뉴가 없고 ‘학습’ 메뉴만 있었다. 연수 때 Teach 시연이 가능한지 먼저 확인한다.**
 
 출처: [Microsoft — Copilot in education](https://www.microsoft.com/en-gb/education/products/copilot-in-education) · [Copilot Chat for Students 13+](https://techcommunity.microsoft.com/blog/educationblog/microsoft-365-copilot-chat-for-students-13/4440370) · [Copilot Notebooks·Study guide](https://techcommunity.microsoft.com/blog/educationblog/copilot-notebooks-and-study-guide-now-available-to-copilot-chat-users/4527320) · [What's New in Microsoft EDU — 2026년 10월](https://techcommunity.microsoft.com/blog/educationblog/whats-new-in-microsoft-edu-%E2%80%93-october-2026/4516290) · [Microsoft AI in Education 발표(2026-06)](https://news.microsoft.com/2026/06/24/microsofts-new-ai-in-education-report-highlights-widespread-adoption-and-increasing-demand-for-support/)
 
