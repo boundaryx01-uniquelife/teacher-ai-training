@@ -23,7 +23,6 @@ Claude Code는 로그인된 실제 서비스 화면을 찍을 수 없다. 아래
 | IMG-11 | mcp-trace | 캘린더 일정 등록 완료 카드(승인 없이 바로 실행된 실제 화면) | 520×380 | IMG-11_mcp-approve.png | Dummy calendar. |
 | IMG-12 | skill-make | “가정통신문 스킬 만들어 줘” 대화와 skill-creator의 질문 | 680×500 | IMG-12_skill-create.png |  |
 | IMG-15a | demo3 | 드라이브 연결 시연 결과로 만들어진 학생용 시험 범위 안내문 화면 | 420×240 | IMG-15a_demo-drive.png |  |
-| IMG-15b | demo3 | 같은 요청을 스킬 없이·스킬로 만든 가정통신문을 좌우로 비교한 화면 | 420×240 | IMG-15b_demo-skill.png |  |
 | IMG-15c | demo3 | Canva 연결로 만든 과학의 날 포스터 초안 화면 | 420×240 | IMG-15c_demo-canva.png |  |
 
 ## Microsoft 365 Copilot (PENZ)
@@ -31,12 +30,9 @@ Claude Code는 로그인된 실제 서비스 화면을 찍을 수 없다. 아래
 | ID | 슬라이드 | 무엇을 찍나 | 크기 | 파일명 | 메모 |
 | --- | --- | --- | --- | --- | --- |
 | IMG-18 | cp-free | PENZ 계정으로 로그인한 Microsoft 365 Copilot 앱, 데이터 보호(방패) 표시 확대 | 520×420 | IMG-18_copilot-shield.png |  |
-| IMG-19 | cp-teacher | Teach에서 수업 계획·퀴즈 만드는 화면 | 640×480 | IMG-19_teach.png |  |
+| IMG-19 | cp-teacher | Copilot 앱의 ‘학습’ 메뉴 화면(이해·플래시 카드·퀴즈·일치·빈칸 채우기) | 640×480 | IMG-19_teach.png | Teach 메뉴가 교육청 교사 계정에 없어 ‘학습’ 화면으로 대체. |
 | IMG-20 | cp-student | 학생 PENZ 계정의 Notebooks 학습 가이드·플래시카드 | 560×420 | IMG-20_notebooks-study.png | Test student account, dummy materials. |
 | IMG-21 | cp-chat | Copilot Chat에 가상 공문 PDF 업로드 → ‘할 일·기한 표’ 요약 | 600×420 | IMG-21_chat-summary.png |  |
-| IMG-22 | cp-teach-menu | Teach 홈 메뉴(수업 계획·단원 계획·루브릭·퀴즈·학습 활동·콘텐츠 수정) | 560×420 | IMG-22_teach-home.png |  |
-| IMG-23 | cp-teach-lesson | 수업 계획 입력 양식(통합과학·고1·50분) → 생성 결과 문서 (2컷) | 600×480 | IMG-23_teach-lesson.png |  |
-| IMG-24 | cp-teach-modify | 콘텐츠 수정 → 읽기 수준 수정 설정, 핵심 용어 칸에 ‘온실가스, 탄소중립’ | 300×300 | IMG-24_teach-modify.png |  |
 | IMG-25 | cp-notebooks | Notebooks 3단 화면(참고 항목·페이지·채팅) + 학습 가이드 생성 창 | 600×460 | IMG-25_notebooks.png |  |
 | IMG-26 | cp-notebooks-ex | 교사용 ‘교육과정 지식방’ 노트북의 근거 링크 답변 또는 마인드맵 | 420×360 | IMG-26_notebooks-teacher.png | Use public/dummy school documents only. |
 
@@ -55,8 +51,8 @@ Claude Code는 로그인된 실제 서비스 화면을 찍을 수 없다. 아래
 
 ## 촬영 순서 제안
 
-1. ChatGPT: IMG-06 → IMG-10(플러그인 연결) → IMG-11(캘린더 등록) → IMG-12(스킬) → VID-02(Work) → IMG-07·VID-03·IMG-08(Sites) → IMG-15a~c(시연 결과)
-2. Copilot(PENZ 교사 계정): IMG-18 → IMG-21 → IMG-22 → IMG-23 → IMG-24 → IMG-19 → IMG-25 → IMG-26
+1. ChatGPT: IMG-06 → IMG-10(플러그인 연결) → IMG-11(캘린더 등록) → IMG-12(스킬) → VID-02(Work) → IMG-07·VID-03·IMG-08(Sites) → IMG-15a·15c(시연 결과)
+2. Copilot(PENZ 교사 계정): IMG-18 → IMG-21 → IMG-19(학습) → IMG-25 → IMG-26
 3. Copilot(PENZ 학생 테스트 계정): IMG-20
 4. Learning Zone(Windows 11): IMG-27 → IMG-28 (영어 레슨으로 생성)
 5. 나이스 API: IMG-04

@@ -75,13 +75,13 @@ export const EXTRA: Record<string, { summary: string; items: ExtraItem[] }> = {
       { label: "Sites 카드 변형 (유료 요금제)", kind: "prompt", text: "@Sites 체험학습 장소 3곳 투표, 결과는 막대그래프" },
     ],
   },
-  // 출처: lesson-plan.md 부록(Teach 예시·연수 운영 팁), src/pages/copilot.ts
+  // 출처: lesson-plan.md 부록(연수 운영 팁·교사 활용), src/pages/copilot.ts
   "/copilot": {
-    summary: "PENZ 계정으로 Teach 또는 Copilot Chat을 한 번 더 써 보세요.",
+    summary: "PENZ 계정의 Copilot Chat을 한 번 더 써 보세요.",
     items: [
-      { label: "Teach로 같은 단원 퀴즈", kind: "note", text: "Teach로 같은 단원 퀴즈를 만들어 3교시 ChatGPT 결과와 비교해 보세요. 결과물은 초안이므로 사실·성취기준 일치를 교사가 검토합니다." },
-      { label: "수업 계획 요청 예", kind: "prompt", text: "고1 통합과학 기후변화 단원 4차시, 활동 중심, 성취기준 포함" },
-      { label: "읽기 자료 수준 맞추기", kind: "prompt", text: "기초 학력 학생용으로 쉽게, 어휘 풀이 포함" },
+      { label: "같은 단원 퀴즈로 비교", kind: "note", text: "Copilot Chat으로 같은 단원 퀴즈 문항을 만들어 3교시 ChatGPT 결과와 비교해 보세요. 결과물은 초안이므로 사실·성취기준 일치를 교사가 확인해야 해요." },
+      { label: "수업 삽화 요청 예", kind: "prompt", text: "열대우림 단면도를 교과서 삽화 느낌으로, 글자 없이" },
+      { label: "지식방 질문 예(Notebooks)", kind: "prompt", text: "이 자료 안에서만 답해" },
     ],
   },
   // 출처: lesson-plan.md 467-481행(3단계), 240-245행(공개 전 체크), 483-496행(그 외 제안)

@@ -415,21 +415,6 @@
       "path": "assets/IMG-15a_demo-drive.png"
     },
     {
-      "id": "IMG-15b",
-      "slide": "demo3",
-      "kind": "screenshot",
-      "producer": "capture",
-      "size_px": [
-        420,
-        240
-      ],
-      "file": "IMG-15b_demo-skill.png",
-      "description_ko": "같은 요청을 스킬 없이·스킬로 만든 가정통신문을 좌우로 비교한 화면",
-      "notes": "",
-      "alt_ko": "같은 요청을 스킬 없이·스킬로 만든 가정통신문을 좌우로 비교한 화면",
-      "status": "todo"
-    },
-    {
       "id": "IMG-15c",
       "slide": "demo3",
       "kind": "screenshot",
@@ -504,10 +489,11 @@
         480
       ],
       "file": "IMG-19_teach.png",
-      "description_ko": "Teach에서 수업 계획·퀴즈 만드는 화면",
-      "notes": "",
-      "alt_ko": "Teach에서 수업 계획·퀴즈 만드는 화면",
-      "status": "todo"
+      "description_ko": "Copilot 앱의 ‘학습’ 메뉴 화면(이해·플래시 카드·퀴즈·일치·빈칸 채우기)",
+      "notes": "User decision 2026-11-26: PENZ teacher account has no Teach menu, so this slot shows the '학습' menu instead.",
+      "alt_ko": "Copilot 앱의 ‘학습’ 메뉴 화면(이해·플래시 카드·퀴즈·일치·빈칸 채우기)",
+      "status": "done",
+      "path": "assets/IMG-19_teach.png"
     },
     {
       "id": "IMG-20",
@@ -539,51 +525,6 @@
       "alt_ko": "Copilot Chat에 가상 공문 PDF 업로드 → ‘할 일·기한 표’ 요약",
       "status": "done",
       "path": "assets/IMG-21_chat-summary.png"
-    },
-    {
-      "id": "IMG-22",
-      "slide": "cp-teach-menu",
-      "kind": "screenshot",
-      "producer": "capture",
-      "size_px": [
-        560,
-        420
-      ],
-      "file": "IMG-22_teach-home.png",
-      "description_ko": "Teach 홈 메뉴(수업 계획·단원 계획·루브릭·퀴즈·학습 활동·콘텐츠 수정)",
-      "notes": "",
-      "alt_ko": "Teach 홈 메뉴(수업 계획·단원 계획·루브릭·퀴즈·학습 활동·콘텐츠 수정)",
-      "status": "todo"
-    },
-    {
-      "id": "IMG-23",
-      "slide": "cp-teach-lesson",
-      "kind": "screenshot",
-      "producer": "capture",
-      "size_px": [
-        600,
-        480
-      ],
-      "file": "IMG-23_teach-lesson.png",
-      "description_ko": "수업 계획 입력 양식(통합과학·고1·50분) → 생성 결과 문서 (2컷)",
-      "notes": "",
-      "alt_ko": "수업 계획 입력 양식(통합과학·고1·50분) → 생성 결과 문서 (2컷)",
-      "status": "todo"
-    },
-    {
-      "id": "IMG-24",
-      "slide": "cp-teach-modify",
-      "kind": "screenshot",
-      "producer": "capture",
-      "size_px": [
-        300,
-        300
-      ],
-      "file": "IMG-24_teach-modify.png",
-      "description_ko": "콘텐츠 수정 → 읽기 수준 수정 설정, 핵심 용어 칸에 ‘온실가스, 탄소중립’",
-      "notes": "",
-      "alt_ko": "콘텐츠 수정 → 읽기 수준 수정 설정, 핵심 용어 칸에 ‘온실가스, 탄소중립’",
-      "status": "todo"
     },
     {
       "id": "IMG-25",

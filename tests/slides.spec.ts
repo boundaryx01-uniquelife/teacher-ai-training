@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
-const data = JSON.parse(readFileSync("site-slides/slides-data.json", "utf8"));
+const data = JSON.parse(readFileSync("src/content/slides-data.json", "utf8"));
 import { trackConsole } from "./helpers";
 
 const ROUTE: Record<string, string> = { M1: "/m1", M2: "/m2", M3: "/m3", M4: "/m4", M5: "/m5", M6: "/m6", M7: "/m7", PROMPTS: "/prompts", COPILOT: "/copilot", FINAL: "/final" };
@@ -26,7 +26,7 @@ test("슬라이드 실습 버튼 전수: 모듈로 이동 → 같은 슬라이�
     await back.click();
     await expect(page.locator("#count")).toHaveText(`${n} / ${data.order.length}`);
   }
-  expect(practice.length).toBeGreaterThanOrEqual(30);
+  expect(practice.length).toBeGreaterThanOrEqual(27);
   expect(errors).toEqual([]);
 });
 

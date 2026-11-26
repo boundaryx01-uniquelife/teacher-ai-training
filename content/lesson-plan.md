@@ -502,7 +502,6 @@ description: ○○고 가정통신문을 학교 양식과 공문체로 작성�
 | 기능 | 무엇을 하나 | 교사 | 학생(13세+) | 비용 |
 | --- | --- | --- | --- | --- |
 | Microsoft 365 Copilot Chat | 대화형 AI. 웹 검색, 파일 업로드, 이미지 생성, Copilot Pages, 에이전트 | ○ | ○(관리자 활성화) | 무료 |
-| Teach (Copilot 앱 안 교사 전용) | 수업 계획, 자료 수준 조절, 퀴즈·루브릭, 단원 계획(Unit Plans), 학습 활동(플래시카드 등) | ○ | — | 무료 |
 | Copilot Notebooks + 학습 가이드 | 내 자료를 모아 그 안에서만 답하는 작업 공간, 자료로 학습 가이드·자기 테스트 생성 | ○ | ○ | 무료 |
 | Study and Learn 에이전트 | 학습 과학 기반 학습 동반자(개념 설명·연습·피드백) | — | ○ | 무료 |
 | Learning Zone | 수업용 인터랙티브 레슨 생성·과제 연결 | ○ | 레슨 참여 | 무료(생성은 Copilot+ PC, 일반 Windows 11은 2027-08-01까지 1회 10슬라이드) |
@@ -523,44 +522,7 @@ description: ○○고 가정통신문을 학교 양식과 공문체로 작성�
 
 **수업 연결 — Teams 과제에 AI 활동 넣기**: Teams 교육용 과제에서 ‘Study and Learn 할당’ 또는 ‘Copilot 시작 프롬프트’를 넣을 수 있다(2026년 11월 전체 제공 예정 — 연수 당일 화면 확인). 예: 시작 프롬프트 “너는 내 설득문의 논리만 점검하는 코치야. 나대신 고쳐 쓰지 마.”를 과제에 붙이면 학생이 같은 규칙으로 시작한다([Microsoft EDU 2026년 10월](https://techcommunity.microsoft.com/blog/educationblog/whats-new-in-microsoft-edu-%E2%80%93-october-2026/4516290)).
 
-### ② Teach — 교사 전용 수업 자료 공장
-
-Copilot 앱 안의 교사 전용 화면이다. 빈 채팅창 대신 **과목·학년·언어·성취기준·시간을 고르는 양식**이 나와서, 프롬프트를 잘 몰라도 구성 요소가 빠지지 않는다. 결과는 워드·Forms로 저장하고 Teams 학급에 공유한다([Microsoft 지원](https://support.microsoft.com/en-US/education/teach-in-the-microsoft-365-copilot-app)).
-
-| 메뉴 | 무엇을 만드나 | 결과 형태 |
-| --- | --- | --- |
-| 수업 계획(Lesson Plan) | 차시 수업 계획. 35개국 교육과정 기준 중 선택 또는 내 자료 첨부 | 워드 문서 |
-| 단원 계획(Unit Plans) | 여러 차시를 묶은 단원 흐름(2026년 10월 말 전체 제공 목표, 연수 전 메뉴 확인) | 워드 문서 |
-| 루브릭 | 평가 기준·수준별 서술(워드 문서로 저장) | 표 |
-| 퀴즈 | 내 자료 기반 문항 | Microsoft Forms 퀴즈(바로 배포) |
-| 학습 활동 | 플래시카드(힌트 포함). 빈칸 채우기 등은 순차 추가 | 학생용 활동 링크 |
-| 콘텐츠 수정(Modify Content) | 기준 정렬 / 지시문 차별화 / 읽기 수준 조절 / 실생활 예시 추가 | 수정된 텍스트·문서 |
-
-**실제 예시 1 — 수업 계획 만들기**
-
-1. Teach → 수업 계획 선택.
-2. 입력: 과목 ‘통합과학’, 학년 ‘고등학교 1학년’, 언어 ‘한국어’, 시간 ‘50분’, 내용 “기후변화와 에너지 전환, 모둠 토의 중심”.
-3. 성취기준: 목록에 한국 교육과정이 없으면 **성취기준 문장을 직접 붙여 넣거나 문서를 첨부**한다.
-4. 결과: 학습 목표 → 도입 → 전개(활동) → 정리 → 평가 구성의 초안. 워드로 저장.
-5. 이어서 ‘이 수업으로 퀴즈 만들기’ → Forms 퀴즈 5문항 → Teams 과제로 배포.
-
-**실제 예시 2 — 읽기 수준 조절 (전후 비교, 연수용 예시로 직접 작성)**
-
-| 원문 | 기초 학력용 (핵심 용어 유지: 온실가스, 탄소중립) |
-| --- | --- |
-| 화석연료 연소 과정에서 배출되는 온실가스가 대기 중 누적됨에 따라 지표의 복사 평형이 교란되었으며, 이에 대응하기 위한 탄소중립 전략이 요구된다. | 석탄·석유를 태우면 **온실가스**가 나온다. 온실가스가 공기에 쌓이면 지구가 더워진다. 그래서 내보내는 양과 줄이는 양을 같게 만드는 **탄소중립**이 필요하다. |
-
-사용법: Teach → 콘텐츠 수정 → 텍스트 붙여넣기(또는 워드·PDF 업로드) → ‘읽기 수준 수정’ → 학년·수준 선택 → **핵심 용어** 칸에 ‘온실가스, 탄소중립’을 넣어 쉬운 말로 바뀌지 않게 한다.
-
-**나머지 수정 기능 활용 예**
-
-- 지시문 차별화: “보고서를 작성하시오” → 단계별 체크리스트 버전(도움이 필요한 학생용)과 심화 과제 버전을 동시에.
-- 실생활 예시 추가: ‘열의 전도’ 설명에 “뜨거운 국에 넣은 쇠숬가락이 뜨거워진다” 같은 예를 개수 지정해 추가.
-- 기준 정렬: 기존 활동지를 올리고 어느 성취기준에 해당하는지 표시·보강.
-
-한계: Teach 화면은 100개 이상 언어로 표시되지만, 한국 교육과정 기준 목록 제공 여부와 한국어 결과 품질은 연수 전 직접 확인해야 한다. 결과물은 초안이므로 사실·성취기준 일치를 교사가 검토한다.
-
-### ③ Copilot Notebooks — 내 자료로만 답하는 지식방
+### ② Copilot Notebooks — 내 자료로만 답하는 지식방
 
 자료(참고 항목)를 모아 두면 Copilot이 **그 자료를 근거로** 답하는 작업 공간이다. Google NotebookLM과 비슷한 개념이며, Copilot 앱의 앱 목록(와플 메뉴)에 있다. 교육용 A1·A3·A5 사용자는 추가 비용 없이 개요 페이지, 마인드맵, 학습 가이드를 쓴다(학생은 13세 이상) ([Microsoft 지원](https://support.microsoft.com/en-US/education/copilot/copilot-notebook-study-guide)).
 
@@ -589,7 +551,7 @@ Copilot 앱 안의 교사 전용 화면이다. 빈 채팅창 대신 **과목·�
 
 **수업 운영 팁**: 교사가 단원 자료를 넣은 노트북을 만들어 학급과 공유해도, 플래시카드·퀴즈는 학생이 각자 생성해야 한다. 모둠별로 서로의 플래시카드로 문제를 내는 활동으로 연결하면 좋다.
 
-### ④ Learning Zone — 학생이 눌러 보며 배우는 인터랙티브 레슨
+### ③ Learning Zone — 학생이 눌러 보며 배우는 인터랙티브 레슨
 
 설명을 입력하면 **내용 슬라이드와 연습 문제가 섞인 레슨**을 만들고, 학생에게 내준 뒤 누가 어디서 막혔는지 리포트로 본다. Windows 앱이며 교육용 A1·A3·A5에 포함된다([Microsoft 지원](https://support.microsoft.com/en-us/education/getting-started-with-microsoft-learning-zone), [learningzone.microsoft.com](https://learningzone.microsoft.com/)).
 
@@ -619,17 +581,17 @@ Copilot 앱 안의 교사 전용 화면이다. 빈 채팅창 대신 **과목·�
 
 1. PENZ에 교육디지털원패스로 로그인한 뒤 Microsoft 365를 연다. 또는 m365.cloud.microsoft(Microsoft 365 Copilot 앱)에 **PENZ 계정**으로 로그인한다. 개인 Microsoft 계정이 아니다.
 2. Copilot 화면에 방패(데이터 보호) 표시가 있는지 확인한다. 있으면 입력 내용이 학습에 쓰이지 않는 학교 계정 상태다.
-3. 교사는 앱 왼쪽에서 Teach, 학생은 Notebooks·에이전트를 찾는다(메뉴 이름·위치는 업데이트로 바뀔 수 있음).
+3. 앱 왼쪽 메뉴에서 Notebooks·학습(Study and Learn 에이전트)을 찾는다(메뉴 이름·위치는 업데이트로 바뀔 수 있음). 2026-11-26 확인: 교육청(PENZ) 교사 계정에는 교사 전용 Teach 메뉴가 없어 이 강의안에서는 다루지 않는다.
 4. 내 라이선스 확인: myaccount.microsoft.com → 구독. “Microsoft 365 Copilot”이 보이면 워드·엑셀·파워포인트 안 Copilot까지, A1·A3 등만 보이면 Copilot Chat까지다.
 
 **교사 활용 — 바로 해 볼 4가지**
 
 | 하고 싶은 일 | 도구 | 이렇게 요청 |
 | --- | --- | --- |
-| 단원 수업 계획 | Teach → 수업 계획 / 단원 계획 | “고1 통합과학 기후변화 단원 4차시, 활동 중심, 성취기준 포함” |
-| 자료 수준 맞추기 | Teach → 콘텐츠 수정 | 읽기 자료를 올리고 “기초 학력 학생용으로 쉽게, 어휘 풀이 포함” |
-| 형성평가·루브릭 | Teach → 퀴즈 / 루브릭 | “문항 5개, 오답 해설 포함” → Forms·Teams 과제로 연결 |
+| 공문 요약 | Copilot Chat | PDF 공문을 올리고 “담임이 할 일·기한만 표로” |
+| 수업 삽화 | Copilot Chat | “열대우림 단면도를 교과서 삽화 느낌으로, 글자 없이” |
 | 단원 자료 지식방 | Copilot Notebooks | 교육과정·교재·워크시트를 모아 “이 자료 안에서만 답해” |
+| 개념이 막힐 때 | 학습(Study and Learn 에이전트) | 답 대신 힌트·질문으로 이해 |
 
 **학생 활용 — 수업 안에서**
 
@@ -644,22 +606,22 @@ Copilot 앱 안의 교사 전용 화면이다. 빈 채팅창 대신 **과목·�
 
 |  | Microsoft Copilot(에듀) | ChatGPT |
 | --- | --- | --- |
-| 비용 | PENZ 계정으로 무료(Chat·Teach·Notebooks) | 무료 + 유료 기능(Work·Sites·스킬) |
+| 비용 | PENZ 계정으로 무료(Chat·Notebooks) | 무료 + 유료 기능(Work·Sites·스킬) |
 | 학생 사용 | 학교가 관리하는 계정, 관리자 통제 | PENZ로도 제공됨 — 플랜·학생 허용 범위는 확인 필요 |
-| 강점 | Teams·OneNote·Forms·과제와 연결, 교사 전용 Teach | 에이전트(Work), 웹앱(Sites), 스킬·플러그인 생태계 |
+| 강점 | Teams·OneNote·Forms·과제와 연결 | 에이전트(Work), 웹앱(Sites), 스킬·플러그인 생태계 |
 | 추천 용도 | **학생 수업**, 수업 준비 | **교사 업무 자동화**, 도구 만들기 |
 
 **관리자(학교·교육청 정보 담당)에게 미리 확인**
 
 - [ ] PENZ Microsoft 365 라이선스가 A1·A3·A5 중 무엇이고, 유료 Microsoft 365 Copilot이 포함되는지(교사·학생 각각)
 - [ ] 학생 계정 연령대 설정과 Copilot Chat 활성화 여부(고등학생은 13세 이상 기준)
-- [ ] Notebooks·Study and Learn 에이전트·Teach 허용 여부
+- [ ] Notebooks·Study and Learn 에이전트 허용 여부
 - [ ] 연수 전 테스트용 학생 PENZ 계정 1개로 실제 접속 확인
 - [ ] 문의처: 부산교육청 교육연구정보원(PENZ 담당)
 
-**연수 운영 팁(부록 20분 버전)**: Teach로 같은 단원 퀴즈를 만들어 3교시 ChatGPT 결과와 비교(10분) → 학생 계정으로 Notebooks 학습 가이드 시연(10분).
+**연수 운영 팁(부록 20분 버전)**: Copilot Chat으로 같은 단원 퀴즈 문항을 만들어 3교시 ChatGPT 결과와 비교(10분) → 학생 계정으로 Notebooks 학습 가이드 시연(10분).
 
-참고: Teach의 한국어 지원 범위, 기능 이름·메뉴 위치는 국가·업데이트에 따라 다를 수 있다. 연수 전 실제 화면으로 확인한다. **2026-11-26 확인: 교육청(PENZ) 교사 계정의 Copilot 화면에는 Teach 메뉴가 없고 ‘학습’ 메뉴만 있었다. 연수 때 Teach 시연이 가능한지 먼저 확인한다.**
+참고: 기능 이름·메뉴 위치는 국가·업데이트·계정에 따라 다를 수 있다. 연수 전 실제 화면으로 확인한다. 교사 전용 Teach는 2026-11-26 교육청(PENZ) 교사 계정에서 보이지 않아 뺐다(계정·라이선스에 따라 보일 수도 있음).
 
 출처: [Microsoft — Copilot in education](https://www.microsoft.com/en-gb/education/products/copilot-in-education) · [Copilot Chat for Students 13+](https://techcommunity.microsoft.com/blog/educationblog/microsoft-365-copilot-chat-for-students-13/4440370) · [Copilot Notebooks·Study guide](https://techcommunity.microsoft.com/blog/educationblog/copilot-notebooks-and-study-guide-now-available-to-copilot-chat-users/4527320) · [What's New in Microsoft EDU — 2026년 10월](https://techcommunity.microsoft.com/blog/educationblog/whats-new-in-microsoft-edu-%E2%80%93-october-2026/4516290) · [Microsoft AI in Education 발표(2026-06)](https://news.microsoft.com/2026/06/24/microsofts-new-ai-in-education-report-highlights-widespread-adoption-and-increasing-demand-for-support/)
 

@@ -70,8 +70,11 @@ mkdirSync("build/previews", { recursive: true });
 const browser = await launch();
 const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
 const only = process.argv[2] ? process.argv[2].split(",") : null;
+// slides removed from the site (no Teach menu on the PENZ teacher account) are not rendered; numbering stays that of the original deck
+const siteIds = new Set(JSON.parse(readFileSync("src/content/slides-data.json", "utf8")).order);
 for (const [i, id] of deck.order.entries()) {
   if (only && !only.includes(id)) continue;
+  if (!siteIds.has(id)) continue;
   await page.goto(`http://localhost:${port}/build/render.html?id=${id}`);
   await page.waitForFunction(() => window.__loaded);
   await page.evaluate(async () => { for (const w of [400, 700, 900]) await document.fonts.load(`${w} 40px "Noto Sans KR"`, "가A"); await document.fonts.ready; });

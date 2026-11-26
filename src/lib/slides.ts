@@ -1,4 +1,4 @@
-import data from "../../site-slides/slides-data.json";
+import data from "../content/slides-data.json";
 
 export const SLIDE_ORDER: string[] = data.order;
 export const SLIDE_TITLES: Record<string, string> = data.titles;

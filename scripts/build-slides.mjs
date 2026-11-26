@@ -15,6 +15,56 @@ mkdirSync(resolve(OUT, "fonts"), { recursive: true });
 let html = readFileSync("site-slides/slides.html", "utf8");
 const manifest = JSON.parse(readFileSync("assets/manifest.json", "utf8"));
 const byId = Object.fromEntries(manifest.assets.map((a) => [a.id, a]));
+
+// ---- Content edits (user decisions 2026-11-26) -------------------------------------------------------------
+// 1) The PENZ (교육청) teacher account has no Teach menu → Teach slides/rows are removed.
+// 2) Skill: explained as a concept only; the with/without-skill comparison picture (IMG-15b) is dropped.
+// site-slides/slides.html itself stays untouched; to restore anything, edit this block and rebuild.
+const REMOVE_SLIDES = ["cp-teach-menu", "cp-teach-lesson", "cp-teach-modify"];
+for (const id of REMOVE_SLIDES) {
+  const re = new RegExp(`<section id="${id}"[\\s\\S]*?</section>\\n?`);
+  if (!re.test(html)) throw new Error("slide not found: " + id);
+  html = html.replace(re, "");
+}
+const edit = (from, to) => { if (!html.includes(from)) throw new Error("slide text not found: " + from); html = html.replace(from, to); };
+edit('<tr><td><b>Teach</b></td><td>수업·단원 계획, 수준 조절, 퀴즈·루브릭</td><td>교사</td></tr>\n', "");
+edit("PENZ 계정으로 무료(Chat·Teach·Notebooks)", "PENZ 계정으로 무료(Chat·Notebooks)");
+edit("Teams·OneNote·Forms·과제 연결, 교사용 Teach", "Teams·OneNote·Forms·과제 연결");
+edit("부록 · ③ Copilot Notebooks", "부록 · ② Copilot Notebooks");
+edit("부록 · ④ Learning Zone", "부록 · ③ Learning Zone");
+edit("<li>Teach · Notebooks · Study and Learn 허용</li>", "<li>Notebooks · Study and Learn 허용</li>");
+edit("<li>10분: Teach로 같은 단원 퀴즈 → 3교시 ChatGPT 결과와 비교</li>", "<li>10분: Copilot Chat으로 같은 단원 퀴즈 문항 → 3교시 ChatGPT 결과와 비교</li>");
+{ // cp-teacher: the four "do tomorrow" items without Teach (wording from the lesson plan's Chat / Notebooks / 학생 활용 tables)
+  const m = html.match(/<div class="col">\n(<div class="mini"><div class="num">1<\/div><p><b>단원 계획[\s\S]*?)<\/div>\n<div class="ph" data-asset="IMG-19"/);
+  if (!m) throw new Error("cp-teacher list not found");
+  const minis = [
+    ["공문 요약", "PDF 공문 → “담임이 할 일·기한만 표로”"],
+    ["수업 삽화", "“열대우림 단면도를 교과서 삽화 느낌으로, 글자 없이”"],
+    ["Notebooks", "교육과정·교재를 모아 “이 자료 안에서만 답해”"],
+    ["학습 메뉴", "개념이 막힐 때 답 대신 힌트·질문으로 이해"],
+  ].map(([b, t], i) => `<div class="mini"><div class="num">${i + 1}</div><p><b>${b}</b> ${t}</p></div>`).join("\n");
+  html = html.replace(m[1], minis + "\n");
+  edit('title="Teach에서 수업 계획· 퀴즈 만드는 화면"', 'title="Copilot 학습 메뉴 화면"');
+  edit("<p>[IMG-19]<br>Teach에서 수업 계획·<br>퀴즈 만드는 화면</p>", "<p>[IMG-19]<br>Copilot 학습 메뉴 화면</p>");
+}
+html = html.replace(/<div class="ph" data-asset="IMG-15b"[^>]*><p>[\s\S]*?<\/p><\/div>\n?/, ""); // skill comparison picture dropped
+
+// filtered slide data: used by the viewer's inline DATA, the site (src/lib/slides.ts, /trainer) and the tests
+const raw = JSON.parse(readFileSync("site-slides/slides-data.json", "utf8"));
+const gone = new Set(REMOVE_SLIDES);
+const keep = (o) => Object.fromEntries(Object.entries(o).filter(([k]) => !gone.has(k)));
+const data = { ...raw, order: raw.order.filter((id) => !gone.has(id)), titles: keep(raw.titles), notes: keep(raw.notes), practice: keep(raw.practice), timers: keep(raw.timers) };
+for (const sec of data.sections) if (gone.has(sec.start)) throw new Error("removed slide is a section start: " + sec.start);
+mkdirSync("src/content", { recursive: true });
+writeFileSync("src/content/slides-data.json", JSON.stringify(data, null, 1) + "\n");
+{
+  const re = /const DATA = (\{.*\});\n/;
+  const m = html.match(re);
+  if (!m) throw new Error("viewer DATA not found");
+  const viewer = JSON.parse(m[1]);
+  const v = { ...viewer, order: data.order, titles: data.titles, notes: data.notes, practice: data.practice, timers: data.timers };
+  html = html.replace(re, () => `const DATA = ${JSON.stringify(v)};\n`);
+}
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 const precache = new Set(["/slides/", "/slides/fonts.css"]);
 let replaced = 0, kept = 0;

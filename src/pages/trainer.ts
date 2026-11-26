@@ -1,5 +1,5 @@
 import { h, pageTitle } from "../lib/ui.ts";
-import data from "../../site-slides/slides-data.json";
+import data from "../content/slides-data.json";
 import "./trainer.css";
 
 const KEY = "trainer-checklist";
@@ -35,7 +35,7 @@ const CHECKS: { group: string; items: string[] }[] = [
   { group: "PENZ 관리자(학교·교육청 정보 담당)에게 미리 확인", items: [
     "PENZ Microsoft 365 라이선스가 A1·A3·A5 중 무엇이고, 유료 Microsoft 365 Copilot이 포함되는지(교사·학생 각각)",
     "학생 계정 연령대 설정과 Copilot Chat 활성화 여부(고등학생은 13세 이상 기준)",
-    "Notebooks·Study and Learn 에이전트·Teach 허용 여부",
+    "Notebooks·Study and Learn 에이전트 허용 여부",
     "연수 전 테스트용 학생 PENZ 계정 1개로 실제 접속 확인",
     "문의처: 부산교육청 교육연구정보원(PENZ 담당)",
   ] },
