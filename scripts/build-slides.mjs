@@ -95,7 +95,8 @@ const keep = (o) => Object.fromEntries(Object.entries(o).filter(([k]) => !gone.h
 // trainer notes: fill empty ones from scripts/trainer-notes.json (existing notes are kept); demo slide gets a fallback line
 const extraNotes = JSON.parse(readFileSync("scripts/trainer-notes.json", "utf8"));
 const notes = keep(raw.notes);
-for (const [id, t] of Object.entries(extraNotes)) { if (!raw.order.includes(id) && !INSERT.some((x) => x.id === id)) throw new Error("unknown slide in trainer-notes: " + id); if (!gone.has(id) && !notes[id]) notes[id] = t; }
+for (const [k, t] of Object.entries(extraNotes)) { if (!k.startsWith("+")) continue; const id = k.slice(1); if (!raw.order.includes(id)) throw new Error("unknown slide in trainer-notes: " + id); if (!gone.has(id)) notes[id] = ((notes[id] || "") + " " + t).trim(); } // "+id" appends to an existing note
+for (const [id, t] of Object.entries(extraNotes).filter(([k]) => !k.startsWith("+"))) { if (!raw.order.includes(id) && !INSERT.some((x) => x.id === id)) throw new Error("unknown slide in trainer-notes: " + id); if (!gone.has(id) && !notes[id]) notes[id] = t; }
 notes["demo3"] = (notes["demo3"] || "") + " 시연이 안 되면(로그인·인터넷): 슬라이드의 캡처 화면과 /prompts 카드로 말로 시연하고 넘어간다.";
 // 2교시 짝짓기: 강의안(25분)에 맞춰 타이머 25분 (user decision 2026-11-26: 시간은 넉넉하게)
 const timers = { ...keep(raw.timers), match: 25 };

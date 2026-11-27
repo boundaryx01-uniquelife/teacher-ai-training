@@ -27,7 +27,10 @@ writeFileSync(resolve(OUT, "skill-template.zip"), zipSync({
 
 // public fictional samples (English names)
 const samples = { "01_공문_가상.pdf": "sample-official-letter.pdf", "02_평가계획서_가상.docx": "sample-assessment-plan.docx", "03_가정통신문_예시1.docx": "sample-newsletter-1.docx", "03_가정통신문_예시2.docx": "sample-newsletter-2.docx" };
+Object.assign(samples, { "04_현장체험계획서_가상.docx": "sample-field-trip-plan.docx", "05_통합사회2단원_수업슬라이드.pptx": "sample-social-studies-slides.pptx", "05_통합사회2단원_학습지.pdf": "sample-social-studies-worksheet.pdf", "06_교육과정편성표_가상.pdf": "sample-curriculum-table.pdf", "06_학업성적관리규정_가상.pdf": "sample-grading-rules.pdf", "07_과학의날_포스터문구.txt": "sample-science-day-poster-text.txt", "08_기후변화_읽기자료.docx": "sample-climate-reading.docx" });
 for (const [from, to] of Object.entries(samples)) copyFileSync(resolve("fixtures", from), resolve(OUT, to));
+// 구글 드라이브·패들렛에도 올릴 수 있는 꾸러미: 실습용 가상 자료 전부(영문 파일명)
+writeFileSync(resolve(OUT, "sample-materials.zip"), zipSync(Object.fromEntries(Object.values(samples).map((n) => ["sample-materials/" + n, new Uint8Array(readFileSync(resolve(OUT, n)))]))));
 
 // static server: dist/ with SPA fallback; /slides served from public/slides (same as deploy)
 const types = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".svg": "image/svg+xml", ".mp4": "video/mp4", ".woff2": "font/woff2", ".json": "application/json" };
