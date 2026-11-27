@@ -51,6 +51,18 @@ export const REPLACE = {
 };
 
 export const INSERT = [
+  { after: "vibe-what", id: "ref-what", title: "레퍼런스로 만들기: 참고 화면을 주고 부탁한다", html: `<section id="ref-what">
+<p class="eyebrow">3교시 · 레퍼런스로 만들기</p>
+<h2>설명이 어려우면 <span class="hlt">참고 화면</span>을 준다</h2>
+<p class="sub" style="margin-top:-24px">레퍼런스 = 참고 자료. “이런 느낌으로 우리 반용으로 만들어 줘”</p>
+<div class="cards" style="margin-top:20px">
+<div class="card"><p class="tag">1단계 · 가장 쉬움</p><h3>스크린샷</h3><p>마음에 드는 화면을 캡처해서 올린다</p></div>
+<div class="card d2"><p class="tag">2단계</p><h3>웹 주소</h3><p>참고할 화면의 주소를 알려 준다</p></div>
+<div class="card d3"><p class="tag">3단계</p><h3>공개 GitHub</h3><p>공개된 저장소를 설명시키고 우리 반용으로 바꾼다</p></div>
+</div>
+<div class="card hl" style="margin-top:28px"><p class="tag">꼭 지킬 것</p><h3>① 구조와 느낌만 참고 — 남의 글·그림·로고를 그대로 쓰지 않는다</h3><h3>② 공개 저장소는 라이선스와 출처를 확인한다</h3><h3>③ 개인정보·비밀번호는 넣지 않는다</h3></div>
+</section>` },
+
   { after: "cp-admin", id: "gemini-map", title: "Gemini로도 같은 실습을 할 수 있다", html: `<section id="gemini-map">
 <p class="eyebrow">부록 · ChatGPT 계정이 없다면</p>
 <h2>Gemini로도 같은 실습을 할 수 있다</h2>

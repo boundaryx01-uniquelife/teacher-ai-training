@@ -11,6 +11,7 @@ const MODULES = [
   { route: "/m6", icon: "🧰", title: "스킬 파일 만들기", desc: "양식을 채우면 스킬 파일과 폴더가 만들어지고 zip으로 받아요.", min: 10 },
   { route: "/m7", icon: "🧩", title: "업무 ↔ AI 짝짓기", desc: "학교 업무 11개를 Chat·Work·Code로 나누고 채점해요.", min: 15 },
   { route: "/vibe", icon: "🎧", title: "바이브 코딩 체험", desc: "코드 없이 말로 부탁하고, 결과를 눌러 보며 한 가지씩 고쳐요. 진짜 ChatGPT 실습 문장도 있어요.", min: 15 },
+  { route: "/ref", icon: "🧭", title: "레퍼런스로 만들기", desc: "스크린샷·웹 주소·공개 GitHub를 참고 자료로 주고 우리 반 알림장을 만들어 봐요.", min: 15 },
 ];
 
 export function mount(el: HTMLElement) {

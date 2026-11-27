@@ -7,6 +7,7 @@ const DOWNLOADS: { href: string; label: string; desc: string; fake?: boolean }[]
   { href: "/downloads/ai-training-slides.pdf", label: "슬라이드 PDF", desc: "연수 슬라이드 전체" },
   { href: "/downloads/ai-training-a4-summary.pdf", label: "A4 한 장 요약", desc: "판단 흐름·프롬프트 5요소·연수 약속 (인쇄용)" },
   { href: "/downloads/ai-training-prompt-cards.pdf", label: "프롬프트 카드 모음 PDF", desc: "복사해 쓰는 프롬프트 카드" },
+  { href: "/downloads/sample-reference-notice-app.png", label: "레퍼런스 예시 화면(가상 앱)", desc: "레퍼런스로 만들기 실습용 예시 이미지", fake: true },
   { href: "/downloads/skill-template.zip", label: "SKILL.md 템플릿", desc: "스킬 만들기 실습용 zip" },
   { href: "/downloads/ai-training-intro.mp4", label: "인트로 영상(14초, mp4)", desc: "연수 시작 화면 영상 · 수업·안내에 그대로 쓰기" },
   { href: "/downloads/sample-official-letter.pdf", label: "가상 공문", desc: "실습용 예시 공문", fake: true },

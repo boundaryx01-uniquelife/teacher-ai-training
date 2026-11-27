@@ -4,6 +4,14 @@
 
 export interface ExtraItem { label: string; text: string; kind?: "prompt" | "note" }
 export const EXTRA: Record<string, { summary: string; items: ExtraItem[] }> = {
+  "/ref": {
+    summary: "다른 레퍼런스로 한 번 더, 또는 PWA까지 해 보세요.",
+    items: [
+      { label: "내 교과 활동 페이지로", kind: "prompt", text: "첨부한 화면을 레퍼런스로 삼아, 내 교과의 수업 안내 페이지를 만들어 줘. 오늘의 학습 목표, 준비물, 과제 마감일 세 칸이 있게 해 줘. 원본의 글과 그림은 쓰지 마." },
+      { label: "PWA로 키우기", kind: "prompt", text: "이 웹페이지를 PWA로 만들어 줘. 폰 홈 화면에 추가할 수 있게 이름과 아이콘을 넣고, 인터넷이 없어도 열리게 해 줘." },
+      { label: "공개 저장소를 쓸 때", kind: "note", text: "라이선스를 확인하고 출처를 적어 두세요. 비밀번호·키가 든 파일은 쓰거나 올리지 마세요." },
+    ],
+  },
   "/gemini": {
     summary: "Gemini와 ChatGPT(또는 Copilot) 결과를 비교해 보세요.",
     items: [

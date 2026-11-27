@@ -103,7 +103,7 @@ const order = raw.order.filter((id) => !gone.has(id));
 for (let pending = [...INSERT]; pending.length; ) { const next = []; for (const x of pending) { const k = order.indexOf(x.after ?? x.before); if (k < 0) next.push(x); else order.splice(x.after ? k + 1 : k, 0, x.id); } if (next.length === pending.length) throw new Error("order anchor missing"); pending = next; }
 const titles = { ...keep(raw.titles), ...Object.fromEntries(INSERT.map((x) => [x.id, x.title])) };
 titles["neis-api"] = "부경고 급식을 API로 받아 보자"; titles["build-choice"] = "만들고 싶은 것에 따라 필요한 부분이 다르다"; titles["terms1"] = "웹서비스는 네 부분으로 나뉜다";
-const data = { ...raw, order, titles, notes, practice: { ...keep(raw.practice), match2: raw.practice.match, "vibe-what": { module: "VIBE", label: "바이브 코딩 체험" }, "gemini-map": { module: "GEMINI", label: "Gemini 가이드" }, "gemini-steps": { module: "GEMINI", label: "Gemini 가이드" } }, timers: { ...timers, "vibe-what": 12 } };
+const data = { ...raw, order, titles, notes, practice: { ...keep(raw.practice), match2: raw.practice.match, "vibe-what": { module: "VIBE", label: "바이브 코딩 체험" }, "ref-what": { module: "REF", label: "레퍼런스로 만들기" }, "gemini-map": { module: "GEMINI", label: "Gemini 가이드" }, "gemini-steps": { module: "GEMINI", label: "Gemini 가이드" } }, timers: { ...timers, "vibe-what": 12, "ref-what": 15 } };
 for (const sec of data.sections) if (gone.has(sec.start)) throw new Error("removed slide is a section start: " + sec.start);
 mkdirSync("src/content", { recursive: true });
 writeFileSync("src/content/slides-data.json", JSON.stringify(data, null, 1) + "\n");
@@ -144,7 +144,7 @@ const FIXES = [
   ["<p><b>승인</b> “드라이브에 저장할까요?”</p>", "<p><b>저장 전 확인</b> 설정에 따라 묻거나 바로 저장</p>"],
   ["“결업식 통신문 써 줘”", "“종업식 통신문 써 줘”"],
   ["description: ○○고 가정통신문을", "description: 한빛고 가정통신문을"],
-  ["FINAL:'/final'}", "FINAL:'/final',VIBE:'/vibe',GEMINI:'/gemini'}"],
+  ["FINAL:'/final'}", "FINAL:'/final',VIBE:'/vibe',GEMINI:'/gemini',REF:'/ref'}"],
   ["[연수 일자] · [강사명] · [학교·기관명]", "2026. 11. 27. · 동래발명교육센터 박재현 · 부경고등학교 교사 대상 연수"],
   // trainer review: after picking a 교시 the select kept focus, so → jumped a whole 교시
   ["sel.onchange=()=>show(+sel.value);", "sel.onchange=()=>{show(+sel.value);sel.blur()};"],

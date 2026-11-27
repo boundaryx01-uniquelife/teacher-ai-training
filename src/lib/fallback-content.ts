@@ -69,6 +69,13 @@ const M7_TABLE = [
 ].join("\n");
 
 export const FALLBACK: Record<string, Fallback> = {
+  "/ref": {
+    summary: "레퍼런스(참고 화면)를 주고 ‘우리 반 알림장’ 웹페이지를 만드는 완성 문장이에요. 스크린샷을 올린 뒤 붙여 넣으세요.",
+    items: [
+      { label: "스크린샷 레퍼런스 완성 문장", kind: "prompt", text: "첨부한 화면 이미지를 레퍼런스로 삼아, 학급 알림장 웹페이지를 HTML 파일 하나로 만들어 줘.\n가져올 것: 화면 배치, 색과 분위기.\n바꿀 것: 문구·이름·로고·이미지는 모두 우리 반에 맞게 새로 만들고, 원본의 글과 그림은 그대로 쓰지 마.\n학생 이름·성적 같은 개인정보는 받지 않게 해 줘." },
+      { label: "AI가 주소·저장소를 못 열 때", kind: "note", text: "화면을 캡처해 올리거나, GitHub의 Code → Download ZIP으로 받은 파일을 올리세요. 그래도 안 되면 위 완성 문장으로 스크린샷 방식만 해도 충분해요." },
+    ],
+  },
   "/gemini": {
     summary: "ChatGPT 계정이 없을 때 Gemini로 같은 실습을 하는 순서예요. 문장을 복사해 Gemini에 붙여 넣으세요.",
     items: [
