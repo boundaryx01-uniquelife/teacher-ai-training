@@ -1,6 +1,6 @@
 import { TROUBLE } from "../content/trouble.ts";
 import "./guide.css";
-import { h } from "../lib/ui.ts";
+import { h, DRIVE_URL } from "../lib/ui.ts";
 import { GUIDE_HTML, GUIDE_TOC, GUIDE_ALIASES } from "../content/guide-content.ts";
 
 const DOWNLOADS: { href: string; label: string; desc: string; fake?: boolean }[] = [
@@ -49,6 +49,7 @@ export function mount(el: HTMLElement) {
       h("li", {}, "위 ‘실습 자료 꾸러미’ 또는 필요한 파일을 내려받아요."),
       h("li", {}, "ChatGPT·Gemini 입력창의 클립(＋) 아이콘으로 파일을 직접 올려요(드래그해도 돼요)."),
       h("li", {}, "문장에서 ‘@Google Drive의’ 부분만 빼고 같은 요청을 해요. 예: “올린 ‘현장체험 계획서’를 읽고, 가정통신문·체크리스트·시간표를 만들어 줘. 발송은 하지 말고 초안만.”"))),
+      h("li", {}, "이 사이트가 안 열리면 같은 자료가 있는 ", h("a", { href: DRIVE_URL, target: "_blank", rel: "noopener noreferrer" }, "구글 드라이브 폴더 ↗"), "에서 받아요(구글 로그인이 필요할 수 있어요)."),
     h("ul", { class: "guide-dl" }, DOWNLOADS.map((d) =>
       h("li", {},
         h("a", { class: "btn secondary", href: d.href, download: "" }, d.label),
