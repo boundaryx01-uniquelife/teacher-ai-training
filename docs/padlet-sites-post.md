@@ -12,6 +12,7 @@
 • 교육자료 허브 https://penedu.web.app/
 • 과학 도구상자 https://biscuitbox.github.io/science-toolbox/
 • SVG Forge(이미지→SVG·DXF·STL) https://svg-forge-01.netlify.app/
+• 바이브코딩으로 만드는 교탁 도우미 https://biscuitbox.github.io/classhelper-board/
 • 피지컬 AI 교실(마이크로비트) https://microbit-bridge.netlify.app/
 • 클릭온 AI 챌린지(초등학교 사례, 학생 기록은 우리 연수 규칙과 달라요) https://clickon2.netlify.app/
 • ATELIER(사진으로 영상 만들기, 학생 얼굴 사진은 넣지 않아요) https://video-creatable.netlify.app/
