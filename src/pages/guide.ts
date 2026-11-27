@@ -72,6 +72,8 @@ export function mount(el: HTMLElement) {
     h("nav", { class: "guide-sub", "aria-label": "가이드북 하위 메뉴" },
       h("a", { class: "btn secondary", href: "/prompts", "data-link": "" }, "프롬프트 카드 모음"),
       h("a", { class: "btn secondary", href: "/copilot", "data-link": "" }, "Copilot 가이드"),
+      h("a", { class: "btn secondary", href: "/gemini", "data-link": "" }, "Gemini 가이드"),
+      h("a", { class: "btn secondary", href: "/sites", "data-link": "" }, "추천 참고 사이트"),
       h("a", { class: "btn secondary", href: "/final", "data-link": "" }, "최종 과제"),
       h("a", { class: "btn secondary", href: "#trouble" }, "안 될 때"),
       h("a", { class: "btn secondary", href: "#downloads" }, "자료실")),

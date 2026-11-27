@@ -1,0 +1,9 @@
+.st-group { margin-top: 22px; }
+.st-group h2 { margin-bottom: .2em; }
+.st-list { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 12px; }
+@media (min-width: 900px) { .st-list { grid-template-columns: 1fr 1fr; } }
+.st-list li { max-width: none; }
+.st-card h3 { margin: 0 0 .3em; font-size: 1.15rem; }
+.st-card p { margin: .3em 0; }
+.st-learn strong { color: #086661; }
+.st-note { background: #fff6e6; border-left: 5px solid var(--orange); padding: 6px 10px; border-radius: 6px; font-size: .95rem; }
