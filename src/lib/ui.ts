@@ -49,4 +49,4 @@ export function pageTitle(title: string) { document.title = `${title} · 교사 
 export const PADLET_URL = "https://padlet.com/teacher00_12/padlet-s025tobmjy9nzt4weurr";
 
 /** 실습 자료 구글 드라이브 폴더(사이트 내려받기가 안 될 때의 대비, 외부 서비스) */
-export const DRIVE_URL = "https://drive.google.com/drive/folders/1ia6Ihh3XV42WxaCml9LSEfNobGPESa6I";
+export const DRIVE_URL = "https://drive.google.com/drive/folders/1efpX5zNJI9vgL4cH-QyUNxU1lnNvDPB0?usp=sharing";
